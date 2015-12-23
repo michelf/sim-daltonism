@@ -142,7 +142,7 @@
                                         <menuItem title="About Sim Daltonism" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="orderFrontStandardAboutPanel:" target="hnw-xV-0zn" id="RoW-im-wIa"/>
+                                                <action selector="orderFrontAboutBox:" target="hnw-xV-0zn" id="1MI-nV-1Nk"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>

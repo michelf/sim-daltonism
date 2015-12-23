@@ -76,6 +76,8 @@
 		1EF2538F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2537F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png */; };
 		1EF253901C2849B600DB3B18 /* VisionTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253801C2849B600DB3B18 /* VisionTemplate.png */; };
 		1EF253911C2849B600DB3B18 /* VisionTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253811C2849B600DB3B18 /* VisionTemplate@2x.png */; };
+		1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253A01C2AF1D600DB3B18 /* AboutBox.swift */; };
+		1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253A11C2AF1D600DB3B18 /* AboutBox.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +176,8 @@
 		1EF2537F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SlowFrameRateTemplate@2x.png"; sourceTree = "<group>"; };
 		1EF253801C2849B600DB3B18 /* VisionTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VisionTemplate.png; sourceTree = "<group>"; };
 		1EF253811C2849B600DB3B18 /* VisionTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisionTemplate@2x.png"; sourceTree = "<group>"; };
+		1EF253A01C2AF1D600DB3B18 /* AboutBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutBox.swift; sourceTree = "<group>"; };
+		1EF253A11C2AF1D600DB3B18 /* AboutBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutBox.xib; sourceTree = "<group>"; };
 		269351C0156CB42100512474 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6F096BF9157ED5110075E328 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6F90DDD91395CAAA00125BDA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -308,6 +312,7 @@
 				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
 				1EF253231C274A0200DB3B18 /* Resources */,
 				1EF253711C2849B600DB3B18 /* Control Icons */,
+				1EF2539F1C2AF1D600DB3B18 /* AboutBox */,
 				1EF253161C274A0200DB3B18 /* BridgingHeader.h */,
 				1EF2531F1C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.h */,
 				1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */,
@@ -358,6 +363,15 @@
 				1EF253811C2849B600DB3B18 /* VisionTemplate@2x.png */,
 			);
 			path = "Control Icons";
+			sourceTree = "<group>";
+		};
+		1EF2539F1C2AF1D600DB3B18 /* AboutBox */ = {
+			isa = PBXGroup;
+			children = (
+				1EF253A01C2AF1D600DB3B18 /* AboutBox.swift */,
+				1EF253A11C2AF1D600DB3B18 /* AboutBox.xib */,
+			);
+			path = AboutBox;
 			sourceTree = "<group>";
 		};
 		6F90DDCA1395CAAA00125BDA = {
@@ -533,6 +547,7 @@
 				1EF2533A1C274A0200DB3B18 /* Sim Daltonism.entitlements in Resources */,
 				1EF2538C1C2849B600DB3B18 /* NormalFrameRateTemplate.png in Resources */,
 				1EF2538D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png in Resources */,
+				1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */,
 				1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */,
 				1EF253361C274A0200DB3B18 /* Images.xcassets in Resources */,
 				1EF2538F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png in Resources */,
@@ -573,6 +588,7 @@
 				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
 				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
+				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				1EF2534C1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
