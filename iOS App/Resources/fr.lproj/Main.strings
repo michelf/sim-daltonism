@@ -1,0 +1,6 @@
+/* Class = "UILabel"; text = "Sim Daltonism does not have persmission to access the camera."; ObjectID = "Kt2-yZ-67p"; */
+"Kt2-yZ-67p.text" = "Sim Daltonism n’a pas la permission d’accéder à la caméra.";
+
+/* Class = "UIButton"; normalTitle = "Change Privacy Settings"; ObjectID = "TDW-fF-Jjq"; */
+"TDW-fF-Jjq.normalTitle" = "Changer les permissions";
+

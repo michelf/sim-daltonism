@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="CSc-Az-gaE">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="Emp-HX-PIF" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="pNg-ec-UhE">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="461" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+                    </window>
+                    <connections>
+                        <segue destination="ADh-KU-NxJ" kind="relationship" relationship="window.shadowedContentViewController" id="ZMX-TP-aFg"/>
+                    </connections>
+                </windowController>
+                <customObject id="Is7-bZ-lBI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="683" y="-171"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="82S-07-VZB">
+            <objects>
+                <viewController id="ADh-KU-NxJ" sceneMemberID="viewController">
+                    <view key="view" id="j5z-QC-w4J">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="200"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-0U-tb8">
+                                <rect key="frame" x="141" y="150" width="120" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="qR5-4P-934"/>
+                                </constraints>
+                                <popUpButtonCell key="cell" type="push" title="Normal" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2yn-G6-M6Q" id="Eev-ok-KE4">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="qM3-Uc-raZ">
+                                        <items>
+                                            <menuItem title="Slow" image="SlowFrameRateTemplate" tag="-1" id="0Ta-j5-x1B"/>
+                                            <menuItem title="Normal" state="on" image="NormalFrameRateTemplate" id="2yn-G6-M6Q"/>
+                                            <menuItem title="Fast" image="FastFrameRateTemplate" tag="1" id="WzI-VB-ssA"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.RefreshSpeed" id="yeF-Aq-d1A"/>
+                                </connections>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b25-fi-qFB">
+                                <rect key="frame" x="36" y="75" width="99" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="View Area:" id="BBH-Y8-kr1">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ojT-ce-bUD">
+                                <rect key="frame" x="36" y="156" width="99" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Refresh Speed:" id="xkd-TQ-kuW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
+                                <rect key="frame" x="144" y="107" width="298" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="QP5-2E-CYY"/>
+                                </constraints>
+                                <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="XYj-CE-0ar">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <string key="title">A faster refresh speed will reduce the lag, but the area to filter must not be too big. A slower refresh speed will reduce energy consumption.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-hr-bpk">
+                                <rect key="frame" x="144" y="26" width="300" height="42"/>
+                                <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="When the view area is the content under the window, clicking inside the filtered view will hit the content underneath." id="vIP-qu-9Lh">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JI5-2J-DnM">
+                                <rect key="frame" x="141" y="69" width="243" height="26"/>
+                                <popUpButtonCell key="cell" type="push" title="Content under the window" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="v8C-eT-i5k" id="I9X-XY-5dw">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="B2K-uM-XK8">
+                                        <items>
+                                            <menuItem title="Content under the window" state="on" image="FilteredTransparencyTemplate" id="v8C-eT-i5k"/>
+                                            <menuItem title="Centered on the mouse pointer" image="FilteredMouseAreaTemplate" tag="1" id="5ph-Lv-YmQ"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.ViewArea" id="AHa-Oi-bY5"/>
+                                </connections>
+                            </popUpButton>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="JI5-2J-DnM" firstAttribute="top" secondItem="ZW9-WF-xRP" secondAttribute="bottom" constant="14" id="0ND-sS-L9W"/>
+                            <constraint firstItem="9uw-0U-tb8" firstAttribute="top" secondItem="j5z-QC-w4J" secondAttribute="top" constant="26" id="5qg-Vm-DA1"/>
+                            <constraint firstItem="9uw-0U-tb8" firstAttribute="leading" secondItem="ZW9-WF-xRP" secondAttribute="leading" constant="-3" id="6FN-Q3-W9t"/>
+                            <constraint firstItem="ZW9-WF-xRP" firstAttribute="trailing" secondItem="xRr-hr-bpk" secondAttribute="trailing" id="71d-cf-Pgf"/>
+                            <constraint firstItem="JI5-2J-DnM" firstAttribute="baseline" secondItem="b25-fi-qFB" secondAttribute="baseline" id="BqS-Og-Q10"/>
+                            <constraint firstItem="9uw-0U-tb8" firstAttribute="leading" secondItem="ojT-ce-bUD" secondAttribute="trailing" constant="10" id="GIb-zQ-CJc"/>
+                            <constraint firstItem="xRr-hr-bpk" firstAttribute="leading" secondItem="ZW9-WF-xRP" secondAttribute="leading" id="HHl-EX-k7V"/>
+                            <constraint firstItem="ojT-ce-bUD" firstAttribute="leading" secondItem="j5z-QC-w4J" secondAttribute="leading" constant="38" id="K1C-9U-l0z"/>
+                            <constraint firstItem="ojT-ce-bUD" firstAttribute="baseline" secondItem="9uw-0U-tb8" secondAttribute="baseline" id="VoR-9E-Ygu"/>
+                            <constraint firstItem="ojT-ce-bUD" firstAttribute="width" secondItem="b25-fi-qFB" secondAttribute="width" id="ZuC-8R-7Ee"/>
+                            <constraint firstAttribute="trailing" secondItem="ZW9-WF-xRP" secondAttribute="trailing" constant="38" id="bn0-JG-w0r"/>
+                            <constraint firstItem="b25-fi-qFB" firstAttribute="trailing" secondItem="ojT-ce-bUD" secondAttribute="trailing" id="dHf-bO-dtG"/>
+                            <constraint firstAttribute="bottom" secondItem="xRr-hr-bpk" secondAttribute="bottom" constant="26" id="daF-Js-mSb"/>
+                            <constraint firstItem="9uw-0U-tb8" firstAttribute="leading" secondItem="JI5-2J-DnM" secondAttribute="leading" id="eHD-G8-IUn"/>
+                            <constraint firstItem="xRr-hr-bpk" firstAttribute="top" secondItem="JI5-2J-DnM" secondAttribute="bottom" constant="4" id="hBK-Ai-IL0"/>
+                            <constraint firstItem="ZW9-WF-xRP" firstAttribute="top" secondItem="9uw-0U-tb8" secondAttribute="bottom" constant="4" id="oyb-Kx-CYg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="xJz-Qx-abL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="3KQ-Qo-Tdg"/>
+            </objects>
+            <point key="canvasLocation" x="1390" y="-196"/>
+        </scene>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="Sim Daltonism" id="1Xt-HY-uBw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Sim Daltonism" systemMenu="apple" id="uQy-DD-JDr">
+                                    <items>
+                                        <menuItem title="About Sim Daltonism" id="5kV-Vb-QxS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="hnw-xV-0zn" id="RoW-im-wIa"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="a9w-kS-xMx">
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="hnw-xV-0zn" id="E8F-n3-yIA"/>
+                                                <segue destination="Emp-HX-PIF" kind="show" id="FRo-y8-7gP"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="hD7-xW-47M"/>
+                                        <menuItem title="Services" id="NMo-om-nkz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
+                                        <menuItem title="Hide Sim Daltonism" keyEquivalent="h" id="Olw-nP-bQN">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Kd2-mp-pUS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="Quit Sim Daltonism" keyEquivalent="q" id="4sb-4s-VLi">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Filter" id="899-rr-sCO">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Filter" id="8eI-EC-qzz">
+                                    <items>
+                                        <menuItem title="New" keyEquivalent="n" id="ZcQ-wi-cuP">
+                                            <connections>
+                                                <segue destination="B8D-0N-5wS" kind="show" id="CQS-3H-LU2"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Close" keyEquivalent="w" id="6cU-bP-M3U">
+                                            <connections>
+                                                <action selector="close:" target="Ady-hI-5gd" id="WQo-lK-E7F"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="h5H-Ve-nGd"/>
+                                        <menuItem title="Normal Vision" keyEquivalent="0" id="vdT-ac-lg7">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="p0b-I7-7nt"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="ope-UB-ZbB"/>
+                                        <menuItem title="Red-Green Confusion" enabled="NO" id="CSr-En-pWp">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Deuteranopy" tag="1" keyEquivalent="1" indentationLevel="1" id="mCv-p4-Fgj">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="H2h-lk-7au"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Deuteranomaly" tag="2" keyEquivalent="2" indentationLevel="1" id="v8X-0U-JSd">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="lde-5r-y9T"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Protanopy" tag="3" keyEquivalent="3" indentationLevel="1" id="bw7-fp-hDM">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="KQS-DB-ySO"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Protanomaly" tag="4" keyEquivalent="4" indentationLevel="1" id="SmN-WU-fNf">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="ETm-IZ-8z3"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wL6-HV-3cT"/>
+                                        <menuItem title="Yellow-Blue Confusion" enabled="NO" id="vvc-tI-K64">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Tritanopy" tag="5" keyEquivalent="5" indentationLevel="1" id="cbB-Ot-7fb">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="mKP-Cb-Ipi"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Tritanomaly" tag="6" keyEquivalent="6" indentationLevel="1" id="9Nn-6z-j2W">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Gqz-m3-IO9"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="qGa-Po-VIJ"/>
+                                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="szF-Cd-B1t">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="guc-mg-yql"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" id="pFL-0F-7Lj">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Bqg-sa-Fs8"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Edit" id="FuE-dz-Mjb">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="pZJ-au-Nbi">
+                                    <items>
+                                        <menuItem title="Undo" keyEquivalent="z" id="f4F-NG-duL">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="ZAQ-dE-dSK"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="qFI-zV-zCg">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="7ok-Ba-4aZ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="8Tf-ev-EI4"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="pMU-Xp-Wd7">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="P4W-hA-Ux9"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="guw-cd-bxe">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="0be-kX-RTi"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="l5f-hm-4EQ">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="EZa-3e-I17"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="dsM-E9-NHA">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="hz3-VC-sBN"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="POb-YH-aFu">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="Jsz-3G-AJc"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Window" id="aUF-d1-5bR">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
+                                    <items>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Zoom" id="R4o-n2-Eq4">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
+                                        <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="wpr-3q-Mcd">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
+                                    <items>
+                                        <menuItem title="Sim Daltonism Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                            <connections>
+                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Sim_Daltonism" customModuleProvider="target"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75.5" y="-178"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="R2V-B0-nI4">
+            <objects>
+                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Sim Daltonism" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="IQv-IB-iLA" customClass="Window" customModule="Sim_Daltonism" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="200" height="200"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="RNm-dF-Z6I"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                    </connections>
+                </windowController>
+                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hIz-AP-VOD">
+            <objects>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="267"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhN-ix-5O1" customClass="ColorView" customModule="Sim_Daltonism" customModuleProvider="target">
+                                <rect key="frame" x="3" y="0.0" width="474" height="234"/>
+                            </customView>
+                            <openGLView misplaced="YES" depthSize="32bit" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" wantsBestResolutionOpenGLSurface="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhm-1p-zVd" customClass="FilteredView" customModule="Sim_Daltonism" customModuleProvider="target">
+                                <rect key="frame" x="3" y="0.0" width="474" height="267"/>
+                            </openGLView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hhN-ix-5O1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="BYT-mK-BEw"/>
+                            <constraint firstAttribute="bottom" secondItem="xhm-1p-zVd" secondAttribute="bottom" constant="3" id="IAv-CE-8Ao"/>
+                            <constraint firstAttribute="trailing" secondItem="xhm-1p-zVd" secondAttribute="trailing" constant="3" id="JSc-hL-vj9"/>
+                            <constraint firstItem="xhm-1p-zVd" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Swy-yM-azr"/>
+                            <constraint firstItem="hhN-ix-5O1" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="jVw-11-FPL"/>
+                            <constraint firstItem="xhm-1p-zVd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="mar-0C-ceC"/>
+                            <constraint firstAttribute="bottom" secondItem="hhN-ix-5O1" secondAttribute="bottom" constant="3" id="qVp-mR-bmP"/>
+                            <constraint firstAttribute="trailing" secondItem="hhN-ix-5O1" secondAttribute="trailing" constant="3" id="shI-Ug-XcF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="656.5"/>
+        </scene>
+        <!--Filter Settings Controller-->
+        <scene sceneID="5PC-k1-vN1">
+            <objects>
+                <viewController identifier="WindowControls" storyboardIdentifier="WindowControls" id="sbo-Ke-Qrj" customClass="FilterSettingsController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="NIH-J2-AUg">
+                        <rect key="frame" x="0.0" y="0.0" width="77" height="20"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zww-Y2-pp3" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
+                                <rect key="frame" x="49" y="0.0" width="22" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="I06-P0-prg"/>
+                                </constraints>
+                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="FilteredTransparencyTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="fro-4D-xea">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="systemBold" size="12"/>
+                                </buttonCell>
+                                <accessibility description="View Area"/>
+                                <connections>
+                                    <outlet property="menu" destination="pqH-cF-rp6" id="sAc-jo-oIG"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9vI-EY-Qrh" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
+                                <rect key="frame" x="2" y="0.0" width="25" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="as8-pS-5eU"/>
+                                    <constraint firstAttribute="width" constant="25" id="gSO-jY-5Oq"/>
+                                </constraints>
+                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="VisionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="vVX-GJ-Az2">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="systemBold" size="12"/>
+                                </buttonCell>
+                                <accessibility description="Simulated Vision"/>
+                                <connections>
+                                    <outlet property="menu" destination="wYE-Gi-tJj" id="kRs-Bz-hdZ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OjX-GL-RFl" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
+                                <rect key="frame" x="27" y="0.0" width="22" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="UI9-tA-dwv"/>
+                                </constraints>
+                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NormalFrameRateTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="LtX-26-KwI">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="systemBold" size="12"/>
+                                </buttonCell>
+                                <accessibility description="Refresh Speed"/>
+                                <connections>
+                                    <outlet property="menu" destination="D7c-iD-Fng" id="wVD-Wf-Pty"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="OjX-GL-RFl" firstAttribute="leading" secondItem="9vI-EY-Qrh" secondAttribute="trailing" id="6Gb-7a-Ink"/>
+                            <constraint firstItem="9vI-EY-Qrh" firstAttribute="leading" secondItem="NIH-J2-AUg" secondAttribute="leading" constant="2" id="7O2-Y5-JPV"/>
+                            <constraint firstItem="zww-Y2-pp3" firstAttribute="leading" secondItem="OjX-GL-RFl" secondAttribute="trailing" id="9dm-Gn-MQ5"/>
+                            <constraint firstAttribute="trailing" secondItem="zww-Y2-pp3" secondAttribute="trailing" constant="6" id="J5c-k6-fLb"/>
+                            <constraint firstItem="9vI-EY-Qrh" firstAttribute="top" secondItem="NIH-J2-AUg" secondAttribute="top" id="TSj-eG-SRP"/>
+                            <constraint firstItem="zww-Y2-pp3" firstAttribute="top" secondItem="9vI-EY-Qrh" secondAttribute="top" id="Znh-jF-puK"/>
+                            <constraint firstItem="9vI-EY-Qrh" firstAttribute="bottom" secondItem="zww-Y2-pp3" secondAttribute="bottom" id="gq7-9Q-80A"/>
+                            <constraint firstItem="OjX-GL-RFl" firstAttribute="height" secondItem="zww-Y2-pp3" secondAttribute="height" id="hr6-dD-sTH"/>
+                            <constraint firstItem="OjX-GL-RFl" firstAttribute="baseline" secondItem="zww-Y2-pp3" secondAttribute="baseline" id="mGy-m9-NQE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="refreshSpeedButton" destination="OjX-GL-RFl" id="y9a-m7-Den"/>
+                        <outlet property="viewAreaButton" destination="zww-Y2-pp3" id="Zym-DS-OZO"/>
+                        <outlet property="visionButton" destination="9vI-EY-Qrh" id="6zc-xf-EHq"/>
+                    </connections>
+                </viewController>
+                <menu title="Filter" id="wYE-Gi-tJj">
+                    <items>
+                        <menuItem title="Normal Vision" keyEquivalent="0" id="wh1-bY-2Li">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="G60-EO-Eeu"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="ttK-5i-Mqq"/>
+                        <menuItem title="Red-Green Confusion" enabled="NO" id="Azx-S0-TJc">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Deuteranopy" tag="1" keyEquivalent="1" indentationLevel="1" id="a63-Dq-ZWl">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="89M-tX-QdT"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Deuteranomaly" tag="2" keyEquivalent="2" indentationLevel="1" id="lUu-DQ-TMb">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="VSg-XI-cSs"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Protanopy" tag="3" keyEquivalent="3" indentationLevel="1" id="IB0-C5-dbg">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="JKL-oO-3pC"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Protanomaly" tag="4" keyEquivalent="4" indentationLevel="1" id="9aq-qq-eFM">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="fZA-Js-AUB"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="oFE-Eq-6Iv"/>
+                        <menuItem title="Yellow-Blue Confusion" enabled="NO" id="0mY-bA-P8c">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Tritanopy" tag="5" keyEquivalent="5" indentationLevel="1" id="zkp-kF-7Zj">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="1IT-Ei-vmR"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Tritanomaly" tag="6" keyEquivalent="6" indentationLevel="1" id="Cwt-Y4-OOb">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="fSz-4L-h4y"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="wiF-1D-XGb"/>
+                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="Npk-y4-wqh">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="L4d-aW-ww3"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" id="cWO-ZF-xPw">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="9P6-uH-LcD"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu id="D7c-iD-Fng">
+                    <items>
+                        <menuItem title="Refresh Speed" enabled="NO" id="fbi-jg-9jO">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Slow" image="SlowFrameRateTemplate" tag="-1" indentationLevel="1" id="QIP-Or-u2p">
+                            <connections>
+                                <action selector="adoptSpeedSetting:" target="OJa-T4-yA3" id="x1P-zz-g24"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Normal" state="on" image="NormalFrameRateTemplate" indentationLevel="1" id="3fd-6y-dkh">
+                            <connections>
+                                <action selector="adoptSpeedSetting:" target="OJa-T4-yA3" id="Rla-id-DeQ"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Fast" image="FastFrameRateTemplate" tag="1" indentationLevel="1" id="QQk-Ez-VGp">
+                            <connections>
+                                <action selector="adoptSpeedSetting:" target="OJa-T4-yA3" id="LHo-0p-h6H"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu id="pqH-cF-rp6">
+                    <items>
+                        <menuItem title="View Area" enabled="NO" id="5bi-v8-MT6">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Content under the window" image="FilteredTransparencyTemplate" indentationLevel="1" id="ZDe-67-KJY">
+                            <connections>
+                                <action selector="adoptViewAreaSetting:" target="OJa-T4-yA3" id="SBI-w5-yvr"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Centered on the mouse pointer" image="FilteredMouseAreaTemplate" tag="1" indentationLevel="1" id="kCa-3R-dzG">
+                            <connections>
+                                <action selector="adoptViewAreaSetting:" target="OJa-T4-yA3" id="6JQ-kd-GKA"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <customObject id="OJa-T4-yA3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708.5" y="344"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="FastFrameRateTemplate" width="13" height="13"/>
+        <image name="FilteredMouseAreaTemplate" width="13" height="13"/>
+        <image name="FilteredTransparencyTemplate" width="13" height="13"/>
+        <image name="NormalFrameRateTemplate" width="13" height="13"/>
+        <image name="SlowFrameRateTemplate" width="13" height="13"/>
+        <image name="VisionTemplate" width="17" height="11"/>
+    </resources>
+</document>

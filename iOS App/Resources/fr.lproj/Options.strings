@@ -1,0 +1,127 @@
+/* Class = "UILabel"; text = "by Michel Fortin"; ObjectID = "1Ob-2N-FR3"; */
+"1Ob-2N-FR3.text" = "par Michel Fortin";
+
+/* Class = "UILabel"; text = "Protanomaly"; ObjectID = "7eB-XC-Sf1"; */
+"7eB-XC-Sf1.text" = "Protanomalie";
+
+/* Class = "UILabel"; text = "Anomalous blue cones"; ObjectID = "8Fh-iV-BAl"; */
+"8Fh-iV-BAl.text" = "Cônes bleus anormaux";
+
+/* Class = "UITableViewSection"; headerTitle = "Monochrome vision"; ObjectID = "8oO-S8-qcf"; */
+"8oO-S8-qcf.headerTitle" = "Vision monochrome";
+
+/* Class = "UILabel"; text = "Anomalous green cones"; ObjectID = "53L-Zl-hPR"; */
+"53L-Zl-hPR.text" = "Cônes verts anormaux";
+
+/* Class = "UILabel"; text = "Sim Daltonism © 2005–2015 Michel Fortin\n\nIncludes an adaptation of the color_blind_sims Javascript function from the Color Laboratory\nCopyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network"; ObjectID = "AIv-Ok-oRj"; */
+"AIv-Ok-oRj.text" = "Sim Daltonism © 2005–2015 Michel Fortin
+
+Inclus une adaptation de la fonction Javascript color_blind_sims provenant du Color Laboratory. Copyright © 2000-2001 Matthew Wickline et le Human-Computer Interaction Resource Network.";
+
+/* Class = "UILabel"; text = "Rate this app"; ObjectID = "Av2-rq-TNS"; */
+"Av2-rq-TNS.text" = "Notez cette app";
+
+/* Class = "UITableViewSection"; headerTitle = "Copyright & Credits"; ObjectID = "BBK-e4-v9v"; */
+"BBK-e4-v9v.headerTitle" = "Droit d’auteur et remerciments";
+
+/* Class = "UILabel"; text = "Deuteranomaly"; ObjectID = "Dj3-Uw-TAl"; */
+"Dj3-Uw-TAl.text" = "Deuteranomalie";
+
+/* Class = "UILabel"; text = "Reduced sensitivity to colors"; ObjectID = "DnW-65-s8L"; */
+"DnW-65-s8L.text" = "Sensibilité réduite aux couleurs";
+
+/* Class = "UILabel"; text = "Sim Daltonism lets you see through the eyes of someone with a color blindness. While the colors shown are a good approximation of what a color blind person would see, you should not expect them to be perfect.\n\nEveryone has his own perception of colors that differs slightly from other people, and color blindness are often partial at different degrees. More importantly, cameras do not have the same spectral response as cones in your eyes, so the simulation has to make some assumptions about the frequency composition of the colors."; ObjectID = "EPr-jD-jaz"; */
+"EPr-jD-jaz.text" = "Sim Daltonisme vous permet de voir ce que voit une personne daltonienne. Bien que les couleurs affichés soit une bonne approximation de la couleur vue par une personne daltonienne, ne vous attendez pas à ce qu’elles soient parfaites.
+
+Tout le monde a sa propre perception des couleurs qui diffère légèrement de celle des autres, et le daltonisme est souvent partiel à différent degrés. Aussi, les caméras n’ont pas la même réponse spectrale que les cônes dans l’œil, donc une simulation doit faire quelque postulats concernant la composition en fréquence des couleurs.";
+
+/* Class = "UITableViewSection"; footerTitle = "These two variants are quite rare."; ObjectID = "FGQ-PW-KZU"; */
+"FGQ-PW-KZU.footerTitle" = "Ces deux variantes sont plutôt rares.";
+
+/* Class = "UITableViewSection"; headerTitle = "Blue/Yellow Color Blindness"; ObjectID = "FGQ-PW-KZU"; */
+"FGQ-PW-KZU.headerTitle" = "Daltonisme bleu/jaune";
+
+/* Class = "UILabel"; text = "Normal vision"; ObjectID = "FMo-GE-hEe"; */
+"FMo-GE-hEe.text" = "Vision normale";
+
+/* Class = "UILabel"; text = "Normal vision"; ObjectID = "MKr-3a-N1J"; */
+"MKr-3a-N1J.text" = "Vision normale";
+
+/* Class = "UILabel"; text = "A simulator for color blindness"; ObjectID = "MaI-O8-enf"; */
+"MaI-O8-enf.text" = "Un simulateur pour le daltonisme";
+
+/* Class = "UILabel"; text = "Tritanopia"; ObjectID = "MwP-hN-TJU"; */
+"MwP-hN-TJU.text" = "Tritanopie";
+
+/* Class = "UILabel"; text = "Trichromatic: red, green, and blue cones"; ObjectID = "PVL-g1-ZDl"; */
+"PVL-g1-ZDl.text" = "Trichromatique : cônes rouges, verts, et bleus";
+
+/* Class = "UILabel"; text = "Trichromatic: red, green, and blue cones"; ObjectID = "TCj-Zp-P4m"; */
+"TCj-Zp-P4m.text" = "Trichromatique : cônes rouges, verts, et bleus";
+
+/* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "UN5-pc-Szy"; */
+"UN5-pc-Szy.normalTitle" = "Choisir";
+
+/* Class = "UILabel"; text = "No green cone"; ObjectID = "XDI-Ny-fnp"; */
+"XDI-Ny-fnp.text" = "Aucun cône vert";
+
+/* Class = "UILabel"; text = "Send Feedback"; ObjectID = "aYH-t4-fuh"; */
+"aYH-t4-fuh.text" = "Commentaires";
+
+/* Class = "UILabel"; text = "Deuteranopia"; ObjectID = "beT-1m-flM"; */
+"beT-1m-flM.text" = "Deuteranopie";
+
+/* Class = "UIBarButtonItem"; title = "More"; ObjectID = "d2n-BX-GDf"; */
+"d2n-BX-GDf.title" = "Plus";
+
+/* Class = "UILabel"; text = "Website"; ObjectID = "dFl-xy-ceC"; */
+"dFl-xy-ceC.text" = "Site web";
+
+/* Class = "UITableViewSection"; headerTitle = "See also…"; ObjectID = "dUV-4F-bXy"; */
+"dUV-4F-bXy.headerTitle" = "Voir aussi…";
+
+/* Class = "UILabel"; text = "SIMULATED VISION"; ObjectID = "hSF-Zo-ucE"; */
+"hSF-Zo-ucE.text" = "VISION SIMULÉE";
+
+/* Class = "UILabel"; text = "Protanopia"; ObjectID = "iBD-Jm-iAQ"; */
+"iBD-Jm-iAQ.text" = "Protanopie";
+
+/* Class = "UILabel"; text = "No red cones"; ObjectID = "jKo-bc-yvf"; */
+"jKo-bc-yvf.text" = "Aucun cône rouge";
+
+/* Class = "UILabel"; text = "Monochromacy"; ObjectID = "jxK-7j-Fx2"; */
+"jxK-7j-Fx2.text" = "Monochromatisme";
+
+/* Class = "UITableViewSection"; footerTitle = "Four variants of the most common color blindness form."; ObjectID = "kOu-8J-OPC"; */
+"kOu-8J-OPC.footerTitle" = "Quatre variantes de la forme la plus commune de daltonisme.";
+
+/* Class = "UITableViewSection"; headerTitle = "Red/Green Color Blindness"; ObjectID = "kOu-8J-OPC"; */
+"kOu-8J-OPC.headerTitle" = "Daltonisme rouge/vert";
+
+/* Class = "UIButton"; normalTitle = "Open in App Store"; ObjectID = "pl2-mT-gTo"; */
+"pl2-mT-gTo.normalTitle" = "Ouvrir dans l’App Store";
+
+/* Class = "UILabel"; text = "Partial Monochromacy"; ObjectID = "rgF-lB-8xY"; */
+"rgF-lB-8xY.text" = "Monochromatisme partiel";
+
+/* Class = "UILabel"; text = "No blue cones"; ObjectID = "uoT-cc-jKY"; */
+"uoT-cc-jKY.text" = "Aucun cône bleu";
+
+/* Class = "UILabel"; text = "Tritanomaly"; ObjectID = "uvA-2y-5uZ"; */
+"uvA-2y-5uZ.text" = "Tritanomalie";
+
+/* Class = "UILabel"; text = "Sim Daltonism"; ObjectID = "vTX-4F-okO"; */
+"vTX-4F-okO.text" = "Sim Daltonisme";
+
+/* Class = "UILabel"; text = "Anomalous red cones"; ObjectID = "vcH-0U-5AL"; */
+"vcH-0U-5AL.text" = "Cônes rouges anormaux";
+
+/* Class = "UILabel"; text = "Absent or non-functionning cones"; ObjectID = "vxa-TM-5Dr"; */
+"vxa-TM-5Dr.text" = "Cônes absents ou non-fonctionnels";
+
+/* Class = "UINavigationItem"; title = "Sim Daltonism"; ObjectID = "wph-Ia-bIP"; */
+"wph-Ia-bIP.title" = "Sim Daltonisme";
+
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "zcz-ua-eaM"; */
+"zcz-ua-eaM.headerTitle" = "À propos";
+

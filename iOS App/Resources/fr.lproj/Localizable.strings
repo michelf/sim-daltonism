@@ -1,0 +1,54 @@
+/* Description for Monochromacy */
+"Absent or non-functionning cones" = "Cônes absents ou non-fonctionnels";
+
+/* Description for Tritanomaly */
+"Anomalous blue cones" = "Cônes bleus anormaux";
+
+/* Description for Protanomaly */
+"Anomalous green cones" = "Cônes verts anormaux";
+
+/* Description for Deuteranomaly */
+"Anomalous red cones" = "Cônes rouges anormaux";
+
+/* No comment provided by engineer. */
+"Deuteranomaly" = "Deuteranomalie";
+
+/* No comment provided by engineer. */
+"Deuteranopia" = "Deuteranopie";
+
+/* No comment provided by engineer. */
+"Monochromacy" = "Monochromatisme";
+
+/* Description for Tritanopia */
+"No blue cones" = "Aucun cône bleu";
+
+/* Description for Protanopia */
+"No green cone" = "Aucun cône vert";
+
+/* Description for Deuteranopia */
+"No red cones" = "Aucun cône rouge";
+
+/* No comment provided by engineer. */
+"Normal Vision" = "Vision normale";
+
+/* No comment provided by engineer. */
+"Partial Monochromacy" = "Monochromatisme partiel";
+
+/* No comment provided by engineer. */
+"Protanomaly" = "Protanomalie";
+
+/* No comment provided by engineer. */
+"Protanopia" = "Protanopie";
+
+/* Description for PartialMonochromacy */
+"Reduced sensitivity to colors" = "Sensibilité réduite aux couleurs";
+
+/* Description for Normal Vision */
+"Trichromatic: red, green, and blue cones" = "Trichromatique : cônes rouges, verts et bleus";
+
+/* No comment provided by engineer. */
+"Tritanomaly" = "Tritanomalie";
+
+/* No comment provided by engineer. */
+"Tritanopia" = "Tritanopie";
+

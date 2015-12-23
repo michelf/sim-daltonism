@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t7Y-jQ-554">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="oFs-Qv-g6U">
+            <objects>
+                <viewController id="t7Y-jQ-554" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uLb-Gs-h46"/>
+                        <viewControllerLayoutGuide type="bottom" id="cqm-bB-vdD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6i6-CY-hgq" userLabel="Root View">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-hM-2kb">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LuB-XG-d8Z"/>
+                                    <barButtonItem image="FlashDark.png" style="plain" id="u8P-cN-De3">
+                                        <connections>
+                                            <action selector="toggleTorch:" destination="t7Y-jQ-554" id="uKC-7T-W7l"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="J9Y-xU-caX"/>
+                                    <barButtonItem image="CameraSwap.png" style="plain" id="as0-cN-xQS">
+                                        <connections>
+                                            <action selector="toggleInputDevice:" destination="t7Y-jQ-554" id="liU-Ui-ngZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zlh-Zz-4YI"/>
+                                    <barButtonItem image="View.png" style="plain" id="qmf-VY-qR8">
+                                        <connections>
+                                            <action selector="showSettings:" destination="t7Y-jQ-554" id="6rx-1C-GRE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Dmc-rV-0WO"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0e-uJ-W3R" userLabel="Camera View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- FPS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-o9-NoD">
+                                        <rect key="frame" x="518" y="20" width="59" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="ogt-dD-gsF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="0.39000000000000001" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- x -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqF-fh-KLd">
+                                        <rect key="frame" x="518" y="57" width="59" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="IpI-bP-dpP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="0.39000000000000001" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2474163385826772" green="0.2474163385826772" blue="0.2474163385826772" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="eqF-fh-KLd" firstAttribute="leading" secondItem="HDX-o9-NoD" secondAttribute="leading" id="CSi-xN-rOu"/>
+                                    <constraint firstItem="eqF-fh-KLd" firstAttribute="top" secondItem="HDX-o9-NoD" secondAttribute="bottom" constant="8" symbolic="YES" id="TtA-1i-W3B"/>
+                                    <constraint firstItem="HDX-o9-NoD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f0e-uJ-W3R" secondAttribute="leading" constant="97" id="g5n-sF-9HT"/>
+                                    <constraint firstItem="eqF-fh-KLd" firstAttribute="trailing" secondItem="HDX-o9-NoD" secondAttribute="trailing" id="liu-nM-D7n"/>
+                                    <constraint firstAttribute="trailing" secondItem="HDX-o9-NoD" secondAttribute="trailing" constant="23" id="wFi-6D-aWJ"/>
+                                    <constraint firstItem="HDX-o9-NoD" firstAttribute="top" secondItem="f0e-uJ-W3R" secondAttribute="top" constant="20" id="z7b-uU-UU0"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="YcT-b6-324" appends="YES" id="xRW-aB-DFV"/>
+                                    <outletCollection property="gestureRecognizers" destination="EQF-Hf-18C" appends="YES" id="ict-mg-WJl"/>
+                                </connections>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="100" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-fM-uGE">
+                                <rect key="frame" x="69.5" y="263" width="462" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sim Daltonism does not have persmission to access the camera." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt2-yZ-67p">
+                                        <rect key="frame" x="10" y="8" width="442" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDW-fF-Jjq">
+                                        <rect key="frame" x="141.5" y="35" width="179" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" red="1" green="0.8030350208" blue="0.0001922522351" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Change Privacy Settings">
+                                            <color key="titleColor" red="1" green="0.43621159220416617" blue="0.34734254993240188" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showCameraPrivacySettings:" destination="t7Y-jQ-554" eventType="touchUpInside" id="ZLp-sJ-8y7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="Kt2-yZ-67p" secondAttribute="centerX" id="BY0-8r-1dG"/>
+                                    <constraint firstAttribute="centerX" secondItem="TDW-fF-Jjq" secondAttribute="centerX" constant="-0.5" id="CEP-iq-Usp"/>
+                                    <constraint firstItem="Kt2-yZ-67p" firstAttribute="top" secondItem="lcO-fM-uGE" secondAttribute="top" constant="8" id="L1U-fv-VPw"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kt2-yZ-67p" secondAttribute="trailing" constant="10" id="LPm-AD-rog"/>
+                                    <constraint firstAttribute="bottom" secondItem="TDW-fF-Jjq" secondAttribute="bottom" constant="8" id="auP-MO-fvA"/>
+                                    <constraint firstItem="Kt2-yZ-67p" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lcO-fM-uGE" secondAttribute="leading" constant="8" id="p7j-r6-NYi"/>
+                                    <constraint firstItem="TDW-fF-Jjq" firstAttribute="top" secondItem="Kt2-yZ-67p" secondAttribute="bottom" constant="7.5" id="phg-oi-mIn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.72115251660000002" green="0.52221959699999998" blue="0.092032594260000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cl3-hM-2kb" firstAttribute="leading" secondItem="6i6-CY-hgq" secondAttribute="leading" id="BJg-Mj-gYQ"/>
+                            <constraint firstItem="lcO-fM-uGE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6i6-CY-hgq" secondAttribute="leading" id="Frd-zq-ff2"/>
+                            <constraint firstItem="Cl3-hM-2kb" firstAttribute="bottom" secondItem="cqm-bB-vdD" secondAttribute="top" id="TCk-uq-3kH"/>
+                            <constraint firstAttribute="centerY" secondItem="lcO-fM-uGE" secondAttribute="centerY" id="aFB-Ps-SF8"/>
+                            <constraint firstItem="Cl3-hM-2kb" firstAttribute="trailing" secondItem="f0e-uJ-W3R" secondAttribute="trailing" id="bVd-Jm-h2r"/>
+                            <constraint firstAttribute="centerX" secondItem="lcO-fM-uGE" secondAttribute="centerX" id="do9-KI-n9v"/>
+                            <constraint firstItem="Cl3-hM-2kb" firstAttribute="top" secondItem="f0e-uJ-W3R" secondAttribute="bottom" id="euW-Fx-DXO"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lcO-fM-uGE" secondAttribute="trailing" id="iWu-Kx-qht"/>
+                            <constraint firstItem="f0e-uJ-W3R" firstAttribute="top" secondItem="uLb-Gs-h46" secondAttribute="bottom" priority="250" id="jrc-lB-589"/>
+                            <constraint firstAttribute="trailing" secondItem="Cl3-hM-2kb" secondAttribute="trailing" id="vHM-hq-IsR"/>
+                            <constraint firstItem="Cl3-hM-2kb" firstAttribute="leading" secondItem="f0e-uJ-W3R" secondAttribute="leading" id="vbX-wh-zhz"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="contentView" destination="f0e-uJ-W3R" id="rfR-uq-Qrq"/>
+                        <outlet property="dimensionsLabel" destination="eqF-fh-KLd" id="afD-Fh-0ot"/>
+                        <outlet property="flashButton" destination="u8P-cN-De3" id="aG6-eY-Vha"/>
+                        <outlet property="framerateLabel" destination="HDX-o9-NoD" id="edU-6K-7CE"/>
+                        <outlet property="noCameraPermissionOverlayView" destination="lcO-fM-uGE" id="LrW-TD-vOb"/>
+                        <outlet property="shareButton" destination="as0-cN-xQS" id="yp4-ae-yXu"/>
+                        <outlet property="toolbar" destination="Cl3-hM-2kb" id="3k3-5S-wEL"/>
+                        <outlet property="view" destination="6i6-CY-hgq" id="59k-xW-dZr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NIy-9N-I9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" numberOfTapsRequired="1" id="YcT-b6-324">
+                    <connections>
+                        <action selector="toggleShowFramerate:" destination="t7Y-jQ-554" id="HeM-24-OHV"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pinchGestureRecognizer id="EQF-Hf-18C">
+                    <connections>
+                        <action selector="zoom:" destination="t7Y-jQ-554" id="h2M-m0-jhF"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="206" y="-53"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CameraSwap.png" width="34" height="25"/>
+        <image name="FlashDark.png" width="20" height="32"/>
+        <image name="View.png" width="42" height="26"/>
+    </resources>
+    <color key="tintColor" red="1" green="0.01457794618535535" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+</document>

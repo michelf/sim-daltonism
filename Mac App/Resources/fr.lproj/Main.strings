@@ -1,0 +1,81 @@
+/* Class = "NSMenuItem"; title = "Sim Daltonism"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Sim Daltonisme";
+
+/* Class = "NSMenuItem"; title = "Quit Sim Daltonism"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quitter Sim Daltonisme";
+
+/* Class = "NSMenuItem"; title = "About Sim Daltonism"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "À propos de Sim Daltonisme";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Aide";
+
+/* Class = "NSMenuItem"; title = "Sim Daltonism Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "Aide Sim Daltonisme";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "FuE-dz-Mjb"; */
+"FuE-dz-Mjb.title" = "Édition";
+
+/* Class = "NSWindow"; title = "Sim Daltonism"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "Sim Daltonisme";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Tout afficher";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Tout ramener au premier plan";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Placer dans le Dock";
+
+/* Class = "NSMenuItem"; title = "Hide Sim Daltonism"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Masquer Sim Daltonisme";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "POb-YH-aFu"; */
+"POb-YH-aFu.title" = "Tout sélectionner";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Réduire/Aggrandir";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Fenêtre";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Masquer les autres";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Fenêtre";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "dsM-E9-NHA"; */
+"dsM-E9-NHA.title" = "Supprimer";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "f4F-NG-duL"; */
+"f4F-NG-duL.title" = "Annuler";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "guw-cd-bxe"; */
+"guw-cd-bxe.title" = "Copier";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "l5f-hm-4EQ"; */
+"l5f-hm-4EQ.title" = "Coller";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "pMU-Xp-Wd7"; */
+"pMU-Xp-Wd7.title" = "Couper";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "pZJ-au-Nbi"; */
+"pZJ-au-Nbi.title" = "Édition";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "qFI-zV-zCg"; */
+"qFI-zV-zCg.title" = "Rétablir";
+
+/* Class = "NSMenu"; title = "Sim Daltonism"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "Sim Daltonisme";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Aide";
+

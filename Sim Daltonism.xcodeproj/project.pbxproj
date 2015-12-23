@@ -1,0 +1,880 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */; };
+		1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252681C2742F300DB3B18 /* AboutController.m */; };
+		1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526A1C2742F300DB3B18 /* AppDelegate.m */; };
+		1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */; };
+		1EF252C71C2742F300DB3B18 /* IconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526E1C2742F300DB3B18 /* IconImageView.m */; };
+		1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2526F1C2742F300DB3B18 /* Images.xcassets */; };
+		1EF252C91C2742F300DB3B18 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252711C2742F300DB3B18 /* iTunesArtwork */; };
+		1EF252CB1C2742F300DB3B18 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252731C2742F300DB3B18 /* iTunesArtwork@2x */; };
+		1EF252CD1C2742F300DB3B18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252751C2742F300DB3B18 /* main.m */; };
+		1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252771C2742F300DB3B18 /* MirroredScrollView.m */; };
+		1EF252CF1C2742F300DB3B18 /* OpenGLPixelBufferView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */; };
+		1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2527B1C2742F300DB3B18 /* PaletteView.m */; };
+		1EF252D11C2742F300DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527D1C2742F300DB3B18 /* Main.storyboard */; };
+		1EF252D21C2742F300DB3B18 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527F1C2742F300DB3B18 /* Options.storyboard */; };
+		1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252831C2742F300DB3B18 /* InfoPlist.strings */; };
+		1EF252D51C2742F300DB3B18 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252851C2742F300DB3B18 /* Localizable.strings */; };
+		1EF252D71C2742F300DB3B18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528A1C2742F300DB3B18 /* Info.plist */; };
+		1EF252D81C2742F300DB3B18 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528B1C2742F300DB3B18 /* Launch.storyboard */; };
+		1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2528D1C2742F300DB3B18 /* SettingsViewController.m */; };
+		1EF252DA1C2742F300DB3B18 /* CameraSwap.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528F1C2742F300DB3B18 /* CameraSwap.png */; };
+		1EF252DB1C2742F300DB3B18 /* CameraSwap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252901C2742F300DB3B18 /* CameraSwap@2x.png */; };
+		1EF252DC1C2742F300DB3B18 /* CameraSwap@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252911C2742F300DB3B18 /* CameraSwap@3x.png */; };
+		1EF252DD1C2742F300DB3B18 /* FlashDark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252921C2742F300DB3B18 /* FlashDark.png */; };
+		1EF252DE1C2742F300DB3B18 /* FlashDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252931C2742F300DB3B18 /* FlashDark@2x.png */; };
+		1EF252DF1C2742F300DB3B18 /* FlashDark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252941C2742F300DB3B18 /* FlashDark@3x.png */; };
+		1EF252E01C2742F300DB3B18 /* FlashLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252951C2742F300DB3B18 /* FlashLight.png */; };
+		1EF252E11C2742F300DB3B18 /* FlashLight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252961C2742F300DB3B18 /* FlashLight@2x.png */; };
+		1EF252E21C2742F300DB3B18 /* FlashLight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252971C2742F300DB3B18 /* FlashLight@3x.png */; };
+		1EF252E61C2742F300DB3B18 /* View.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2529B1C2742F300DB3B18 /* View.png */; };
+		1EF252E71C2742F300DB3B18 /* View@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2529C1C2742F300DB3B18 /* View@2x.png */; };
+		1EF252E81C2742F300DB3B18 /* View@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2529D1C2742F300DB3B18 /* View@3x.png */; };
+		1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2529F1C2742F300DB3B18 /* ViewController.m */; };
+		1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252A11C2742F300DB3B18 /* VisionPicker.m */; };
+		1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253151C274A0200DB3B18 /* AppDelegate.swift */; };
+		1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253171C274A0200DB3B18 /* ColorView.swift */; };
+		1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253181C274A0200DB3B18 /* FilteredView.swift */; };
+		1EF253361C274A0200DB3B18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2531C1C274A0200DB3B18 /* Images.xcassets */; };
+		1EF253371C274A0200DB3B18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2531D1C274A0200DB3B18 /* Info.plist */; };
+		1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */; };
+		1EF2533A1C274A0200DB3B18 /* Sim Daltonism.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */; };
+		1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */; };
+		1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253241C274A0200DB3B18 /* Main.storyboard */; };
+		1EF2533D1C274A0200DB3B18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253261C274A0200DB3B18 /* Credits.html */; };
+		1EF2533E1C274A0200DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253291C274A0200DB3B18 /* InfoPlist.strings */; };
+		1EF2533F1C274A0200DB3B18 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2532B1C274A0200DB3B18 /* Main.strings */; };
+		1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2532F1C274A0200DB3B18 /* ViewController.swift */; };
+		1EF253421C274A0200DB3B18 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253301C274A0200DB3B18 /* Window.swift */; };
+		1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253311C274A0200DB3B18 /* WindowController.swift */; };
+		1EF2534B1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */; };
+		1EF2534C1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */; };
+		1EF2534F1C27609400DB3B18 /* SimDaltonismFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */; };
+		1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2536E1C27B26300DB3B18 /* MenuButton.swift */; };
+		1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */; };
+		1EF253821C2849B600DB3B18 /* Controls.acorn in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253721C2849B600DB3B18 /* Controls.acorn */; };
+		1EF253831C2849B600DB3B18 /* Controls@2x.acorn in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253731C2849B600DB3B18 /* Controls@2x.acorn */; };
+		1EF253841C2849B600DB3B18 /* FastFrameRateTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253741C2849B600DB3B18 /* FastFrameRateTemplate.png */; };
+		1EF253851C2849B600DB3B18 /* FastFrameRateTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253751C2849B600DB3B18 /* FastFrameRateTemplate@2x.png */; };
+		1EF253861C2849B600DB3B18 /* FilteredMouseAreaTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253761C2849B600DB3B18 /* FilteredMouseAreaTemplate.png */; };
+		1EF253871C2849B600DB3B18 /* FilteredMouseAreaTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253771C2849B600DB3B18 /* FilteredMouseAreaTemplate@2x.png */; };
+		1EF253881C2849B600DB3B18 /* FilteredMoveableFrameTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253781C2849B600DB3B18 /* FilteredMoveableFrameTemplate.png */; };
+		1EF253891C2849B600DB3B18 /* FilteredMoveableFrameTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253791C2849B600DB3B18 /* FilteredMoveableFrameTemplate@2x.png */; };
+		1EF2538A1C2849B600DB3B18 /* FilteredTransparencyTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2537A1C2849B600DB3B18 /* FilteredTransparencyTemplate.png */; };
+		1EF2538B1C2849B600DB3B18 /* FilteredTransparencyTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2537B1C2849B600DB3B18 /* FilteredTransparencyTemplate@2x.png */; };
+		1EF2538C1C2849B600DB3B18 /* NormalFrameRateTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2537C1C2849B600DB3B18 /* NormalFrameRateTemplate.png */; };
+		1EF2538D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2537D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png */; };
+		1EF2538E1C2849B600DB3B18 /* SlowFrameRateTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2537E1C2849B600DB3B18 /* SlowFrameRateTemplate.png */; };
+		1EF2538F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2537F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png */; };
+		1EF253901C2849B600DB3B18 /* VisionTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253801C2849B600DB3B18 /* VisionTemplate.png */; };
+		1EF253911C2849B600DB3B18 /* VisionTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253811C2849B600DB3B18 /* VisionTemplate@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		171999D919C7695800A719B5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		1E3BDB811C26408F00CADF46 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License 2.0.txt"; sourceTree = "<group>"; };
+		1EF252611C2742F300DB3B18 /* OpenGLShaderFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShaderFilter.h; sourceTree = "<group>"; };
+		1EF252621C2742F300DB3B18 /* PassThroughFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassThroughFilter.h; sourceTree = "<group>"; };
+		1EF252631C2742F300DB3B18 /* PassThroughFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassThroughFilter.m; sourceTree = "<group>"; };
+		1EF252641C2742F300DB3B18 /* SimDaltonismFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimDaltonismFilter.h; sourceTree = "<group>"; };
+		1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimDaltonismFilter.m; sourceTree = "<group>"; };
+		1EF252671C2742F300DB3B18 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		1EF252681C2742F300DB3B18 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		1EF252691C2742F300DB3B18 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1EF2526A1C2742F300DB3B18 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturePipeline.h; sourceTree = "<group>"; };
+		1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturePipeline.m; sourceTree = "<group>"; };
+		1EF2526D1C2742F300DB3B18 /* IconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconImageView.h; sourceTree = "<group>"; };
+		1EF2526E1C2742F300DB3B18 /* IconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconImageView.m; sourceTree = "<group>"; };
+		1EF2526F1C2742F300DB3B18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1EF252711C2742F300DB3B18 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		1EF252721C2742F300DB3B18 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		1EF252731C2742F300DB3B18 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		1EF252741C2742F300DB3B18 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		1EF252751C2742F300DB3B18 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1EF252761C2742F300DB3B18 /* MirroredScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MirroredScrollView.h; sourceTree = "<group>"; };
+		1EF252771C2742F300DB3B18 /* MirroredScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MirroredScrollView.m; sourceTree = "<group>"; };
+		1EF252781C2742F300DB3B18 /* OpenGLPixelBufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLPixelBufferView.h; sourceTree = "<group>"; };
+		1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLPixelBufferView.m; sourceTree = "<group>"; };
+		1EF2527A1C2742F300DB3B18 /* PaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteView.h; sourceTree = "<group>"; };
+		1EF2527B1C2742F300DB3B18 /* PaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteView.m; sourceTree = "<group>"; };
+		1EF2527E1C2742F300DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1EF252801C2742F300DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Options.storyboard; sourceTree = "<group>"; };
+		1EF252841C2742F300DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1EF252861C2742F300DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1EF2528A1C2742F300DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EF2528B1C2742F300DB3B18 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		1EF2528C1C2742F300DB3B18 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1EF2528D1C2742F300DB3B18 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		1EF2528F1C2742F300DB3B18 /* CameraSwap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraSwap.png; sourceTree = "<group>"; };
+		1EF252901C2742F300DB3B18 /* CameraSwap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CameraSwap@2x.png"; sourceTree = "<group>"; };
+		1EF252911C2742F300DB3B18 /* CameraSwap@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CameraSwap@3x.png"; sourceTree = "<group>"; };
+		1EF252921C2742F300DB3B18 /* FlashDark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlashDark.png; sourceTree = "<group>"; };
+		1EF252931C2742F300DB3B18 /* FlashDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashDark@2x.png"; sourceTree = "<group>"; };
+		1EF252941C2742F300DB3B18 /* FlashDark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashDark@3x.png"; sourceTree = "<group>"; };
+		1EF252951C2742F300DB3B18 /* FlashLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlashLight.png; sourceTree = "<group>"; };
+		1EF252961C2742F300DB3B18 /* FlashLight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashLight@2x.png"; sourceTree = "<group>"; };
+		1EF252971C2742F300DB3B18 /* FlashLight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashLight@3x.png"; sourceTree = "<group>"; };
+		1EF2529B1C2742F300DB3B18 /* View.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = View.png; sourceTree = "<group>"; };
+		1EF2529C1C2742F300DB3B18 /* View@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View@2x.png"; sourceTree = "<group>"; };
+		1EF2529D1C2742F300DB3B18 /* View@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View@3x.png"; sourceTree = "<group>"; };
+		1EF2529E1C2742F300DB3B18 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1EF2529F1C2742F300DB3B18 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1EF252A01C2742F300DB3B18 /* VisionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisionPicker.h; sourceTree = "<group>"; };
+		1EF252A11C2742F300DB3B18 /* VisionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisionPicker.m; sourceTree = "<group>"; };
+		1EF252FF1C27471400DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Options.strings; sourceTree = "<group>"; };
+		1EF253011C27472400DB3B18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Options.strings; sourceTree = "<group>"; };
+		1EF253021C27474200DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		1EF253071C27498600DB3B18 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF253151C274A0200DB3B18 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1EF253161C274A0200DB3B18 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		1EF253171C274A0200DB3B18 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		1EF253181C274A0200DB3B18 /* FilteredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredView.swift; sourceTree = "<group>"; };
+		1EF2531C1C274A0200DB3B18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1EF2531D1C274A0200DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EF2531F1C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenGLPixelBufferView-Mac.h"; sourceTree = "<group>"; };
+		1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenGLPixelBufferView-Mac.m"; sourceTree = "<group>"; };
+		1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Sim Daltonism.entitlements"; sourceTree = "<group>"; };
+		1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = SimDaltonism.iconset; sourceTree = "<group>"; };
+		1EF253251C274A0200DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1EF253271C274A0200DB3B18 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.html; name = en; path = en.lproj/Credits.html; sourceTree = "<group>"; };
+		1EF253281C274A0200DB3B18 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.html; name = fr; path = fr.lproj/Credits.html; sourceTree = "<group>"; };
+		1EF2532A1C274A0200DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1EF2532C1C274A0200DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		1EF2532F1C274A0200DB3B18 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1EF253301C274A0200DB3B18 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		1EF253311C274A0200DB3B18 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ShaderUtilities.c; sourceTree = "<group>"; };
+		1EF2534A1C274AFC00DB3B18 /* ShaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderUtilities.h; sourceTree = "<group>"; };
+		1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSettingsController.swift; sourceTree = "<group>"; };
+		1EF2536E1C27B26300DB3B18 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		1EF253721C2849B600DB3B18 /* Controls.acorn */ = {isa = PBXFileReference; lastKnownFileType = file; path = Controls.acorn; sourceTree = "<group>"; };
+		1EF253731C2849B600DB3B18 /* Controls@2x.acorn */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Controls@2x.acorn"; sourceTree = "<group>"; };
+		1EF253741C2849B600DB3B18 /* FastFrameRateTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FastFrameRateTemplate.png; sourceTree = "<group>"; };
+		1EF253751C2849B600DB3B18 /* FastFrameRateTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FastFrameRateTemplate@2x.png"; sourceTree = "<group>"; };
+		1EF253761C2849B600DB3B18 /* FilteredMouseAreaTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilteredMouseAreaTemplate.png; sourceTree = "<group>"; };
+		1EF253771C2849B600DB3B18 /* FilteredMouseAreaTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FilteredMouseAreaTemplate@2x.png"; sourceTree = "<group>"; };
+		1EF253781C2849B600DB3B18 /* FilteredMoveableFrameTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilteredMoveableFrameTemplate.png; sourceTree = "<group>"; };
+		1EF253791C2849B600DB3B18 /* FilteredMoveableFrameTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FilteredMoveableFrameTemplate@2x.png"; sourceTree = "<group>"; };
+		1EF2537A1C2849B600DB3B18 /* FilteredTransparencyTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilteredTransparencyTemplate.png; sourceTree = "<group>"; };
+		1EF2537B1C2849B600DB3B18 /* FilteredTransparencyTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FilteredTransparencyTemplate@2x.png"; sourceTree = "<group>"; };
+		1EF2537C1C2849B600DB3B18 /* NormalFrameRateTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NormalFrameRateTemplate.png; sourceTree = "<group>"; };
+		1EF2537D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NormalFrameRateTemplate@2x.png"; sourceTree = "<group>"; };
+		1EF2537E1C2849B600DB3B18 /* SlowFrameRateTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SlowFrameRateTemplate.png; sourceTree = "<group>"; };
+		1EF2537F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SlowFrameRateTemplate@2x.png"; sourceTree = "<group>"; };
+		1EF253801C2849B600DB3B18 /* VisionTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VisionTemplate.png; sourceTree = "<group>"; };
+		1EF253811C2849B600DB3B18 /* VisionTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisionTemplate@2x.png"; sourceTree = "<group>"; };
+		269351C0156CB42100512474 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6F096BF9157ED5110075E328 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		6F90DDD91395CAAA00125BDA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6F90DDDB1395CAAA00125BDA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6F90DDDD1395CAAA00125BDA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6F90DDFE1395CCB600125BDA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6F90DE001395CCBE00125BDA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		6F90DE041395CCD100125BDA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		6F90DE061395CCE000125BDA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		6F90DE081395CCEA00125BDA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6F90DE0A1395CCF500125BDA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1EEA1DB41B86A24B001D7B26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EF253041C27498600DB3B18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1EF252601C2742F300DB3B18 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				1EF252611C2742F300DB3B18 /* OpenGLShaderFilter.h */,
+				1EF252621C2742F300DB3B18 /* PassThroughFilter.h */,
+				1EF252631C2742F300DB3B18 /* PassThroughFilter.m */,
+				1EF252641C2742F300DB3B18 /* SimDaltonismFilter.h */,
+				1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */,
+				1EF253481C274AFC00DB3B18 /* GL */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		1EF252661C2742F300DB3B18 /* iOS App */ = {
+			isa = PBXGroup;
+			children = (
+				1EF252751C2742F300DB3B18 /* main.m */,
+				1EF252691C2742F300DB3B18 /* AppDelegate.h */,
+				1EF2526A1C2742F300DB3B18 /* AppDelegate.m */,
+				1EF2529E1C2742F300DB3B18 /* ViewController.h */,
+				1EF2529F1C2742F300DB3B18 /* ViewController.m */,
+				1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */,
+				1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */,
+				1EF252781C2742F300DB3B18 /* OpenGLPixelBufferView.h */,
+				1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */,
+				1EF2528C1C2742F300DB3B18 /* SettingsViewController.h */,
+				1EF2528D1C2742F300DB3B18 /* SettingsViewController.m */,
+				1EF252A01C2742F300DB3B18 /* VisionPicker.h */,
+				1EF252A11C2742F300DB3B18 /* VisionPicker.m */,
+				1EF252761C2742F300DB3B18 /* MirroredScrollView.h */,
+				1EF252771C2742F300DB3B18 /* MirroredScrollView.m */,
+				1EF2527A1C2742F300DB3B18 /* PaletteView.h */,
+				1EF2527B1C2742F300DB3B18 /* PaletteView.m */,
+				1EF252671C2742F300DB3B18 /* AboutController.h */,
+				1EF252681C2742F300DB3B18 /* AboutController.m */,
+				1EF2526D1C2742F300DB3B18 /* IconImageView.h */,
+				1EF2526E1C2742F300DB3B18 /* IconImageView.m */,
+				1EF2526F1C2742F300DB3B18 /* Images.xcassets */,
+				1EF2527C1C2742F300DB3B18 /* Resources */,
+				1EF2528E1C2742F300DB3B18 /* Toolbar Icons */,
+				1EF252701C2742F300DB3B18 /* iTunesArtwork */,
+			);
+			path = "iOS App";
+			sourceTree = "<group>";
+		};
+		1EF252701C2742F300DB3B18 /* iTunesArtwork */ = {
+			isa = PBXGroup;
+			children = (
+				1EF252711C2742F300DB3B18 /* iTunesArtwork */,
+				1EF252721C2742F300DB3B18 /* iTunesArtwork.png */,
+				1EF252731C2742F300DB3B18 /* iTunesArtwork@2x */,
+				1EF252741C2742F300DB3B18 /* iTunesArtwork@2x.png */,
+			);
+			path = iTunesArtwork;
+			sourceTree = "<group>";
+		};
+		1EF2527C1C2742F300DB3B18 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1EF2528A1C2742F300DB3B18 /* Info.plist */,
+				1EF2528B1C2742F300DB3B18 /* Launch.storyboard */,
+				1EF2527D1C2742F300DB3B18 /* Main.storyboard */,
+				1EF2527F1C2742F300DB3B18 /* Options.storyboard */,
+				1EF252831C2742F300DB3B18 /* InfoPlist.strings */,
+				1EF252851C2742F300DB3B18 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1EF2528E1C2742F300DB3B18 /* Toolbar Icons */ = {
+			isa = PBXGroup;
+			children = (
+				1EF2528F1C2742F300DB3B18 /* CameraSwap.png */,
+				1EF252901C2742F300DB3B18 /* CameraSwap@2x.png */,
+				1EF252911C2742F300DB3B18 /* CameraSwap@3x.png */,
+				1EF252921C2742F300DB3B18 /* FlashDark.png */,
+				1EF252931C2742F300DB3B18 /* FlashDark@2x.png */,
+				1EF252941C2742F300DB3B18 /* FlashDark@3x.png */,
+				1EF252951C2742F300DB3B18 /* FlashLight.png */,
+				1EF252961C2742F300DB3B18 /* FlashLight@2x.png */,
+				1EF252971C2742F300DB3B18 /* FlashLight@3x.png */,
+				1EF2529B1C2742F300DB3B18 /* View.png */,
+				1EF2529C1C2742F300DB3B18 /* View@2x.png */,
+				1EF2529D1C2742F300DB3B18 /* View@3x.png */,
+			);
+			path = "Toolbar Icons";
+			sourceTree = "<group>";
+		};
+		1EF253141C274A0200DB3B18 /* Mac App */ = {
+			isa = PBXGroup;
+			children = (
+				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
+				1EF253311C274A0200DB3B18 /* WindowController.swift */,
+				1EF253301C274A0200DB3B18 /* Window.swift */,
+				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
+				1EF2532F1C274A0200DB3B18 /* ViewController.swift */,
+				1EF253181C274A0200DB3B18 /* FilteredView.swift */,
+				1EF253171C274A0200DB3B18 /* ColorView.swift */,
+				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
+				1EF2531C1C274A0200DB3B18 /* Images.xcassets */,
+				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
+				1EF253231C274A0200DB3B18 /* Resources */,
+				1EF253711C2849B600DB3B18 /* Control Icons */,
+				1EF253161C274A0200DB3B18 /* BridgingHeader.h */,
+				1EF2531F1C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.h */,
+				1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */,
+			);
+			path = "Mac App";
+			sourceTree = "<group>";
+		};
+		1EF253231C274A0200DB3B18 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1EF2531D1C274A0200DB3B18 /* Info.plist */,
+				1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */,
+				1EF253241C274A0200DB3B18 /* Main.storyboard */,
+				1EF253261C274A0200DB3B18 /* Credits.html */,
+				1EF253291C274A0200DB3B18 /* InfoPlist.strings */,
+				1EF2532B1C274A0200DB3B18 /* Main.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1EF253481C274AFC00DB3B18 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */,
+				1EF2534A1C274AFC00DB3B18 /* ShaderUtilities.h */,
+			);
+			path = GL;
+			sourceTree = "<group>";
+		};
+		1EF253711C2849B600DB3B18 /* Control Icons */ = {
+			isa = PBXGroup;
+			children = (
+				1EF253721C2849B600DB3B18 /* Controls.acorn */,
+				1EF253731C2849B600DB3B18 /* Controls@2x.acorn */,
+				1EF253741C2849B600DB3B18 /* FastFrameRateTemplate.png */,
+				1EF253751C2849B600DB3B18 /* FastFrameRateTemplate@2x.png */,
+				1EF253761C2849B600DB3B18 /* FilteredMouseAreaTemplate.png */,
+				1EF253771C2849B600DB3B18 /* FilteredMouseAreaTemplate@2x.png */,
+				1EF253781C2849B600DB3B18 /* FilteredMoveableFrameTemplate.png */,
+				1EF253791C2849B600DB3B18 /* FilteredMoveableFrameTemplate@2x.png */,
+				1EF2537A1C2849B600DB3B18 /* FilteredTransparencyTemplate.png */,
+				1EF2537B1C2849B600DB3B18 /* FilteredTransparencyTemplate@2x.png */,
+				1EF2537C1C2849B600DB3B18 /* NormalFrameRateTemplate.png */,
+				1EF2537D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png */,
+				1EF2537E1C2849B600DB3B18 /* SlowFrameRateTemplate.png */,
+				1EF2537F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png */,
+				1EF253801C2849B600DB3B18 /* VisionTemplate.png */,
+				1EF253811C2849B600DB3B18 /* VisionTemplate@2x.png */,
+			);
+			path = "Control Icons";
+			sourceTree = "<group>";
+		};
+		6F90DDCA1395CAAA00125BDA = {
+			isa = PBXGroup;
+			children = (
+				1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */,
+				1E3BDB811C26408F00CADF46 /* ReadMe.md */,
+				1EF252601C2742F300DB3B18 /* Filter */,
+				1EF252661C2742F300DB3B18 /* iOS App */,
+				1EF253141C274A0200DB3B18 /* Mac App */,
+				6F90DDD81395CAAA00125BDA /* Frameworks */,
+				6F90DDD61395CAAA00125BDA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6F90DDD61395CAAA00125BDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */,
+				1EF253071C27498600DB3B18 /* Sim Daltonism.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F90DDD81395CAAA00125BDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				171999D919C7695800A719B5 /* CoreImage.framework */,
+				6F90DE001395CCBE00125BDA /* AssetsLibrary.framework */,
+				6F90DDFE1395CCB600125BDA /* AVFoundation.framework */,
+				6F90DDDD1395CAAA00125BDA /* CoreGraphics.framework */,
+				6F90DE0A1395CCF500125BDA /* CoreMedia.framework */,
+				269351C0156CB42100512474 /* CoreMotion.framework */,
+				6F90DE061395CCE000125BDA /* CoreVideo.framework */,
+				6F90DDDB1395CAAA00125BDA /* Foundation.framework */,
+				6F096BF9157ED5110075E328 /* ImageIO.framework */,
+				6F90DE041395CCD100125BDA /* OpenGLES.framework */,
+				6F90DE081395CCEA00125BDA /* QuartzCore.framework */,
+				6F90DDD91395CAAA00125BDA /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1EEA1DB61B86A24B001D7B26 /* Sim Daltonism (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EEA1DDB1B86A24B001D7B26 /* Build configuration list for PBXNativeTarget "Sim Daltonism (iOS)" */;
+			buildPhases = (
+				1EEA1DB31B86A24B001D7B26 /* Sources */,
+				1EEA1DB41B86A24B001D7B26 /* Frameworks */,
+				1EEA1DB51B86A24B001D7B26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sim Daltonism (iOS)";
+			productName = "Sim Daltonism";
+			productReference = 1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1EF253061C27498600DB3B18 /* Sim Daltonism (Mac) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EF253111C27498600DB3B18 /* Build configuration list for PBXNativeTarget "Sim Daltonism (Mac)" */;
+			buildPhases = (
+				1EF253031C27498600DB3B18 /* Sources */,
+				1EF253041C27498600DB3B18 /* Frameworks */,
+				1EF253051C27498600DB3B18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sim Daltonism (Mac)";
+			productName = "Sim Daltonism";
+			productReference = 1EF253071C27498600DB3B18 /* Sim Daltonism.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F90DDCC1395CAAA00125BDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0630;
+				TargetAttributes = {
+					1EEA1DB61B86A24B001D7B26 = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = R5LCPCXJPZ;
+					};
+					1EF253061C27498600DB3B18 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = R5LCPCXJPZ;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 6F90DDCF1395CAAA00125BDA /* Build configuration list for PBXProject "Sim Daltonism" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				fr,
+				Base,
+			);
+			mainGroup = 6F90DDCA1395CAAA00125BDA;
+			productRefGroup = 6F90DDD61395CAAA00125BDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1EEA1DB61B86A24B001D7B26 /* Sim Daltonism (iOS) */,
+				1EF253061C27498600DB3B18 /* Sim Daltonism (Mac) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1EEA1DB51B86A24B001D7B26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF252E11C2742F300DB3B18 /* FlashLight@2x.png in Resources */,
+				1EF252E21C2742F300DB3B18 /* FlashLight@3x.png in Resources */,
+				1EF252D21C2742F300DB3B18 /* Options.storyboard in Resources */,
+				1EF252E71C2742F300DB3B18 /* View@2x.png in Resources */,
+				1EF252E61C2742F300DB3B18 /* View.png in Resources */,
+				1EF252DA1C2742F300DB3B18 /* CameraSwap.png in Resources */,
+				1EF252DC1C2742F300DB3B18 /* CameraSwap@3x.png in Resources */,
+				1EF252CB1C2742F300DB3B18 /* iTunesArtwork@2x in Resources */,
+				1EF252DB1C2742F300DB3B18 /* CameraSwap@2x.png in Resources */,
+				1EF252DF1C2742F300DB3B18 /* FlashDark@3x.png in Resources */,
+				1EF252E01C2742F300DB3B18 /* FlashLight.png in Resources */,
+				1EF252D51C2742F300DB3B18 /* Localizable.strings in Resources */,
+				1EF252DD1C2742F300DB3B18 /* FlashDark.png in Resources */,
+				1EF252D11C2742F300DB3B18 /* Main.storyboard in Resources */,
+				1EF252E81C2742F300DB3B18 /* View@3x.png in Resources */,
+				1EF252D81C2742F300DB3B18 /* Launch.storyboard in Resources */,
+				1EF252DE1C2742F300DB3B18 /* FlashDark@2x.png in Resources */,
+				1EF252D71C2742F300DB3B18 /* Info.plist in Resources */,
+				1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */,
+				1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */,
+				1EF252C91C2742F300DB3B18 /* iTunesArtwork in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EF253051C27498600DB3B18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF253371C274A0200DB3B18 /* Info.plist in Resources */,
+				1EF2533F1C274A0200DB3B18 /* Main.strings in Resources */,
+				1EF253891C2849B600DB3B18 /* FilteredMoveableFrameTemplate@2x.png in Resources */,
+				1EF2538E1C2849B600DB3B18 /* SlowFrameRateTemplate.png in Resources */,
+				1EF253841C2849B600DB3B18 /* FastFrameRateTemplate.png in Resources */,
+				1EF253831C2849B600DB3B18 /* Controls@2x.acorn in Resources */,
+				1EF253861C2849B600DB3B18 /* FilteredMouseAreaTemplate.png in Resources */,
+				1EF2533E1C274A0200DB3B18 /* InfoPlist.strings in Resources */,
+				1EF2538A1C2849B600DB3B18 /* FilteredTransparencyTemplate.png in Resources */,
+				1EF2533D1C274A0200DB3B18 /* Credits.html in Resources */,
+				1EF253851C2849B600DB3B18 /* FastFrameRateTemplate@2x.png in Resources */,
+				1EF253901C2849B600DB3B18 /* VisionTemplate.png in Resources */,
+				1EF253871C2849B600DB3B18 /* FilteredMouseAreaTemplate@2x.png in Resources */,
+				1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */,
+				1EF253881C2849B600DB3B18 /* FilteredMoveableFrameTemplate.png in Resources */,
+				1EF2533A1C274A0200DB3B18 /* Sim Daltonism.entitlements in Resources */,
+				1EF2538C1C2849B600DB3B18 /* NormalFrameRateTemplate.png in Resources */,
+				1EF2538D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png in Resources */,
+				1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */,
+				1EF253361C274A0200DB3B18 /* Images.xcassets in Resources */,
+				1EF2538F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png in Resources */,
+				1EF253821C2849B600DB3B18 /* Controls.acorn in Resources */,
+				1EF253911C2849B600DB3B18 /* VisionTemplate@2x.png in Resources */,
+				1EF2538B1C2849B600DB3B18 /* FilteredTransparencyTemplate@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1EEA1DB31B86A24B001D7B26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF252CF1C2742F300DB3B18 /* OpenGLPixelBufferView.m in Sources */,
+				1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */,
+				1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */,
+				1EF252C71C2742F300DB3B18 /* IconImageView.m in Sources */,
+				1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */,
+				1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */,
+				1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */,
+				1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */,
+				1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */,
+				1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */,
+				1EF252CD1C2742F300DB3B18 /* main.m in Sources */,
+				1EF2534B1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
+				1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EF253031C27498600DB3B18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */,
+				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
+				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
+				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
+				1EF2534C1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
+				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
+				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
+				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
+				1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */,
+				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
+				1EF2534F1C27609400DB3B18 /* SimDaltonismFilter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1EF2527D1C2742F300DB3B18 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF2527E1C2742F300DB3B18 /* Base */,
+				1EF253021C27474200DB3B18 /* fr */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1EF2527F1C2742F300DB3B18 /* Options.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF252801C2742F300DB3B18 /* Base */,
+				1EF252FF1C27471400DB3B18 /* fr */,
+				1EF253011C27472400DB3B18 /* en */,
+			);
+			name = Options.storyboard;
+			sourceTree = "<group>";
+		};
+		1EF252831C2742F300DB3B18 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF252841C2742F300DB3B18 /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1EF252851C2742F300DB3B18 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF252861C2742F300DB3B18 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1EF253241C274A0200DB3B18 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF253251C274A0200DB3B18 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1EF253261C274A0200DB3B18 /* Credits.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF253271C274A0200DB3B18 /* en */,
+				1EF253281C274A0200DB3B18 /* fr */,
+			);
+			name = Credits.html;
+			sourceTree = "<group>";
+		};
+		1EF253291C274A0200DB3B18 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF2532A1C274A0200DB3B18 /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1EF2532B1C274A0200DB3B18 /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF2532C1C274A0200DB3B18 /* fr */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1EEA1DD71B86A24B001D7B26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/iOS App/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "Sim Daltonism";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1EEA1DD81B86A24B001D7B26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/iOS App/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "Sim Daltonism";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1EF253121C27498600DB3B18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_ENTITLEMENTS = "Mac App/Resources/Sim Daltonism.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michelf.sim-daltonism";
+				PRODUCT_NAME = "Sim Daltonism";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Mac App/BridgingHeader.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1EF253131C27498600DB3B18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_ENTITLEMENTS = "Mac App/Resources/Sim Daltonism.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michelf.sim-daltonism";
+				PRODUCT_NAME = "Sim Daltonism";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Mac App/BridgingHeader.h";
+			};
+			name = Release;
+		};
+		6F90DDF51395CAAA00125BDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F90DDF61395CAAA00125BDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1EEA1DDB1B86A24B001D7B26 /* Build configuration list for PBXNativeTarget "Sim Daltonism (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EEA1DD71B86A24B001D7B26 /* Debug */,
+				1EEA1DD81B86A24B001D7B26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EF253111C27498600DB3B18 /* Build configuration list for PBXNativeTarget "Sim Daltonism (Mac)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EF253121C27498600DB3B18 /* Debug */,
+				1EF253131C27498600DB3B18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6F90DDCF1395CAAA00125BDA /* Build configuration list for PBXProject "Sim Daltonism" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F90DDF51395CAAA00125BDA /* Debug */,
+				6F90DDF61395CAAA00125BDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6F90DDCC1395CAAA00125BDA /* Project object */;
+}
