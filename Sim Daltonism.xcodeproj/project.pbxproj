@@ -43,7 +43,6 @@
 		1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253151C274A0200DB3B18 /* AppDelegate.swift */; };
 		1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253171C274A0200DB3B18 /* ColorView.swift */; };
 		1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253181C274A0200DB3B18 /* FilteredView.swift */; };
-		1EF253361C274A0200DB3B18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2531C1C274A0200DB3B18 /* Images.xcassets */; };
 		1EF253371C274A0200DB3B18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2531D1C274A0200DB3B18 /* Info.plist */; };
 		1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */; };
 		1EF2533A1C274A0200DB3B18 /* Sim Daltonism.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */; };
@@ -142,7 +141,6 @@
 		1EF253161C274A0200DB3B18 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		1EF253171C274A0200DB3B18 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		1EF253181C274A0200DB3B18 /* FilteredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredView.swift; sourceTree = "<group>"; };
-		1EF2531C1C274A0200DB3B18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1EF2531D1C274A0200DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF2531F1C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenGLPixelBufferView-Mac.h"; sourceTree = "<group>"; };
 		1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenGLPixelBufferView-Mac.m"; sourceTree = "<group>"; };
@@ -308,7 +306,6 @@
 				1EF253181C274A0200DB3B18 /* FilteredView.swift */,
 				1EF253171C274A0200DB3B18 /* ColorView.swift */,
 				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
-				1EF2531C1C274A0200DB3B18 /* Images.xcassets */,
 				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
 				1EF253231C274A0200DB3B18 /* Resources */,
 				1EF253711C2849B600DB3B18 /* Control Icons */,
@@ -549,7 +546,6 @@
 				1EF2538D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png in Resources */,
 				1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */,
 				1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */,
-				1EF253361C274A0200DB3B18 /* Images.xcassets in Resources */,
 				1EF2538F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png in Resources */,
 				1EF253821C2849B600DB3B18 /* Controls.acorn in Resources */,
 				1EF253911C2849B600DB3B18 /* VisionTemplate@2x.png in Resources */,
@@ -880,6 +876,7 @@
 				1EF253131C27498600DB3B18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6F90DDCF1395CAAA00125BDA /* Build configuration list for PBXProject "Sim Daltonism" */ = {
 			isa = XCConfigurationList;
