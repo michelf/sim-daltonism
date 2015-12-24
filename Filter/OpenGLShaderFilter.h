@@ -14,16 +14,16 @@
 //	limitations under the License.
 
 #import <Foundation/Foundation.h>
-#if TARGET_OS_MAC
-#import <OpenGL/OpenGL.h>
-#import <OpenGL/gl.h>
-#import <OpenGL/gl3.h>
-#import "OpenGLPixelBufferView-Mac.h"
-#elif TARGET_OS_IPHONE
-#import <OpenGLES/EAGL.h>
-#import <OpenGLES/gltypes.h>
-#import <OpenGLES/ES2/gl.h>
-#import "OpenGLPixelBufferView.h"
+#if TARGET_OS_IPHONE
+#	import <OpenGLES/EAGL.h>
+#	import <OpenGLES/gltypes.h>
+#	import <OpenGLES/ES2/gl.h>
+#	import "OpenGLPixelBufferView.h"
+#elif TARGET_OS_MAC
+#	import <OpenGL/OpenGL.h>
+#	import <OpenGL/gl.h>
+#	import <OpenGL/gl3.h>
+#	import "OpenGLPixelBufferView-Mac.h"
 #endif
 
 #if !defined(_STRINGIFY)

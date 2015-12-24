@@ -16,7 +16,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <CoreVideo/CoreVideo.h>
-#import "OpenGLShaderFilter.h"
+
+@protocol OpenGLShaderFilter;
 
 @interface OpenGLPixelBufferView : UIView
 

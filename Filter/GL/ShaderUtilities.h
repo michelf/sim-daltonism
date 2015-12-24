@@ -18,12 +18,12 @@
 
 #include "TargetConditionals.h"
 
-#if TARGET_OS_MAC
-	#include <OpenGL/OpenGL.h>
-	#include <OpenGL/gl3.h>
-#elif TARGET_OS_IPHONE
-	#include <OpenGLES/ES3/gl.h>
-	#include <OpenGLES/ES3/glext.h>
+#if TARGET_OS_IPHONE
+#	include <OpenGLES/ES3/gl.h>
+#	include <OpenGLES/ES3/glext.h>
+#elif TARGET_OS_MAC
+#	include <OpenGL/OpenGL.h>
+#	include <OpenGL/gl3.h>
 #endif
 
 GLint glueCompileShader(GLenum target, GLsizei count, const GLchar **sources, GLuint *shader);

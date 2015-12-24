@@ -70,12 +70,12 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 }
 
 // Macros to handle the differences between OpenGLES and OpenGL
-#if TARGET_OS_MAC
-#define mediump
-#define highp
-#define PRECISION_MEDIUMP_FLOAT_LINE
-#else
-#define PRECISION_MEDIUMP_FLOAT_LINE precision mediump float;
+#if TARGET_OS_IPHONE
+#	define  PRECISION(P, TYPE)  precision P TYPE;
+#elif TARGET_OS_MAC
+#	define  mediump
+#	define  highp
+#	define  PRECISION(P, TYPE)
 #endif
 
 @implementation SimDaltonismFilter
@@ -131,7 +131,7 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 
 - (const GLchar *)fragmentSource { return _STRINGIFY
 (
-	PRECISION_MEDIUMP_FLOAT_LINE
+	PRECISION(mediump, float)
 
 	varying mediump vec2 coordinate;
 	uniform sampler2D videoframe;

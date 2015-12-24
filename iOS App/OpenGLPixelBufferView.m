@@ -17,6 +17,7 @@
 #import <OpenGLES/EAGL.h>
 #import <QuartzCore/CAEAGLLayer.h>
 #import "ShaderUtilities.h"
+#import "OpenGLShaderFilter.h"
 
 @interface OpenGLPixelBufferView ()
 {

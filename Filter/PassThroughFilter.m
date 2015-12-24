@@ -34,12 +34,12 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 }
 
 // Macros to handle the differences between OpenGLES and OpenGL
-#if TARGET_OS_MAC
-#define mediump
-#define highp
-#define PRECISION_MEDIUMP_FLOAT_LINE
-#else
-#define PRECISION_MEDIUMP_FLOAT_LINE precision mediump float;
+#if TARGET_OS_IPHONE
+#	define  PRECISION(P, TYPE)  precision P TYPE;
+#elif TARGET_OS_MAC
+#	define  mediump
+#	define  highp
+#	define  PRECISION(P, TYPE)
 #endif
 
 @implementation PassThroughFilter
