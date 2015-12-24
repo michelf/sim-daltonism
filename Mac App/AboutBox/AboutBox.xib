@@ -62,7 +62,7 @@ Cg
                                         <fragment content="Version">
                                             <attributes>
                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="0.55000000000000004" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="systemBold" size="11"/>
+                                                <font key="NSFont" metaFont="smallSystemBold"/>
                                                 <font key="NSOriginalFont" size="11" name=".LucidaGrandeUI-Bold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                             </attributes>
@@ -72,7 +72,7 @@ Cg
 Cg
 </string>
                                             <attributes>
-                                                <font key="NSFont" metaFont="systemBold" size="11"/>
+                                                <font key="NSFont" metaFont="smallSystemBold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                             </attributes>
                                         </fragment>
