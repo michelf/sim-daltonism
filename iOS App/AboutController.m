@@ -24,19 +24,29 @@
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://michelf.ca/"]];
 	} else if (cell == self.feedbackCell) {
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:sim-daltonism@michelf.ca"]];
+	} else if (cell == self.appStoreCell) {
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/sim-daltonism/id1050503579?ls=1&mt=8"]];
 	}
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section == 1 && indexPath.row == 0) {
+	if ([indexPath isEqual:self.aboutIndexPath]) {
 		CGSize availableSize = CGSizeMake(tableView.bounds.size.width, 100000);
 		return [self.aboutCell sizeThatFits:availableSize].height;
 	}
-	if (indexPath.section == 3 && indexPath.row == 0) {
+	if ([indexPath isEqual:self.creditsIndexPath]) {
 		CGSize availableSize = CGSizeMake(tableView.bounds.size.width, 100000);
 		return [self.creditsCell sizeThatFits:availableSize].height;
 	}
 	return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+- (NSIndexPath *)aboutIndexPath {
+	return [NSIndexPath indexPathForRow:0 inSection:1];
+}
+
+- (NSIndexPath *)creditsIndexPath {
+	return [NSIndexPath indexPathForRow:0 inSection:2];
 }
 
 @end

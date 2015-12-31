@@ -35,22 +35,22 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="106"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="SimDaltonismIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-Mh-aoR" customClass="IconImageView">
+                                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" image="SimDaltonismIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-Mh-aoR" customClass="IconImageView">
                                     <rect key="frame" x="23" y="23" width="60" height="60"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sim Daltonism" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTX-4F-okO">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sim Daltonism" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTX-4F-okO">
                                     <rect key="frame" x="100" y="20" width="485" height="29"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A simulator for color blindness" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaI-O8-enf">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A simulator for color blindness" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaI-O8-enf">
                                     <rect key="frame" x="100" y="51" width="485" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Michel Fortin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ob-2N-FR3">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="by Michel Fortin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ob-2N-FR3">
                                     <rect key="frame" x="100" y="68" width="485" height="13.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -184,9 +184,9 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                     </tableView>
                     <connections>
                         <outlet property="aboutCell" destination="IxM-8O-exu" id="ZBe-3H-U6f"/>
+                        <outlet property="appStoreCell" destination="20l-u3-t7f" id="asW-Id-4hs"/>
                         <outlet property="creditsCell" destination="Gfr-ml-75t" id="Men-Rc-LIK"/>
                         <outlet property="feedbackCell" destination="nu2-a6-DcX" id="kbW-6d-eEb"/>
-                        <outlet property="simDaltonismCell" destination="20l-u3-t7f" id="LwX-dc-agu"/>
                         <outlet property="websiteCell" destination="yNc-AR-fqu" id="Pgy-4G-xJg"/>
                     </connections>
                 </tableViewController>
