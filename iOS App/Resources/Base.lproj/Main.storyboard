@@ -119,7 +119,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.72115251660000002" green="0.52221959699999998" blue="0.092032594260000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.44638174670000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Cl3-hM-2kb" firstAttribute="leading" secondItem="6i6-CY-hgq" secondAttribute="leading" id="BJg-Mj-gYQ"/>
                             <constraint firstItem="lcO-fM-uGE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6i6-CY-hgq" secondAttribute="leading" id="Frd-zq-ff2"/>
