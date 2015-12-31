@@ -23,7 +23,6 @@
 		1EF252D21C2742F300DB3B18 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527F1C2742F300DB3B18 /* Options.storyboard */; };
 		1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252831C2742F300DB3B18 /* InfoPlist.strings */; };
 		1EF252D51C2742F300DB3B18 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252851C2742F300DB3B18 /* Localizable.strings */; };
-		1EF252D71C2742F300DB3B18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528A1C2742F300DB3B18 /* Info.plist */; };
 		1EF252D81C2742F300DB3B18 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528B1C2742F300DB3B18 /* Launch.storyboard */; };
 		1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2528D1C2742F300DB3B18 /* SettingsViewController.m */; };
 		1EF252DA1C2742F300DB3B18 /* CameraSwap.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528F1C2742F300DB3B18 /* CameraSwap.png */; };
@@ -43,7 +42,6 @@
 		1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253151C274A0200DB3B18 /* AppDelegate.swift */; };
 		1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253171C274A0200DB3B18 /* ColorView.swift */; };
 		1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253181C274A0200DB3B18 /* FilteredView.swift */; };
-		1EF253371C274A0200DB3B18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2531D1C274A0200DB3B18 /* Info.plist */; };
 		1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */; };
 		1EF2533A1C274A0200DB3B18 /* Sim Daltonism.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */; };
 		1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */; };
@@ -515,7 +513,6 @@
 				1EF252E81C2742F300DB3B18 /* View@3x.png in Resources */,
 				1EF252D81C2742F300DB3B18 /* Launch.storyboard in Resources */,
 				1EF252DE1C2742F300DB3B18 /* FlashDark@2x.png in Resources */,
-				1EF252D71C2742F300DB3B18 /* Info.plist in Resources */,
 				1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */,
 				1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */,
 				1EF252C91C2742F300DB3B18 /* iTunesArtwork in Resources */,
@@ -526,7 +523,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF253371C274A0200DB3B18 /* Info.plist in Resources */,
 				1EF2533F1C274A0200DB3B18 /* Main.strings in Resources */,
 				1EF253891C2849B600DB3B18 /* FilteredMoveableFrameTemplate@2x.png in Resources */,
 				1EF2538E1C2849B600DB3B18 /* SlowFrameRateTemplate.png in Resources */,
