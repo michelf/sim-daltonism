@@ -38,10 +38,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
 		switch menuItem.action {
 		case "adoptSpeedSetting:":
-			menuItem.state = refreshSpeedDefault == menuItem.tag ? NSOnState : NSOffState
+			menuItem.state = refreshSpeedDefault.rawValue == menuItem.tag ? NSOnState : NSOffState
 			return true
 		case "adoptViewAreaSetting:":
-			menuItem.state = viewAreaDefault == menuItem.tag ? NSOnState : NSOffState
+			menuItem.state = viewAreaDefault.rawValue == menuItem.tag ? NSOnState : NSOffState
 			return true
 		default:
 			return false

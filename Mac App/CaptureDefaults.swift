@@ -39,7 +39,7 @@ enum RefreshSpeed: Int {
 
 var refreshSpeedDefault: RefreshSpeed {
 	get {
-		return NSUserDefaults.standardUserDefaults().integerForKey("RefreshSpeed") as? RefreshSpeed ?? .Normal
+		return RefreshSpeed(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("RefreshSpeed")) ?? .Normal
 	}
 	set (speed) {
 		NSUserDefaults.standardUserDefaults().setInteger(speed.rawValue, forKey: "RefreshSpeed")
@@ -60,7 +60,7 @@ enum ViewArea: Int {
 
 var viewAreaDefault: ViewArea {
 	get {
-		return NSUserDefaults.standardUserDefaults().integerForKey("ViewArea") as? ViewArea ?? .UnderWindow
+		return ViewArea(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("ViewArea")) ?? .UnderWindow
 	}
 	set (area) {
 		NSUserDefaults.standardUserDefaults().setInteger(area.rawValue, forKey: "ViewArea")
