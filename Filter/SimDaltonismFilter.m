@@ -87,12 +87,24 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 	UIInterfaceOrientation _orientation;
 #endif
 	GLfloat _passThroughTextureVertices[8];
+	NSInteger _visionType;
 }
 
 + (void)registerDefaults {
 	[[NSUserDefaults standardUserDefaults] registerDefaults:@{
 		SimVisionTypeKey: @(Deuteranopia),
 	}];
+}
+
+- (NSInteger)visionType {
+	if (!_fixedVisionType)
+		return [[NSUserDefaults standardUserDefaults] integerForKey:SimVisionTypeKey];
+	return _visionType;
+}
+
+- (void)setVisionType:(NSInteger)visionType {
+	_fixedVisionType = YES;
+	_visionType = visionType;
 }
 
 - (const GLchar *)vertexSource { return _STRINGIFY
@@ -243,7 +255,7 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 }
 
 - (void)applyParametersForTextureOfWidth:(size_t)textureWidth height:(size_t)textureHeight {
-	NSInteger visionType = [[NSUserDefaults standardUserDefaults] integerForKey:SimVisionTypeKey];
+	NSInteger visionType = self.visionType;
 	switch (visionType) {
 		case NormalVision:
 			break;
@@ -334,3 +346,55 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 }
 
 @end
+
+
+NSString *SimVisionTypeName(NSInteger visionType) {
+	switch (visionType) {
+		case NormalVision:
+			return NSLocalizedString(@"Normal Vision",);
+		case Deuteranopia:
+			return NSLocalizedString(@"Deuteranopia",);
+		case Deuteranomaly:
+			return NSLocalizedString(@"Deuteranomaly",);
+		case Protanopia:
+			return NSLocalizedString(@"Protanopia",);
+		case Protanomaly:
+			return NSLocalizedString(@"Protanomaly",);
+		case Tritanopia:
+			return NSLocalizedString(@"Tritanopia",);
+		case Tritanomaly:
+			return NSLocalizedString(@"Tritanomaly",);
+		case Monochromacy:
+			return NSLocalizedString(@"Monochromacy",);
+		case PartialMonochromacy:
+			return NSLocalizedString(@"Partial Monochromacy",);
+		default:
+			return @"?";
+	}
+}
+
+NSString *SimVisionTypeDesc(NSInteger visionType) {
+	switch (visionType) {
+		case NormalVision:
+			return NSLocalizedString(@"Trichromatic: red, green, and blue cones", @"Description for Normal Vision");
+		case Deuteranopia:
+			return NSLocalizedString(@"No red cones", @"Description for Deuteranopia");
+		case Deuteranomaly:
+			return NSLocalizedString(@"Anomalous red cones", @"Description for Deuteranomaly");
+		case Protanopia:
+			return NSLocalizedString(@"No green cone", @"Description for Protanopia");
+		case Protanomaly:
+			return NSLocalizedString(@"Anomalous green cones", @"Description for Protanomaly");
+		case Tritanopia:
+			return NSLocalizedString(@"No blue cones", @"Description for Tritanopia");
+		case Tritanomaly:
+			return NSLocalizedString(@"Anomalous blue cones", @"Description for Tritanomaly");
+		case Monochromacy:
+			return NSLocalizedString(@"Absent or non-functionning cones", @"Description for Monochromacy");
+		case PartialMonochromacy:
+			return NSLocalizedString(@"Reduced sensitivity to colors", @"Description for PartialMonochromacy");
+		default:
+			return @"";
+	}
+}
+

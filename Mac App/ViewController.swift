@@ -17,24 +17,6 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-	var filteredView: FilteredView {
-		return view as! FilteredView
-	}
-
-	@IBAction func adoptVisionTypeSetting(sender: NSMenuItem) {
-		let visionType = sender.tag
-		NSUserDefaults.standardUserDefaults().setInteger(visionType, forKey: SimVisionTypeKey)
-	}
-
-	override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
-		switch menuItem.action {
-		case "adoptVisionTypeSetting:":
-			let current = NSUserDefaults.standardUserDefaults().integerForKey(SimVisionTypeKey)
-			menuItem.state = current == menuItem.tag ? NSOnState : NSOffState
-			return true
-		default:
-			return false
-		}
-	}
+	@IBOutlet var filteredView: FilteredView!
 
 }

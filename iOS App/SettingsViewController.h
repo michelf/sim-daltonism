@@ -26,6 +26,3 @@
 @property (nonatomic, weak) IBOutlet UILabel *visionTypeDescription;
 
 @end
-
-NSString *SimVisionTypeName(NSInteger visionType);
-NSString *SimVisionTypeDesc(NSInteger visionType);

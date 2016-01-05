@@ -19,6 +19,10 @@
 
 + (void)registerDefaults;
 
+// Fixed vision type will not change with user defaults
+@property (nonatomic) BOOL fixedVisionType;
+@property (nonatomic) NSInteger visionType;
+
 @end
 
 NS_ENUM(NSInteger) {
@@ -35,3 +39,6 @@ NS_ENUM(NSInteger) {
 };
 
 #define SimVisionTypeKey @"SimVisionType"
+
+NSString *SimVisionTypeName(NSInteger visionType);
+NSString *SimVisionTypeDesc(NSInteger visionType);

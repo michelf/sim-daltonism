@@ -394,6 +394,9 @@
                             <constraint firstAttribute="trailing" secondItem="hhN-ix-5O1" secondAttribute="trailing" constant="3" id="shI-Ug-XcF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="filteredView" destination="xhm-1p-zVd" id="t3d-bm-OyD"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

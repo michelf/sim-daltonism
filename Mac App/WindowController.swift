@@ -17,6 +17,18 @@ import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
 
+	var visionType = NSUserDefaults.standardUserDefaults().integerForKey(SimVisionTypeKey) {
+		didSet {
+			NSUserDefaults.standardUserDefaults().setInteger(visionType, forKey: SimVisionTypeKey)
+			applyVisionType()
+		}
+	}
+
+	private func applyVisionType() {
+		window?.title = SimVisionTypeName(visionType)
+		((window!.contentViewController! as! ViewController).filteredView.filter as! SimDaltonismFilter).visionType = visionType
+	}
+
     override func windowDidLoad() {
         super.windowDidLoad()
     
@@ -28,16 +40,31 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window?.standardWindowButton(.ZoomButton)?.enabled = false
 		window?.movable = false
 
-		//window?.titleVisibility = .Hidden
 		let accessory = NSStoryboard(name: "Main", bundle: nil).instantiateControllerWithIdentifier("WindowControls") as! NSTitlebarAccessoryViewController
 		accessory.layoutAttribute = .Right
 		window?.addTitlebarAccessoryViewController(accessory)
+
+		applyVisionType()
     }
 
 	func windowWillClose(notification: NSNotification) {
 		// quit app when window closes
 		dispatch_async(dispatch_get_main_queue()) {
 			NSApplication.sharedApplication().terminate(self)
+		}
+	}
+
+	@IBAction func adoptVisionTypeSetting(sender: NSMenuItem) {
+		visionType = sender.tag
+	}
+
+	override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
+		switch menuItem.action {
+		case "adoptVisionTypeSetting:":
+			menuItem.state = visionType == menuItem.tag ? NSOnState : NSOffState
+			return true
+		default:
+			return false
 		}
 	}
 
