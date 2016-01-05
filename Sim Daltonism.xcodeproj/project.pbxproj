@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */; };
 		1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */; };
 		1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252681C2742F300DB3B18 /* AboutController.m */; };
 		1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526A1C2742F300DB3B18 /* AppDelegate.m */; };
@@ -80,6 +81,7 @@
 /* Begin PBXFileReference section */
 		171999D919C7695800A719B5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		1E3BDB811C26408F00CADF46 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDefaults.swift; sourceTree = "<group>"; };
 		1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License 2.0.txt"; sourceTree = "<group>"; };
 		1EF252611C2742F300DB3B18 /* OpenGLShaderFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShaderFilter.h; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				1EF253181C274A0200DB3B18 /* FilteredView.swift */,
 				1EF253171C274A0200DB3B18 /* ColorView.swift */,
 				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
+				1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */,
 				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
 				1EF253231C274A0200DB3B18 /* Resources */,
 				1EF253711C2849B600DB3B18 /* Control Icons */,
@@ -578,6 +581,7 @@
 			files = (
 				1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */,
 				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
+				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
 				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,

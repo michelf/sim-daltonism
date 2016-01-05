@@ -1,5 +1,5 @@
 
-//	Copyright 2015 Michel Fortin
+//	Copyright 2015-2016 Michel Fortin
 //
 //	Licensed under the Apache License, Version 2.0 (the "License");
 //	you may not use this file except in compliance with the License.
@@ -104,13 +104,8 @@ class FilteredView: OpenGLPixelBufferView {
 	}
 
 	@objc func updateFromDefaults() {
-		let defaults = NSUserDefaults.standardUserDefaults()
-		if let refreshSpeed = RefreshSpeed(rawValue: defaults.integerForKey("RefreshSpeed")) {
-			updateInterval = refreshSpeed.updateInterval
-		}
-		if let viewArea = ViewArea(rawValue: defaults.integerForKey("ViewArea")) {
-			self.viewArea = viewArea
-		}
+		updateInterval = refreshSpeedDefault.updateInterval
+		viewArea = viewAreaDefault
 	}
 
 	override func viewDidMoveToWindow() {

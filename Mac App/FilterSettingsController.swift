@@ -1,5 +1,5 @@
 
-//	Copyright 2015 Michel Fortin
+//	Copyright 2016 Michel Fortin
 //
 //	Licensed under the Apache License, Version 2.0 (the "License");
 //	you may not use this file except in compliance with the License.
@@ -30,13 +30,8 @@ class FilterSettingsController: NSTitlebarAccessoryViewController {
 	}
 
 	@objc func refresh() {
-		let defaults = NSUserDefaults.standardUserDefaults()
-		if let refreshSpeed = RefreshSpeed(rawValue: defaults.integerForKey("RefreshSpeed")) {
-			refreshSpeedButton.image = refreshSpeed.image
-		}
-		if let viewArea = ViewArea(rawValue: defaults.integerForKey("ViewArea")) {
-			viewAreaButton.image = viewArea.image
-		}
+		refreshSpeedButton.image = refreshSpeedDefault.image
+		viewAreaButton.image = viewAreaDefault.image
 	}
 
 }
