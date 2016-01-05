@@ -27,4 +27,7 @@
 @property (nonatomic, weak) IBOutlet UITableViewCell *creditsCell;
 @property (nonatomic, readonly) NSIndexPath *creditsIndexPath;
 
+@property (nonatomic, readonly) NSURL *localizedWebsiteURL;
+@property (nonatomic, readonly) NSString *localizedFeedbackEmailAddress;
+
 @end

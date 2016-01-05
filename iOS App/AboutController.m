@@ -21,9 +21,9 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 	if (cell == self.websiteCell) {
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://michelf.ca/"]];
+		[[UIApplication sharedApplication] openURL:self.localizedWebsiteURL];
 	} else if (cell == self.feedbackCell) {
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:sim-daltonism@michelf.ca"]];
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", self.localizedFeedbackEmailAddress]]];
 	} else if (cell == self.appStoreCell) {
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/sim-daltonism/id1050503579?ls=1&mt=8"]];
 	}
@@ -47,6 +47,14 @@
 
 - (NSIndexPath *)creditsIndexPath {
 	return [NSIndexPath indexPathForRow:0 inSection:2];
+}
+
+- (NSURL *)localizedWebsiteURL {
+	return [NSURL URLWithString:NSLocalizedString(@"https://michelf.ca/projects/sim-daltonism/", @"Sim Daltonism website URL")];
+}
+
+- (NSString *)localizedFeedbackEmailAddress {
+	return NSLocalizedString(@"sim-daltonism@michelf.ca", @"Sim Daltonism feedback email");
 }
 
 @end
