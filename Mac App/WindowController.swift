@@ -21,7 +21,9 @@ class WindowController: NSWindowController, NSWindowDelegate {
         super.windowDidLoad()
     
 		// cannot set from IB:
-		window?.level = Int(CGWindowLevelForKey(CGWindowLevelKey.AssistiveTechHighWindowLevelKey))
+		// Note: window level is set to 1 above Red Stripe's window level
+		// so you can use the two together.
+		window?.level = Int(CGWindowLevelForKey(CGWindowLevelKey.AssistiveTechHighWindowLevelKey) + 1)
 		window?.hidesOnDeactivate = false
 		window?.standardWindowButton(.ZoomButton)?.enabled = false
 		window?.movable = false
