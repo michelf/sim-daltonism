@@ -209,7 +209,7 @@ class FilteredView: OpenGLPixelBufferView {
 	}
 
 	func redrawCaptureInBackground(captureRect: CGRect, windowID: CGWindowID, backingScaleFactor: CGFloat) {
-		capturing = false
+		defer { capturing = false }
 		if capturingDisabled {
 			return
 		}

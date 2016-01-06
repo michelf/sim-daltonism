@@ -72,7 +72,7 @@
                                 </constraints>
                                 <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="XYj-CE-0ar">
                                     <font key="font" metaFont="smallSystem"/>
-                                    <string key="title">A faster refresh speed will reduce the lag, but the area to filter must not be too big. A slower refresh speed will reduce energy consumption.</string>
+                                    <string key="title">A faster refresh speed will reduce the lag if the area to filter is not too large. A slower refresh speed will reduce energy consumption.</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
