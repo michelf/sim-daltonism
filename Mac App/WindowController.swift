@@ -15,6 +15,8 @@
 
 import Cocoa
 
+private var globalFilterWindowCount = 0
+
 class WindowController: NSWindowController, NSWindowDelegate {
 
 	var visionType = NSUserDefaults.standardUserDefaults().integerForKey(SimVisionTypeKey) {
@@ -45,12 +47,17 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window?.addTitlebarAccessoryViewController(accessory)
 
 		applyVisionType()
+
+		globalFilterWindowCount += 1
     }
 
 	func windowWillClose(notification: NSNotification) {
-		// quit app when window closes
-		dispatch_async(dispatch_get_main_queue()) {
-			NSApplication.sharedApplication().terminate(self)
+		// quit app when last window closes
+		globalFilterWindowCount -= 1
+		if globalFilterWindowCount <= 0 {
+			dispatch_async(dispatch_get_main_queue()) {
+				NSApplication.sharedApplication().terminate(self)
+			}
 		}
 	}
 
