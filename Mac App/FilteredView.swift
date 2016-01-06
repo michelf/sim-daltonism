@@ -65,10 +65,10 @@ class FilteredView: OpenGLPixelBufferView {
 		}
 		if let newWindow = newWindow {
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "recaptureAsync", name: NSWindowDidMoveNotification, object: newWindow)
-			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowDidEndLiveResize:", name: NSWindowDidEndLiveResizeNotification, object: newWindow)
-			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowWillStartLiveResize:", name: NSWindowWillStartLiveResizeNotification, object: newWindow)
-			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowWillStartLiveResize:", name: WindowWillStartDraggingNotification, object: newWindow)
-			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowDidEndLiveResize:", name: WindowDidEndDraggingNotification, object: newWindow)
+			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowDidEndLiveResizeOrMove:", name: NSWindowDidEndLiveResizeNotification, object: newWindow)
+			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowWillStartLiveResizeOrMove:", name: NSWindowWillStartLiveResizeNotification, object: newWindow)
+			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowWillStartLiveResizeOrMove:", name: WindowWillStartDraggingNotification, object: newWindow)
+			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowDidEndLiveResizeOrMove:", name: WindowDidEndDraggingNotification, object: newWindow)
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "windowDidChangeOcclusionState:", name: NSWindowDidChangeOcclusionStateNotification, object: newWindow)
 		}
 	}
@@ -88,10 +88,10 @@ class FilteredView: OpenGLPixelBufferView {
 		}
 	}
 
-	@objc func windowWillStartLiveResize(notification: NSNotification) {
+	@objc func windowWillStartLiveResizeOrMove(notification: NSNotification) {
 		resizingOrMoving = true
 	}
-	@objc func windowDidEndLiveResize(notification: NSNotification) {
+	@objc func windowDidEndLiveResizeOrMove(notification: NSNotification) {
 		resizingOrMoving = false
 	}
 
