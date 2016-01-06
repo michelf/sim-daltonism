@@ -137,19 +137,21 @@ class FilteredView: OpenGLPixelBufferView {
 		// Update once every 5 fire or whenever the mouse moves.
 		if counter++ > 5 || lastMouseLocation != mouseLocation {
 			counter = 0
-			redrawCapture(async: true)
+			redrawCaptureAsync()
 		}
 	}
 
 	@objc func recaptureAsync() {
-		redrawCapture(async: true)
+		redrawCaptureAsync()
 	}
 
 	var updateTimer: NSTimer?
 	var lastMouseLocation: NSPoint = NSMakePoint(0, 0)
 
 	override func drawRect(dirtyRect: NSRect) {
-		redrawCapture(async: false)
+		// Note: this will actually just schedule a new capture and redraw on
+		// a background thread. No real drawing done before the function returns.
+		redrawCaptureAsync()
 	}
 
 	override var opaque: Bool { get { return false } }
@@ -177,7 +179,7 @@ class FilteredView: OpenGLPixelBufferView {
 		}
 	}
 
-	func redrawCapture(async async: Bool) {
+	func redrawCaptureAsync() {
 		if window == nil {
 			return
 		}
@@ -200,11 +202,7 @@ class FilteredView: OpenGLPixelBufferView {
 
 		let windowID = CGWindowID(windowNumber)
 
-		if async {
-			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-				self.redrawCaptureInBackground(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
-			}
-		} else {
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
 			self.redrawCaptureInBackground(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
 		}
 	}
@@ -222,8 +220,8 @@ class FilteredView: OpenGLPixelBufferView {
 			}
 			displayImage(captureImage, scale: 1)
 			if unhideOnNextDisplay {
-				unhideOnNextDisplay = false
 				dispatch_async(dispatch_get_main_queue()) {
+					self.unhideOnNextDisplay = false
 					self.hidden = false
 				}
 			}
