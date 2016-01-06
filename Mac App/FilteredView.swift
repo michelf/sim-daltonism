@@ -118,6 +118,7 @@ class FilteredView: OpenGLPixelBufferView {
 		if window != nil {
 			updateTimer = NSTimer(timeInterval: updateInterval, target: self, selector: "recaptureIfNeeded", userInfo: nil, repeats: true)
 			NSRunLoop.currentRunLoop().addTimer(updateTimer!, forMode: NSRunLoopCommonModes)
+			updateTimer!.tolerance = updateInterval / 10
 		} else {
 			updateTimer = nil
 		}
