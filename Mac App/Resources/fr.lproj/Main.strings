@@ -49,6 +49,9 @@
 /* Class = "NSTextFieldCell"; title = "View Area:"; ObjectID = "BBH-Y8-kr1"; */
 "BBH-Y8-kr1.title" = "Zone visible :";
 
+/* Class = "NSMenuItem"; title = "Feedback…"; ObjectID = "BYn-Ib-JWz"; */
+"BYn-Ib-JWz.title" = "Commentaires et suggestions…";
+
 /* Class = "NSMenuItem"; title = "Red-Green Confusion"; ObjectID = "CSr-En-pWp"; */
 "CSr-En-pWp.title" = "Confusion rouge-vert";
 

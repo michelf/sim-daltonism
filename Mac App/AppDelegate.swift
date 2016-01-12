@@ -44,8 +44,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			menuItem.state = viewAreaDefault.rawValue == menuItem.tag ? NSOnState : NSOffState
 			return true
 		default:
-			return false
+			return self.respondsToSelector(menuItem.action)
 		}
+	}
+
+	@IBAction func sendFeedback(sender: AnyObject) {
+		let mailtoURL = NSURL(string: "mailto:sim-daltonism@michelf.ca")!
+		NSWorkspace.sharedWorkspace().openURL(mailtoURL)
 	}
 
 }

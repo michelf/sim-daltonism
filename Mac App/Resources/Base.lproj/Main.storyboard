@@ -150,6 +150,12 @@
                                                 <segue destination="Emp-HX-PIF" kind="show" id="FRo-y8-7gP"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Feedback…" id="BYn-Ib-JWz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="sendFeedback:" target="Voe-Tx-rLC" id="Yil-gb-gzE"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hD7-xW-47M"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
