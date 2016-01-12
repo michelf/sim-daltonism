@@ -351,23 +351,23 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 NSString *SimVisionTypeName(NSInteger visionType) {
 	switch (visionType) {
 		case NormalVision:
-			return NSLocalizedString(@"Normal Vision",);
+			return NSLocalizedStringFromTable(@"Normal Vision", @"SimDaltonismFilter", @"");
 		case Deuteranopia:
-			return NSLocalizedString(@"Deuteranopia",);
+			return NSLocalizedStringFromTable(@"Deuteranopia", @"SimDaltonismFilter", @"");
 		case Deuteranomaly:
-			return NSLocalizedString(@"Deuteranomaly",);
+			return NSLocalizedStringFromTable(@"Deuteranomaly", @"SimDaltonismFilter", @"");
 		case Protanopia:
-			return NSLocalizedString(@"Protanopia",);
+			return NSLocalizedStringFromTable(@"Protanopia", @"SimDaltonismFilter", @"");
 		case Protanomaly:
-			return NSLocalizedString(@"Protanomaly",);
+			return NSLocalizedStringFromTable(@"Protanomaly", @"SimDaltonismFilter", @"");
 		case Tritanopia:
-			return NSLocalizedString(@"Tritanopia",);
+			return NSLocalizedStringFromTable(@"Tritanopia", @"SimDaltonismFilter", @"");
 		case Tritanomaly:
-			return NSLocalizedString(@"Tritanomaly",);
+			return NSLocalizedStringFromTable(@"Tritanomaly", @"SimDaltonismFilter", @"");
 		case Monochromacy:
-			return NSLocalizedString(@"Monochromacy",);
+			return NSLocalizedStringFromTable(@"Monochromacy", @"SimDaltonismFilter", @"");
 		case PartialMonochromacy:
-			return NSLocalizedString(@"Partial Monochromacy",);
+			return NSLocalizedStringFromTable(@"Partial Monochromacy", @"SimDaltonismFilter", @"");
 		default:
 			return @"?";
 	}
@@ -376,23 +376,23 @@ NSString *SimVisionTypeName(NSInteger visionType) {
 NSString *SimVisionTypeDesc(NSInteger visionType) {
 	switch (visionType) {
 		case NormalVision:
-			return NSLocalizedString(@"Trichromatic: red, green, and blue cones", @"Description for Normal Vision");
+			return NSLocalizedStringFromTable(@"Trichromatic: red, green, and blue cones", @"SimDaltonismFilter", @"Description for Normal Vision");
 		case Deuteranopia:
-			return NSLocalizedString(@"No red cones", @"Description for Deuteranopia");
+			return NSLocalizedStringFromTable(@"No red cones", @"SimDaltonismFilter", @"Description for Deuteranopia");
 		case Deuteranomaly:
-			return NSLocalizedString(@"Anomalous red cones", @"Description for Deuteranomaly");
+			return NSLocalizedStringFromTable(@"Anomalous red cones", @"SimDaltonismFilter", @"Description for Deuteranomaly");
 		case Protanopia:
-			return NSLocalizedString(@"No green cone", @"Description for Protanopia");
+			return NSLocalizedStringFromTable(@"No green cone", @"SimDaltonismFilter", @"Description for Protanopia");
 		case Protanomaly:
-			return NSLocalizedString(@"Anomalous green cones", @"Description for Protanomaly");
+			return NSLocalizedStringFromTable(@"Anomalous green cones", @"SimDaltonismFilter", "Description for Protanomaly");
 		case Tritanopia:
-			return NSLocalizedString(@"No blue cones", @"Description for Tritanopia");
+			return NSLocalizedStringFromTable(@"No blue cones", @"SimDaltonismFilter", "Description for Tritanopia");
 		case Tritanomaly:
-			return NSLocalizedString(@"Anomalous blue cones", @"Description for Tritanomaly");
+			return NSLocalizedStringFromTable(@"Anomalous blue cones", @"SimDaltonismFilter", "Description for Tritanomaly");
 		case Monochromacy:
-			return NSLocalizedString(@"Absent or non-functionning cones", @"Description for Monochromacy");
+			return NSLocalizedStringFromTable(@"Absent or non-functionning cones", @"SimDaltonismFilter", "Description for Monochromacy");
 		case PartialMonochromacy:
-			return NSLocalizedString(@"Reduced sensitivity to colors", @"Description for PartialMonochromacy");
+			return NSLocalizedStringFromTable(@"Reduced sensitivity to colors", @"SimDaltonismFilter", "Description for PartialMonochromacy");
 		default:
 			return @"";
 	}

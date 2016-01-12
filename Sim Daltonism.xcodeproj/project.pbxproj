@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */; };
+		1ED75E5D1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
+		1ED75E5E1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
 		1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */; };
 		1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252681C2742F300DB3B18 /* AboutController.m */; };
 		1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526A1C2742F300DB3B18 /* AppDelegate.m */; };
@@ -23,7 +25,6 @@
 		1EF252D11C2742F300DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527D1C2742F300DB3B18 /* Main.storyboard */; };
 		1EF252D21C2742F300DB3B18 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527F1C2742F300DB3B18 /* Options.storyboard */; };
 		1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252831C2742F300DB3B18 /* InfoPlist.strings */; };
-		1EF252D51C2742F300DB3B18 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252851C2742F300DB3B18 /* Localizable.strings */; };
 		1EF252D81C2742F300DB3B18 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528B1C2742F300DB3B18 /* Launch.storyboard */; };
 		1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2528D1C2742F300DB3B18 /* SettingsViewController.m */; };
 		1EF252DA1C2742F300DB3B18 /* CameraSwap.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528F1C2742F300DB3B18 /* CameraSwap.png */; };
@@ -82,6 +83,7 @@
 		1E3BDB811C26408F00CADF46 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDefaults.swift; sourceTree = "<group>"; };
 		1ED75E501C44907B00042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		1ED75E5C1C44942900042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SimDaltonismFilter.strings; sourceTree = "<group>"; };
 		1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License 2.0.txt"; sourceTree = "<group>"; };
 		1EF252611C2742F300DB3B18 /* OpenGLShaderFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShaderFilter.h; sourceTree = "<group>"; };
@@ -112,7 +114,6 @@
 		1EF2527E1C2742F300DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EF252801C2742F300DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Options.storyboard; sourceTree = "<group>"; };
 		1EF252841C2742F300DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1EF252861C2742F300DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1EF2528A1C2742F300DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF2528B1C2742F300DB3B18 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		1EF2528C1C2742F300DB3B18 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -213,6 +214,7 @@
 				1EF252631C2742F300DB3B18 /* PassThroughFilter.m */,
 				1EF252641C2742F300DB3B18 /* SimDaltonismFilter.h */,
 				1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */,
+				1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */,
 				1EF253481C274AFC00DB3B18 /* GL */,
 			);
 			path = Filter;
@@ -269,7 +271,6 @@
 				1EF2527D1C2742F300DB3B18 /* Main.storyboard */,
 				1EF2527F1C2742F300DB3B18 /* Options.storyboard */,
 				1EF252831C2742F300DB3B18 /* InfoPlist.strings */,
-				1EF252851C2742F300DB3B18 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -503,11 +504,11 @@
 				1EF252E61C2742F300DB3B18 /* View.png in Resources */,
 				1EF252DA1C2742F300DB3B18 /* CameraSwap.png in Resources */,
 				1EF252DC1C2742F300DB3B18 /* CameraSwap@3x.png in Resources */,
+				1ED75E5D1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */,
 				1EF252CB1C2742F300DB3B18 /* iTunesArtwork@2x in Resources */,
 				1EF252DB1C2742F300DB3B18 /* CameraSwap@2x.png in Resources */,
 				1EF252DF1C2742F300DB3B18 /* FlashDark@3x.png in Resources */,
 				1EF252E01C2742F300DB3B18 /* FlashLight.png in Resources */,
-				1EF252D51C2742F300DB3B18 /* Localizable.strings in Resources */,
 				1EF252DD1C2742F300DB3B18 /* FlashDark.png in Resources */,
 				1EF252D11C2742F300DB3B18 /* Main.storyboard in Resources */,
 				1EF252E81C2742F300DB3B18 /* View@3x.png in Resources */,
@@ -543,6 +544,7 @@
 				1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */,
 				1EF2538F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png in Resources */,
 				1EF253821C2849B600DB3B18 /* Controls.acorn in Resources */,
+				1ED75E5E1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */,
 				1EF253911C2849B600DB3B18 /* VisionTemplate@2x.png in Resources */,
 				1EF2538B1C2849B600DB3B18 /* FilteredTransparencyTemplate@2x.png in Resources */,
 			);
@@ -594,6 +596,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ED75E5C1C44942900042CB7 /* fr */,
+			);
+			name = SimDaltonismFilter.strings;
+			sourceTree = "<group>";
+		};
 		1EF2527D1C2742F300DB3B18 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -618,14 +628,6 @@
 				1EF252841C2742F300DB3B18 /* fr */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1EF252851C2742F300DB3B18 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1EF252861C2742F300DB3B18 /* fr */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		1EF253241C274A0200DB3B18 /* Main.storyboard */ = {
