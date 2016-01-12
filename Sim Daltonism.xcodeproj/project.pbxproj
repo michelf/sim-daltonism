@@ -84,6 +84,7 @@
 		1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDefaults.swift; sourceTree = "<group>"; };
 		1ED75E501C44907B00042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1ED75E5C1C44942900042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SimDaltonismFilter.strings; sourceTree = "<group>"; };
+		1ED75E5F1C44964B00042CB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License 2.0.txt"; sourceTree = "<group>"; };
 		1EF252611C2742F300DB3B18 /* OpenGLShaderFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShaderFilter.h; sourceTree = "<group>"; };
@@ -652,6 +653,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1EF2532A1C274A0200DB3B18 /* fr */,
+				1ED75E5F1C44964B00042CB7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
