@@ -208,7 +208,6 @@
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="p0b-I7-7nt"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="ope-UB-ZbB"/>
                                         <menuItem title="Red-Green Confusion" enabled="NO" id="CSr-En-pWp">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
@@ -232,7 +231,6 @@
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="ETm-IZ-8z3"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="wL6-HV-3cT"/>
                                         <menuItem title="Yellow-Blue Confusion" enabled="NO" id="vvc-tI-K64">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
@@ -246,7 +244,6 @@
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Gqz-m3-IO9"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="qGa-Po-VIJ"/>
                                         <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="szF-Cd-B1t">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="guc-mg-yql"/>
