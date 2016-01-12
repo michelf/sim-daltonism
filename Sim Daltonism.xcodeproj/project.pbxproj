@@ -134,7 +134,6 @@
 		1EF252A01C2742F300DB3B18 /* VisionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisionPicker.h; sourceTree = "<group>"; };
 		1EF252A11C2742F300DB3B18 /* VisionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisionPicker.m; sourceTree = "<group>"; };
 		1EF252FF1C27471400DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Options.strings; sourceTree = "<group>"; };
-		1EF253011C27472400DB3B18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Options.strings; sourceTree = "<group>"; };
 		1EF253021C27474200DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1EF253071C27498600DB3B18 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF253151C274A0200DB3B18 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -612,7 +611,6 @@
 			children = (
 				1EF252801C2742F300DB3B18 /* Base */,
 				1EF252FF1C27471400DB3B18 /* fr */,
-				1EF253011C27472400DB3B18 /* en */,
 			);
 			name = Options.storyboard;
 			sourceTree = "<group>";
