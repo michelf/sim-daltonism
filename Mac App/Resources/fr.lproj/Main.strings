@@ -23,7 +23,7 @@
 "5kV-Vb-QxS.title" = "À propos de Sim Daltonisme";
 
 /* Class = "NSMenuItem"; title = "Centered on the mouse pointer"; ObjectID = "5ph-Lv-YmQ"; */
-"5ph-Lv-YmQ.title" = "Centrer sur le pointeur";
+"5ph-Lv-YmQ.title" = "Centrée sur le pointeur";
 
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "6cU-bP-M3U"; */
 "6cU-bP-M3U.title" = "Fermer";
@@ -122,7 +122,7 @@
 "XYj-CE-0ar.title" = "Une vitesse de rafraîchissement plus rapide rendrera l’image plus fluide si la zone à filtrer n’est pas trop grande. Une vitesse de rafraîchissement plus lente réduira la consomation d’énergie.";
 
 /* Class = "NSMenuItem"; title = "Content under the window"; ObjectID = "ZDe-67-KJY"; */
-"ZDe-67-KJY.title" = "Contenu sous la fenêtre.";
+"ZDe-67-KJY.title" = "Contenu sous la fenêtre";
 
 /* Class = "NSMenuItem"; title = "New"; ObjectID = "ZcQ-wi-cuP"; */
 "ZcQ-wi-cuP.title" = "Nouveau";
@@ -161,7 +161,7 @@
 "hz9-B4-Xy5.title" = "Services";
 
 /* Class = "NSMenuItem"; title = "Centered on the mouse pointer"; ObjectID = "kCa-3R-dzG"; */
-"kCa-3R-dzG.title" = "Centré sur le pointeur";
+"kCa-3R-dzG.title" = "Centrée sur le pointeur";
 
 /* Class = "NSMenuItem"; title = "Paste"; ObjectID = "l5f-hm-4EQ"; */
 "l5f-hm-4EQ.title" = "Coller";
