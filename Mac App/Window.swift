@@ -72,4 +72,9 @@ class Window: NSPanel {
 		super.mouseUp(theEvent)
 	}
 
+	override func orderOut(sender: AnyObject?) {
+		super.orderOut(sender)
+		close()
+	}
+
 }
