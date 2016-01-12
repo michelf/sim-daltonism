@@ -13,7 +13,7 @@
 /* Class = "UILabel"; text = "Anomalous green cones"; ObjectID = "53L-Zl-hPR"; */
 "53L-Zl-hPR.text" = "Cônes verts anormaux";
 
-/* Class = "UILabel"; text = "Sim Daltonism © 2005–2015 Michel Fortin\n\nIncludes an adaptation of the color_blind_sims Javascript function from the Color Laboratory\nCopyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network"; ObjectID = "AIv-Ok-oRj"; */
+/* Class = "UILabel"; text = "Sim Daltonism © 2005–2016 Michel Fortin\n\nIncludes an adaptation of the color_blind_sims Javascript function from the Color Laboratory\nCopyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network."; ObjectID = "AIv-Ok-oRj"; */
 "AIv-Ok-oRj.text" = "Sim Daltonism © 2005–2016 Michel Fortin
 
 Inclus une adaptation de la fonction Javascript color_blind_sims provenant du Color Laboratory. Copyright © 2000-2001 Matthew Wickline et le Human-Computer Interaction Resource Network.";
@@ -77,9 +77,6 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 /* Class = "UILabel"; text = "Website"; ObjectID = "dFl-xy-ceC"; */
 "dFl-xy-ceC.text" = "Site web";
 
-/* Class = "UITableViewSection"; headerTitle = "See also…"; ObjectID = "dUV-4F-bXy"; */
-"dUV-4F-bXy.headerTitle" = "Voir aussi…";
-
 /* Class = "UILabel"; text = "SIMULATED VISION"; ObjectID = "hSF-Zo-ucE"; */
 "hSF-Zo-ucE.text" = "VISION SIMULÉE";
 
@@ -97,9 +94,6 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 
 /* Class = "UITableViewSection"; headerTitle = "Red/Green Color Blindness"; ObjectID = "kOu-8J-OPC"; */
 "kOu-8J-OPC.headerTitle" = "Daltonisme rouge/vert";
-
-/* Class = "UIButton"; normalTitle = "Open in App Store"; ObjectID = "pl2-mT-gTo"; */
-"pl2-mT-gTo.normalTitle" = "Ouvrir dans l’App Store";
 
 /* Class = "UILabel"; text = "Partial Monochromacy"; ObjectID = "rgF-lB-8xY"; */
 "rgF-lB-8xY.text" = "Monochromatisme partiel";
