@@ -50,11 +50,11 @@
 }
 
 - (NSURL *)localizedWebsiteURL {
-	return [NSURL URLWithString:NSLocalizedString(@"https://michelf.ca/projects/sim-daltonism/", @"Sim Daltonism website URL")];
+	return [NSURL URLWithString:NSLocalizedStringFromTable(@"https://michelf.ca/projects/sim-daltonism/", @"URLs", @"Sim Daltonism website URL")];
 }
 
 - (NSString *)localizedFeedbackEmailAddress {
-	return NSLocalizedString(@"sim-daltonism@michelf.ca", @"Sim Daltonism feedback email");
+	return NSLocalizedStringFromTable(@"sim-daltonism@michelf.ca", @"URLs", @"Sim Daltonism feedback email");
 }
 
 @end

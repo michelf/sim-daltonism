@@ -10,6 +10,8 @@
 		1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */; };
 		1ED75E5D1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
 		1ED75E5E1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
+		1ED75E6C1C453A6500042CB7 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E6E1C453A6500042CB7 /* URLs.strings */; };
+		1ED75E711C453AA900042CB7 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E6F1C453AA900042CB7 /* URLs.strings */; };
 		1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */; };
 		1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252681C2742F300DB3B18 /* AboutController.m */; };
 		1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526A1C2742F300DB3B18 /* AppDelegate.m */; };
@@ -85,6 +87,8 @@
 		1ED75E501C44907B00042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1ED75E5C1C44942900042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SimDaltonismFilter.strings; sourceTree = "<group>"; };
 		1ED75E5F1C44964B00042CB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1ED75E6D1C453A6500042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/URLs.strings; sourceTree = "<group>"; };
+		1ED75E701C453AA900042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/URLs.strings; sourceTree = "<group>"; };
 		1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License 2.0.txt"; sourceTree = "<group>"; };
 		1EF252611C2742F300DB3B18 /* OpenGLShaderFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShaderFilter.h; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				1EF2527D1C2742F300DB3B18 /* Main.storyboard */,
 				1EF2527F1C2742F300DB3B18 /* Options.storyboard */,
 				1EF252831C2742F300DB3B18 /* InfoPlist.strings */,
+				1ED75E6E1C453A6500042CB7 /* URLs.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				1EF253241C274A0200DB3B18 /* Main.storyboard */,
 				1EF253261C274A0200DB3B18 /* Credits.html */,
 				1EF253291C274A0200DB3B18 /* InfoPlist.strings */,
+				1ED75E6F1C453AA900042CB7 /* URLs.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -516,6 +522,7 @@
 				1EF252D81C2742F300DB3B18 /* Launch.storyboard in Resources */,
 				1EF252DE1C2742F300DB3B18 /* FlashDark@2x.png in Resources */,
 				1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */,
+				1ED75E6C1C453A6500042CB7 /* URLs.strings in Resources */,
 				1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */,
 				1EF252C91C2742F300DB3B18 /* iTunesArtwork in Resources */,
 			);
@@ -543,6 +550,7 @@
 				1EF2538D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png in Resources */,
 				1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */,
 				1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */,
+				1ED75E711C453AA900042CB7 /* URLs.strings in Resources */,
 				1EF2538F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png in Resources */,
 				1EF253821C2849B600DB3B18 /* Controls.acorn in Resources */,
 				1ED75E5E1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */,
@@ -603,6 +611,22 @@
 				1ED75E5C1C44942900042CB7 /* fr */,
 			);
 			name = SimDaltonismFilter.strings;
+			sourceTree = "<group>";
+		};
+		1ED75E6E1C453A6500042CB7 /* URLs.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ED75E6D1C453A6500042CB7 /* fr */,
+			);
+			name = URLs.strings;
+			sourceTree = "<group>";
+		};
+		1ED75E6F1C453AA900042CB7 /* URLs.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ED75E701C453AA900042CB7 /* fr */,
+			);
+			name = URLs.strings;
 			sourceTree = "<group>";
 		};
 		1EF2527D1C2742F300DB3B18 /* Main.storyboard */ = {

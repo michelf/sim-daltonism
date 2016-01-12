@@ -49,8 +49,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 
 	@IBAction func sendFeedback(sender: AnyObject) {
-		let mailtoURL = NSURL(string: "mailto:sim-daltonism@michelf.ca")!
+		let mailtoURL = NSURL(string: "mailto:" + NSLocalizedString("sim-daltonism@michelf.ca", tableName: "URLs", comment: "Sim Daltonism feedback email"))!
 		NSWorkspace.sharedWorkspace().openURL(mailtoURL)
+	}
+
+	@IBAction func openWebsite(sender: AnyObject) {
+		let websiteURL = NSURL(string: NSLocalizedString("https://michelf.ca/projects/sim-daltonism/", tableName: "URLs", comment: "Sim Daltonism website URL"))!
+		NSWorkspace.sharedWorkspace().openURL(websiteURL)
 	}
 
 }
