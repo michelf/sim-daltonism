@@ -277,12 +277,25 @@ bail:
 - (void)displayImage:(UIImage *)image
 {
 	//Image size
-	size_t width = CGImageGetWidth(image.CGImage);
-	size_t height = CGImageGetHeight(image.CGImage);
+	size_t originalWidth = CGImageGetWidth(image.CGImage);
+	size_t originalHeight = CGImageGetHeight(image.CGImage);
 	size_t bitsPerComponent = 8;
-	size_t bytesPerRow = 4 * width;
+
+	// resize if image is too big for fitting into OpenGL context
+	size_t width = originalWidth;
+	size_t height = originalHeight;
+	size_t maxSize = 3000;
+	if (width > maxSize) {
+		height *= (CGFloat)maxSize / width;
+		width = maxSize;
+	}
+	if (height > maxSize) {
+		width *= (CGFloat)maxSize / height;
+		height = maxSize;
+	}
 
 	//Create context
+	size_t bytesPerRow = 4 * width;
 	void *imageData = malloc(height * bytesPerRow);
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	CGContextRef context = CGBitmapContextCreate(imageData, width, height, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
