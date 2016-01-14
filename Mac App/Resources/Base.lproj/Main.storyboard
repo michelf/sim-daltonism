@@ -211,7 +211,7 @@
                                         <menuItem title="Red-Green Confusion" enabled="NO" id="CSr-En-pWp">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Deuteranopy" tag="1" keyEquivalent="1" indentationLevel="1" id="mCv-p4-Fgj">
+                                        <menuItem title="Deuteranopia" tag="1" keyEquivalent="1" indentationLevel="1" id="mCv-p4-Fgj">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="H2h-lk-7au"/>
                                             </connections>
@@ -221,7 +221,7 @@
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="lde-5r-y9T"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Protanopy" tag="3" keyEquivalent="3" indentationLevel="1" id="bw7-fp-hDM">
+                                        <menuItem title="Protanopia" tag="3" keyEquivalent="3" indentationLevel="1" id="bw7-fp-hDM">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="KQS-DB-ySO"/>
                                             </connections>
@@ -234,7 +234,7 @@
                                         <menuItem title="Yellow-Blue Confusion" enabled="NO" id="vvc-tI-K64">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Tritanopy" tag="5" keyEquivalent="5" indentationLevel="1" id="cbB-Ot-7fb">
+                                        <menuItem title="Tritanopia" tag="5" keyEquivalent="5" indentationLevel="1" id="cbB-Ot-7fb">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="mKP-Cb-Ipi"/>
                                             </connections>
@@ -492,7 +492,7 @@
                         <menuItem title="Red-Green Confusion" enabled="NO" id="Azx-S0-TJc">
                             <modifierMask key="keyEquivalentModifierMask"/>
                         </menuItem>
-                        <menuItem title="Deuteranopy" tag="1" keyEquivalent="1" indentationLevel="1" id="a63-Dq-ZWl">
+                        <menuItem title="Deuteranopia" tag="1" keyEquivalent="1" indentationLevel="1" id="a63-Dq-ZWl">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="89M-tX-QdT"/>
                             </connections>
@@ -502,7 +502,7 @@
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="VSg-XI-cSs"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Protanopy" tag="3" keyEquivalent="3" indentationLevel="1" id="IB0-C5-dbg">
+                        <menuItem title="Protanopia" tag="3" keyEquivalent="3" indentationLevel="1" id="IB0-C5-dbg">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="JKL-oO-3pC"/>
                             </connections>
@@ -516,7 +516,7 @@
                         <menuItem title="Yellow-Blue Confusion" enabled="NO" id="0mY-bA-P8c">
                             <modifierMask key="keyEquivalentModifierMask"/>
                         </menuItem>
-                        <menuItem title="Tritanopy" tag="5" keyEquivalent="5" indentationLevel="1" id="zkp-kF-7Zj">
+                        <menuItem title="Tritanopia" tag="5" keyEquivalent="5" indentationLevel="1" id="zkp-kF-7Zj">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="1IT-Ei-vmR"/>
                             </connections>

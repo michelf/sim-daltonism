@@ -70,7 +70,7 @@
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "FuE-dz-Mjb"; */
 "FuE-dz-Mjb.title" = "Éditer";
 
-/* Class = "NSMenuItem"; title = "Protanopy"; ObjectID = "IB0-C5-dbg"; */
+/* Class = "NSMenuItem"; title = "Protanopia"; ObjectID = "IB0-C5-dbg"; */
 "IB0-C5-dbg.title" = "Protanopie";
 
 /* Class = "NSWindow"; title = "Sim Daltonism"; ObjectID = "IQv-IB-iLA"; */
@@ -133,19 +133,19 @@
 /* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "a9w-kS-xMx"; */
 "a9w-kS-xMx.title" = "Préférences…";
 
-/* Class = "NSMenuItem"; title = "Deuteranopy"; ObjectID = "a63-Dq-ZWl"; */
+/* Class = "NSMenuItem"; title = "Deuteranopia"; ObjectID = "a63-Dq-ZWl"; */
 "a63-Dq-ZWl.title" = "Deuteranopie";
 
 /* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
 "aUF-d1-5bR.title" = "Fenêtre";
 
-/* Class = "NSMenuItem"; title = "Protanopy"; ObjectID = "bw7-fp-hDM"; */
+/* Class = "NSMenuItem"; title = "Protanopia"; ObjectID = "bw7-fp-hDM"; */
 "bw7-fp-hDM.title" = "Protanopie";
 
 /* Class = "NSMenuItem"; title = "Partial Monochromacy"; ObjectID = "cWO-ZF-xPw"; */
 "cWO-ZF-xPw.title" = "Monochromatisme partiel";
 
-/* Class = "NSMenuItem"; title = "Tritanopy"; ObjectID = "cbB-Ot-7fb"; */
+/* Class = "NSMenuItem"; title = "Tritanopia"; ObjectID = "cbB-Ot-7fb"; */
 "cbB-Ot-7fb.title" = "Tritanopie";
 
 /* Class = "NSMenuItem"; title = "Delete"; ObjectID = "dsM-E9-NHA"; */
@@ -172,7 +172,7 @@
 /* Class = "NSMenuItem"; title = "Deuteranomaly"; ObjectID = "lUu-DQ-TMb"; */
 "lUu-DQ-TMb.title" = "Deuteranomalie";
 
-/* Class = "NSMenuItem"; title = "Deuteranopy"; ObjectID = "mCv-p4-Fgj"; */
+/* Class = "NSMenuItem"; title = "Deuteranopia"; ObjectID = "mCv-p4-Fgj"; */
 "mCv-p4-Fgj.title" = "Deuteranopie";
 
 /* Class = "NSMenuItem"; title = "Partial Monochromacy"; ObjectID = "pFL-0F-7Lj"; */
@@ -223,7 +223,7 @@
 /* Class = "NSTextFieldCell"; title = "Refresh Speed:"; ObjectID = "xkd-TQ-kuW"; */
 "xkd-TQ-kuW.title" = "Vitesse de rafraîchissement :";
 
-/* Class = "NSMenuItem"; title = "Tritanopy"; ObjectID = "zkp-kF-7Zj"; */
+/* Class = "NSMenuItem"; title = "Tritanopia"; ObjectID = "zkp-kF-7Zj"; */
 "zkp-kF-7Zj.title" = "Tritanopie";
 
 /* Class = "NSButton"; ibExternalAccessibilityDescription = "View Area"; ObjectID = "zww-Y2-pp3"; */
