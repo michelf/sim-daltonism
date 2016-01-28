@@ -25,8 +25,8 @@ two code bases to maintain, and it'd quickly become unmanageable.
 Copyright & License
 -------------------
 
-Sim Daltonism for iOS  
-© 2005-2015 Michel Fortin  
+Sim Daltonism  
+© 2005-2016 Michel Fortin  
 
 Includes the color blindness simulation algorithm `color_blind_sim`.  
 © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network
