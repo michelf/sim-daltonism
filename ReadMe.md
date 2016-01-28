@@ -2,9 +2,23 @@
 Sim Daltonism for iOS
 =====================
 
-Sim Daltonism is a color blindness simulator for iOS. It takes a live video
-feed from the camera and filters it in real time using a color blindness 
-simulation algorithm.
+Website: <https://michelf.ca/projects/sim-daltonism/>
+
+Sim Daltonism is a color blindness simulator for iOS and Mac. It takes a live 
+video feed from the camera on iOS and filters it in real time using a color 
+blindness simulation algorithm.
+
+![](https://michelf.ca/img/shots/sim-daltonism/ios/toys.jpg)
+![](https://michelf.ca/img/shots/sim-daltonism/ios/raspberries.jpg)
+
+The Mac version has a filter window that shows the content underneath the 
+window filtered.
+
+![](https://michelf.ca/img/shots/sim-daltonism/sim-d.en.4.jpg)
+
+
+Origins
+-------
 
 The application is almost a clone of [Red Stripe][] where the filter 
 algorithm has been replaced with an OpenGL adaptation of the `color_blind_sim`
