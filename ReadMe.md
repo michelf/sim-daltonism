@@ -16,10 +16,6 @@ window filtered.
 
 <img src="https://michelf.ca/img/shots/sim-daltonism/sim-d.en.4.jpg" width="640" height="400" />
 
-
-Origins
--------
-
 The application is almost a clone of [Red Stripe][] where the filter 
 algorithm has been replaced with an OpenGL adaptation of the `color_blind_sim`
 javascript function found on the [Color Laboratory][]. The video capture and 
@@ -30,8 +26,7 @@ provided by Apple.
 [Color Laboratory]: http://colorlab.wickline.org/colorblind/colorlab/
 [RosyWriter]: https://developer.apple.com/library/ios/samplecode/RosyWriter/Introduction/Intro.html
 
-This application shares a lot with my other app Red Stripe. I welcome 
-contributions. Note that contribution accepted in Sim Daltonism will often 
+This application shares a lot with my other app Red Stripe. Note that contribution accepted in Sim Daltonism will often 
 land into Red Stripe too, which is closed source.
 
 
