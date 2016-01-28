@@ -1,6 +1,6 @@
 
-Sim Daltonism for iOS
-=====================
+Sim Daltonism for Mac and iOS
+===============================
 
 Website: <https://michelf.ca/projects/sim-daltonism/>
 
@@ -31,9 +31,8 @@ provided by Apple.
 [RosyWriter]: https://developer.apple.com/library/ios/samplecode/RosyWriter/Introduction/Intro.html
 
 This application shares a lot with my other app Red Stripe. I welcome 
-contributions. I also reserve the right to use any contribution accepted in 
-Sim Daltonism in Red Stripe too, which is closed source. Otherwise I'd have
-two code bases to maintain, and it'd quickly become unmanageable.
+contributions. Note that contribution accepted in Sim Daltonism will often 
+land into Red Stripe too, which is closed source.
 
 
 Copyright & License
