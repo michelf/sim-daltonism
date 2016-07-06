@@ -61,6 +61,10 @@ class Window: NSPanel {
 		if dragging {
 			dragging = false
 			NotificationCenter.default.post(name: Window.didEndDragging, object: self)
+		} else if !theEvent.modifierFlags.contains(.command) {
+			// make sure the app activates if when clicking on the title bar
+			// without dragging.
+			NSApp.activateIgnoringOtherApps(true)
 		}
 	}
 
