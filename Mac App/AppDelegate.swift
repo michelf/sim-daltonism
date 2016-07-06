@@ -21,41 +21,41 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet var filterWindowController: NSWindowController!
 	@IBOutlet var aboutItem: NSMenuItem!
 
-	func applicationWillFinishLaunching(notification: NSNotification) {
+	func applicationWillFinishLaunching(_ notification: Notification) {
 		SimDaltonismFilter.registerDefaults()
 	}
 
-	@IBAction func adoptSpeedSetting(sender: NSMenuItem) {
+	@IBAction func adoptSpeedSetting(_ sender: NSMenuItem) {
 		guard let speed = RefreshSpeed(rawValue: sender.tag) else { return }
 		refreshSpeedDefault = speed
 	}
 
-	@IBAction func adoptViewAreaSetting(sender: NSMenuItem) {
+	@IBAction func adoptViewAreaSetting(_ sender: NSMenuItem) {
 		guard let area = ViewArea(rawValue: sender.tag) else { return }
 		viewAreaDefault = area
 	}
-
-	override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
-		switch menuItem.action {
-		case "adoptSpeedSetting:":
+	
+	override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+		switch menuItem.action! {
+		case #selector(adoptSpeedSetting(_:)):
 			menuItem.state = refreshSpeedDefault.rawValue == menuItem.tag ? NSOnState : NSOffState
 			return true
-		case "adoptViewAreaSetting:":
+		case #selector(adoptViewAreaSetting(_:)):
 			menuItem.state = viewAreaDefault.rawValue == menuItem.tag ? NSOnState : NSOffState
 			return true
 		default:
-			return self.respondsToSelector(menuItem.action)
+			return self.responds(to: menuItem.action)
 		}
 	}
 
-	@IBAction func sendFeedback(sender: AnyObject) {
-		let mailtoURL = NSURL(string: "mailto:" + NSLocalizedString("sim-daltonism@michelf.ca", tableName: "URLs", comment: "Sim Daltonism feedback email"))!
-		NSWorkspace.sharedWorkspace().openURL(mailtoURL)
+	@IBAction func sendFeedback(_ sender: AnyObject) {
+		let mailtoURL = URL(string: "mailto:" + NSLocalizedString("sim-daltonism@michelf.ca", tableName: "URLs", comment: "Sim Daltonism feedback email"))!
+		NSWorkspace.shared().open(mailtoURL)
 	}
 
-	@IBAction func openWebsite(sender: AnyObject) {
-		let websiteURL = NSURL(string: NSLocalizedString("https://michelf.ca/projects/sim-daltonism/", tableName: "URLs", comment: "Sim Daltonism website URL"))!
-		NSWorkspace.sharedWorkspace().openURL(websiteURL)
+	@IBAction func openWebsite(_ sender: AnyObject) {
+		let websiteURL = URL(string: NSLocalizedString("https://michelf.ca/projects/sim-daltonism/", tableName: "URLs", comment: "Sim Daltonism website URL"))!
+		NSWorkspace.shared().open(websiteURL)
 	}
 
 }

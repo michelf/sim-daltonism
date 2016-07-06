@@ -16,54 +16,54 @@
 import Foundation
 
 enum RefreshSpeed: Int {
-	case Slow = -1
-	case Normal = 0
-	case Fast = 1
+	case slow = -1
+	case normal = 0
+	case fast = 1
 
 	var image: NSImage {
 		switch self {
-		case .Slow: return NSImage(named: "SlowFrameRateTemplate")!
-		case .Normal: return NSImage(named: "NormalFrameRateTemplate")!
-		case .Fast: return NSImage(named: "FastFrameRateTemplate")!
+		case .slow: return NSImage(named: "SlowFrameRateTemplate")!
+		case .normal: return NSImage(named: "NormalFrameRateTemplate")!
+		case .fast: return NSImage(named: "FastFrameRateTemplate")!
 		}
 	}
 
-	var updateInterval: NSTimeInterval {
+	var updateInterval: TimeInterval {
 		switch self {
-		case .Slow:   return 0.1
-		case .Normal: return 0.05
-		case .Fast:   return 0.02
+		case .slow:   return 0.1
+		case .normal: return 0.05
+		case .fast:   return 0.02
 		}
 	}
 }
 
 var refreshSpeedDefault: RefreshSpeed {
 	get {
-		return RefreshSpeed(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("RefreshSpeed")) ?? .Normal
+		return RefreshSpeed(rawValue: UserDefaults.standard.integer(forKey: "RefreshSpeed")) ?? .normal
 	}
 	set (speed) {
-		NSUserDefaults.standardUserDefaults().setInteger(speed.rawValue, forKey: "RefreshSpeed")
+		UserDefaults.standard.set(speed.rawValue, forKey: "RefreshSpeed")
 	}
 }
 
 enum ViewArea: Int {
-	case UnderWindow = 0
-	case MousePointer = 1
+	case underWindow = 0
+	case mousePointer = 1
 
 	var image: NSImage {
 		switch self {
-		case .UnderWindow: return NSImage(named: "FilteredTransparencyTemplate")!
-		case .MousePointer: return NSImage(named: "FilteredMouseAreaTemplate")!
+		case .underWindow: return NSImage(named: "FilteredTransparencyTemplate")!
+		case .mousePointer: return NSImage(named: "FilteredMouseAreaTemplate")!
 		}
 	}
 }
 
 var viewAreaDefault: ViewArea {
 	get {
-		return ViewArea(rawValue: NSUserDefaults.standardUserDefaults().integerForKey("ViewArea")) ?? .UnderWindow
+		return ViewArea(rawValue: UserDefaults.standard.integer(forKey: "ViewArea")) ?? .underWindow
 	}
 	set (area) {
-		NSUserDefaults.standardUserDefaults().setInteger(area.rawValue, forKey: "ViewArea")
+		UserDefaults.standard.set(area.rawValue, forKey: "ViewArea")
 	}
 }
 

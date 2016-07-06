@@ -19,9 +19,9 @@ private var globalFilterWindowCount = 0
 
 class WindowController: NSWindowController, NSWindowDelegate {
 
-	var visionType = NSUserDefaults.standardUserDefaults().integerForKey(SimVisionTypeKey) {
+	var visionType = UserDefaults.standard.integer(forKey: SimVisionTypeKey) {
 		didSet {
-			NSUserDefaults.standardUserDefaults().setInteger(visionType, forKey: SimVisionTypeKey)
+			UserDefaults.standard.set(visionType, forKey: SimVisionTypeKey)
 			applyVisionType()
 		}
 	}
@@ -37,13 +37,13 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		// cannot set from IB:
 		// Note: window level is set to 1 above Red Stripe's window level
 		// so you can use the two together.
-		window?.level = Int(CGWindowLevelForKey(CGWindowLevelKey.AssistiveTechHighWindowLevelKey) + 1)
+		window?.level = Int(CGWindowLevelForKey(CGWindowLevelKey.assistiveTechHighWindow) + 1)
 		window?.hidesOnDeactivate = false
-		window?.standardWindowButton(.ZoomButton)?.enabled = false
-		window?.movable = false
+		window?.standardWindowButton(.zoomButton)?.isEnabled = false
+		window?.isMovable = false
 
-		let accessory = NSStoryboard(name: "Main", bundle: nil).instantiateControllerWithIdentifier("WindowControls") as! NSTitlebarAccessoryViewController
-		accessory.layoutAttribute = .Right
+		let accessory = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowControls") as! NSTitlebarAccessoryViewController
+		accessory.layoutAttribute = .right
 		window?.addTitlebarAccessoryViewController(accessory)
 
 		applyVisionType()
@@ -51,23 +51,23 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		globalFilterWindowCount += 1
     }
 
-	func windowWillClose(notification: NSNotification) {
+	func windowWillClose(_ notification: Notification) {
 		// quit app when last window closes
 		globalFilterWindowCount -= 1
 		if globalFilterWindowCount <= 0 {
-			dispatch_async(dispatch_get_main_queue()) {
-				NSApplication.sharedApplication().terminate(self)
+			DispatchQueue.main.async {
+				NSApplication.shared().terminate(self)
 			}
 		}
 	}
 
-	@IBAction func adoptVisionTypeSetting(sender: NSMenuItem) {
+	@IBAction func adoptVisionTypeSetting(_ sender: NSMenuItem) {
 		visionType = sender.tag
 	}
 
-	override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
-		switch menuItem.action {
-		case "adoptVisionTypeSetting:":
+	override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+		switch menuItem.action! {
+		case #selector(adoptVisionTypeSetting(_:)):
 			menuItem.state = visionType == menuItem.tag ? NSOnState : NSOffState
 			return true
 		default:

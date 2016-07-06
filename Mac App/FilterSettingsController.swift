@@ -22,11 +22,11 @@ class FilterSettingsController: NSTitlebarAccessoryViewController {
 	@IBOutlet var viewAreaButton: NSButton!
 
 	override func awakeFromNib() {
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: NSUserDefaultsDidChangeNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: UserDefaults.didChangeNotification, object: nil)
 	}
 
 	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
+		NotificationCenter.default.removeObserver(self)
 	}
 
 	@objc func refresh() {

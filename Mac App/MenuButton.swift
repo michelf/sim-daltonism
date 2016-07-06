@@ -23,32 +23,32 @@ class MenuButton : NSButton {
 	}
 
 	override func awakeFromNib() {
-		let trackingArea = NSTrackingArea(rect: self.bounds, options: [.MouseEnteredAndExited, .ActiveAlways], owner: self, userInfo: nil)
+		let trackingArea = NSTrackingArea(rect: self.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
 		addTrackingArea(trackingArea)
 	}
 
-	override func mouseEntered(theEvent: NSEvent) {
+	override func mouseEntered(_ theEvent: NSEvent) {
 		alphaValue = 1.0
 		super.mouseEntered(theEvent)
 	}
-	override func mouseExited(theEvent: NSEvent) {
+	override func mouseExited(_ theEvent: NSEvent) {
 		alphaValue = 0.7
 		super.mouseExited(theEvent)
 	}
 
-	override func mouseDown(theEvent: NSEvent) {
+	override func mouseDown(_ theEvent: NSEvent) {
 		let bounds = self.bounds
-		guard bounds.contains(convertPoint(theEvent.locationInWindow, fromView: nil)) else {
+		guard bounds.contains(convert(theEvent.locationInWindow, from: nil)) else {
 			return super.mouseDown(theEvent)
 		}
 
 		if let menu = self.menu {
 			let location = NSPoint(x: bounds.minX - 16, y: bounds.maxY + 3)
-			menu.font = NSFont.systemFontOfSize(12)
-			menu.popUpMenuPositioningItem(nil, atLocation: location, inView: self)
+			menu.font = NSFont.systemFont(ofSize: 12)
+			menu.popUp(positioning: nil, at: location, in: self)
 		}
 	}
-	override func mouseUp(theEvent: NSEvent) {
+	override func mouseUp(_ theEvent: NSEvent) {
 	}
 
 }

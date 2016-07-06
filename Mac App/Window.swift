@@ -15,21 +15,21 @@
 
 import Cocoa
 
-let WindowWillStartDraggingNotification = "WindowWillStartDraggingNotification"
-let WindowDidEndDraggingNotification = "WindowDidEndDraggingNotification"
-
 class Window: NSPanel {
+	
+	static let willStartDragging = Notification.Name("WindowWillStartDraggingNotification")
+	static let didEndDragging = Notification.Name("WindowDidEndDraggingNotification")
 
 	var initialLocation = NSMakePoint(0, 0)
 	var dragging = false
 
-	override func mouseDown(theEvent: NSEvent) {
+	override func mouseDown(_ theEvent: NSEvent) {
 		initialLocation = theEvent.locationInWindow
 		var tracking = true
 		while tracking {
-			let theEvent = nextEventMatchingMask(Int(NSEventMask.LeftMouseUpMask.union(.LeftMouseDraggedMask).rawValue))!
+			let theEvent = nextEvent(matching: NSEventMask(rawValue: NSEventMask.leftMouseUp.union(.leftMouseDragged).rawValue))!
 			switch theEvent.type {
-				case .LeftMouseDragged:
+				case .leftMouseDragged:
 					let windowFrame = frame
 					var newOrigin = windowFrame.origin
 
@@ -41,7 +41,7 @@ class Window: NSPanel {
 
 					if !dragging {
 						dragging = true
-						NSNotificationCenter.defaultCenter().postNotificationName(WindowWillStartDraggingNotification, object: self)
+						NotificationCenter.default.post(name: Window.willStartDragging, object: self)
 					}
 
 					// Move window to the new location
@@ -49,7 +49,7 @@ class Window: NSPanel {
 
 					break;
 
-				case .LeftMouseUp:
+				case .leftMouseUp:
 					tracking = false
 					break;
 				default:
@@ -60,19 +60,19 @@ class Window: NSPanel {
 		
 		if dragging {
 			dragging = false
-			NSNotificationCenter.defaultCenter().postNotificationName(WindowDidEndDraggingNotification, object: self)
+			NotificationCenter.default.post(name: Window.didEndDragging, object: self)
 		}
 	}
 
-	override func mouseUp(theEvent: NSEvent) {
+	override func mouseUp(_ theEvent: NSEvent) {
 		if dragging {
 			dragging = false
-			NSNotificationCenter.defaultCenter().postNotificationName(WindowDidEndDraggingNotification, object: self)
+			NotificationCenter.default.post(name: Window.didEndDragging, object: self)
 		}
 		super.mouseUp(theEvent)
 	}
 
-	override func orderOut(sender: AnyObject?) {
+	override func orderOut(_ sender: AnyObject?) {
 		super.orderOut(sender)
 		close()
 	}

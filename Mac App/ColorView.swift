@@ -23,9 +23,9 @@ class ColorView: NSView {
 		}
 	}
 
-	override var opaque: Bool { get { return color.alphaComponent < 1.0; } }
+	override var isOpaque: Bool { get { return color.alphaComponent < 1.0; } }
 
-	override func drawRect(dirtyRect: NSRect) {
+	override func draw(_ dirtyRect: NSRect) {
 		color.set()
 		NSRectFill(dirtyRect);
 	}

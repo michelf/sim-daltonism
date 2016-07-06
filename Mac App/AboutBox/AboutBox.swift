@@ -16,12 +16,12 @@
 import Cocoa
 
 class AboutBoxBackground: NSView {
-	override var opaque: Bool { return true }
+	override var isOpaque: Bool { return true }
 	override var mouseDownCanMoveWindow: Bool { return true }
-	override func drawRect(dirtyRect: NSRect) {
+	override func draw(_ dirtyRect: NSRect) {
 		let rect = bounds
-		let gradient = NSGradient(startingColor: NSColor.whiteColor(), endingColor: NSColor(calibratedWhite: 0.9, alpha: 1.0))
-		gradient?.drawFromPoint(NSPoint(x: 0, y: rect.maxY), toPoint: NSPoint(x: 0, y: rect.minY), options: 0)
+		let gradient = NSGradient(starting: NSColor.white(), ending: NSColor(calibratedWhite: 0.9, alpha: 1.0))
+		gradient?.draw(from: NSPoint(x: 0, y: rect.maxY), to: NSPoint(x: 0, y: rect.minY), options: NSGradientDrawingOptions(rawValue: UInt(0)))
 	}
 }
 
@@ -36,14 +36,14 @@ class AboutBoxScrollView: NSScrollView {
 			// Fix for an issue where the view offset is changed when setting scroller style
 			let point = contentView.bounds.origin
 			super.scrollerStyle = newValue
-			documentView?.scrollPoint(point)
+			documentView?.scroll(point)
 		}
 	}
 }
 
 extension NSApplication {
 
-	@IBAction func orderFrontAboutBox(sender: AnyObject) {
+	@IBAction func orderFrontAboutBox(_ sender: AnyObject) {
 		AboutBoxController.sharedAboutBoxController.showWindow(sender)
 	}
 
@@ -56,7 +56,7 @@ class AboutBoxController: NSWindowController {
 	@IBOutlet var iconView: NSImageView!
 	@IBOutlet var textView: NSTextView!
 
-	@NSCopying private var templateText: NSAttributedString? {
+	@NSCopying private var templateText: AttributedString? {
 		didSet { updateText() }
 	}
 
@@ -65,9 +65,9 @@ class AboutBoxController: NSWindowController {
 	}
 
 	override func windowDidLoad() {
-		window!.styleMask |= NSFullSizeContentViewWindowMask
+		window!.styleMask.formUnion(NSFullSizeContentViewWindowMask)
 		window!.titlebarAppearsTransparent = true
-		window!.movableByWindowBackground = true
+		window!.isMovableByWindowBackground = true
 
 		templateText = textView.attributedString()
 
@@ -95,7 +95,7 @@ class AboutBoxController: NSWindowController {
 	}
 
 	var appName: String {
-		let mainBundle = NSBundle.mainBundle()
+		let mainBundle = Bundle.main
 		if let name = mainBundle.objectForInfoDictionaryKey(kCFBundleNameKey as String) as? String {
 			return name
 		} else {
@@ -104,7 +104,7 @@ class AboutBoxController: NSWindowController {
 	}
 
 	var appVersionWithBuildNumber: String {
-		let mainBundle = NSBundle.mainBundle()
+		let mainBundle = Bundle.main
 		let version = mainBundle.objectForInfoDictionaryKey("CFBundleShortVersionString") as? String ?? "?"
 		let build = mainBundle.objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
 
@@ -120,42 +120,42 @@ class AboutBoxController: NSWindowController {
 	}
 
 	var appCopyright: String {
-		return NSBundle.mainBundle().objectForInfoDictionaryKey("NSHumanReadableCopyright") as? String ?? ""
+		return Bundle.main.objectForInfoDictionaryKey("NSHumanReadableCopyright") as? String ?? ""
 	}
 
-	var appCredits: NSAttributedString {
+	var appCredits: AttributedString {
 		for ext in ["html", "rtf", "rtfd"] {
-			if let creditsURL = NSBundle.mainBundle().URLForResource("Credits", withExtension: ext),
-			   let credits = NSAttributedString(URL: creditsURL, documentAttributes: nil) {
+			if let creditsURL = Bundle.main.urlForResource("Credits", withExtension: ext) {
+				let credits = try! AttributedString(url: creditsURL, options: [:], documentAttributes: nil)
 				return credits
 			}
 		}
-		return NSAttributedString() // credits not found
+		return AttributedString() // credits not found
 	}
 
-	var standardTextContent: NSAttributedString {
-		guard let templateText = self.templateText else { return NSAttributedString() }
+	var standardTextContent: AttributedString {
+		guard let templateText = self.templateText else { return AttributedString() }
 
 		let textString = templateText.string as NSString
-		let appRange = textString.rangeOfString("App")
-		let versionRange = textString.rangeOfString("Version")
-		let copyrightRange = textString.rangeOfString("Copyright")
-		let creditsRange = textString.rangeOfString("Credits")
+		let appRange = textString.range(of: "App")
+		let versionRange = textString.range(of: "Version")
+		let copyrightRange = textString.range(of: "Copyright")
+		let creditsRange = textString.range(of: "Credits")
 
 		let finalText = templateText.mutableCopy() as! NSMutableAttributedString
 
 		// Replace from last to first so ranges stay valid after each replacement
-		finalText.replaceCharactersInRange(creditsRange, withAttributedString: appCredits)
-		finalText.replaceCharactersInRange(copyrightRange, withString: appCopyright)
-		finalText.replaceCharactersInRange(versionRange, withString: appVersion)
-		finalText.replaceCharactersInRange(appRange, withString: appName)
+		finalText.replaceCharacters(in: creditsRange, with: appCredits)
+		finalText.replaceCharacters(in: copyrightRange, with: appCopyright)
+		finalText.replaceCharacters(in: versionRange, with: appVersion)
+		finalText.replaceCharacters(in: appRange, with: appName)
 
 		return finalText
 	}
 
-	override func showWindow(sender: AnyObject?) {
-		if !window!.visible {
-			textView.scrollPoint(NSZeroPoint)
+	override func showWindow(_ sender: AnyObject?) {
+		if !window!.isVisible {
+			textView.scroll(NSZeroPoint)
 			window!.center()
 		}
 		super.showWindow(sender)
