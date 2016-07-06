@@ -41,6 +41,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window?.hidesOnDeactivate = false
 		window?.standardWindowButton(.zoomButton)?.isEnabled = false
 		window?.isMovable = false
+		window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+		window?.styleMask.formUnion(.nonactivatingPanel)
 
 		let accessory = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowControls") as! NSTitlebarAccessoryViewController
 		accessory.layoutAttribute = .right
