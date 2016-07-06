@@ -126,15 +126,16 @@ class FilteredView: OpenGLPixelBufferView {
 
 	private var counter: Int = 0
 	@objc func recaptureIfNeeded() {
+		let viewBounds = self.bounds
 		let mouseLocation = NSEvent.mouseLocation()
 		let mouseLocationInWindow = self.window!.convertFromScreen(NSRect(origin: mouseLocation, size: NSMakeSize(1, 1))).origin
 		let mouseLocationInView = self.convert(mouseLocationInWindow, from: nil)
-		let mouseInView = self.bounds.contains(mouseLocationInView)
-		if mouseInView {
-			self.window?.ignoresMouseEvents = mouseInView
-		} else {
-			self.window?.ignoresMouseEvents = mouseInView
-		}
+		let mouseInView = viewBounds.contains(mouseLocationInView)
+		let resizeCornerSize = CGFloat(8)
+		self.window?.ignoresMouseEvents = mouseInView && (
+			viewBounds.offsetBy(dx: 0, dy: resizeCornerSize).contains(mouseLocationInView) ||
+			viewBounds.insetBy(dx: resizeCornerSize, dy: 0).contains(mouseLocationInView))
+
 		// Update once every 5 fire or whenever the mouse moves.
 		counter += 1
 		if counter > 5 || lastMouseLocation != mouseLocation {
