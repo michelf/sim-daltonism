@@ -23,7 +23,7 @@ class Window: NSPanel {
 	var initialLocation = NSMakePoint(0, 0)
 	var dragging = false
 
-	override func mouseDown(_ theEvent: NSEvent) {
+	override func mouseDown(with theEvent: NSEvent) {
 		initialLocation = theEvent.locationInWindow
 		var tracking = true
 		while tracking {
@@ -64,19 +64,19 @@ class Window: NSPanel {
 		} else if !theEvent.modifierFlags.contains(.command) {
 			// make sure the app activates if when clicking on the title bar
 			// without dragging.
-			NSApp.activateIgnoringOtherApps(true)
+			NSApp.activate(ignoringOtherApps: true)
 		}
 	}
 
-	override func mouseUp(_ theEvent: NSEvent) {
+	override func mouseUp(with theEvent: NSEvent) {
 		if dragging {
 			dragging = false
 			NotificationCenter.default.post(name: Window.didEndDragging, object: self)
 		}
-		super.mouseUp(theEvent)
+		super.mouseUp(with: theEvent)
 	}
 
-	override func orderOut(_ sender: AnyObject?) {
+	override func orderOut(_ sender: Any?) {
 		super.orderOut(sender)
 		close()
 	}

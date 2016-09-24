@@ -124,7 +124,7 @@ class FilteredView: OpenGLPixelBufferView {
 		}
 	}
 
-	private var counter: Int = 0
+	fileprivate var counter: Int = 0
 	@objc func recaptureIfNeeded() {
 		let viewBounds = self.bounds
 		let mouseLocation = NSEvent.mouseLocation()
@@ -160,9 +160,9 @@ class FilteredView: OpenGLPixelBufferView {
 	override var isOpaque: Bool { get { return false } }
 	override var wantsDefaultClipping: Bool { get { return false } }
 
-	private var viewData: CFMutableData?
-	private var viewDataSize: size_t = 0
-	private var imageData: CGDataProvider?
+	fileprivate var viewData: CFMutableData?
+	fileprivate var viewDataSize: size_t = 0
+	fileprivate var imageData: CGDataProvider?
 
 	func getViewAreaRect() -> CGRect {
 		let viewBounds = self.bounds
@@ -173,7 +173,7 @@ class FilteredView: OpenGLPixelBufferView {
 			// if mouse is inside window, fall through .UnderWindow instead
 			if !viewRect.contains(mouseLocation) {
 				viewRect.origin = mouseLocation
-				viewRect.offsetInPlace(dx: -round(viewRect.width/2), dy: -round(viewRect.height/2))
+				viewRect = viewRect.offsetBy(dx: -round(viewRect.width/2), dy: -round(viewRect.height/2))
 				return viewRect
 			}
 			fallthrough
@@ -205,7 +205,7 @@ class FilteredView: OpenGLPixelBufferView {
 
 		let windowID = CGWindowID(windowNumber)
 
-		DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).async {
+		DispatchQueue.global(qos: .default).async {
 			self.redrawCaptureInBackground(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
 		}
 	}
@@ -233,7 +233,7 @@ class FilteredView: OpenGLPixelBufferView {
 
 }
 
-private func startValueFor(center: Int, screenSize: Int, viewSize: Int) -> Int {
+fileprivate func startValueFor(_ center: Int, screenSize: Int, viewSize: Int) -> Int {
 	var startValue = center - viewSize / 2
 	if viewSize >= screenSize {
 		startValue = screenSize - viewSize / 2
@@ -246,7 +246,7 @@ private func startValueFor(center: Int, screenSize: Int, viewSize: Int) -> Int {
 	return startValue
 }
 
-private func screenForDirectDisplayID(_ display: CGDirectDisplayID) -> NSScreen? {
+fileprivate func screenForDirectDisplayID(_ display: CGDirectDisplayID) -> NSScreen? {
 	for screen in NSScreen.screens() ?? [] {
 		if (screen.deviceDescription["NSScreenNumber"] as! NSNumber).uint32Value == display {
 			return screen

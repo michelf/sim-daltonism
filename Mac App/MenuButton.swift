@@ -27,19 +27,19 @@ class MenuButton : NSButton {
 		addTrackingArea(trackingArea)
 	}
 
-	override func mouseEntered(_ theEvent: NSEvent) {
+	override func mouseEntered(with theEvent: NSEvent) {
 		alphaValue = 1.0
-		super.mouseEntered(theEvent)
+		super.mouseEntered(with: theEvent)
 	}
-	override func mouseExited(_ theEvent: NSEvent) {
+	override func mouseExited(with theEvent: NSEvent) {
 		alphaValue = 0.7
-		super.mouseExited(theEvent)
+		super.mouseExited(with: theEvent)
 	}
 
-	override func mouseDown(_ theEvent: NSEvent) {
+	override func mouseDown(with theEvent: NSEvent) {
 		let bounds = self.bounds
 		guard bounds.contains(convert(theEvent.locationInWindow, from: nil)) else {
-			return super.mouseDown(theEvent)
+			return super.mouseDown(with: theEvent)
 		}
 
 		if let menu = self.menu {
@@ -48,7 +48,7 @@ class MenuButton : NSButton {
 			menu.popUp(positioning: nil, at: location, in: self)
 		}
 	}
-	override func mouseUp(_ theEvent: NSEvent) {
+	override func mouseUp(with theEvent: NSEvent) {
 	}
 
 }

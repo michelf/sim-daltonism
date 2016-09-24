@@ -26,7 +26,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		}
 	}
 
-	private func applyVisionType() {
+	fileprivate func applyVisionType() {
 		window?.title = SimVisionTypeName(visionType)
 		((window!.contentViewController! as! ViewController).filteredView.filter as! SimDaltonismFilter).visionType = visionType
 	}

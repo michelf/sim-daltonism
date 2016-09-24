@@ -20,7 +20,7 @@ class AboutBoxBackground: NSView {
 	override var mouseDownCanMoveWindow: Bool { return true }
 	override func draw(_ dirtyRect: NSRect) {
 		let rect = bounds
-		let gradient = NSGradient(starting: NSColor.white(), ending: NSColor(calibratedWhite: 0.9, alpha: 1.0))
+		let gradient = NSGradient(starting: NSColor.white, ending: NSColor(calibratedWhite: 0.9, alpha: 1.0))
 		gradient?.draw(from: NSPoint(x: 0, y: rect.maxY), to: NSPoint(x: 0, y: rect.minY), options: NSGradientDrawingOptions(rawValue: UInt(0)))
 	}
 }
@@ -56,7 +56,7 @@ class AboutBoxController: NSWindowController {
 	@IBOutlet var iconView: NSImageView!
 	@IBOutlet var textView: NSTextView!
 
-	@NSCopying private var templateText: AttributedString? {
+	@NSCopying fileprivate var templateText: NSAttributedString? {
 		didSet { updateText() }
 	}
 
@@ -80,7 +80,7 @@ class AboutBoxController: NSWindowController {
 		let addedHeight = bounds.size.height - frame.maxY
 		inset.width += addedWidth
 		inset.height += addedHeight
-		frame.insetInPlace(dx: -addedWidth, dy: 0)
+		frame = frame.insetBy(dx: -addedWidth, dy: 0)
 		frame.size.height = bounds.size.height
 		frame.origin.y = bounds.origin.y
 		textView.enclosingScrollView!.frame = frame
@@ -96,19 +96,19 @@ class AboutBoxController: NSWindowController {
 
 	var appName: String {
 		let mainBundle = Bundle.main
-		if let name = mainBundle.objectForInfoDictionaryKey(kCFBundleNameKey as String) as? String {
+		if let name = mainBundle.object(forInfoDictionaryKey: kCFBundleNameKey as String) as? String {
 			return name
 		} else {
-			return mainBundle.bundleURL.lastPathComponent!
+			return mainBundle.bundleURL.lastPathComponent
 		}
 	}
 
 	var appVersionWithBuildNumber: String {
 		let mainBundle = Bundle.main
-		let version = mainBundle.objectForInfoDictionaryKey("CFBundleShortVersionString") as? String ?? "?"
-		let build = mainBundle.objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
+		let version = mainBundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "?"
+		let build = mainBundle.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
 
-		if let build = build where build != version {
+		if let build = build , build != version {
 			return "\(version) (\(build))"
 		} else {
 			return version
@@ -120,21 +120,21 @@ class AboutBoxController: NSWindowController {
 	}
 
 	var appCopyright: String {
-		return Bundle.main.objectForInfoDictionaryKey("NSHumanReadableCopyright") as? String ?? ""
+		return Bundle.main.object(forInfoDictionaryKey: "NSHumanReadableCopyright") as? String ?? ""
 	}
 
-	var appCredits: AttributedString {
+	var appCredits: NSAttributedString {
 		for ext in ["html", "rtf", "rtfd"] {
-			if let creditsURL = Bundle.main.urlForResource("Credits", withExtension: ext) {
-				let credits = try! AttributedString(url: creditsURL, options: [:], documentAttributes: nil)
+			if let creditsURL = Bundle.main.url(forResource: "Credits", withExtension: ext) {
+				let credits = try! NSAttributedString(url: creditsURL, options: [:], documentAttributes: nil)
 				return credits
 			}
 		}
-		return AttributedString() // credits not found
+		return NSAttributedString() // credits not found
 	}
 
-	var standardTextContent: AttributedString {
-		guard let templateText = self.templateText else { return AttributedString() }
+	var standardTextContent: NSAttributedString {
+		guard let templateText = self.templateText else { return NSAttributedString() }
 
 		let textString = templateText.string as NSString
 		let appRange = textString.range(of: "App")
@@ -153,7 +153,7 @@ class AboutBoxController: NSWindowController {
 		return finalText
 	}
 
-	override func showWindow(_ sender: AnyObject?) {
+	override func showWindow(_ sender: Any?) {
 		if !window!.isVisible {
 			textView.scroll(NSZeroPoint)
 			window!.center()
