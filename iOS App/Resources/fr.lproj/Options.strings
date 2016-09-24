@@ -62,7 +62,7 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 /* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "UN5-pc-Szy"; */
 "UN5-pc-Szy.normalTitle" = "Choisir";
 
-/* Class = "UILabel"; text = "No green cone"; ObjectID = "XDI-Ny-fnp"; */
+/* Class = "UILabel"; text = "No green cones"; ObjectID = "XDI-Ny-fnp"; */
 "XDI-Ny-fnp.text" = "Aucun cône vert";
 
 /* Class = "UILabel"; text = "Send Feedback"; ObjectID = "aYH-t4-fuh"; */

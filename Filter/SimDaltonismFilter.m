@@ -378,13 +378,13 @@ NSString *SimVisionTypeDesc(NSInteger visionType) {
 		case NormalVision:
 			return NSLocalizedStringFromTable(@"Trichromatic: red, green, and blue cones", @"SimDaltonismFilter", @"Description for Normal Vision");
 		case Deuteranopia:
-			return NSLocalizedStringFromTable(@"No red cones", @"SimDaltonismFilter", @"Description for Deuteranopia");
+			return NSLocalizedStringFromTable(@"No green cones", @"SimDaltonismFilter", @"Description for Deuteranopia");
 		case Deuteranomaly:
-			return NSLocalizedStringFromTable(@"Anomalous red cones", @"SimDaltonismFilter", @"Description for Deuteranomaly");
+			return NSLocalizedStringFromTable(@"Anomalous green cones", @"SimDaltonismFilter", @"Description for Deuteranomaly");
 		case Protanopia:
-			return NSLocalizedStringFromTable(@"No green cone", @"SimDaltonismFilter", @"Description for Protanopia");
+			return NSLocalizedStringFromTable(@"No red cones", @"SimDaltonismFilter", @"Description for Protanopia");
 		case Protanomaly:
-			return NSLocalizedStringFromTable(@"Anomalous green cones", @"SimDaltonismFilter", "Description for Protanomaly");
+			return NSLocalizedStringFromTable(@"Anomalous red cones", @"SimDaltonismFilter", "Description for Protanomaly");
 		case Tritanopia:
 			return NSLocalizedStringFromTable(@"No blue cones", @"SimDaltonismFilter", "Description for Tritanopia");
 		case Tritanomaly:
