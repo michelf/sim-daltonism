@@ -1,3 +1,4 @@
 /* (No Commment) */
 "CFBundleName" = "Sim Daltonisme";
 
+"NSCameraUsageDescription" = "Sim Daltonisme affiche à l’écran ce que voit une personne daltonienne.";
