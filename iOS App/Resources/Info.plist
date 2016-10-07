@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Sim Daltonism displays on screen what a color blind person would see.</string>
+	<string>Sim Daltonism uses the camera to display on the screen what a color blind person would see.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch</string>
 	<key>UIMainStoryboardFile</key>
