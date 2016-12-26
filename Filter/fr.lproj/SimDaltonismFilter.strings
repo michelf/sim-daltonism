@@ -4,11 +4,11 @@
 /* Description for Tritanomaly */
 "Anomalous blue cones" = "Cônes bleus anormaux";
 
-/* Description for Protanomaly */
-"Anomalous red cones" = "Cônes rouges anormaux";
-
 /* Description for Deuteranomaly */
 "Anomalous green cones" = "Cônes verts anormaux";
+
+/* Description for Protanomaly */
+"Anomalous red cones" = "Cônes rouges anormaux";
 
 /* No comment provided by engineer. */
 "Deuteranomaly" = "Deuteranomalie";
@@ -22,11 +22,11 @@
 /* Description for Tritanopia */
 "No blue cones" = "Aucun cône bleu";
 
-/* Description for Protanopia */
-"No red cones" = "Aucun cône rouge";
-
 /* Description for Deuteranopia */
 "No green cones" = "Aucun cône vert";
+
+/* Description for Protanopia */
+"No red cones" = "Aucun cône rouge";
 
 /* No comment provided by engineer. */
 "Normal Vision" = "Vision normale";

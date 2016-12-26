@@ -10,7 +10,7 @@
 /* Class = "UITableViewSection"; headerTitle = "Monochrome vision"; ObjectID = "8oO-S8-qcf"; */
 "8oO-S8-qcf.headerTitle" = "Vision monochrome";
 
-/* Class = "UILabel"; text = "Anomalous green cones"; ObjectID = "53L-Zl-hPR"; */
+/* Class = "UILabel"; text = "Anomalous red cones"; ObjectID = "53L-Zl-hPR"; */
 "53L-Zl-hPR.text" = "Cônes verts anormaux";
 
 /* Class = "UILabel"; text = "Sim Daltonism © 2005–2016 Michel Fortin\n\nIncludes an adaptation of the color_blind_sims Javascript function from the Color Laboratory\nCopyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network."; ObjectID = "AIv-Ok-oRj"; */
@@ -62,7 +62,7 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 /* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "UN5-pc-Szy"; */
 "UN5-pc-Szy.normalTitle" = "Choisir";
 
-/* Class = "UILabel"; text = "No green cones"; ObjectID = "XDI-Ny-fnp"; */
+/* Class = "UILabel"; text = "No red cones"; ObjectID = "XDI-Ny-fnp"; */
 "XDI-Ny-fnp.text" = "Aucun cône vert";
 
 /* Class = "UILabel"; text = "Send Feedback"; ObjectID = "aYH-t4-fuh"; */
@@ -70,6 +70,9 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 
 /* Class = "UILabel"; text = "Deuteranopia"; ObjectID = "beT-1m-flM"; */
 "beT-1m-flM.text" = "Deuteranopie";
+
+/* Class = "UILabel"; text = "Red Stripe"; ObjectID = "cbr-2u-IFo"; */
+"cbr-2u-IFo.text" = "Red Stripe";
 
 /* Class = "UIBarButtonItem"; title = "More"; ObjectID = "d2n-BX-GDf"; */
 "d2n-BX-GDf.title" = "Plus";
@@ -83,7 +86,7 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 /* Class = "UILabel"; text = "Protanopia"; ObjectID = "iBD-Jm-iAQ"; */
 "iBD-Jm-iAQ.text" = "Protanopie";
 
-/* Class = "UILabel"; text = "No red cones"; ObjectID = "jKo-bc-yvf"; */
+/* Class = "UILabel"; text = "No green cones"; ObjectID = "jKo-bc-yvf"; */
 "jKo-bc-yvf.text" = "Aucun cône rouge";
 
 /* Class = "UILabel"; text = "Monochromacy"; ObjectID = "jxK-7j-Fx2"; */
@@ -107,14 +110,20 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 /* Class = "UILabel"; text = "Sim Daltonism"; ObjectID = "vTX-4F-okO"; */
 "vTX-4F-okO.text" = "Sim Daltonisme";
 
-/* Class = "UILabel"; text = "Anomalous red cones"; ObjectID = "vcH-0U-5AL"; */
+/* Class = "UILabel"; text = "Anomalous green cones"; ObjectID = "vcH-0U-5AL"; */
 "vcH-0U-5AL.text" = "Cônes rouges anormaux";
 
 /* Class = "UILabel"; text = "Absent or non-functionning cones"; ObjectID = "vxa-TM-5Dr"; */
 "vxa-TM-5Dr.text" = "Cônes absents ou non-fonctionnels";
 
+/* Class = "UITableViewSection"; headerTitle = "See also…"; ObjectID = "wLH-wG-f7q"; */
+"wLH-wG-f7q.headerTitle" = "Voir aussi…";
+
 /* Class = "UINavigationItem"; title = "Sim Daltonism"; ObjectID = "wph-Ia-bIP"; */
 "wph-Ia-bIP.title" = "Sim Daltonisme";
+
+/* Class = "UIButton"; normalTitle = "Open in App Store"; ObjectID = "y8Y-pM-e8s"; */
+"y8Y-pM-e8s.normalTitle" = "Ouvrir dans l’App Store";
 
 /* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "zcz-ua-eaM"; */
 "zcz-ua-eaM.headerTitle" = "À propos";
