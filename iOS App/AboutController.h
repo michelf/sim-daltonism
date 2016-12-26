@@ -20,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet UITableViewCell *websiteCell;
 @property (nonatomic, weak) IBOutlet UITableViewCell *feedbackCell;
 @property (nonatomic, weak) IBOutlet UITableViewCell *appStoreCell;
+@property (nonatomic, weak) IBOutlet UITableViewCell *redStripeCell;
 
 @property (nonatomic, weak) IBOutlet UITableViewCell *aboutCell;
 @property (nonatomic, readonly) NSIndexPath *aboutIndexPath;

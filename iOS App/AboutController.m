@@ -48,7 +48,7 @@
 }
 
 - (NSIndexPath *)creditsIndexPath {
-	return [NSIndexPath indexPathForRow:0 inSection:2];
+	return [NSIndexPath indexPathForRow:0 inSection:3];
 }
 
 - (NSURL *)localizedWebsiteURL {
