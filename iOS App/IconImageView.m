@@ -18,6 +18,7 @@
 @implementation IconImageView
 
 - (void)awakeFromNib {
+	[super awakeFromNib];
 	self.layer.cornerRadius = 14;
 	self.layer.masksToBounds = true;
 }
