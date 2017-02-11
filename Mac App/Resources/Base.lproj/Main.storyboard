@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -66,8 +66,8 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
-                                <rect key="frame" x="144" y="107" width="298" height="42"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
+                                <rect key="frame" x="144" y="107" width="300" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="296" id="QP5-2E-CYY"/>
                                 </constraints>
@@ -78,7 +78,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-hr-bpk">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-hr-bpk">
                                 <rect key="frame" x="144" y="26" width="300" height="42"/>
                                 <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="When the view area is the content under the window, clicking inside the filtered view will hit the content underneath." id="vIP-qu-9Lh">
                                     <font key="font" metaFont="smallSystem"/>
@@ -386,11 +386,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="360" height="340"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhN-ix-5O1" customClass="ColorView" customModule="Sim_Daltonism" customModuleProvider="target">
-                                <rect key="frame" x="3" y="-57" width="394" height="397"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="hhN-ix-5O1" customClass="ColorView" customModule="Sim_Daltonism" customModuleProvider="target">
+                                <rect key="frame" x="3" y="3" width="354" height="337"/>
                             </customView>
-                            <openGLView misplaced="YES" depthSize="32bit" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" wantsBestResolutionOpenGLSurface="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhm-1p-zVd" customClass="FilteredView" customModule="Sim_Daltonism" customModuleProvider="target">
-                                <rect key="frame" x="3" y="-57" width="394" height="397"/>
+                            <openGLView depthSize="32bit" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" wantsBestResolutionOpenGLSurface="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhm-1p-zVd" customClass="FilteredView" customModule="Sim_Daltonism" customModuleProvider="target">
+                                <rect key="frame" x="3" y="3" width="354" height="337"/>
                             </openGLView>
                         </subviews>
                         <constraints>
@@ -410,7 +410,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="656.5"/>
+            <point key="canvasLocation" x="75" y="704"/>
         </scene>
         <!--Filter Settings Controller-->
         <scene sceneID="5PC-k1-vN1">
