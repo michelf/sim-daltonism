@@ -34,7 +34,7 @@ Copyright & License
 -------------------
 
 Sim Daltonism  
-© 2005-2016 Michel Fortin  
+© 2005-2017 Michel Fortin  
 
 Includes the color blindness simulation algorithm `color_blind_sim`.  
 © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network
