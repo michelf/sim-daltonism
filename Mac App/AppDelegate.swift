@@ -25,6 +25,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		SimDaltonismFilter.registerDefaults()
 	}
 
+	func applicationDidFinishLaunching(_ notification: Notification) {
+		FilterWindowManager.shared.showFirstWindow()
+	}
+
+	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+		if !flag {
+			FilterWindowManager.shared.showFirstWindow()
+		}
+		return false
+	}
+
+	@IBAction func createNewFilterWindow(_ sender: Any) {
+		FilterWindowManager.shared.createNewWindow().showWindow(nil)
+	}
+
 	@IBAction func adoptSpeedSetting(_ sender: NSMenuItem) {
 		guard let speed = RefreshSpeed(rawValue: sender.tag) else { return }
 		refreshSpeedDefault = speed

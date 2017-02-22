@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */; };
 		1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */; };
 		1ED75E5D1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
 		1ED75E5E1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		171999D919C7695800A719B5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		1E3BDB811C26408F00CADF46 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWindowManager.swift; sourceTree = "<group>"; };
 		1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDefaults.swift; sourceTree = "<group>"; };
 		1ED75E501C44907B00042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1ED75E5C1C44942900042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SimDaltonismFilter.strings; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
+				1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */,
 				1EF253311C274A0200DB3B18 /* WindowController.swift */,
 				1EF253301C274A0200DB3B18 /* Window.swift */,
 				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
@@ -592,6 +595,7 @@
 				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
 				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
+				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				1EF2534C1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,

@@ -15,20 +15,25 @@
 
 import Cocoa
 
-private var globalFilterWindowCount = 0
-
 class WindowController: NSWindowController, NSWindowDelegate {
 
 	var visionType = UserDefaults.standard.integer(forKey: SimVisionTypeKey) {
 		didSet {
-			UserDefaults.standard.set(visionType, forKey: SimVisionTypeKey)
+			setDefaults()
 			applyVisionType()
 		}
 	}
 
+	func setDefaults() {
+		UserDefaults.standard.set(visionType, forKey: SimVisionTypeKey)
+	}
+
 	fileprivate func applyVisionType() {
-		window?.title = SimVisionTypeName(visionType)
-		((window!.contentViewController! as! ViewController).filteredView.filter as! SimDaltonismFilter).visionType = visionType
+		guard let window = self.window else { return }
+		window.title = SimVisionTypeName(visionType)
+		((window.contentViewController! as! ViewController).filteredView.filter as! SimDaltonismFilter).visionType = visionType
+		FilterWindowManager.shared.changedWindowController(self)
+		window.invalidateRestorableState()
 	}
 
     override func windowDidLoad() {
@@ -43,24 +48,49 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window?.isMovable = false
 		window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .participatesInCycle]
 		window?.styleMask.formUnion(.nonactivatingPanel)
+		window?.restorationClass = FilterWindowManager.self
 
 		let accessory = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowControls") as! NSTitlebarAccessoryViewController
 		accessory.layoutAttribute = .right
 		window?.addTitlebarAccessoryViewController(accessory)
 
 		applyVisionType()
-
-		globalFilterWindowCount += 1
     }
 
-	func windowWillClose(_ notification: Notification) {
-		// quit app when last window closes
-		globalFilterWindowCount -= 1
-		if globalFilterWindowCount <= 0 {
-			DispatchQueue.main.async {
-				NSApplication.shared().terminate(self)
+	/// Position the window so it has a different origin than other filter
+	/// windows based on the registered list of window controllers in
+	/// `FilterWindowManager`.
+	func cascade() {
+		var windowControllers = FilterWindowManager.shared.windowControllers
+		windowControllers.remove(self)
+	baseLoop:
+		while !windowControllers.isEmpty {
+			guard let frame = window?.frame else { return }
+			for otherController in windowControllers {
+				if otherController.window?.frame.origin == frame.origin {
+					window?.setFrameOrigin(frame.offsetBy(dx: 30, dy: -30).origin)
+					windowControllers.remove(otherController)
+					continue baseLoop
+				}
 			}
+			break // check all remaining controllers
 		}
+	}
+
+	func window(_ window: NSWindow, willEncodeRestorableState state: NSCoder) {
+		state.encode(visionType, forKey: "VisionType")
+	}
+	func window(_ window: NSWindow, didDecodeRestorableState state: NSCoder) {
+		visionType = state.decodeInteger(forKey: "VisionType")
+	}
+
+	override func showWindow(_ sender: Any?) {
+		FilterWindowManager.shared.addWindowController(self)
+		super.showWindow(sender)
+	}
+
+	func windowWillClose(_ notification: Notification) {
+		FilterWindowManager.shared.removeWindowController(self)
 	}
 
 	@IBAction func adoptVisionTypeSetting(_ sender: NSMenuItem) {

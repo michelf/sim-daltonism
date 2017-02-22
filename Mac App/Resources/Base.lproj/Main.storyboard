@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12113" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,7 +50,7 @@
                                     <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.RefreshSpeed" id="yeF-Aq-d1A"/>
                                 </connections>
                             </popUpButton>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b25-fi-qFB">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b25-fi-qFB">
                                 <rect key="frame" x="36" y="75" width="99" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="View Area:" id="BBH-Y8-kr1">
                                     <font key="font" metaFont="system"/>
@@ -58,7 +58,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ojT-ce-bUD">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojT-ce-bUD">
                                 <rect key="frame" x="36" y="156" width="99" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Refresh Speed:" id="xkd-TQ-kuW">
                                     <font key="font" metaFont="system"/>
@@ -66,7 +66,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
                                 <rect key="frame" x="144" y="107" width="300" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="296" id="QP5-2E-CYY"/>
@@ -78,7 +78,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-hr-bpk">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-hr-bpk">
                                 <rect key="frame" x="144" y="26" width="300" height="42"/>
                                 <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="When the view area is the content under the window, clicking inside the filtered view will hit the content underneath." id="vIP-qu-9Lh">
                                     <font key="font" metaFont="smallSystem"/>
@@ -195,7 +195,7 @@
                                     <items>
                                         <menuItem title="New" keyEquivalent="n" id="ZcQ-wi-cuP">
                                             <connections>
-                                                <segue destination="B8D-0N-5wS" kind="show" id="CQS-3H-LU2"/>
+                                                <action selector="createNewFilterWindow:" target="Voe-Tx-rLC" id="egt-IY-ggt"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Close" keyEquivalent="w" id="6cU-bP-M3U">
@@ -359,7 +359,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="FilterWindow" id="B8D-0N-5wS" customClass="WindowController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Sim Daltonism" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="IQv-IB-iLA" customClass="Window" customModule="Sim_Daltonism" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES"/>
