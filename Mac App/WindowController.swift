@@ -15,6 +15,10 @@
 
 import Cocoa
 
+extension NSStoryboard.SceneIdentifier {
+	fileprivate static let windowControls = NSStoryboard.SceneIdentifier(rawValue: "WindowControls")
+}
+
 class WindowController: NSWindowController, NSWindowDelegate {
 
 	var visionType = UserDefaults.standard.integer(forKey: SimVisionTypeKey) {
@@ -36,13 +40,15 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window.invalidateRestorableState()
 	}
 
+	fileprivate static let windowLevel = NSWindow.Level(Int(CGWindowLevelForKey(CGWindowLevelKey.assistiveTechHighWindow) + 1))
+
     override func windowDidLoad() {
         super.windowDidLoad()
     
 		// cannot set from IB:
 		// Note: window level is set to 1 above Red Stripe's window level
 		// so you can use the two together.
-		window?.level = Int(CGWindowLevelForKey(CGWindowLevelKey.assistiveTechHighWindow) + 1)
+		window?.level = WindowController.windowLevel
 		window?.hidesOnDeactivate = false
 		window?.standardWindowButton(.zoomButton)?.isEnabled = false
 		window?.isMovable = false
@@ -50,7 +56,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window?.styleMask.formUnion(.nonactivatingPanel)
 		window?.restorationClass = FilterWindowManager.self
 
-		let accessory = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowControls") as! NSTitlebarAccessoryViewController
+		let accessory = NSStoryboard(name: .main, bundle: nil).instantiateController(withIdentifier: .windowControls) as! NSTitlebarAccessoryViewController
 		accessory.layoutAttribute = .right
 		window?.addTitlebarAccessoryViewController(accessory)
 
@@ -100,7 +106,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 	override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
 		switch menuItem.action! {
 		case #selector(adoptVisionTypeSetting(_:)):
-			menuItem.state = visionType == menuItem.tag ? NSOnState : NSOffState
+			menuItem.state = visionType == menuItem.tag ? .on : .off
 			return true
 		default:
 			return false

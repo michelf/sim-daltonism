@@ -53,10 +53,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
 		switch menuItem.action! {
 		case #selector(adoptSpeedSetting(_:)):
-			menuItem.state = refreshSpeedDefault.rawValue == menuItem.tag ? NSOnState : NSOffState
+			menuItem.state = refreshSpeedDefault.rawValue == menuItem.tag ? .on : .off
 			return true
 		case #selector(adoptViewAreaSetting(_:)):
-			menuItem.state = viewAreaDefault.rawValue == menuItem.tag ? NSOnState : NSOffState
+			menuItem.state = viewAreaDefault.rawValue == menuItem.tag ? .on : .off
 			return true
 		default:
 			return self.responds(to: menuItem.action)
@@ -65,12 +65,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBAction func sendFeedback(_ sender: AnyObject) {
 		let mailtoURL = URL(string: "mailto:" + NSLocalizedString("sim-daltonism@michelf.ca", tableName: "URLs", comment: "Sim Daltonism feedback email"))!
-		NSWorkspace.shared().open(mailtoURL)
+		NSWorkspace.shared.open(mailtoURL)
 	}
 
 	@IBAction func openWebsite(_ sender: AnyObject) {
 		let websiteURL = URL(string: NSLocalizedString("https://michelf.ca/projects/sim-daltonism/", tableName: "URLs", comment: "Sim Daltonism website URL"))!
-		NSWorkspace.shared().open(websiteURL)
+		NSWorkspace.shared.open(websiteURL)
 	}
 
 }

@@ -23,7 +23,7 @@ class MenuButton : NSButton {
 	}
 
 	override func awakeFromNib() {
-		let trackingArea = NSTrackingArea(rect: self.bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
+		let trackingArea = NSTrackingArea(rect: self.bounds, options: [NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
 		addTrackingArea(trackingArea)
 	}
 

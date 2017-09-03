@@ -27,7 +27,7 @@ class ColorView: NSView {
 
 	override func draw(_ dirtyRect: NSRect) {
 		color.set()
-		NSRectFill(dirtyRect);
+		dirtyRect.fill();
 	}
 
 }

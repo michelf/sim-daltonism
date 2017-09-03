@@ -56,20 +56,20 @@ class FilteredView: OpenGLPixelBufferView {
 	override func viewWillMove(toWindow newWindow: NSWindow?) {
 		super.viewWillMove(toWindow: newWindow)
 		if let window = window {
-			NotificationCenter.default.removeObserver(self, name: .NSWindowDidMove, object: window)
-			NotificationCenter.default.removeObserver(self, name: .NSWindowWillStartLiveResize, object: window)
-			NotificationCenter.default.removeObserver(self, name: .NSWindowDidEndLiveResize	, object: window)
+			NotificationCenter.default.removeObserver(self, name: NSWindow.didMoveNotification, object: window)
+			NotificationCenter.default.removeObserver(self, name: NSWindow.willStartLiveResizeNotification, object: window)
+			NotificationCenter.default.removeObserver(self, name: NSWindow.didEndLiveResizeNotification	, object: window)
 			NotificationCenter.default.removeObserver(self, name: Window.willStartDragging, object: window)
 			NotificationCenter.default.removeObserver(self, name: Window.didEndDragging	, object: window)
-			NotificationCenter.default.removeObserver(self, name: .NSWindowDidChangeOcclusionState	, object: window)
+			NotificationCenter.default.removeObserver(self, name: NSWindow.didChangeOcclusionStateNotification	, object: window)
 		}
 		if let newWindow = newWindow {
-			NotificationCenter.default.addObserver(self, selector: #selector(recaptureAsync), name: .NSWindowDidMove, object: newWindow)
-			NotificationCenter.default.addObserver(self, selector: #selector(windowDidEndLiveResizeOrMove(_:)), name: .NSWindowDidEndLiveResize, object: newWindow)
-			NotificationCenter.default.addObserver(self, selector: #selector(windowWillStartLiveResizeOrMove(_:)), name: .NSWindowWillStartLiveResize, object: newWindow)
+			NotificationCenter.default.addObserver(self, selector: #selector(recaptureAsync), name: NSWindow.didMoveNotification, object: newWindow)
+			NotificationCenter.default.addObserver(self, selector: #selector(windowDidEndLiveResizeOrMove(_:)), name: NSWindow.didEndLiveResizeNotification, object: newWindow)
+			NotificationCenter.default.addObserver(self, selector: #selector(windowWillStartLiveResizeOrMove(_:)), name: NSWindow.willStartLiveResizeNotification, object: newWindow)
 			NotificationCenter.default.addObserver(self, selector: #selector(windowWillStartLiveResizeOrMove(_:)), name: Window.willStartDragging, object: newWindow)
 			NotificationCenter.default.addObserver(self, selector: #selector(windowDidEndLiveResizeOrMove(_:)), name: Window.didEndDragging, object: newWindow)
-			NotificationCenter.default.addObserver(self, selector: #selector(windowDidChangeOcclusionState(_:)), name: .NSWindowDidChangeOcclusionState, object: newWindow)
+			NotificationCenter.default.addObserver(self, selector: #selector(windowDidChangeOcclusionState(_:)), name: NSWindow.didChangeOcclusionStateNotification, object: newWindow)
 		}
 	}
 
@@ -96,7 +96,7 @@ class FilteredView: OpenGLPixelBufferView {
 	}
 
 	@objc func windowDidChangeOcclusionState(_ notification: Notification) {
-		if !window!.occlusionState.contains(NSWindowOcclusionState.visible) {
+		if !window!.occlusionState.contains(.visible) {
 			occluded = true
 		} else {
 			occluded = false
@@ -127,7 +127,7 @@ class FilteredView: OpenGLPixelBufferView {
 	fileprivate var counter: Int = 0
 	@objc func recaptureIfNeeded() {
 		let viewBounds = self.bounds
-		let mouseLocation = NSEvent.mouseLocation()
+		let mouseLocation = NSEvent.mouseLocation
 		let mouseLocationInWindow = self.window!.convertFromScreen(NSRect(origin: mouseLocation, size: NSMakeSize(1, 1))).origin
 		let mouseLocationInView = self.convert(mouseLocationInWindow, from: nil)
 		let mouseInView = viewBounds.contains(mouseLocationInView)
@@ -169,7 +169,7 @@ class FilteredView: OpenGLPixelBufferView {
 		var viewRect = window!.convertToScreen(convert(viewBounds, to: window!.contentView))
 		switch viewArea {
 		case .mousePointer:
-			let mouseLocation = NSEvent.mouseLocation()
+			let mouseLocation = NSEvent.mouseLocation
 			// if mouse is inside window, fall through .UnderWindow instead
 			if !viewRect.contains(mouseLocation) {
 				viewRect.origin = mouseLocation
@@ -246,9 +246,13 @@ fileprivate func startValueFor(_ center: Int, screenSize: Int, viewSize: Int) ->
 	return startValue
 }
 
+extension NSDeviceDescriptionKey {
+	fileprivate static let screenNumber = NSDeviceDescriptionKey("NSScreenNumber")
+}
+
 fileprivate func screenForDirectDisplayID(_ display: CGDirectDisplayID) -> NSScreen? {
-	for screen in NSScreen.screens() ?? [] {
-		if (screen.deviceDescription["NSScreenNumber"] as! NSNumber).uint32Value == display {
+	for screen in NSScreen.screens {
+		if (screen.deviceDescription[.screenNumber] as! NSNumber).uint32Value == display {
 			return screen
 		}
 	}

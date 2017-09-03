@@ -15,13 +15,17 @@
 
 import Cocoa
 
+extension NSNib.Name {
+	fileprivate static let aboutBox = NSNib.Name("AboutBox")
+}
+
 class AboutBoxBackground: NSView {
 	override var isOpaque: Bool { return true }
 	override var mouseDownCanMoveWindow: Bool { return true }
 	override func draw(_ dirtyRect: NSRect) {
 		let rect = bounds
 		let gradient = NSGradient(starting: NSColor.white, ending: NSColor(calibratedWhite: 0.9, alpha: 1.0))
-		gradient?.draw(from: NSPoint(x: 0, y: rect.maxY), to: NSPoint(x: 0, y: rect.minY), options: NSGradientDrawingOptions(rawValue: UInt(0)))
+		gradient?.draw(from: NSPoint(x: 0, y: rect.maxY), to: NSPoint(x: 0, y: rect.minY), options: [])
 	}
 }
 
@@ -30,7 +34,7 @@ class AboutBoxIconView: NSImageView {
 }
 
 class AboutBoxScrollView: NSScrollView {
-	override var scrollerStyle: NSScrollerStyle {
+	override var scrollerStyle: NSScroller.Style {
 		get { return super.scrollerStyle }
 		set {
 			// Fix for an issue where the view offset is changed when setting scroller style
@@ -60,12 +64,12 @@ class AboutBoxController: NSWindowController {
 		didSet { updateText() }
 	}
 
-	override var windowNibName: String {
-		return "AboutBox"
+	override var windowNibName: NSNib.Name {
+		return .aboutBox
 	}
 
 	override func windowDidLoad() {
-		window!.styleMask.formUnion(NSFullSizeContentViewWindowMask)
+		window!.styleMask.formUnion(.fullSizeContentView)
 		window!.titlebarAppearsTransparent = true
 		window!.isMovableByWindowBackground = true
 

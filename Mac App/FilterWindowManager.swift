@@ -15,6 +15,16 @@
 
 import Cocoa
 
+extension NSStoryboard.Name {
+	static let main = NSStoryboard.Name("Main")
+}
+extension NSStoryboard.SceneIdentifier {
+	fileprivate static let filterWindow = NSStoryboard.SceneIdentifier("FilterWindow")
+}
+extension NSWindow.FrameAutosaveName {
+	fileprivate static let filterWindow = NSWindow.FrameAutosaveName("FilterWindow")
+}
+
 class FilterWindowManager: NSObject, NSWindowRestoration {
 
 	static let shared = FilterWindowManager()
@@ -29,7 +39,7 @@ class FilterWindowManager: NSObject, NSWindowRestoration {
 	/// Instantiate a new filter window controller and return it. The window 
 	/// is not visible yet. Call `showWindow` on the returned controller.
 	func createNewWindow() -> WindowController {
-		let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "FilterWindow") as! WindowController
+		let controller = NSStoryboard(name: .main, bundle: nil).instantiateController(withIdentifier: .filterWindow) as! WindowController
 		positionNewWindow(for: controller)
 		return controller
 	}
@@ -70,7 +80,7 @@ class FilterWindowManager: NSObject, NSWindowRestoration {
 		}
 		windowControllers.remove(controller)
 		if windowControllers.isEmpty {
-			controller.window?.saveFrame(usingName: "FilterWindow")
+			controller.window?.saveFrame(usingName: .filterWindow)
 			controller.setDefaults() // so next created window will follow those defaults
 		}
 	}
@@ -83,13 +93,13 @@ class FilterWindowManager: NSObject, NSWindowRestoration {
 		if let current = NSApp.keyWindow?.windowController as? WindowController, windowControllers.contains(current), let frame = current.window?.frame {
 			controller.window?.setFrame(frame, display: false)
 		} else {
-			controller.window?.setFrameUsingName("FilterWindow")
+			controller.window?.setFrameUsingName(.filterWindow)
 		}
 		controller.cascade()
 	}
 
 	/// Restore a window in the state it was left. Implements NSWindowRestoration
-	class func restoreWindow(withIdentifier identifier: String, state: NSCoder, completionHandler: @escaping (NSWindow?, Error?) -> Void) {
+	class func restoreWindow(withIdentifier identifier: NSUserInterfaceItemIdentifier, state: NSCoder, completionHandler: @escaping (NSWindow?, Error?) -> Void) {
 		let controller = shared.createNewWindow()
 		controller.window?.restoreState(with: state)
 		controller.window?.identifier = identifier

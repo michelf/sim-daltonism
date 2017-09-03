@@ -27,7 +27,7 @@ class Window: NSPanel {
 		initialLocation = theEvent.locationInWindow
 		var tracking = true
 		while tracking {
-			let theEvent = nextEvent(matching: NSEventMask(rawValue: NSEventMask.leftMouseUp.union(.leftMouseDragged).rawValue))!
+			let theEvent = nextEvent(matching: [.leftMouseUp, .leftMouseDragged])!
 			switch theEvent.type {
 				case .leftMouseDragged:
 					let windowFrame = frame

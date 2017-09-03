@@ -22,9 +22,9 @@ enum RefreshSpeed: Int {
 
 	var image: NSImage {
 		switch self {
-		case .slow: return NSImage(named: "SlowFrameRateTemplate")!
-		case .normal: return NSImage(named: "NormalFrameRateTemplate")!
-		case .fast: return NSImage(named: "FastFrameRateTemplate")!
+		case .slow: return #imageLiteral(resourceName: "SlowFrameRateTemplate.png")
+		case .normal: return #imageLiteral(resourceName: "NormalFrameRateTemplate.png")
+		case .fast: return #imageLiteral(resourceName: "FastFrameRateTemplate.png")
 		}
 	}
 
@@ -52,8 +52,8 @@ enum ViewArea: Int {
 
 	var image: NSImage {
 		switch self {
-		case .underWindow: return NSImage(named: "FilteredTransparencyTemplate")!
-		case .mousePointer: return NSImage(named: "FilteredMouseAreaTemplate")!
+		case .underWindow: return #imageLiteral(resourceName: "FilteredTransparencyTemplate.png")
+		case .mousePointer: return #imageLiteral(resourceName: "FilteredMouseAreaTemplate.png")
 		}
 	}
 }
