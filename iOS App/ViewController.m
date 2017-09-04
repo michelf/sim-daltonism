@@ -331,8 +331,30 @@
 - (void)adjustOrientation {
 	UIInterfaceOrientation currentInterfaceOrientation = [UIApplication sharedApplication].statusBarOrientation;
 	self.previewView.transform = [self.capturePipeline transformFromVideoBufferOrientationToOrientation:(AVCaptureVideoOrientation)currentInterfaceOrientation withAutoMirroring:NO]; // Front camera preview should be mirrored
-	self.previewView.mirrorTransform = self.videoDevice.position == AVCaptureDevicePositionFront;
+	BOOL mirrored = self.videoDevice.position == AVCaptureDevicePositionFront;
+	self.previewView.mirrorTransform = mirrored;
 	self.previewView.frame = self.previewView.superview.bounds;
+
+	// capture orientation must compensate for the transform that was applied
+	switch (currentInterfaceOrientation) {
+		case UIInterfaceOrientationUnknown:
+		case UIInterfaceOrientationPortrait: self.previewView.captureOrientation = !mirrored ?
+			UIImageOrientationLeftMirrored :
+			UIImageOrientationRightMirrored;
+			break;
+		case UIInterfaceOrientationPortraitUpsideDown: self.previewView.captureOrientation = !mirrored ?
+			UIImageOrientationRightMirrored :
+			UIImageOrientationLeftMirrored;
+			break;
+		case UIInterfaceOrientationLandscapeLeft: self.previewView.captureOrientation = !mirrored ?
+			UIImageOrientationUpMirrored :
+			UIImageOrientationDownMirrored;
+			break;
+		case UIInterfaceOrientationLandscapeRight: self.previewView.captureOrientation = !mirrored ?
+			UIImageOrientationDownMirrored :
+			UIImageOrientationUpMirrored;
+			break;
+	}
 }
 
 - (void)capturePipeline:(CapturePipeline *)capturePipeline didStopRunningWithError:(NSError *)error
@@ -370,6 +392,19 @@
 	if ( _allowedToUseGPU ) {
 		[self.previewView flushPixelBufferCache];
 	}
+}
+
+- (IBAction)sharePicture:(UIBarButtonItem *)item {
+	UIImage *image = [self.previewView captureCurrentImage];
+	UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[image] applicationActivities:nil];
+	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+		activityViewController.modalPresentationStyle = UIModalPresentationPopover;
+		activityViewController.popoverPresentationController.barButtonItem = item;
+//		UIPopoverPresentationController *popController = [[UIPopoverPresentationController alloc] initWithPresentedViewController:activityViewController presentingViewController:self];
+//		popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+//		popController.barButtonItem = item;
+	}
+	[self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 @end

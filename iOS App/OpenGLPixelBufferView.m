@@ -66,7 +66,7 @@
         // Initialize OpenGL ES 2
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
         eaglLayer.opaque = YES;
-		eaglLayer.drawableProperties = @{ kEAGLDrawablePropertyRetainedBacking : @(NO),
+		eaglLayer.drawableProperties = @{ kEAGLDrawablePropertyRetainedBacking : @(YES),
 										  kEAGLDrawablePropertyColorFormat : kEAGLColorFormatRGBA8 };
 
 		_oglContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
@@ -454,6 +454,51 @@ bail:
 	if ( _textureCache ) {
 		CVOpenGLESTextureCacheFlush(_textureCache, 0);
 	}
+}
+
+- (UIImage *)captureCurrentImage {
+	EAGLContext *oldContext = [EAGLContext currentContext];
+	if ( oldContext != _oglContext ) {
+		if ( ! [EAGLContext setCurrentContext:_oglContext] ) {
+			@throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Problem with OpenGL context" userInfo:nil];
+			return nil;
+		}
+	}
+
+	glBindRenderbuffer(GL_RENDERBUFFER, _colorBufferHandle);
+
+	GLint width, height;
+	glGetRenderbufferParameteriv( GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &width );
+	glGetRenderbufferParameteriv( GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height );
+
+	NSInteger x = 0, y = 0, width2 = width, height2 = height;
+	NSInteger dataLength = width2 * height2 * 4;
+	CFMutableDataRef data = CFDataCreateMutable(NULL, dataLength * sizeof(GLubyte));
+	CFDataSetLength(data, dataLength * sizeof(GLubyte));
+
+	// Read pixel data from the framebuffer
+	glPixelStorei(GL_PACK_ALIGNMENT, 4);
+	glReadPixels(x, y, width2, height2, GL_RGBA, GL_UNSIGNED_BYTE, CFDataGetMutableBytePtr(data));
+
+	// Create a CGImage with the pixel data
+	CGDataProviderRef ref = CGDataProviderCreateWithCFData(data);
+	CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+	CGImageRef iref = CGImageCreate(width2, height2, 8, 32, width2 * 4, colorspace, kCGBitmapByteOrder32Big | kCGImageAlphaNoneSkipLast,
+									ref, NULL, true, kCGRenderingIntentDefault);
+
+	CGFloat scale = self.contentScaleFactor;
+	UIImage *image = [UIImage imageWithCGImage:iref scale:scale orientation:self.captureOrientation];
+
+	// Clean up
+	CFRelease(data);
+	CFRelease(ref);
+	CFRelease(colorspace);
+	CGImageRelease(iref);
+	if ( oldContext != _oglContext ) {
+		[EAGLContext setCurrentContext:oldContext];
+	}
+
+	return image;
 }
 
 @end

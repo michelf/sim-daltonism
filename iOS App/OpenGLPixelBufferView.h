@@ -29,6 +29,9 @@
 - (void)flushPixelBufferCache;
 - (void)reset;
 
+- (UIImage *)captureCurrentImage;
+
 @property (nonatomic) BOOL mirrorTransform;
+@property (nonatomic) UIImageOrientation captureOrientation;
 
 @end

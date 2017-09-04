@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t7Y-jQ-554">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t7Y-jQ-554">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,14 +18,13 @@
                         <viewControllerLayoutGuide type="bottom" id="cqm-bB-vdD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6i6-CY-hgq" userLabel="Root View">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-hM-2kb">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LuB-XG-d8Z"/>
                                     <barButtonItem image="FlashDark.png" style="plain" id="u8P-cN-De3">
                                         <connections>
                                             <action selector="toggleTorch:" destination="t7Y-jQ-554" id="uKC-7T-W7l"/>
@@ -40,37 +43,42 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Dmc-rV-0WO"/>
+                                    <barButtonItem systemItem="action" id="8PM-K7-nDh">
+                                        <connections>
+                                            <action selector="sharePicture:" destination="t7Y-jQ-554" id="UQV-Cw-5eu"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0e-uJ-W3R" userLabel="Camera View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- FPS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDX-o9-NoD">
-                                        <rect key="frame" x="518" y="20" width="59" height="29"/>
+                                        <rect key="frame" x="239" y="20" width="58" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="ogt-dD-gsF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="0.39000000000000001" colorSpace="calibratedWhite"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.39000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- x -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqF-fh-KLd">
-                                        <rect key="frame" x="518" y="57" width="59" height="21"/>
+                                        <rect key="frame" x="239" y="57" width="58" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="IpI-bP-dpP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="0.39000000000000001" colorSpace="calibratedWhite"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.39000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2474163385826772" green="0.2474163385826772" blue="0.2474163385826772" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.2474163385826772" green="0.2474163385826772" blue="0.2474163385826772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="eqF-fh-KLd" firstAttribute="leading" secondItem="HDX-o9-NoD" secondAttribute="leading" id="CSi-xN-rOu"/>
@@ -85,22 +93,22 @@
                                     <outletCollection property="gestureRecognizers" destination="EQF-Hf-18C" appends="YES" id="ict-mg-WJl"/>
                                 </connections>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="100" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-fM-uGE">
-                                <rect key="frame" x="69.5" y="263" width="462" height="75"/>
+                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-fM-uGE">
+                                <rect key="frame" x="0.0" y="246.5" width="320" height="75"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sim Daltonism does not have persmission to access the camera." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt2-yZ-67p">
-                                        <rect key="frame" x="10" y="8" width="442" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sim Daltonism does not have persmission to access the camera." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt2-yZ-67p">
+                                        <rect key="frame" x="10" y="8" width="300" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDW-fF-Jjq">
-                                        <rect key="frame" x="141.5" y="35" width="179" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDW-fF-Jjq">
+                                        <rect key="frame" x="71.5" y="35" width="178" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="tintColor" red="1" green="0.8030350208" blue="0.0001922522351" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="0.8030350208" blue="0.0001922522351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Change Privacy Settings">
-                                            <color key="titleColor" red="1" green="0.43621159220416617" blue="0.34734254993240188" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="0.43621159220416617" blue="0.34734254993240188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="showCameraPrivacySettings:" destination="t7Y-jQ-554" eventType="touchUpInside" id="ZLp-sJ-8y7"/>
@@ -118,8 +126,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="1" green="0.44638174670000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.44638174670000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Cl3-hM-2kb" firstAttribute="leading" secondItem="6i6-CY-hgq" secondAttribute="leading" id="BJg-Mj-gYQ"/>
                             <constraint firstItem="lcO-fM-uGE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6i6-CY-hgq" secondAttribute="leading" id="Frd-zq-ff2"/>
@@ -164,8 +172,8 @@
     </scenes>
     <resources>
         <image name="CameraSwap.png" width="34" height="25"/>
-        <image name="FlashDark.png" width="20" height="32"/>
-        <image name="View.png" width="42" height="26"/>
+        <image name="FlashDark.png" width="20" height="35"/>
+        <image name="View.png" width="42" height="25"/>
     </resources>
-    <color key="tintColor" red="1" green="0.01457794618535535" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="1" green="0.01457794618535535" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
