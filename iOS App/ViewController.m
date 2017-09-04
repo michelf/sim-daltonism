@@ -25,6 +25,7 @@
 	BOOL _addedObservers;
 	BOOL _allowedToUseGPU;
 	BOOL _mainCameraUIAdapted;
+	BOOL _presentingShareView;
 }
 
 @property(nonatomic, strong) IBOutlet UIBarButtonItem *photoButton;
@@ -76,7 +77,7 @@
 - (void)applicationWillEnterForeground
 {
 	_allowedToUseGPU = YES;
-	self.capturePipeline.renderingEnabled = YES;
+	self.capturePipeline.renderingEnabled = !_presentingShareView;
 }
 
 - (void)viewDidLoad
@@ -105,7 +106,7 @@
 	
 	// the willEnterForeground and didEnterBackground notifications are subsequently used to update _allowedToUseGPU
 	_allowedToUseGPU = ( [UIApplication sharedApplication].applicationState != UIApplicationStateBackground );
-	self.capturePipeline.renderingEnabled = _allowedToUseGPU;
+	self.capturePipeline.renderingEnabled = _allowedToUseGPU && !_presentingShareView;
 
     [super viewDidLoad];
 	
@@ -237,6 +238,9 @@
 
 - (IBAction)toggleInputDevice:(id)sender
 {
+	if (_presentingShareView) {
+		return;
+	}
 	BOOL changed = [self.capturePipeline toggleInputDevice];
 	if (changed)
 	{
@@ -396,15 +400,33 @@
 
 - (IBAction)sharePicture:(UIBarButtonItem *)item {
 	UIImage *image = [self.previewView captureCurrentImage];
+	if (image == nil) return;
+	BOOL torchActive = NO;
+	if (_videoDevice.hasTorch && [_videoDevice lockForConfiguration:nil])
+	{
+		torchActive = _videoDevice.torchActive;
+		[_videoDevice setTorchMode:AVCaptureTorchModeOff];
+		[_videoDevice unlockForConfiguration];
+		[self reflectTorchActiveState:torchActive];
+	}
+	_presentingShareView = YES;
+	self.capturePipeline.renderingEnabled = !_presentingShareView; // freeze image
 	UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[image] applicationActivities:nil];
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
 		activityViewController.modalPresentationStyle = UIModalPresentationPopover;
 		activityViewController.popoverPresentationController.barButtonItem = item;
-//		UIPopoverPresentationController *popController = [[UIPopoverPresentationController alloc] initWithPresentedViewController:activityViewController presentingViewController:self];
-//		popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
-//		popController.barButtonItem = item;
 	}
 	[self presentViewController:activityViewController animated:YES completion:nil];
+	activityViewController.completionWithItemsHandler = ^(UIActivityType __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+		_presentingShareView = NO;
+		self.capturePipeline.renderingEnabled = !_presentingShareView; // unfreeze image
+		if (torchActive && _videoDevice.hasTorch && [_videoDevice lockForConfiguration:nil])
+		{
+			[_videoDevice setTorchMode:torchActive ? AVCaptureTorchModeOn : AVCaptureTorchModeOff];
+			[_videoDevice unlockForConfiguration];
+			[self reflectTorchActiveState:torchActive];
+		}
+	};
 }
 
 @end
