@@ -19,8 +19,6 @@
 		1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */; };
 		1EF252C71C2742F300DB3B18 /* IconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526E1C2742F300DB3B18 /* IconImageView.m */; };
 		1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2526F1C2742F300DB3B18 /* Images.xcassets */; };
-		1EF252C91C2742F300DB3B18 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252711C2742F300DB3B18 /* iTunesArtwork */; };
-		1EF252CB1C2742F300DB3B18 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252731C2742F300DB3B18 /* iTunesArtwork@2x */; };
 		1EF252CD1C2742F300DB3B18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252751C2742F300DB3B18 /* main.m */; };
 		1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252771C2742F300DB3B18 /* MirroredScrollView.m */; };
 		1EF252CF1C2742F300DB3B18 /* OpenGLPixelBufferView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */; };
@@ -107,10 +105,6 @@
 		1EF2526D1C2742F300DB3B18 /* IconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconImageView.h; sourceTree = "<group>"; };
 		1EF2526E1C2742F300DB3B18 /* IconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconImageView.m; sourceTree = "<group>"; };
 		1EF2526F1C2742F300DB3B18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1EF252711C2742F300DB3B18 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		1EF252721C2742F300DB3B18 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
-		1EF252731C2742F300DB3B18 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
-		1EF252741C2742F300DB3B18 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		1EF252751C2742F300DB3B18 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1EF252761C2742F300DB3B18 /* MirroredScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MirroredScrollView.h; sourceTree = "<group>"; };
 		1EF252771C2742F300DB3B18 /* MirroredScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MirroredScrollView.m; sourceTree = "<group>"; };
@@ -254,20 +248,8 @@
 				1EF2526F1C2742F300DB3B18 /* Images.xcassets */,
 				1EF2527C1C2742F300DB3B18 /* Resources */,
 				1EF2528E1C2742F300DB3B18 /* Toolbar Icons */,
-				1EF252701C2742F300DB3B18 /* iTunesArtwork */,
 			);
 			path = "iOS App";
-			sourceTree = "<group>";
-		};
-		1EF252701C2742F300DB3B18 /* iTunesArtwork */ = {
-			isa = PBXGroup;
-			children = (
-				1EF252711C2742F300DB3B18 /* iTunesArtwork */,
-				1EF252721C2742F300DB3B18 /* iTunesArtwork.png */,
-				1EF252731C2742F300DB3B18 /* iTunesArtwork@2x */,
-				1EF252741C2742F300DB3B18 /* iTunesArtwork@2x.png */,
-			);
-			path = iTunesArtwork;
 			sourceTree = "<group>";
 		};
 		1EF2527C1C2742F300DB3B18 /* Resources */ = {
@@ -516,7 +498,6 @@
 				1EF252DA1C2742F300DB3B18 /* CameraSwap.png in Resources */,
 				1EF252DC1C2742F300DB3B18 /* CameraSwap@3x.png in Resources */,
 				1ED75E5D1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */,
-				1EF252CB1C2742F300DB3B18 /* iTunesArtwork@2x in Resources */,
 				1EF252DB1C2742F300DB3B18 /* CameraSwap@2x.png in Resources */,
 				1EF252DF1C2742F300DB3B18 /* FlashDark@3x.png in Resources */,
 				1EF252E01C2742F300DB3B18 /* FlashLight.png in Resources */,
@@ -528,7 +509,6 @@
 				1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */,
 				1ED75E6C1C453A6500042CB7 /* URLs.strings in Resources */,
 				1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */,
-				1EF252C91C2742F300DB3B18 /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
