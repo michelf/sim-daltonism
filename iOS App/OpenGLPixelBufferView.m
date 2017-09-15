@@ -498,6 +498,13 @@ bail:
 		[EAGLContext setCurrentContext:oldContext];
 	}
 
+	// Redraw in correct orientation
+	// (because UIImageOrientation is not handled correctly everywhere)
+	UIGraphicsBeginImageContext(image.size);
+	[image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height) blendMode:kCGBlendModeCopy alpha:1.0];
+	image = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+
 	return image;
 }
 
