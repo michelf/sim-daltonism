@@ -123,7 +123,7 @@
 	if (_mainCameraUIAdapted == NO)
 	{
 #if TARGET_IPHONE_SIMULATOR
-		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+		if (NO)
 #endif
 		if (!videoDevice.hasTorch)
 		{
