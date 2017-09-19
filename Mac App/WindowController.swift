@@ -51,7 +51,6 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window?.level = WindowController.windowLevel
 		window?.hidesOnDeactivate = false
 		window?.standardWindowButton(.zoomButton)?.isEnabled = false
-		window?.isMovable = false
 		window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .participatesInCycle]
 		window?.styleMask.formUnion(.nonactivatingPanel)
 		window?.restorationClass = FilterWindowManager.self

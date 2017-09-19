@@ -20,60 +20,23 @@ class Window: NSPanel {
 	static let willStartDragging = Notification.Name("WindowWillStartDraggingNotification")
 	static let didEndDragging = Notification.Name("WindowDidEndDraggingNotification")
 
-	var initialLocation = NSMakePoint(0, 0)
 	var dragging = false
+	var pausedDragTimer: Timer?
 
-	override func mouseDown(with theEvent: NSEvent) {
-		initialLocation = theEvent.locationInWindow
-		var tracking = true
-		while tracking {
-			let theEvent = nextEvent(matching: [.leftMouseUp, .leftMouseDragged])!
-			switch theEvent.type {
-				case .leftMouseDragged:
-					let windowFrame = frame
-					var newOrigin = windowFrame.origin
-
-					// Get the mouse location in window coordinates.
-					let currentLocation = theEvent.locationInWindow
-					// Update the origin with the diffeerence between the new mouse location and the old one
-					newOrigin.x += currentLocation.x - initialLocation.x
-					newOrigin.y += currentLocation.y - initialLocation.y
-
-					if !dragging {
-						dragging = true
-						NotificationCenter.default.post(name: Window.willStartDragging, object: self)
-					}
-
-					// Move window to the new location
-					setFrameOrigin(newOrigin)
-
-					break;
-
-				case .leftMouseUp:
-					tracking = false
-					break;
-				default:
-					/* Ignore any other kind of event. */
-					break;
-			}
-		};
-		
-		if dragging {
-			dragging = false
-			NotificationCenter.default.post(name: Window.didEndDragging, object: self)
-		} else if !theEvent.modifierFlags.contains(.command) {
-			// make sure the app activates if when clicking on the title bar
-			// without dragging.
-			NSApp.activate(ignoringOtherApps: true)
+	override func mouseDragged(with event: NSEvent) {
+		if !dragging {
+			dragging = true
+			NotificationCenter.default.post(name: Window.willStartDragging, object: self)
 		}
+		pausedDragTimer?.invalidate()
+		pausedDragTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(stoppedDragging), userInfo: nil, repeats: false)
+
+		super.mouseDragged(with: event)
 	}
 
-	override func mouseUp(with theEvent: NSEvent) {
-		if dragging {
-			dragging = false
-			NotificationCenter.default.post(name: Window.didEndDragging, object: self)
-		}
-		super.mouseUp(with: theEvent)
+	@objc private func stoppedDragging() {
+		dragging = false
+		NotificationCenter.default.post(name: Window.didEndDragging, object: self)
 	}
 
 	override func orderOut(_ sender: Any?) {
