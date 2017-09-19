@@ -224,8 +224,11 @@ class FilteredView: OpenGLPixelBufferView {
 			display(captureImage, scale: 1)
 			if unhideOnNextDisplay {
 				DispatchQueue.main.async {
-					self.unhideOnNextDisplay = false
-					self.isHidden = false
+					// recheck, because the state could have changed since the dispatch
+					if self.unhideOnNextDisplay {
+						self.unhideOnNextDisplay = false
+						self.isHidden = false
+					}
 				}
 			}
 		}
