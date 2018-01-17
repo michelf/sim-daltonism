@@ -26,6 +26,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Sim Daltonism uses the camera to display on the screen what a color blind person would see.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Sim Daltonism wants to save a picture.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch</string>
 	<key>UIMainStoryboardFile</key>

@@ -2,3 +2,5 @@
 "CFBundleName" = "Sim Daltonisme";
 
 "NSCameraUsageDescription" = "Sim Daltonisme utilise la caméra pour afficher à l’écran ce que voit une personne daltonienne.";
+
+"NSPhotoLibraryAddUsageDescription" = "Sim Daltonism veux enregistrer une image.";
