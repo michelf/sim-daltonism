@@ -20,11 +20,21 @@ extension NSNib.Name {
 }
 
 class AboutBoxBackground: NSView {
-	override var isOpaque: Bool { return true }
+	override var isOpaque: Bool {
+		if #available(macOS 10.14, *) {
+			return effectiveAppearance.bestMatch(from: [.aqua, .darkAqua]) != .darkAqua
+		}
+		return true // opaque if not in dark mode
+	}
 	override var mouseDownCanMoveWindow: Bool { return true }
 	override func draw(_ dirtyRect: NSRect) {
 		let rect = bounds
-		let gradient = NSGradient(starting: NSColor.white, ending: NSColor(calibratedWhite: 0.9, alpha: 1.0))
+		let gradient: NSGradient?
+		if #available(OSX 10.14, *), effectiveAppearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua {
+			gradient = NSGradient(starting: NSColor(calibratedWhite: 1.0, alpha: 0.2), ending: .clear)
+		} else {
+			gradient = NSGradient(starting: NSColor.white, ending: NSColor(calibratedWhite: 0.9, alpha: 1.0))
+		}
 		gradient?.draw(from: NSPoint(x: 0, y: rect.maxY), to: NSPoint(x: 0, y: rect.minY), options: [])
 	}
 }
@@ -154,6 +164,10 @@ class AboutBoxController: NSWindowController {
 		finalText.replaceCharacters(in: versionRange, with: appVersion)
 		finalText.replaceCharacters(in: appRange, with: appName)
 
+		if #available(macOS 10.14, *) {
+			// dark mode support on macOS Mojave
+			finalText.addAttribute(.foregroundColor, value: NSColor.textColor, range: NSRange(location: 0, length: finalText.length))
+		}
 		return finalText
 	}
 
