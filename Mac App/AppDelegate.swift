@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		viewAreaDefault = area
 	}
 	
-	func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+	@objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
 		switch menuItem.action! {
 		case #selector(adoptSpeedSetting(_:)):
 			menuItem.state = refreshSpeedDefault.rawValue == menuItem.tag ? .on : .off

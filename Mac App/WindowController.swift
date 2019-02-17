@@ -98,7 +98,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		visionType = sender.tag
 	}
 
-	func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+	@objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
 		switch menuItem.action! {
 		case #selector(adoptVisionTypeSetting(_:)):
 			menuItem.state = visionType == menuItem.tag ? .on : .off
