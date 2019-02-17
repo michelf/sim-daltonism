@@ -588,7 +588,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <state key="normal" title="Choose"/>
                                         <connections>
-                                            <segue destination="33c-Li-0id" kind="showDetail" id="lPb-LS-E7R"/>
+                                            <segue destination="33c-Li-0id" kind="show" id="lPb-LS-E7R"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal vision" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKr-3a-N1J">
