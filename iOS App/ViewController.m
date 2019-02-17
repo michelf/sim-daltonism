@@ -311,12 +311,13 @@
 
 - (void)showError:(NSError *)error
 {
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:error.localizedDescription
-														message:error.localizedFailureReason
-													   delegate:nil
-											  cancelButtonTitle:@"OK"
-											  otherButtonTitles:nil];
-	[alertView show];
+	UIAlertController *alert = [UIAlertController alertControllerWithTitle:error.localizedDescription
+																   message:error.localizedFailureReason
+															preferredStyle:UIAlertControllerStyleAlert];
+	[alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"")
+											  style:UIAlertActionStyleDefault
+											handler:^(UIAlertAction *action){}]];
+	[self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)showCameraPrivacySettings:(id)sender

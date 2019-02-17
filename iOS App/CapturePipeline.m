@@ -278,7 +278,12 @@
 		
 		if ( [notification.name isEqualToString:AVCaptureSessionWasInterruptedNotification] )
 		{
-			NSLog( @"session interrupted" );
+			NSLog( @"session interrupted, reason: %@", notification.userInfo[AVCaptureSessionInterruptionReasonKey] );
+
+			// Since we can't resume running while in the background we need to remember this for next time we come to the foreground
+			if ( self->_running ) {
+				self->_startCaptureSessionOnEnteringForeground = YES;
+			}
 			
 			[self captureSessionDidStopRunning];
 		}
@@ -291,16 +296,7 @@
 			[self captureSessionDidStopRunning];
 			
 			NSError *error = notification.userInfo[AVCaptureSessionErrorKey];
-			if ( error.code == AVErrorDeviceIsNotAvailableInBackground )
-			{
-				NSLog( @"device not available in background" );
-
-				// Since we can't resume running while in the background we need to remember this for next time we come to the foreground
-				if ( self->_running ) {
-					self->_startCaptureSessionOnEnteringForeground = YES;
-				}
-			}
-			else if ( error.code == AVErrorMediaServicesWereReset )
+			if ( error.code == AVErrorMediaServicesWereReset )
 			{
 				NSLog( @"media services were reset" );
 				[self handleRecoverableCaptureSessionRuntimeError:error];
