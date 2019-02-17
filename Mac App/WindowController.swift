@@ -47,7 +47,11 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window?.level = WindowController.windowLevel
 		window?.hidesOnDeactivate = false
 		window?.standardWindowButton(.zoomButton)?.isEnabled = false
-		window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .participatesInCycle]
+		if #available(OSX 10.12, *) {
+			window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .participatesInCycle]
+		} else {
+			window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary] // dragging not working with .participatesInCycle
+		}
 		window?.styleMask.formUnion(.nonactivatingPanel)
 		window?.restorationClass = FilterWindowManager.self
 
