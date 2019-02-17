@@ -144,7 +144,7 @@
 		{
 			dispatch_async(_delegateCallbackQueue, ^{
 				@autoreleasepool {
-					[self.delegate capturePipeline:self didStartRunningWithVideoDevice:_videoDevice];
+					[self.delegate capturePipeline:self didStartRunningWithVideoDevice:self->_videoDevice];
 				}
 			});
 		}
@@ -157,16 +157,16 @@
 		[self setupCaptureSession];
 
 		[self _startRunningCaptureSession];
-		_running = YES;
+		self->_running = YES;
 	} );
 }
 
 - (void)stopRunning
 {
 	dispatch_sync( _sessionQueue, ^{
-		_running = NO;
+		self->_running = NO;
 		
-		[_captureSession stopRunning];
+		[self->_captureSession stopRunning];
 		
 		[self captureSessionDidStopRunning];
 		
@@ -296,8 +296,8 @@
 				NSLog( @"device not available in background" );
 
 				// Since we can't resume running while in the background we need to remember this for next time we come to the foreground
-				if ( _running ) {
-					_startCaptureSessionOnEnteringForeground = YES;
+				if ( self->_running ) {
+					self->_startCaptureSessionOnEnteringForeground = YES;
 				}
 			}
 			else if ( error.code == AVErrorMediaServicesWereReset )
@@ -357,11 +357,11 @@
 	NSLog( @"-[%@ %@] called", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
 	
 	dispatch_sync( _sessionQueue, ^{
-		if ( _startCaptureSessionOnEnteringForeground ) {
+		if ( self->_startCaptureSessionOnEnteringForeground ) {
 			NSLog( @"-[%@ %@] manually restarting session", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
 			
-			_startCaptureSessionOnEnteringForeground = NO;
-			if ( _running ) {
+			self->_startCaptureSessionOnEnteringForeground = NO;
+			if ( self->_running ) {
 				[self _startRunningCaptureSession];
 			}
 		}
@@ -561,8 +561,8 @@
 	if (nextVideoDevice && nextVideoDevice != _videoDevice)
 	{
 		dispatch_async(_sessionQueue, ^{
-			_videoDevice = nextVideoDevice;
-			if (_running)
+			self->_videoDevice = nextVideoDevice;
+			if (self->_running)
 			{
 				[self teardownCaptureSession];
 #if USE_OPENGL_RENDERER

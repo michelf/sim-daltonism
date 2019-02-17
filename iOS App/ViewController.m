@@ -418,12 +418,12 @@
 	}
 	[self presentViewController:activityViewController animated:YES completion:nil];
 	activityViewController.completionWithItemsHandler = ^(UIActivityType __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
-		_presentingShareView = NO;
-		self.capturePipeline.renderingEnabled = !_presentingShareView; // unfreeze image
-		if (torchActive && _videoDevice.hasTorch && [_videoDevice lockForConfiguration:nil])
+		self->_presentingShareView = NO;
+		self.capturePipeline.renderingEnabled = !self->_presentingShareView; // unfreeze image
+		if (torchActive && self->_videoDevice.hasTorch && [self->_videoDevice lockForConfiguration:nil])
 		{
-			[_videoDevice setTorchMode:torchActive ? AVCaptureTorchModeOn : AVCaptureTorchModeOff];
-			[_videoDevice unlockForConfiguration];
+			[self->_videoDevice setTorchMode:torchActive ? AVCaptureTorchModeOn : AVCaptureTorchModeOff];
+			[self->_videoDevice unlockForConfiguration];
 			[self reflectTorchActiveState:torchActive];
 		}
 	};
