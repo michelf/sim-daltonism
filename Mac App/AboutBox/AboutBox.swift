@@ -15,10 +15,6 @@
 
 import Cocoa
 
-extension NSNib.Name {
-	fileprivate static let aboutBox = NSNib.Name("AboutBox")
-}
-
 class AboutBoxBackground: NSView {
 	override var isOpaque: Bool {
 		if #available(macOS 10.14, *) {
@@ -75,7 +71,7 @@ class AboutBoxController: NSWindowController {
 	}
 
 	override var windowNibName: NSNib.Name {
-		return .aboutBox
+		return "AboutBox"
 	}
 
 	override func windowDidLoad() {

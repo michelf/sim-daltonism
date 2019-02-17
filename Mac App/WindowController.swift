@@ -15,10 +15,6 @@
 
 import Cocoa
 
-extension NSStoryboard.SceneIdentifier {
-	fileprivate static let windowControls = NSStoryboard.SceneIdentifier(rawValue: "WindowControls")
-}
-
 class WindowController: NSWindowController, NSWindowDelegate {
 
 	var visionType = UserDefaults.standard.integer(forKey: SimVisionTypeKey) {
@@ -55,7 +51,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		window?.styleMask.formUnion(.nonactivatingPanel)
 		window?.restorationClass = FilterWindowManager.self
 
-		let accessory = NSStoryboard(name: .main, bundle: nil).instantiateController(withIdentifier: .windowControls) as! NSTitlebarAccessoryViewController
+		let accessory = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowControls") as! NSTitlebarAccessoryViewController
 		accessory.layoutAttribute = .right
 		window?.addTitlebarAccessoryViewController(accessory)
 
@@ -102,7 +98,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		visionType = sender.tag
 	}
 
-	override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+	func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
 		switch menuItem.action! {
 		case #selector(adoptVisionTypeSetting(_:)):
 			menuItem.state = visionType == menuItem.tag ? .on : .off
