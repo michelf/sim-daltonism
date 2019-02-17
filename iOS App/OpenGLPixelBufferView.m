@@ -471,7 +471,7 @@ bail:
 	glGetRenderbufferParameteriv( GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &width );
 	glGetRenderbufferParameteriv( GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &height );
 
-	NSInteger x = 0, y = 0, width2 = width, height2 = height;
+	GLint x = 0, y = 0, width2 = width, height2 = height;
 	NSInteger dataLength = width2 * height2 * 4;
 	CFMutableDataRef data = CFDataCreateMutable(NULL, dataLength * sizeof(GLubyte));
 	CFDataSetLength(data, dataLength * sizeof(GLubyte));
