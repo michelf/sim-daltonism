@@ -25,9 +25,9 @@
 	} else if (cell == self.feedbackCell) {
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@", self.localizedFeedbackEmailAddress]]];
 	} else if (cell == self.appStoreCell) {
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/sim-daltonism/id1050503579?ls=1&mt=8&at=11l78F&ct=SDapp&action=viewContentsUserReviews"]];
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/sim-daltonism/id1050503579?ls=1&mt=8&action=viewContentsUserReviews"]];
 	} else if (cell == self.redStripeCell) {
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/red-stripe/id997446505?ls=1&mt=8&at=11l78F&ct=SDapp"]];
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/red-stripe/id997446505?ls=1&mt=8"]];
 	}
 }
 
