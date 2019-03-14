@@ -77,6 +77,8 @@
 		1EF253911C2849B600DB3B18 /* VisionTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253811C2849B600DB3B18 /* VisionTemplate@2x.png */; };
 		1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253A01C2AF1D600DB3B18 /* AboutBox.swift */; };
 		1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253A11C2AF1D600DB3B18 /* AboutBox.xib */; };
+		1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */; };
+		1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +178,8 @@
 		1EF253811C2849B600DB3B18 /* VisionTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisionTemplate@2x.png"; sourceTree = "<group>"; };
 		1EF253A01C2AF1D600DB3B18 /* AboutBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutBox.swift; sourceTree = "<group>"; };
 		1EF253A11C2AF1D600DB3B18 /* AboutBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutBox.xib; sourceTree = "<group>"; };
+		1EFC7CDE223ABB9400C9E65A /* ReviewPrompt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewPrompt.h; sourceTree = "<group>"; };
+		1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewPrompt.m; sourceTree = "<group>"; };
 		269351C0156CB42100512474 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6F096BF9157ED5110075E328 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6F90DDD91395CAAA00125BDA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -362,12 +366,22 @@
 			path = AboutBox;
 			sourceTree = "<group>";
 		};
+		1EFC7CDD223ABB6400C9E65A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1EFC7CDE223ABB9400C9E65A /* ReviewPrompt.h */,
+				1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		6F90DDCA1395CAAA00125BDA = {
 			isa = PBXGroup;
 			children = (
 				1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */,
 				1E3BDB811C26408F00CADF46 /* ReadMe.md */,
 				1EF252601C2742F300DB3B18 /* Filter */,
+				1EFC7CDD223ABB6400C9E65A /* Common */,
 				1EF252661C2742F300DB3B18 /* iOS App */,
 				1EF253141C274A0200DB3B18 /* Mac App */,
 				6F90DDD81395CAAA00125BDA /* Frameworks */,
@@ -473,6 +487,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				fr,
 				Base,
@@ -560,6 +575,7 @@
 				1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */,
 				1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */,
 				1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */,
+				1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */,
 				1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */,
 				1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */,
@@ -575,6 +591,7 @@
 			files = (
 				1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */,
 				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
+				1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
 				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,

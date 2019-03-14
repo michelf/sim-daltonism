@@ -1,5 +1,5 @@
 
-//	Copyright 2005-2019 Michel Fortin
+//	Copyright 2019 Michel Fortin
 //
 //	Licensed under the Apache License, Version 2.0 (the "License");
 //	you may not use this file except in compliance with the License.
@@ -13,22 +13,14 @@
 //	See the License for the specific language governing permissions and
 //	limitations under the License.
 
-#import "AppDelegate.h"
-#import "SimDaltonismFilter.h"
-#import "ReviewPrompt.h"
+#import <Foundation/Foundation.h>
 
-@interface AppDelegate ()
-@end
+NS_ASSUME_NONNULL_BEGIN
 
-@implementation AppDelegate
+@interface ReviewPrompt : NSObject
 
-- (id)init {
-	[SimDaltonismFilter registerDefaults];
-	return [super init];
-}
-
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
-	[ReviewPrompt promptForReviewAfterDelay:1.3 minimumNumberOfLaunches:10 minimumDaysSinceFirstLaunch:6 minimumDaysSinceLastPrompt:365];
-}
++ (void)promptForReviewAfterDelay:(NSTimeInterval)delay minimumNumberOfLaunches:(NSInteger)launchThreshold minimumDaysSinceFirstLaunch:(NSInteger)daysSinceFirstLaunch minimumDaysSinceLastPrompt:(NSInteger)daysBetweenPrompts;
 
 @end
+
+NS_ASSUME_NONNULL_END

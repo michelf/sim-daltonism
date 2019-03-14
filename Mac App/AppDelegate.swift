@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationWillFinishLaunching(_ notification: Notification) {
 		SimDaltonismFilter.registerDefaults()
+		ReviewPrompt.promptForReview(afterDelay: 2.3, minimumNumberOfLaunches: 10, minimumDaysSinceFirstLaunch: 6, minimumDaysSinceLastPrompt: 365)
 	}
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
