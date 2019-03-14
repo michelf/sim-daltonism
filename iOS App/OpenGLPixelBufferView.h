@@ -13,9 +13,9 @@
 //	See the License for the specific language governing permissions and
 //	limitations under the License.
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <CoreVideo/CoreVideo.h>
+@import Foundation;
+@import UIKit;
+@import CoreVideo;
 
 @protocol OpenGLShaderFilter;
 

@@ -13,7 +13,7 @@
 //	See the License for the specific language governing permissions and
 //	limitations under the License.
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #if TARGET_OS_IPHONE
 #	import <OpenGLES/EAGL.h>
 #	import <OpenGLES/gltypes.h>

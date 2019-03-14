@@ -15,7 +15,7 @@
 
 // Based on the RosyWriter sample code
 
-#import <AVFoundation/AVFoundation.h>
+@import AVFoundation;
 
 @protocol CapturePipelineDelegate;
 

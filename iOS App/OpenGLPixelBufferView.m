@@ -14,8 +14,8 @@
 //	limitations under the License.
 
 #import "OpenGLPixelBufferView.h"
-#import <OpenGLES/EAGL.h>
-#import <QuartzCore/CAEAGLLayer.h>
+@import OpenGLES;
+@import QuartzCore;
 #import "ShaderUtilities.h"
 #import "OpenGLShaderFilter.h"
 

@@ -16,10 +16,8 @@
 #import "OpenGLPixelBufferView-Mac.h"
 #import "OpenGLShaderFilter.h"
 #import "ShaderUtilities.h"
-#import <OpenGL/OpenGL.h>
-#import <OpenGL/gl.h>
-#import <OpenGL/gl3.h>
-#import <CoreVideo/CoreVideo.h>
+@import OpenGL;
+@import CoreVideo;
 
 @interface OpenGLPixelBufferView ()
 {

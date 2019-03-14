@@ -1,5 +1,5 @@
 #import "ReviewPrompt.h"
-#import <StoreKit/StoreKit.h>
+@import StoreKit;
 
 @implementation ReviewPrompt
 

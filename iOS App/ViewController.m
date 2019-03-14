@@ -16,7 +16,7 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 
-#import <QuartzCore/QuartzCore.h>
+@import QuartzCore;
 #import "CapturePipeline.h"
 #import "OpenGLPixelBufferView.h"
 
