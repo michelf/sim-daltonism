@@ -26,6 +26,10 @@
 	BOOL _allowedToUseGPU;
 	BOOL _mainCameraUIAdapted;
 	BOOL _presentingShareView;
+#if TARGET_OS_SIMULATOR
+	NSArray<NSURL *> *_slideshowURLs;
+	NSInteger _slideshowIndex;
+#endif
 }
 
 @property(nonatomic, strong) IBOutlet UIBarButtonItem *photoButton;
@@ -162,9 +166,56 @@
 	// wait after autolayout did its work
 	[self setupPreviewView];
 	// display some test image
-//	[self.previewView displayImage:[UIImage imageWithContentsOfFile:@"test-image.jpg"]];
+	[self prepareSlideshow];
 #endif
 }
+
+#if TARGET_IPHONE_SIMULATOR
+- (void)prepareSlideshow {
+	if (_slideshowURLs == nil) {
+		_slideshowIndex = -1;
+		NSURL *slideshowDir = [NSURL fileURLWithPath:@"Pictures" isDirectory:YES];
+		_slideshowURLs = [NSFileManager.defaultManager contentsOfDirectoryAtURL:slideshowDir includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsPackageDescendants|NSDirectoryEnumerationSkipsHiddenFiles error:nil];
+		[self goNextSlide];
+
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCurrentSlide) name:NSUserDefaultsDidChangeNotification object:nil];
+	}
+}
+
+- (void)goNextSlide {
+	_slideshowIndex += 1;
+	if (_slideshowIndex >= _slideshowURLs.count) {
+		_slideshowIndex = 0;
+	}
+	while (_slideshowIndex >= 0 && _slideshowIndex < _slideshowURLs.count) {
+		if ([self refreshCurrentSlide]) {
+			return;
+		}
+		_slideshowIndex += 1;
+	}
+}
+
+- (void)goPreviousSlide {
+	_slideshowIndex -= 1;
+	if (_slideshowIndex < 0) {
+		_slideshowIndex = _slideshowURLs.count-1;
+	}
+	while (_slideshowIndex >= 0 && _slideshowIndex < _slideshowURLs.count) {
+		if ([self refreshCurrentSlide]) {
+			return;
+		}
+		_slideshowIndex -= 1;
+	}
+}
+
+- (BOOL)refreshCurrentSlide {
+	UIImage *image = [UIImage imageWithContentsOfFile:_slideshowURLs[_slideshowIndex].path];
+	if (image) {
+		[self.previewView displayImage:image];
+	}
+	return image != nil;
+}
+#endif
 
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -241,6 +292,10 @@
 	if (_presentingShareView) {
 		return;
 	}
+#if TARGET_OS_SIMULATOR
+	[self goNextSlide];
+	return;
+#endif
 	BOOL changed = [self.capturePipeline toggleInputDevice];
 	if (changed)
 	{
@@ -258,6 +313,10 @@
 
 - (IBAction)toggleTorch:(id)sender
 {
+#if TARGET_OS_SIMULATOR
+	[self goPreviousSlide];
+	return;
+#endif
 	NSError *error = nil;
 	if ([_videoDevice lockForConfiguration:&error])
 	{
@@ -278,17 +337,21 @@
 
 - (void)setupPreviewView
 {
-    // Set up GL view
-    self.previewView = [[OpenGLPixelBufferView alloc] initWithFrame:CGRectZero];
+	if (self.previewView != nil) {
+		return;
+	}
+
+	// Set up GL view
+	self.previewView = [[OpenGLPixelBufferView alloc] initWithFrame:CGRectZero];
 	self.previewView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
 	[self adjustOrientation];
 
-    [self.contentView insertSubview:self.previewView atIndex:0];
-    CGRect bounds = CGRectZero;
-    bounds.size = [self.contentView convertRect:self.contentView.bounds toView:self.previewView].size;
-    self.previewView.bounds = bounds;
-    self.previewView.center = CGPointMake(self.contentView.bounds.size.width/2.0, self.contentView.bounds.size.height/2.0);
+	[self.contentView insertSubview:self.previewView atIndex:0];
+	CGRect bounds = CGRectZero;
+	bounds.size = [self.contentView convertRect:self.contentView.bounds toView:self.previewView].size;
+	self.previewView.bounds = bounds;
+	self.previewView.center = CGPointMake(self.contentView.bounds.size.width/2.0, self.contentView.bounds.size.height/2.0);
 }
 
 - (void)checkCameraPrivacySettings

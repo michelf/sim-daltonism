@@ -153,16 +153,21 @@
 
 - (void)startRunning
 {
+#if TARGET_IPHONE_SIMULATOR
+#else
 	dispatch_sync( _sessionQueue, ^{
 		[self setupCaptureSession];
 
 		[self _startRunningCaptureSession];
 		self->_running = YES;
 	} );
+#endif
 }
 
 - (void)stopRunning
 {
+#if TARGET_IPHONE_SIMULATOR
+#else
 	dispatch_sync( _sessionQueue, ^{
 		self->_running = NO;
 		
@@ -172,6 +177,7 @@
 		
 		[self teardownCaptureSession];
 	} );
+#endif
 }
 
 - (void)setupCaptureSession
