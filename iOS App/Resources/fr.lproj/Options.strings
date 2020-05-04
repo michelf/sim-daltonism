@@ -11,7 +11,7 @@
 "8oO-S8-qcf.headerTitle" = "Vision monochrome";
 
 /* Class = "UILabel"; text = "Anomalous red cones"; ObjectID = "53L-Zl-hPR"; */
-"53L-Zl-hPR.text" = "Cônes verts anormaux";
+"53L-Zl-hPR.text" = "Cônes rouges anormaux";
 
 /* Class = "UILabel"; text = "Sim Daltonism © 2005–2016 Michel Fortin\n\nIncludes an adaptation of the color_blind_sims Javascript function from the Color Laboratory\nCopyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network."; ObjectID = "AIv-Ok-oRj"; */
 "AIv-Ok-oRj.text" = "Sim Daltonism © 2005–2019 Michel Fortin
@@ -63,7 +63,7 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 "UN5-pc-Szy.normalTitle" = "Choisir";
 
 /* Class = "UILabel"; text = "No red cones"; ObjectID = "XDI-Ny-fnp"; */
-"XDI-Ny-fnp.text" = "Aucun cône vert";
+"XDI-Ny-fnp.text" = "Aucun cône rouge";
 
 /* Class = "UILabel"; text = "Send Feedback"; ObjectID = "aYH-t4-fuh"; */
 "aYH-t4-fuh.text" = "Commentaires";
@@ -87,7 +87,7 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 "iBD-Jm-iAQ.text" = "Protanopie";
 
 /* Class = "UILabel"; text = "No green cones"; ObjectID = "jKo-bc-yvf"; */
-"jKo-bc-yvf.text" = "Aucun cône rouge";
+"jKo-bc-yvf.text" = "Aucun cône vert";
 
 /* Class = "UILabel"; text = "Monochromacy"; ObjectID = "jxK-7j-Fx2"; */
 "jxK-7j-Fx2.text" = "Monochromatisme";
@@ -111,7 +111,7 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 "vTX-4F-okO.text" = "Sim Daltonisme";
 
 /* Class = "UILabel"; text = "Anomalous green cones"; ObjectID = "vcH-0U-5AL"; */
-"vcH-0U-5AL.text" = "Cônes rouges anormaux";
+"vcH-0U-5AL.text" = "Cônes verts anormaux";
 
 /* Class = "UILabel"; text = "Absent or non-functionning cones"; ObjectID = "vxa-TM-5Dr"; */
 "vxa-TM-5Dr.text" = "Cônes absents ou non-fonctionnels";
