@@ -214,7 +214,7 @@ Everyone has his own perception of colors that differs slightly from other peopl
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AIv-Ok-oRj">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="130"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <string key="text">Sim Daltonism © 2005–2019 Michel Fortin
+                                                    <string key="text">Sim Daltonism © 2005–2020 Michel Fortin
 
 Includes an adaptation of the color_blind_sims Javascript function from the Color Laboratory
 Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network.</string>
