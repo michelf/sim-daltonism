@@ -229,6 +229,9 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 		// now shift *all* three proportional to the greatest shift...
 		s_rgb = s_rgb + ( adjust * d_rgb );
 
+		// fix issue where blues were getting purple
+		s_rgb = clamp(s_rgb, 0., 1.);
+
 		// anomalize
 		s_rgb = mix(c_rgb, s_rgb, anomalize);
 
