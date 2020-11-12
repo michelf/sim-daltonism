@@ -171,8 +171,17 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 		vec4 pixel = texture2D(videoframe, coordinate);
 		if (anomalize <= 0.0) { // shortcut path
 			// less than zero means monochromacy filter
-			float m = dot(pixel.rgb, vec3(.299, .587, .114));
-			gl_FragColor = mix(pixel, vec4(m,m,m,0), -anomalize);
+//			float m = dot(pixel.rgb, vec3(.299, .587, .114));
+//			gl_FragColor = mix(pixel, vec4(m,m,m,0), -anomalize);
+
+			// *** Experimental Blue Cone Monochromatism ***
+			float rod = clamp(pixel.g + (pixel.r * 0.15), 0., 1.); // 1st
+//			float rod = clamp((pixel.g * 0.90) + (pixel.r * 0.10), 0., 1.); // 2nd
+			if (anomalize < -0.9) {
+				gl_FragColor = vec4(0., rod, pixel.b, 0.); // shown as monochromatism
+			} else {
+				gl_FragColor = vec4(rod, rod, pixel.b, 0.); // shown as partial monochromatism
+			}
 			return;
 		}
 
