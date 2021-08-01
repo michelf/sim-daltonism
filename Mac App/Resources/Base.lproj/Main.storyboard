@@ -208,7 +208,23 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="h5H-Ve-nGd"/>
-                                        <menuItem title="Normal Vision" keyEquivalent="0" id="vdT-ac-lg7">
+                                        <menuItem title="Methodology" enabled="NO" id="k8K-Sj-41W">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Machado et al" tag="1" keyEquivalent="m" indentationLevel="1" id="GZ5-cs-eRF">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="J3c-65-2YF"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Wickline HCIRN" keyEquivalent="h" indentationLevel="1" id="K9c-GK-izG">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="Ypc-jU-22H"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="sUm-R3-pBz"/>
+                                        <menuItem title="Normal Vision" keyEquivalent="0" indentationLevel="1" id="vdT-ac-lg7">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="p0b-I7-7nt"/>
                                             </connections>
@@ -249,12 +265,15 @@
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Gqz-m3-IO9"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="szF-Cd-B1t">
+                                        <menuItem title="Monochromatism" enabled="NO" id="6gV-VJ-KbN">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" indentationLevel="1" id="szF-Cd-B1t">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="guc-mg-yql"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" id="pFL-0F-7Lj">
+                                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="pFL-0F-7Lj">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Bqg-sa-Fs8"/>
                                             </connections>
@@ -393,7 +412,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="hhN-ix-5O1" customClass="ColorView" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="3" y="3" width="354" height="337"/>
                             </customView>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Me-kj-WJz" userLabel="MetalView" customClass="FilteredMetalView" customModule="Sim_Daltonism" customModuleProvider="target">
+                            <customView id="Yqu-aF-FCy" userLabel="MetalView" customClass="FilteredMetalView" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="98" y="122" width="163" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
@@ -406,7 +425,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="filteredView" destination="6Me-kj-WJz" id="qlf-YB-gXN"/>
+                        <outlet property="filteredView" destination="Yqu-aF-FCy" id="Cxb-0j-NMM"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -485,7 +504,7 @@
                 </viewController>
                 <menu title="Filter" id="wYE-Gi-tJj">
                     <items>
-                        <menuItem title="Normal Vision" keyEquivalent="0" id="wh1-bY-2Li">
+                        <menuItem title="Normal Vision" keyEquivalent="0" indentationLevel="1" id="wh1-bY-2Li">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="G60-EO-Eeu"/>
                             </connections>
@@ -529,12 +548,12 @@
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="wiF-1D-XGb"/>
-                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="Npk-y4-wqh">
+                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" indentationLevel="1" id="Npk-y4-wqh">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="L4d-aW-ww3"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" id="cWO-ZF-xPw">
+                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="cWO-ZF-xPw">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="9P6-uH-LcD"/>
                             </connections>
@@ -591,6 +610,6 @@
         <image name="FilteredTransparencyTemplate" width="13" height="13"/>
         <image name="NormalFrameRateTemplate" width="13" height="13"/>
         <image name="SlowFrameRateTemplate" width="13" height="13"/>
-        <image name="VisionTemplate" width="17" height="11"/>
+        <image name="VisionTemplate" width="18" height="11"/>
     </resources>
 </document>

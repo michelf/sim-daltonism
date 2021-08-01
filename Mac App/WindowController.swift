@@ -17,6 +17,8 @@ import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
 
+    // MARK: - User Settings
+
     var visionType = UserDefaults.standard.integer(forKey: UserDefaults.VisionKey) {
         didSet {
             setVisionTypeDefault()
@@ -35,6 +37,24 @@ class WindowController: NSWindowController, NSWindowDelegate {
         FilterWindowManager.shared.changedWindowController(self)
         window.invalidateRestorableState()
     }
+
+    var simulation = UserDefaults.standard.integer(forKey: UserDefaults.SimulationKey) {
+        didSet {
+            setSimulationDefault()
+            applySimulation()
+        }
+    }
+
+    func setSimulationDefault() {
+        UserDefaults.standard.set(simulation, forKey: UserDefaults.SimulationKey)
+    }
+
+    fileprivate func applySimulation() {
+        FilterStoreManager.shared.setSimulation(to: simulation)
+    }
+
+
+    // MARK: - Manage Window
 
 	fileprivate static let windowLevel = NSWindow.Level(Int(CGWindowLevelForKey(CGWindowLevelKey.assistiveTechHighWindow) + 1))
 
@@ -98,18 +118,29 @@ class WindowController: NSWindowController, NSWindowDelegate {
 		FilterWindowManager.shared.removeWindowController(self)
 	}
 
+    // MARK: - Menu Intents
+
 	@IBAction func adoptVisionTypeSetting(_ sender: NSMenuItem) {
 		visionType = sender.tag
 	}
 
-	@objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-		switch menuItem.action! {
-		case #selector(adoptVisionTypeSetting(_:)):
-			menuItem.state = visionType == menuItem.tag ? .on : .off
-			return true
-		default:
-			return false
-		}
-	}
+    @objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        switch menuItem.action! {
+            case #selector(adoptVisionTypeSetting(_:)):
+                menuItem.state = visionType == menuItem.tag ? .on : .off
+                return true
+
+            case #selector(adoptSimulationSetting):
+                menuItem.state = simulation == menuItem.tag ? .on : .off
+                return true
+
+            default:
+                return false
+        }
+    }
+
+    @IBAction func adoptSimulationSetting(_ sender: NSMenuItem) {
+        simulation = sender.tag
+    }
 
 }
