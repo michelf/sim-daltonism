@@ -83,6 +83,9 @@
 		941DFC0126B623F80086EC7A /* HCIRN.metal in Sources */ = {isa = PBXBuildFile; fileRef = 941DFBFD26B623F80086EC7A /* HCIRN.metal */; };
 		941DFC0326B623F80086EC7A /* HCIRNFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFBFF26B623F80086EC7A /* HCIRNFilter.swift */; };
 		941DFC0426B623F80086EC7A /* HCIRNFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0026B623F80086EC7A /* HCIRNFilterVendor.swift */; };
+		941DFC0A26B6254C0086EC7A /* MachadoFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0626B6254C0086EC7A /* MachadoFilterVendor.swift */; };
+		941DFC0B26B6254C0086EC7A /* MachadoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0726B6254C0086EC7A /* MachadoFilters.swift */; };
+		941DFC0C26B6254C0086EC7A /* Transforms.metal in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0826B6254C0086EC7A /* Transforms.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -199,6 +202,9 @@
 		941DFBFD26B623F80086EC7A /* HCIRN.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = HCIRN.metal; sourceTree = "<group>"; };
 		941DFBFF26B623F80086EC7A /* HCIRNFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilter.swift; sourceTree = "<group>"; };
 		941DFC0026B623F80086EC7A /* HCIRNFilterVendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilterVendor.swift; sourceTree = "<group>"; };
+		941DFC0626B6254C0086EC7A /* MachadoFilterVendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachadoFilterVendor.swift; sourceTree = "<group>"; };
+		941DFC0726B6254C0086EC7A /* MachadoFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachadoFilters.swift; sourceTree = "<group>"; };
+		941DFC0826B6254C0086EC7A /* Transforms.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Transforms.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				941DFBD726B61D320086EC7A /* FilteredMetalView.swift */,
+				941DFC0526B6254C0086EC7A /* Machado */,
 				941DFBFC26B623F80086EC7A /* HCIRN */,
 			);
 			path = Metal;
@@ -443,6 +450,16 @@
 				941DFC0026B623F80086EC7A /* HCIRNFilterVendor.swift */,
 			);
 			path = HCIRN;
+			sourceTree = "<group>";
+		};
+		941DFC0526B6254C0086EC7A /* Machado */ = {
+			isa = PBXGroup;
+			children = (
+				941DFC0826B6254C0086EC7A /* Transforms.metal */,
+				941DFC0726B6254C0086EC7A /* MachadoFilters.swift */,
+				941DFC0626B6254C0086EC7A /* MachadoFilterVendor.swift */,
+			);
+			path = Machado;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -621,14 +638,17 @@
 				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
 				1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
+				941DFC0A26B6254C0086EC7A /* MachadoFilterVendor.swift in Sources */,
 				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				941DFC0326B623F80086EC7A /* HCIRNFilter.swift in Sources */,
 				1EF2534C1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
+				941DFC0C26B6254C0086EC7A /* Transforms.metal in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
+				941DFC0B26B6254C0086EC7A /* MachadoFilters.swift in Sources */,
 				941DFC0426B623F80086EC7A /* HCIRNFilterVendor.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
 				1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */,
@@ -801,7 +821,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 2.1;
 				MTLLINKER_FLAGS = "-fcikernel";
 				MTL_COMPILER_FLAGS = "-fcikernel";
@@ -839,7 +859,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 2.1;
 				MTLLINKER_FLAGS = "-fcikernel";
 				MTL_COMPILER_FLAGS = "-fcikernel";
