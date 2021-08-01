@@ -80,6 +80,9 @@
 		1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */; };
 		941DFBD826B61D320086EC7A /* FilteredMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFBD726B61D320086EC7A /* FilteredMetalView.swift */; };
 		941DFBD926B61D990086EC7A /* FilteredMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFBD726B61D320086EC7A /* FilteredMetalView.swift */; };
+		941DFC0126B623F80086EC7A /* HCIRN.metal in Sources */ = {isa = PBXBuildFile; fileRef = 941DFBFD26B623F80086EC7A /* HCIRN.metal */; };
+		941DFC0326B623F80086EC7A /* HCIRNFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFBFF26B623F80086EC7A /* HCIRNFilter.swift */; };
+		941DFC0426B623F80086EC7A /* HCIRNFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0026B623F80086EC7A /* HCIRNFilterVendor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +196,9 @@
 		6F90DE081395CCEA00125BDA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6F90DE0A1395CCF500125BDA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		941DFBD726B61D320086EC7A /* FilteredMetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredMetalView.swift; sourceTree = "<group>"; };
+		941DFBFD26B623F80086EC7A /* HCIRN.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = HCIRN.metal; sourceTree = "<group>"; };
+		941DFBFF26B623F80086EC7A /* HCIRNFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilter.swift; sourceTree = "<group>"; };
+		941DFC0026B623F80086EC7A /* HCIRNFilterVendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilterVendor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,8 +430,19 @@
 			isa = PBXGroup;
 			children = (
 				941DFBD726B61D320086EC7A /* FilteredMetalView.swift */,
+				941DFBFC26B623F80086EC7A /* HCIRN */,
 			);
 			path = Metal;
+			sourceTree = "<group>";
+		};
+		941DFBFC26B623F80086EC7A /* HCIRN */ = {
+			isa = PBXGroup;
+			children = (
+				941DFBFD26B623F80086EC7A /* HCIRN.metal */,
+				941DFBFF26B623F80086EC7A /* HCIRNFilter.swift */,
+				941DFC0026B623F80086EC7A /* HCIRNFilterVendor.swift */,
+			);
+			path = HCIRN;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -599,6 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				941DFC0126B623F80086EC7A /* HCIRN.metal in Sources */,
 				1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */,
 				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
 				1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
@@ -607,9 +625,11 @@
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
+				941DFC0326B623F80086EC7A /* HCIRNFilter.swift in Sources */,
 				1EF2534C1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
+				941DFC0426B623F80086EC7A /* HCIRNFilterVendor.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
 				1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */,
 				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
@@ -781,9 +801,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 2.1;
+				MTLLINKER_FLAGS = "-fcikernel";
+				MTL_COMPILER_FLAGS = "-fcikernel";
+				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_LANGUAGE_REVISION = UseDeploymentTarget;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michelf.sim-daltonism";
 				PRODUCT_NAME = "Sim Daltonism";
 				SDKROOT = macosx;
@@ -815,9 +839,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 2.1;
+				MTLLINKER_FLAGS = "-fcikernel";
+				MTL_COMPILER_FLAGS = "-fcikernel";
+				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_LANGUAGE_REVISION = UseDeploymentTarget;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michelf.sim-daltonism";
 				PRODUCT_NAME = "Sim Daltonism";
 				SDKROOT = macosx;
