@@ -46,7 +46,6 @@
 		1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253171C274A0200DB3B18 /* ColorView.swift */; };
 		1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253181C274A0200DB3B18 /* FilteredView.swift */; };
 		1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */; };
-		1EF2533A1C274A0200DB3B18 /* Sim Daltonism.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */; };
 		1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */; };
 		1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253241C274A0200DB3B18 /* Main.storyboard */; };
 		1EF2533D1C274A0200DB3B18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253261C274A0200DB3B18 /* Credits.html */; };
@@ -496,10 +495,9 @@
 			};
 			buildConfigurationList = 6F90DDCF1395CAAA00125BDA /* Build configuration list for PBXProject "Sim Daltonism" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				fr,
 				Base,
@@ -559,7 +557,6 @@
 				1EF253871C2849B600DB3B18 /* FilteredMouseAreaTemplate@2x.png in Resources */,
 				1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */,
 				1EF253881C2849B600DB3B18 /* FilteredMoveableFrameTemplate.png in Resources */,
-				1EF2533A1C274A0200DB3B18 /* Sim Daltonism.entitlements in Resources */,
 				1EF2538C1C2849B600DB3B18 /* NormalFrameRateTemplate.png in Resources */,
 				1EF2538D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png in Resources */,
 				1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */,
