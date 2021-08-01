@@ -89,6 +89,7 @@
 		941DFC1026B626B10086EC7A /* FilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0F26B626B10086EC7A /* FilterStore.swift */; };
 		941DFC1326B626BC0086EC7A /* MachadoFilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */; };
 		941DFC1426B626BC0086EC7A /* HCIRNFilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */; };
+		941DFC1626B627630086EC7A /* FilterStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1526B627630086EC7A /* FilterStoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +212,7 @@
 		941DFC0F26B626B10086EC7A /* FilterStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterStore.swift; sourceTree = "<group>"; };
 		941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachadoFilterStore.swift; sourceTree = "<group>"; };
 		941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilterStore.swift; sourceTree = "<group>"; };
+		941DFC1526B627630086EC7A /* FilterStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterStoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,6 +474,7 @@
 		941DFC0E26B626A00086EC7A /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				941DFC1526B627630086EC7A /* FilterStoreManager.swift */,
 				941DFC0F26B626B10086EC7A /* FilterStore.swift */,
 				941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */,
 				941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */,
@@ -633,6 +636,7 @@
 				1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */,
 				1EF252C71C2742F300DB3B18 /* IconImageView.m in Sources */,
 				1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */,
+				941DFC1626B627630086EC7A /* FilterStoreManager.swift in Sources */,
 				1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */,
 				1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */,
 				941DFBD926B61D990086EC7A /* FilteredMetalView.swift in Sources */,
