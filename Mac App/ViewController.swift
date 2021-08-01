@@ -55,7 +55,7 @@ private extension ViewController {
     /// If supported, connect a renderer to the Metal view. Returns false if failed to setup Metal.
     func connectMetalViewAndFilterPipeline() throws {
 
-        guard let initialDevice = filteredView.preferredDevice
+        guard let initialDevice = getPreferredMTLDevice()
         else { throw MetalUnsupportedError }
 
         filteredView.device = initialDevice
@@ -66,6 +66,14 @@ private extension ViewController {
         self.renderer = renderer
         self.filteredView.delegate = renderer
 
+    }
+
+    private func getPreferredMTLDevice() -> MTLDevice? {
+        if #available(macOS 10.15, *) {
+            return filteredView.preferredDevice
+        } else {
+            return filteredView.getBestMTLDevice()
+        }
     }
 
     func setupTimerToPeriodicallyTrackMouse() {

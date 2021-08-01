@@ -89,6 +89,7 @@
 		9424DE7F26B63747007ADF4B /* MachadoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7026B63747007ADF4B /* MachadoFilters.swift */; };
 		9424DE8026B63747007ADF4B /* Transforms.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7126B63747007ADF4B /* Transforms.metal */; };
 		9424DE8126B63747007ADF4B /* FilteredMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7226B63747007ADF4B /* FilteredMetalView.swift */; };
+		9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */; };
 		94B926C526B139D300754E0C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B926C326B139C600754E0C /* Errors.swift */; };
 		94E8FB2B26B3D30D0027BCF4 /* SimVisionTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2A26B3D30D0027BCF4 /* SimVisionTypeName.swift */; };
 		94E8FB2D26B3D3400027BCF4 /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2C26B3D3400027BCF4 /* UserDefaults+Keys.swift */; };
@@ -216,6 +217,7 @@
 		9424DE7026B63747007ADF4B /* MachadoFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachadoFilters.swift; sourceTree = "<group>"; };
 		9424DE7126B63747007ADF4B /* Transforms.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Transforms.metal; sourceTree = "<group>"; };
 		9424DE7226B63747007ADF4B /* FilteredMetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredMetalView.swift; sourceTree = "<group>"; };
+		9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+GetBestMetalDevice.swift"; sourceTree = "<group>"; };
 		94B926C326B139C600754E0C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		94E8FB2626B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		94E8FB2726B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.html"; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				9424DE6D26B63747007ADF4B /* CGSize+OriginZero.swift */,
 				9424DE7226B63747007ADF4B /* FilteredMetalView.swift */,
 				9424DE6026B63747007ADF4B /* MetalRenderer.swift */,
+				9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */,
 				9424DE6926B63747007ADF4B /* HCIRN */,
 				9424DE6E26B63747007ADF4B /* Machado */,
 				9424DE6126B63747007ADF4B /* ScreenCapture */,
@@ -702,6 +705,7 @@
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
 				9424DE7626B63747007ADF4B /* HCIRNFilterStore.swift in Sources */,
 				9424DE7526B63747007ADF4B /* ScreenCapturer.swift in Sources */,
+				9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
 				9424DE7C26B63747007ADF4B /* HCIRNFilterVendor.swift in Sources */,
@@ -886,7 +890,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 2.0.5;
 				MTLLINKER_FLAGS = "-fcikernel";
 				MTL_COMPILER_FLAGS = "-fcikernel";
@@ -924,7 +928,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 2.0.5;
 				MTLLINKER_FLAGS = "-fcikernel";
 				MTL_COMPILER_FLAGS = "-fcikernel";
