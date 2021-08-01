@@ -86,6 +86,9 @@
 		941DFC0A26B6254C0086EC7A /* MachadoFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0626B6254C0086EC7A /* MachadoFilterVendor.swift */; };
 		941DFC0B26B6254C0086EC7A /* MachadoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0726B6254C0086EC7A /* MachadoFilters.swift */; };
 		941DFC0C26B6254C0086EC7A /* Transforms.metal in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0826B6254C0086EC7A /* Transforms.metal */; };
+		941DFC1026B626B10086EC7A /* FilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0F26B626B10086EC7A /* FilterStore.swift */; };
+		941DFC1326B626BC0086EC7A /* MachadoFilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */; };
+		941DFC1426B626BC0086EC7A /* HCIRNFilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +208,9 @@
 		941DFC0626B6254C0086EC7A /* MachadoFilterVendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachadoFilterVendor.swift; sourceTree = "<group>"; };
 		941DFC0726B6254C0086EC7A /* MachadoFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachadoFilters.swift; sourceTree = "<group>"; };
 		941DFC0826B6254C0086EC7A /* Transforms.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Transforms.metal; sourceTree = "<group>"; };
+		941DFC0F26B626B10086EC7A /* FilterStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterStore.swift; sourceTree = "<group>"; };
+		941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachadoFilterStore.swift; sourceTree = "<group>"; };
+		941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilterStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,8 +442,9 @@
 			isa = PBXGroup;
 			children = (
 				941DFBD726B61D320086EC7A /* FilteredMetalView.swift */,
-				941DFC0526B6254C0086EC7A /* Machado */,
 				941DFBFC26B623F80086EC7A /* HCIRN */,
+				941DFC0526B6254C0086EC7A /* Machado */,
+				941DFC0E26B626A00086EC7A /* Stores */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -460,6 +467,16 @@
 				941DFC0626B6254C0086EC7A /* MachadoFilterVendor.swift */,
 			);
 			path = Machado;
+			sourceTree = "<group>";
+		};
+		941DFC0E26B626A00086EC7A /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				941DFC0F26B626B10086EC7A /* FilterStore.swift */,
+				941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */,
+				941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */,
+			);
+			path = Stores;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -621,11 +638,14 @@
 				941DFBD926B61D990086EC7A /* FilteredMetalView.swift in Sources */,
 				1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */,
+				941DFC1426B626BC0086EC7A /* HCIRNFilterStore.swift in Sources */,
 				1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */,
 				1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */,
 				1EF252CD1C2742F300DB3B18 /* main.m in Sources */,
+				941DFC1326B626BC0086EC7A /* MachadoFilterStore.swift in Sources */,
 				1EF2534B1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
 				1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */,
+				941DFC1026B626B10086EC7A /* FilterStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
