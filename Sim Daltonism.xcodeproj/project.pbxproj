@@ -95,6 +95,9 @@
 		941DFC2026B629440086EC7A /* SimVisionTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1F26B629440086EC7A /* SimVisionTypeName.swift */; };
 		941DFC2426B62A4D0086EC7A /* CGWindowListScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC2226B62A4D0086EC7A /* CGWindowListScreenCapturer.swift */; };
 		941DFC2526B62A4D0086EC7A /* ScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC2326B62A4D0086EC7A /* ScreenCapturer.swift */; };
+		94ED6C7126B62D8F00A3CB19 /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED6C7026B62D8F00A3CB19 /* MetalRenderer.swift */; };
+		94ED6C7226B62DB400A3CB19 /* ScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC2326B62A4D0086EC7A /* ScreenCapturer.swift */; };
+		94ED6C7426B62DD400A3CB19 /* CGSize+OriginZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED6C7326B62DD400A3CB19 /* CGSize+OriginZero.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +225,8 @@
 		941DFC1F26B629440086EC7A /* SimVisionTypeName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimVisionTypeName.swift; sourceTree = "<group>"; };
 		941DFC2226B62A4D0086EC7A /* CGWindowListScreenCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGWindowListScreenCapturer.swift; sourceTree = "<group>"; };
 		941DFC2326B62A4D0086EC7A /* ScreenCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCapturer.swift; sourceTree = "<group>"; };
+		94ED6C7026B62D8F00A3CB19 /* MetalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderer.swift; sourceTree = "<group>"; };
+		94ED6C7326B62DD400A3CB19 /* CGSize+OriginZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+OriginZero.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,7 +327,6 @@
 		1EF253141C274A0200DB3B18 /* Mac App */ = {
 			isa = PBXGroup;
 			children = (
-				941DFC2126B62A4D0086EC7A /* ScreenCapture */,
 				941DFC1B26B6290B0086EC7A /* Model */,
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
 				1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */,
@@ -454,6 +458,9 @@
 			isa = PBXGroup;
 			children = (
 				941DFBD726B61D320086EC7A /* FilteredMetalView.swift */,
+				94ED6C7026B62D8F00A3CB19 /* MetalRenderer.swift */,
+				94ED6C7326B62DD400A3CB19 /* CGSize+OriginZero.swift */,
+				941DFC2126B62A4D0086EC7A /* ScreenCapture */,
 				941DFBFC26B623F80086EC7A /* HCIRN */,
 				941DFC0526B6254C0086EC7A /* Machado */,
 				941DFC0E26B626A00086EC7A /* Stores */,
@@ -670,6 +677,7 @@
 				1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */,
 				941DFBD926B61D990086EC7A /* FilteredMetalView.swift in Sources */,
 				1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
+				94ED6C7226B62DB400A3CB19 /* ScreenCapturer.swift in Sources */,
 				1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */,
 				1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */,
 				1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */,
@@ -693,6 +701,7 @@
 				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
+				94ED6C7426B62DD400A3CB19 /* CGSize+OriginZero.swift in Sources */,
 				941DFC2026B629440086EC7A /* SimVisionTypeName.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				941DFC0326B623F80086EC7A /* HCIRNFilter.swift in Sources */,
@@ -702,6 +711,7 @@
 				941DFC1826B628D00086EC7A /* FilterStore.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
 				941DFC0B26B6254C0086EC7A /* MachadoFilters.swift in Sources */,
+				94ED6C7126B62D8F00A3CB19 /* MetalRenderer.swift in Sources */,
 				941DFC0426B623F80086EC7A /* HCIRNFilterVendor.swift in Sources */,
 				941DFC2426B62A4D0086EC7A /* CGWindowListScreenCapturer.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
