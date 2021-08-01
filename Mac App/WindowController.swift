@@ -24,7 +24,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    private func setVisionTypeDefault() {
+    func setVisionTypeDefault() {
         UserDefaults.standard.set(visionType, forKey: UserDefaults.VisionKey)
     }
 

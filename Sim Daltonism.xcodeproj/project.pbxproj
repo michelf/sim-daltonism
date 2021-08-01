@@ -44,7 +44,6 @@
 		1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252A11C2742F300DB3B18 /* VisionPicker.m */; };
 		1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253151C274A0200DB3B18 /* AppDelegate.swift */; };
 		1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253171C274A0200DB3B18 /* ColorView.swift */; };
-		1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253181C274A0200DB3B18 /* FilteredView.swift */; };
 		1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */; };
 		1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */; };
 		1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253241C274A0200DB3B18 /* Main.storyboard */; };
@@ -98,6 +97,7 @@
 		94ED6C7126B62D8F00A3CB19 /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED6C7026B62D8F00A3CB19 /* MetalRenderer.swift */; };
 		94ED6C7226B62DB400A3CB19 /* ScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC2326B62A4D0086EC7A /* ScreenCapturer.swift */; };
 		94ED6C7426B62DD400A3CB19 /* CGSize+OriginZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED6C7326B62DD400A3CB19 /* CGSize+OriginZero.swift */; };
+		94ED6C7626B6330900A3CB19 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED6C7526B6330900A3CB19 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,7 +162,6 @@
 		1EF253151C274A0200DB3B18 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EF253161C274A0200DB3B18 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		1EF253171C274A0200DB3B18 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
-		1EF253181C274A0200DB3B18 /* FilteredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredView.swift; sourceTree = "<group>"; };
 		1EF2531D1C274A0200DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF2531F1C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenGLPixelBufferView-Mac.h"; sourceTree = "<group>"; };
 		1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenGLPixelBufferView-Mac.m"; sourceTree = "<group>"; };
@@ -227,6 +226,7 @@
 		941DFC2326B62A4D0086EC7A /* ScreenCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCapturer.swift; sourceTree = "<group>"; };
 		94ED6C7026B62D8F00A3CB19 /* MetalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderer.swift; sourceTree = "<group>"; };
 		94ED6C7326B62DD400A3CB19 /* CGSize+OriginZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+OriginZero.swift"; sourceTree = "<group>"; };
+		94ED6C7526B6330900A3CB19 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,7 +334,6 @@
 				1EF253301C274A0200DB3B18 /* Window.swift */,
 				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
 				1EF2532F1C274A0200DB3B18 /* ViewController.swift */,
-				1EF253181C274A0200DB3B18 /* FilteredView.swift */,
 				1EF253171C274A0200DB3B18 /* ColorView.swift */,
 				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
 				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
@@ -502,6 +501,7 @@
 		941DFC1B26B6290B0086EC7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				94ED6C7526B6330900A3CB19 /* Errors.swift */,
 				941DFC1F26B629440086EC7A /* SimVisionTypeName.swift */,
 				941DFC1C26B6293C0086EC7A /* UserDefaults+Keys.swift */,
 				1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */,
@@ -698,7 +698,7 @@
 				1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
 				941DFC0A26B6254C0086EC7A /* MachadoFilterVendor.swift in Sources */,
-				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
+				94ED6C7626B6330900A3CB19 /* Errors.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				94ED6C7426B62DD400A3CB19 /* CGSize+OriginZero.swift in Sources */,
@@ -889,7 +889,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2.1;
 				MTLLINKER_FLAGS = "-fcikernel";
 				MTL_COMPILER_FLAGS = "-fcikernel";
@@ -927,7 +927,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2.1;
 				MTLLINKER_FLAGS = "-fcikernel";
 				MTL_COMPILER_FLAGS = "-fcikernel";

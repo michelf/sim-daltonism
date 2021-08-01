@@ -71,7 +71,7 @@ class FilterWindowManager: NSObject, NSWindowRestoration {
 		windowControllers.remove(controller)
 		if windowControllers.isEmpty {
 			controller.window?.saveFrame(usingName: "FilterWindow")
-			controller.setDefaults() // so next created window will follow those defaults
+			controller.setVisionTypeDefault() // so next created window will follow those defaults
 		}
 	}
 
