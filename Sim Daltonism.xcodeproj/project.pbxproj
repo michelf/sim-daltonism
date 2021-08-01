@@ -93,6 +93,8 @@
 		941DFC1D26B6293C0086EC7A /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1C26B6293C0086EC7A /* UserDefaults+Keys.swift */; };
 		941DFC1E26B6293C0086EC7A /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1C26B6293C0086EC7A /* UserDefaults+Keys.swift */; };
 		941DFC2026B629440086EC7A /* SimVisionTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1F26B629440086EC7A /* SimVisionTypeName.swift */; };
+		941DFC2426B62A4D0086EC7A /* CGWindowListScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC2226B62A4D0086EC7A /* CGWindowListScreenCapturer.swift */; };
+		941DFC2526B62A4D0086EC7A /* ScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC2326B62A4D0086EC7A /* ScreenCapturer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +220,8 @@
 		941DFC1526B627630086EC7A /* FilterStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterStoreManager.swift; sourceTree = "<group>"; };
 		941DFC1C26B6293C0086EC7A /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
 		941DFC1F26B629440086EC7A /* SimVisionTypeName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimVisionTypeName.swift; sourceTree = "<group>"; };
+		941DFC2226B62A4D0086EC7A /* CGWindowListScreenCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGWindowListScreenCapturer.swift; sourceTree = "<group>"; };
+		941DFC2326B62A4D0086EC7A /* ScreenCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCapturer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +322,7 @@
 		1EF253141C274A0200DB3B18 /* Mac App */ = {
 			isa = PBXGroup;
 			children = (
+				941DFC2126B62A4D0086EC7A /* ScreenCapture */,
 				941DFC1B26B6290B0086EC7A /* Model */,
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
 				1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */,
@@ -495,6 +500,15 @@
 				1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		941DFC2126B62A4D0086EC7A /* ScreenCapture */ = {
+			isa = PBXGroup;
+			children = (
+				941DFC2226B62A4D0086EC7A /* CGWindowListScreenCapturer.swift */,
+				941DFC2326B62A4D0086EC7A /* ScreenCapturer.swift */,
+			);
+			path = ScreenCapture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -689,12 +703,14 @@
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
 				941DFC0B26B6254C0086EC7A /* MachadoFilters.swift in Sources */,
 				941DFC0426B623F80086EC7A /* HCIRNFilterVendor.swift in Sources */,
+				941DFC2426B62A4D0086EC7A /* CGWindowListScreenCapturer.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
 				1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */,
 				941DFC1E26B6293C0086EC7A /* UserDefaults+Keys.swift in Sources */,
 				941DFC1926B628D00086EC7A /* FilterStoreManager.swift in Sources */,
 				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
 				941DFC1A26B628D00086EC7A /* MachadoFilterStore.swift in Sources */,
+				941DFC2526B62A4D0086EC7A /* ScreenCapturer.swift in Sources */,
 				1EF2534F1C27609400DB3B18 /* SimDaltonismFilter.m in Sources */,
 				941DFBD826B61D320086EC7A /* FilteredMetalView.swift in Sources */,
 			);
