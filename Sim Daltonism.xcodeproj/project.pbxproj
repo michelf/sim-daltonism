@@ -79,6 +79,8 @@
 		1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253A11C2AF1D600DB3B18 /* AboutBox.xib */; };
 		1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */; };
 		1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */; };
+		941DFBD826B61D320086EC7A /* FilteredMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFBD726B61D320086EC7A /* FilteredMetalView.swift */; };
+		941DFBD926B61D990086EC7A /* FilteredMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFBD726B61D320086EC7A /* FilteredMetalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +193,7 @@
 		6F90DE061395CCE000125BDA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		6F90DE081395CCEA00125BDA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6F90DE0A1395CCF500125BDA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		941DFBD726B61D320086EC7A /* FilteredMetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredMetalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +385,7 @@
 				1E3BDB811C26408F00CADF46 /* ReadMe.md */,
 				1EF252601C2742F300DB3B18 /* Filter */,
 				1EFC7CDD223ABB6400C9E65A /* Common */,
+				941DFBD626B61D090086EC7A /* Metal */,
 				1EF252661C2742F300DB3B18 /* iOS App */,
 				1EF253141C274A0200DB3B18 /* Mac App */,
 				6F90DDD81395CAAA00125BDA /* Frameworks */,
@@ -415,6 +419,14 @@
 				6F90DDD91395CAAA00125BDA /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		941DFBD626B61D090086EC7A /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				941DFBD726B61D320086EC7A /* FilteredMetalView.swift */,
+			);
+			path = Metal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,7 +481,7 @@
 					};
 					1EF253061C27498600DB3B18 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = R5LCPCXJPZ;
+						DevelopmentTeam = FVC2SFVFYG;
 						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
@@ -575,6 +587,7 @@
 				1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */,
 				1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */,
 				1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */,
+				941DFBD926B61D990086EC7A /* FilteredMetalView.swift in Sources */,
 				1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */,
 				1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */,
@@ -604,6 +617,7 @@
 				1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */,
 				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
 				1EF2534F1C27609400DB3B18 /* SimDaltonismFilter.m in Sources */,
+				941DFBD826B61D320086EC7A /* FilteredMetalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,16 +775,17 @@
 				CODE_SIGN_ENTITLEMENTS = "Mac App/Resources/Sim Daltonism.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 125;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = FVC2SFVFYG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 2.0.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = 2.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michelf.sim-daltonism";
 				PRODUCT_NAME = "Sim Daltonism";
@@ -794,16 +809,17 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 125;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = FVC2SFVFYG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Mac App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 2.0.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = 2.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michelf.sim-daltonism";
 				PRODUCT_NAME = "Sim Daltonism";
