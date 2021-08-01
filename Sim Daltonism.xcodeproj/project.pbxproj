@@ -86,10 +86,13 @@
 		941DFC0A26B6254C0086EC7A /* MachadoFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0626B6254C0086EC7A /* MachadoFilterVendor.swift */; };
 		941DFC0B26B6254C0086EC7A /* MachadoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0726B6254C0086EC7A /* MachadoFilters.swift */; };
 		941DFC0C26B6254C0086EC7A /* Transforms.metal in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0826B6254C0086EC7A /* Transforms.metal */; };
-		941DFC1026B626B10086EC7A /* FilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0F26B626B10086EC7A /* FilterStore.swift */; };
-		941DFC1326B626BC0086EC7A /* MachadoFilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */; };
-		941DFC1426B626BC0086EC7A /* HCIRNFilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */; };
-		941DFC1626B627630086EC7A /* FilterStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1526B627630086EC7A /* FilterStoreManager.swift */; };
+		941DFC1726B628D00086EC7A /* HCIRNFilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */; };
+		941DFC1826B628D00086EC7A /* FilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC0F26B626B10086EC7A /* FilterStore.swift */; };
+		941DFC1926B628D00086EC7A /* FilterStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1526B627630086EC7A /* FilterStoreManager.swift */; };
+		941DFC1A26B628D00086EC7A /* MachadoFilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */; };
+		941DFC1D26B6293C0086EC7A /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1C26B6293C0086EC7A /* UserDefaults+Keys.swift */; };
+		941DFC1E26B6293C0086EC7A /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1C26B6293C0086EC7A /* UserDefaults+Keys.swift */; };
+		941DFC2026B629440086EC7A /* SimVisionTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DFC1F26B629440086EC7A /* SimVisionTypeName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +216,8 @@
 		941DFC1126B626BC0086EC7A /* MachadoFilterStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachadoFilterStore.swift; sourceTree = "<group>"; };
 		941DFC1226B626BC0086EC7A /* HCIRNFilterStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilterStore.swift; sourceTree = "<group>"; };
 		941DFC1526B627630086EC7A /* FilterStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterStoreManager.swift; sourceTree = "<group>"; };
+		941DFC1C26B6293C0086EC7A /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
+		941DFC1F26B629440086EC7A /* SimVisionTypeName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimVisionTypeName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +318,7 @@
 		1EF253141C274A0200DB3B18 /* Mac App */ = {
 			isa = PBXGroup;
 			children = (
+				941DFC1B26B6290B0086EC7A /* Model */,
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
 				1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */,
 				1EF253311C274A0200DB3B18 /* WindowController.swift */,
@@ -322,7 +328,6 @@
 				1EF253181C274A0200DB3B18 /* FilteredView.swift */,
 				1EF253171C274A0200DB3B18 /* ColorView.swift */,
 				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
-				1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */,
 				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
 				1EF253231C274A0200DB3B18 /* Resources */,
 				1EF253711C2849B600DB3B18 /* Control Icons */,
@@ -482,6 +487,16 @@
 			path = Stores;
 			sourceTree = "<group>";
 		};
+		941DFC1B26B6290B0086EC7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				941DFC1F26B629440086EC7A /* SimVisionTypeName.swift */,
+				941DFC1C26B6293C0086EC7A /* UserDefaults+Keys.swift */,
+				1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -631,25 +646,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				941DFC1D26B6293C0086EC7A /* UserDefaults+Keys.swift in Sources */,
 				1EF252CF1C2742F300DB3B18 /* OpenGLPixelBufferView.m in Sources */,
 				1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */,
 				1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */,
 				1EF252C71C2742F300DB3B18 /* IconImageView.m in Sources */,
 				1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */,
-				941DFC1626B627630086EC7A /* FilterStoreManager.swift in Sources */,
 				1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */,
 				1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */,
 				941DFBD926B61D990086EC7A /* FilteredMetalView.swift in Sources */,
 				1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */,
-				941DFC1426B626BC0086EC7A /* HCIRNFilterStore.swift in Sources */,
 				1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */,
 				1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */,
 				1EF252CD1C2742F300DB3B18 /* main.m in Sources */,
-				941DFC1326B626BC0086EC7A /* MachadoFilterStore.swift in Sources */,
 				1EF2534B1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
 				1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */,
-				941DFC1026B626B10086EC7A /* FilterStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,23 +672,29 @@
 				941DFC0126B623F80086EC7A /* HCIRN.metal in Sources */,
 				1EF253391C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m in Sources */,
 				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
+				941DFC1726B628D00086EC7A /* HCIRNFilterStore.swift in Sources */,
 				1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
 				941DFC0A26B6254C0086EC7A /* MachadoFilterVendor.swift in Sources */,
 				1EF253341C274A0200DB3B18 /* FilteredView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
+				941DFC2026B629440086EC7A /* SimVisionTypeName.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				941DFC0326B623F80086EC7A /* HCIRNFilter.swift in Sources */,
 				1EF2534C1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
 				941DFC0C26B6254C0086EC7A /* Transforms.metal in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
+				941DFC1826B628D00086EC7A /* FilterStore.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
 				941DFC0B26B6254C0086EC7A /* MachadoFilters.swift in Sources */,
 				941DFC0426B623F80086EC7A /* HCIRNFilterVendor.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
 				1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */,
+				941DFC1E26B6293C0086EC7A /* UserDefaults+Keys.swift in Sources */,
+				941DFC1926B628D00086EC7A /* FilterStoreManager.swift in Sources */,
 				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
+				941DFC1A26B628D00086EC7A /* MachadoFilterStore.swift in Sources */,
 				1EF2534F1C27609400DB3B18 /* SimDaltonismFilter.m in Sources */,
 				941DFBD826B61D320086EC7A /* FilteredMetalView.swift in Sources */,
 			);

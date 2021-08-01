@@ -22,7 +22,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet var aboutItem: NSMenuItem!
 
 	func applicationWillFinishLaunching(_ notification: Notification) {
-		SimDaltonismFilter.registerDefaults()
+        let vision = UserDefaults.standard.integer(forKey: UserDefaults.VisionKey)
+        let simulation = UserDefaults.standard.integer(forKey: UserDefaults.SimulationKey)
+        FilterStoreManager.makeShared(vision: vision, simulation: simulation)
 	}
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
