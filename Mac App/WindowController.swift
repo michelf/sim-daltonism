@@ -17,24 +17,24 @@ import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
 
-	var visionType = UserDefaults.standard.integer(forKey: SimVisionTypeKey) {
-		didSet {
-			setDefaults()
-			applyVisionType()
-		}
-	}
+    var visionType = UserDefaults.standard.integer(forKey: UserDefaults.VisionKey) {
+        didSet {
+            setVisionTypeDefault()
+            applyVisionType()
+        }
+    }
 
-	func setDefaults() {
-		UserDefaults.standard.set(visionType, forKey: SimVisionTypeKey)
-	}
+    private func setVisionTypeDefault() {
+        UserDefaults.standard.set(visionType, forKey: UserDefaults.VisionKey)
+    }
 
-	fileprivate func applyVisionType() {
-		guard let window = self.window else { return }
-		window.title = SimVisionTypeName(visionType)
-		((window.contentViewController! as! ViewController).filteredView.filter as! SimDaltonismFilter).visionType = visionType
-		FilterWindowManager.shared.changedWindowController(self)
-		window.invalidateRestorableState()
-	}
+    private func applyVisionType() {
+        guard let window = self.window else { return }
+        window.title = SimVisionTypeName(visionType)
+        FilterStoreManager.shared.setVisionFilter(to: visionType)
+        FilterWindowManager.shared.changedWindowController(self)
+        window.invalidateRestorableState()
+    }
 
 	fileprivate static let windowLevel = NSWindow.Level(Int(CGWindowLevelForKey(CGWindowLevelKey.assistiveTechHighWindow) + 1))
 
