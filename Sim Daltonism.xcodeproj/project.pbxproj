@@ -90,7 +90,6 @@
 		9424DE8026B63747007ADF4B /* Transforms.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7126B63747007ADF4B /* Transforms.metal */; };
 		9424DE8126B63747007ADF4B /* FilteredMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7226B63747007ADF4B /* FilteredMetalView.swift */; };
 		94B926C526B139D300754E0C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B926C326B139C600754E0C /* Errors.swift */; };
-		94BFDA8626B39750009944AC /* OpenGLPixelBufferView-Mac.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */; };
 		94E8FB2B26B3D30D0027BCF4 /* SimVisionTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2A26B3D30D0027BCF4 /* SimVisionTypeName.swift */; };
 		94E8FB2D26B3D3400027BCF4 /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2C26B3D3400027BCF4 /* UserDefaults+Keys.swift */; };
 /* End PBXBuildFile section */
@@ -158,8 +157,6 @@
 		1EF253161C274A0200DB3B18 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		1EF253171C274A0200DB3B18 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		1EF2531D1C274A0200DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1EF2531F1C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenGLPixelBufferView-Mac.h"; sourceTree = "<group>"; };
-		1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenGLPixelBufferView-Mac.m"; sourceTree = "<group>"; };
 		1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Sim Daltonism.entitlements"; sourceTree = "<group>"; };
 		1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = SimDaltonism.iconset; sourceTree = "<group>"; };
 		1EF253251C274A0200DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -255,8 +252,6 @@
 				1EF252641C2742F300DB3B18 /* SimDaltonismFilter.h */,
 				1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */,
 				1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */,
-				1EF2531F1C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.h */,
-				1EF253201C274A0200DB3B18 /* OpenGLPixelBufferView-Mac.m */,
 				1EF253481C274AFC00DB3B18 /* GL */,
 			);
 			path = Filter;
@@ -676,7 +671,6 @@
 				1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */,
 				1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */,
 				1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
-				94BFDA8626B39750009944AC /* OpenGLPixelBufferView-Mac.m in Sources */,
 				1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */,
 				1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */,
 				1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */,
