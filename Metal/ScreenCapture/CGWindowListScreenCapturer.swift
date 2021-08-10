@@ -46,14 +46,6 @@ public class CGWindowListScreenCapturer {
         updateFromDefaults()
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-        if let link = displayLink {
-            CVDisplayLinkStop(link)
-            displayLink = nil
-        }
-    }
-
 }
 
 // MARK: - Setup
@@ -61,7 +53,11 @@ public class CGWindowListScreenCapturer {
 extension CGWindowListScreenCapturer: ScreenCapturer {
 
     public func stopSession() {
-
+        NotificationCenter.default.removeObserver(self)
+        if let link = displayLink {
+            CVDisplayLinkStop(link)
+            displayLink = nil
+        }
     }
 
     public func startSession(in frame: NSRect, delegate: ScreenCaptureDelegate) throws {
@@ -101,11 +97,6 @@ private extension CGWindowListScreenCapturer {
                            name: NSWindow.didChangeOcclusionStateNotification,
                            object: window)
 
-    }
-
-    func removeMonitorsFor(window: NSWindow) {
-        let center = NotificationCenter.default
-        center.removeObserver(self, name: NSWindow.didChangeOcclusionStateNotification, object: window)
     }
 
     @objc func markAsMoving() {
