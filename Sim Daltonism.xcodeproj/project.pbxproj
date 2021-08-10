@@ -568,7 +568,7 @@
 					};
 					1EF253061C27498600DB3B18 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = FVC2SFVFYG;
+						DevelopmentTeam = R5LCPCXJPZ;
 						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
