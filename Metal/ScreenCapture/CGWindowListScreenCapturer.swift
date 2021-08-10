@@ -34,13 +34,14 @@ public class CGWindowListScreenCapturer {
 
     // Current capture
     private var preferredCaptureArea = ViewArea.underWindow
-    private let queue = DispatchQueue(label: "CGWindowListScreenCapturer", qos: .userInteractive)
+    private weak var queue: DispatchQueue?
     private var isCapturing = false
 
 
-    public init(view: FilteredMetalView, window: NSWindow) {
+    public init(view: FilteredMetalView, window: NSWindow, queue: DispatchQueue) {
         self.window = window
         self.view = view
+        self.queue = queue
         view.viewUpdatesSubscriber = self
         updateFromDefaults()
     }
@@ -158,7 +159,7 @@ import CoreVideo
 private extension CGWindowListScreenCapturer {
 
     private func createDisplayLink() {
-        queue.async { [weak self] in
+        queue?.async { [weak self] in
             guard let self = self else { return }
             CVDisplayLinkCreateWithActiveCGDisplays(&self.displayLink)
             guard let displayLink = self.displayLink else { return }
@@ -219,7 +220,7 @@ private extension CGWindowListScreenCapturer {
         var captureRect = getPreferredViewAreaInScreenCoordinates()
         captureRect.origin.y = mainDisplayBounds.height - captureRect.origin.y - captureRect.height
 
-        queue.async { [weak self] in
+        queue?.async { [weak self] in
             self?.captureWindowsBelow(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
         }
     }
@@ -286,6 +287,5 @@ private extension CGWindowListScreenCapturer {
     @objc func updateFromDefaults() {
         refreshSpeed = refreshSpeedDefault
         preferredCaptureArea = viewAreaDefault
-        // Settings are consumed asynchronously
     }
 }
