@@ -15,36 +15,27 @@
 
 import Foundation
 
-/// Swaps between FilterStores. A FilterStore controls sets of CIFilters for one simulation (e.g., Machado, Wickline/HCIRN) that are accessed by a Metal renderer.
-public class FilterStoreManager {
+/// Makes, swaps, and adjusts FilterStores with thread safety.
+/// When using CIFilters, use the queue in this Manager.
+///
+public protocol FilterStoreManager: AnyObject {
 
-    public static fileprivate(set) var shared = FilterStoreManager(vision: 0, simulation: 0)
+    /// For thread-safe use of CIFilters
+    ///
+    var queue: DispatchQueue { get }
 
-    @discardableResult
-    public static func makeShared(vision: NSInteger, simulation: NSInteger) -> FilterStoreManager {
-        FilterStoreManager.shared = FilterStoreManager(vision: vision, simulation: simulation)
-        return Self.shared
-    }
+    /// Coordinates the instantiation and setting of CIFilters
+    /// relevant to one simulation (e.g., Wickline).
+    /// This store is created asynchronously, so it may not be
+    /// available exactly when the Manager is created.
+    ///
+    var current: FilterStore? { get }
 
-    private init(vision: NSInteger, simulation: NSInteger) {
-        self.current = Self.simulationStore(for: simulation, vision: vision)
-    }
+    /// Makes a thread-safe change to the current filter
+    ///
+    func setVisionFilter(to vision: NSInteger)
 
-    public private(set) var current: FilterStore
-
-    public func setVisionFilter(to vision: NSInteger) {
-        current.setVisionFilter(to: vision)
-    }
-
-    public func setSimulation(to simulation: NSInteger) {
-        current = Self.simulationStore(for: simulation, vision: current.visionSimulation)
-    }
-
-    private static func simulationStore(for integer: NSInteger, vision: NSInteger) -> FilterStore {
-        switch integer {
-            case 0: return HCIRNFilterStore(vision: vision)
-            case 1: return MachadoFilterStore(vision: vision)
-            default: return HCIRNFilterStore(vision: vision)
-        }
-    }
+    /// Makes a thread-safe change to the current filter
+    ///
+    func setSimulation(to simulation: NSInteger)
 }
