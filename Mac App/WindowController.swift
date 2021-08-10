@@ -17,6 +17,9 @@ import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
 
+    /// Unique instance per window
+    var filterManager: FilterStoreManager = QueueOwningFilterStoreManager()
+
     // MARK: - User Settings
 
     var visionType = UserDefaults.standard.integer(forKey: UserDefaults.VisionKey) {
@@ -33,7 +36,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     private func applyVisionType() {
         guard let window = self.window else { return }
         window.title = SimVisionTypeName(visionType)
-        FilterStoreManager.shared.setVisionFilter(to: visionType)
+        filterManager.setVisionFilter(to: visionType)
         FilterWindowManager.shared.changedWindowController(self)
         window.invalidateRestorableState()
     }
@@ -50,7 +53,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     fileprivate func applySimulation() {
-        FilterStoreManager.shared.setSimulation(to: simulation)
+        filterManager.setSimulation(to: simulation)
     }
 
 
@@ -118,7 +121,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         FilterWindowManager.shared.removeWindowController(self)
     }
 
-    // MARK: - Menu Intents
+    // MARK: - Menu Intents (Unique state per window)
 
     @IBAction func adoptVisionTypeSetting(_ sender: NSMenuItem) {
         visionType = sender.tag
