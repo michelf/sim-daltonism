@@ -33,9 +33,9 @@ public protocol FilterStoreManager: AnyObject {
 
     /// Makes a thread-safe change to the current filter
     ///
-    func setVisionFilter(to vision: NSInteger)
+    func setVisionFilter(to vision: VisionType)
 
     /// Makes a thread-safe change to the current filter
     ///
-    func setSimulation(to simulation: NSInteger)
+    func setSimulation(to simulation: Simulation)
 }

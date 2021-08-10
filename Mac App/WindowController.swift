@@ -36,7 +36,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     private func applyVisionType() {
         guard let window = self.window else { return }
-        window.title = SimVisionTypeName(visionType)
+        window.title = visionType.name
         filterManager.setVisionFilter(to: visionType)
         FilterWindowManager.shared.changedWindowController(self)
         window.invalidateRestorableState()
@@ -107,10 +107,11 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     func window(_ window: NSWindow, willEncodeRestorableState state: NSCoder) {
-        state.encode(visionType, forKey: "VisionType")
+        WindowRestoration.encodeRestorable(state: state, visionType, simulation)
     }
+    
     func window(_ window: NSWindow, didDecodeRestorableState state: NSCoder) {
-        visionType = state.decodeInteger(forKey: "VisionType")
+        (visionType, simulation) = WindowRestoration.decodeRestorable(state: state)
     }
 
     override func showWindow(_ sender: Any?) {
@@ -125,17 +126,17 @@ class WindowController: NSWindowController, NSWindowDelegate {
     // MARK: - Menu Intents (Unique state per window)
 
     @IBAction func adoptVisionTypeSetting(_ sender: NSMenuItem) {
-        visionType = sender.tag
+        visionType = .init(rawValue: sender.tag) ?? .defaultValue
     }
 
     @objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.action! {
             case #selector(adoptVisionTypeSetting(_:)):
-                menuItem.state = visionType == menuItem.tag ? .on : .off
+                menuItem.state = visionType.rawValue == menuItem.tag ? .on : .off
                 return true
 
             case #selector(adoptSimulationSetting):
-                menuItem.state = simulation == menuItem.tag ? .on : .off
+                menuItem.state = simulation.rawValue == menuItem.tag ? .on : .off
                 return true
 
             default:
@@ -144,7 +145,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     @IBAction func adoptSimulationSetting(_ sender: NSMenuItem) {
-        simulation = sender.tag
+        simulation = .init(runtime: sender.tag)
     }
 
 }

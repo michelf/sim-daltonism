@@ -25,11 +25,11 @@ public class QueueOwningFilterStoreManager: FilterStoreManager {
 
     public private(set) var current: FilterStore? = nil
     public let queue = DispatchQueue.uniqueUserInitiatedQueue()
-    private var vision: NSInteger
-    private var simulation: NSInteger
+    private var vision: VisionType
+    private var simulation: Simulation
 
-    public init(vision: NSInteger = UserDefaults.getVision(),
-                simulation: NSInteger = UserDefaults.getSimulation()) {
+    public init(vision: VisionType = UserDefaults.getVision(),
+                simulation: Simulation = UserDefaults.getSimulation()) {
         self.vision = vision
         self.simulation = simulation
         queue.async { [weak self] in
@@ -37,13 +37,13 @@ public class QueueOwningFilterStoreManager: FilterStoreManager {
         }
     }
 
-    public func setVisionFilter(to vision: NSInteger) {
+    public func setVisionFilter(to vision: VisionType) {
         queue.async { [weak self] in
             self?.current?.setVisionFilter(to: vision)
         }
     }
 
-    public func setSimulation(to simulation: NSInteger) {
+    public func setSimulation(to simulation: Simulation) {
         queue.async { [weak self] in
             guard let self = self else { return }
             self.current = Self.simulationStore(for: simulation, vision: self.vision)
@@ -51,11 +51,10 @@ public class QueueOwningFilterStoreManager: FilterStoreManager {
     }
 
     /// Call in the queue in which the CIFilters will be used.
-    private static func simulationStore(for integer: NSInteger, vision: NSInteger) -> FilterStore {
-        switch integer {
-            case 0: return HCIRNFilterStore(vision: vision)
-            case 1: return MachadoFilterStore(vision: vision)
-            default: return HCIRNFilterStore(vision: vision)
+    private static func simulationStore(for sim: Simulation, vision: VisionType) -> FilterStore {
+        switch sim {
+            case .wicklineHCIRN: return HCIRNFilterStore(vision: vision)
+            case .machadoEtAl: return MachadoFilterStore(vision: vision)
         }
     }
 }

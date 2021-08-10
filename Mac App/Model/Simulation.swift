@@ -1,4 +1,3 @@
-
 //    Copyright 2005-2021 Michel Fortin
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,24 +13,14 @@
 //    limitations under the License.
 
 import Foundation
-import CoreImage
 
-/// A FilterStore controls sets of CIFilters for one simulation (e.g., Machado, Wickline/HCIRN) that are accessed by a Metal renderer.
-///
-public protocol FilterStore: AnyObject {
+public enum Simulation: Int {
+    case wicklineHCIRN
+    case machadoEtAl
 
-    init(vision: VisionType)
-    
-    var visionFilter: CIFilter? { get }
-    var visionSimulation: VisionType { get }
+    static let defaultValue = Simulation.wicklineHCIRN
 
-    /// Call this async on the queue in which the store was created
-    ///
-    func setVisionFilter(to vision: VisionType)
-    
-    /// Applies a vision filter if available.
-    /// Call on the queue in which the store was created.
-    ///
-    func applyFilter(to image: CIImage) -> CIImage?
-
+    init(runtime: Int) {
+        self = .init(rawValue: runtime) ?? .defaultValue
+    }
 }

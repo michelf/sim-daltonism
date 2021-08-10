@@ -19,9 +19,9 @@ import CoreImage
 public class HCIRNFilterStore: FilterStore {
 
     public private(set) var visionFilter: CIFilter? = nil
-    public private(set) var visionSimulation: NSInteger = 1
+    public private(set) var visionSimulation: VisionType = .normal
 
-    public required init(vision: NSInteger) {
+    public required init(vision: VisionType) {
         HCIRNFilterVendor.registerFilters()
         setVisionFilter(to: vision)
     }
@@ -31,7 +31,7 @@ public extension HCIRNFilterStore {
 
     /// Call this async on the queue in which the store was created
     ///
-    func setVisionFilter(to vision: NSInteger) {
+    func setVisionFilter(to vision: VisionType) {
         visionSimulation = vision
         visionFilter = loadFilter(for: vision)
     }
@@ -47,25 +47,23 @@ public extension HCIRNFilterStore {
 
 private extension HCIRNFilterStore {
 
-    func loadFilter(for vision: NSInteger) -> CIFilter? {
+    func loadFilter(for vision: VisionType) -> CIFilter? {
         let vendor = HCIRNFilterVendor.self
         switch vision {
 
-            case 0: return nil
+            case .normal: return nil
 
-            case 1: return CIFilter(name: vendor.DeutanFilterName)
-            case 2: return CIFilter(name: vendor.DeutanomalyFilterName)
+            case .deutan: return CIFilter(name: vendor.DeutanFilterName)
+            case .deuteranomaly: return CIFilter(name: vendor.DeutanomalyFilterName)
 
-            case 3: return CIFilter(name: vendor.ProtanFilterName)
-            case 4: return CIFilter(name: vendor.ProtanomalyFilterName)
+            case .protan: return CIFilter(name: vendor.ProtanFilterName)
+            case .protanomaly: return CIFilter(name: vendor.ProtanomalyFilterName)
 
-            case 5: return CIFilter(name: vendor.TritanFilterName)
-            case 6: return CIFilter(name: vendor.TritanomalyFilterName)
+            case .tritan: return CIFilter(name: vendor.TritanFilterName)
+            case .tritanomaly: return CIFilter(name: vendor.TritanomalyFilterName)
 
-            case 7: return CIFilter(name: vendor.MonochromatFilterName)
-            case 8: return CIFilter(name: vendor.PartialMonochromacyFilterName)
-
-            default: return nil
+            case .monochromat: return CIFilter(name: vendor.MonochromatFilterName)
+            case .monochromacyPartial: return CIFilter(name: vendor.PartialMonochromacyFilterName)
         }
     }
 }

@@ -93,8 +93,9 @@
 		94B926C526B139D300754E0C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B926C326B139C600754E0C /* Errors.swift */; };
 		94E1494626C2308500327367 /* DispatchQueue+Uniqued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */; };
 		94E1494826C230A700327367 /* QueueOwningFilterStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494726C230A700327367 /* QueueOwningFilterStoreManager.swift */; };
-		94E8FB2B26B3D30D0027BCF4 /* SimVisionTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2A26B3D30D0027BCF4 /* SimVisionTypeName.swift */; };
-		94E8FB2D26B3D3400027BCF4 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2C26B3D3400027BCF4 /* UserDefaults.swift */; };
+		94E1494A26C23EFF00327367 /* Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494926C23EFF00327367 /* Simulation.swift */; };
+		94E8FB2B26B3D30D0027BCF4 /* VisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2A26B3D30D0027BCF4 /* VisionType.swift */; };
+		94E8FB2D26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2C26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -223,12 +224,13 @@
 		94B926C326B139C600754E0C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Uniqued.swift"; sourceTree = "<group>"; };
 		94E1494726C230A700327367 /* QueueOwningFilterStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueOwningFilterStoreManager.swift; sourceTree = "<group>"; };
+		94E1494926C23EFF00327367 /* Simulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simulation.swift; sourceTree = "<group>"; };
 		94E8FB2626B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		94E8FB2726B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.html"; sourceTree = "<group>"; };
 		94E8FB2826B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94E8FB2926B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/URLs.strings"; sourceTree = "<group>"; };
-		94E8FB2A26B3D30D0027BCF4 /* SimVisionTypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimVisionTypeName.swift; sourceTree = "<group>"; };
-		94E8FB2C26B3D3400027BCF4 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		94E8FB2A26B3D30D0027BCF4 /* VisionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionType.swift; sourceTree = "<group>"; };
+		94E8FB2C26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+WindowRestoration.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +335,7 @@
 				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
 				1EF253171C274A0200DB3B18 /* ColorView.swift */,
+				94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */,
 				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
 				1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */,
 				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
@@ -343,7 +346,6 @@
 				1EF253711C2849B600DB3B18 /* Control Icons */,
 				94BFDA8726B39B91009944AC /* Model */,
 				1EF253231C274A0200DB3B18 /* Resources */,
-				94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */,
 			);
 			path = "Mac App";
 			sourceTree = "<group>";
@@ -513,10 +515,11 @@
 		94BFDA8726B39B91009944AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				94E8FB2A26B3D30D0027BCF4 /* SimVisionTypeName.swift */,
-				94E8FB2C26B3D3400027BCF4 /* UserDefaults.swift */,
 				1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */,
 				94B926C326B139C600754E0C /* Errors.swift */,
+				94E1494926C23EFF00327367 /* Simulation.swift */,
+				94E8FB2C26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift */,
+				94E8FB2A26B3D30D0027BCF4 /* VisionType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -695,7 +698,7 @@
 			files = (
 				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
 				1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
-				94E8FB2B26B3D30D0027BCF4 /* SimVisionTypeName.swift in Sources */,
+				94E8FB2B26B3D30D0027BCF4 /* VisionType.swift in Sources */,
 				9424DE7926B63747007ADF4B /* FilterStore.swift in Sources */,
 				9424DE7A26B63747007ADF4B /* HCIRN.metal in Sources */,
 				94B926C526B139D300754E0C /* Errors.swift in Sources */,
@@ -705,7 +708,8 @@
 				9424DE8126B63747007ADF4B /* FilteredMetalView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				9424DE7826B63747007ADF4B /* MachadoFilterStore.swift in Sources */,
-				94E8FB2D26B3D3400027BCF4 /* UserDefaults.swift in Sources */,
+				94E8FB2D26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift in Sources */,
+				94E1494A26C23EFF00327367 /* Simulation.swift in Sources */,
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
