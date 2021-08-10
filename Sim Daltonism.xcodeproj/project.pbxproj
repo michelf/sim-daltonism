@@ -91,8 +91,10 @@
 		9424DE8126B63747007ADF4B /* FilteredMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7226B63747007ADF4B /* FilteredMetalView.swift */; };
 		9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */; };
 		94B926C526B139D300754E0C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B926C326B139C600754E0C /* Errors.swift */; };
+		94E1494626C2308500327367 /* DispatchQueue+Uniqued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */; };
+		94E1494826C230A700327367 /* QueueOwningFilterStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494726C230A700327367 /* QueueOwningFilterStoreManager.swift */; };
 		94E8FB2B26B3D30D0027BCF4 /* SimVisionTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2A26B3D30D0027BCF4 /* SimVisionTypeName.swift */; };
-		94E8FB2D26B3D3400027BCF4 /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2C26B3D3400027BCF4 /* UserDefaults+Keys.swift */; };
+		94E8FB2D26B3D3400027BCF4 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2C26B3D3400027BCF4 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,12 +221,14 @@
 		9424DE7226B63747007ADF4B /* FilteredMetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredMetalView.swift; sourceTree = "<group>"; };
 		9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+GetBestMetalDevice.swift"; sourceTree = "<group>"; };
 		94B926C326B139C600754E0C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Uniqued.swift"; sourceTree = "<group>"; };
+		94E1494726C230A700327367 /* QueueOwningFilterStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueOwningFilterStoreManager.swift; sourceTree = "<group>"; };
 		94E8FB2626B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		94E8FB2726B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.html"; sourceTree = "<group>"; };
 		94E8FB2826B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94E8FB2926B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/URLs.strings"; sourceTree = "<group>"; };
 		94E8FB2A26B3D30D0027BCF4 /* SimVisionTypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimVisionTypeName.swift; sourceTree = "<group>"; };
-		94E8FB2C26B3D3400027BCF4 /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
+		94E8FB2C26B3D3400027BCF4 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +343,7 @@
 				1EF253711C2849B600DB3B18 /* Control Icons */,
 				94BFDA8726B39B91009944AC /* Model */,
 				1EF253231C274A0200DB3B18 /* Resources */,
+				94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */,
 			);
 			path = "Mac App";
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 				9424DE6626B63747007ADF4B /* FilterStoreManager.swift */,
 				9424DE6726B63747007ADF4B /* MachadoFilterStore.swift */,
 				9424DE6826B63747007ADF4B /* FilterStore.swift */,
+				94E1494726C230A700327367 /* QueueOwningFilterStoreManager.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -508,7 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				94E8FB2A26B3D30D0027BCF4 /* SimVisionTypeName.swift */,
-				94E8FB2C26B3D3400027BCF4 /* UserDefaults+Keys.swift */,
+				94E8FB2C26B3D3400027BCF4 /* UserDefaults.swift */,
 				1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */,
 				94B926C326B139C600754E0C /* Errors.swift */,
 			);
@@ -699,11 +705,12 @@
 				9424DE8126B63747007ADF4B /* FilteredMetalView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				9424DE7826B63747007ADF4B /* MachadoFilterStore.swift in Sources */,
-				94E8FB2D26B3D3400027BCF4 /* UserDefaults+Keys.swift in Sources */,
+				94E8FB2D26B3D3400027BCF4 /* UserDefaults.swift in Sources */,
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
 				9424DE7626B63747007ADF4B /* HCIRNFilterStore.swift in Sources */,
+				94E1494626C2308500327367 /* DispatchQueue+Uniqued.swift in Sources */,
 				9424DE7526B63747007ADF4B /* ScreenCapturer.swift in Sources */,
 				9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
@@ -715,6 +722,7 @@
 				9424DE7D26B63747007ADF4B /* CGSize+OriginZero.swift in Sources */,
 				9424DE7F26B63747007ADF4B /* MachadoFilters.swift in Sources */,
 				9424DE7426B63747007ADF4B /* CGWindowListScreenCapturer.swift in Sources */,
+				94E1494826C230A700327367 /* QueueOwningFilterStoreManager.swift in Sources */,
 				9424DE7326B63747007ADF4B /* MetalRenderer.swift in Sources */,
 				9424DE7B26B63747007ADF4B /* HCIRNFilter.swift in Sources */,
 			);

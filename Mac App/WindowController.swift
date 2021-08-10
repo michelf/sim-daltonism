@@ -15,6 +15,7 @@
 
 import Cocoa
 
+
 class WindowController: NSWindowController, NSWindowDelegate {
 
     /// Unique instance per window
@@ -22,7 +23,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     // MARK: - User Settings
 
-    var visionType = UserDefaults.standard.integer(forKey: UserDefaults.VisionKey) {
+    var visionType = UserDefaults.getVision() {
         didSet {
             setVisionTypeDefault()
             applyVisionType()
@@ -30,7 +31,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     func setVisionTypeDefault() {
-        UserDefaults.standard.set(visionType, forKey: UserDefaults.VisionKey)
+        UserDefaults.setVision(visionType)
     }
 
     private func applyVisionType() {
@@ -41,7 +42,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         window.invalidateRestorableState()
     }
 
-    var simulation = UserDefaults.standard.integer(forKey: UserDefaults.SimulationKey) {
+    var simulation = UserDefaults.getSimulation() {
         didSet {
             setSimulationDefault()
             applySimulation()
@@ -49,7 +50,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     func setSimulationDefault() {
-        UserDefaults.standard.set(simulation, forKey: UserDefaults.SimulationKey)
+        UserDefaults.setSimulation(simulation)
     }
 
     fileprivate func applySimulation() {

@@ -15,7 +15,25 @@
 
 import Foundation
 
-extension UserDefaults {
+fileprivate extension UserDefaults {
     static let VisionKey = "SimVisionType"
     static let SimulationKey = "SimulationKey"
+}
+
+public extension UserDefaults {
+    static func getVision() -> Int {
+        UserDefaults.standard.integer(forKey: UserDefaults.VisionKey)
+    }
+
+    static func getSimulation() -> Int {
+        UserDefaults.standard.integer(forKey: UserDefaults.SimulationKey)
+    }
+
+    static func setVision(_ vision: Int) {
+        UserDefaults.standard.set(vision, forKey: UserDefaults.VisionKey)
+    }
+
+    static func setSimulation(_ simulation: Int) {
+        UserDefaults.standard.set(simulation, forKey: UserDefaults.SimulationKey)
+    }
 }
