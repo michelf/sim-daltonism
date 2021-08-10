@@ -97,10 +97,15 @@ private extension ViewController {
         }()
         let mouseIsInView = viewBounds.contains(mouseLocationInView)
 
-        let resizeCornerSize = CGFloat(8)
-        let isInResizeRectY = viewBounds.offsetBy(dx: 0, dy: resizeCornerSize).contains(mouseLocationInView)
-        let isInResizeRectX = viewBounds.insetBy(dx: resizeCornerSize, dy: 0).contains(mouseLocationInView)
-        let newState = mouseIsInView && ( isInResizeRectY || isInResizeRectX )
+        // To allow more room to grab the window edges, calculate inset
+        // bottom and side bounds so that grabbing the window edge
+        // is easier
+        let resizeCornerSize = CGFloat(12)
+        let insetRectForEasierWindowResizing = viewBounds
+            .insetBy(dx: resizeCornerSize, dy: resizeCornerSize / 2)
+            .offsetBy(dx: 0, dy: resizeCornerSize)
+
+        let newState = mouseIsInView && insetRectForEasierWindowResizing.contains(mouseLocationInView)
         self.view.window?.ignoresMouseEvents = newState
     }
 
