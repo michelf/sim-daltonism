@@ -21,7 +21,7 @@ public class MachadoFilterStore: FilterStore {
     public private(set) var visionFilter: CIFilter? = nil
     public private(set) var visionSimulation: NSInteger = 1
 
-    init(vision: NSInteger) {
+    public required init(vision: NSInteger) {
         MachadoFilterVendor.registerFilters()
         setVisionFilter(to: vision)
     }
@@ -29,13 +29,17 @@ public class MachadoFilterStore: FilterStore {
 
 public extension MachadoFilterStore {
 
+    /// Call this async on the queue in which the store was created
+    ///
     func setVisionFilter(to vision: NSInteger) {
-        self.visionSimulation = vision
-        DispatchQueue.global().async { [weak self] in
-            self?.visionFilter = self?.loadFilter(for: vision)
-        }
+        visionSimulation = vision
+        visionFilter = loadFilter(for: vision)
+
     }
 
+    /// Applies a vision filter if available.
+    /// Call on the queue in which the store was created.
+    ///
     func applyFilter(to image: CIImage) -> CIImage? {
         visionFilter?.setValue(image, forKey: kCIInputImageKey)
         return visionFilter?.outputImage
