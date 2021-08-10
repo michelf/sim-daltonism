@@ -24,21 +24,24 @@ class MetalRenderer: NSObject {
     private var commandQueue: MTLCommandQueue
     private var colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
     weak var mtkview: MTKView?
-    private let queue = DispatchQueue.global(qos: .userInteractive)
+    private weak var filterManager: FilterStoreManager?
     
-    init?(mtkview: MTKView) {
+    init?(mtkview: MTKView, filterManager: FilterStoreManager) {
         guard let device = mtkview.device,
-              let queue = device.makeCommandQueue()
+              let commandQueue = device.makeCommandQueue()
         else { return nil }
-
         self.mtkview = mtkview
-        self.commandQueue = queue
+        self.commandQueue = commandQueue
+        self.filterManager = filterManager
         context = CIContext(mtlDevice: device, options: [.workingColorSpace : colorSpace])
     }
 }
 
 extension MetalRenderer: ScreenCaptureDelegate {
 
+    /// Called on the ScreenCapturer's queue,
+    /// which should be the CIFilter queue
+    ///
     func didCaptureFrame(image: CIImage) {
         render(image)
     }
@@ -48,7 +51,7 @@ extension MetalRenderer {
     
     /// Prepare the frame received by applying available filter(s). Call MTKView.draw(in:) to execute.
     func render(_ image: CIImage) {
-        self.image = FilterStoreManager.shared.current.applyFilter(to: image) ?? image
+        self.image = filterManager?.current?.applyFilter(to: image) ?? image
         mtkview?.draw()
     }
 }
