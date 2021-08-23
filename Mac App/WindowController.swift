@@ -19,7 +19,7 @@ import Cocoa
 class WindowController: NSWindowController, NSWindowDelegate {
 
     /// Unique instance per window
-    var filterManager: FilterStoreManager = QueueOwningFilterStoreManager()
+    var filterStore: FilterStore = ThreadSafeFilterStore()
 
     // MARK: - User Settings
 
@@ -37,7 +37,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     private func applyVisionType() {
         guard let window = self.window else { return }
         window.title = visionType.name
-        filterManager.setVisionFilter(to: visionType)
+        filterStore.setVision(to: visionType)
         FilterWindowManager.shared.changedWindowController(self)
         window.invalidateRestorableState()
     }
@@ -54,7 +54,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     fileprivate func applySimulation() {
-        filterManager.setSimulation(to: simulation)
+        filterStore.setSimulation(to: simulation)
     }
 
 

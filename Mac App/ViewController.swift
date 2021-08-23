@@ -23,12 +23,12 @@ class ViewController: NSViewController {
     private var renderer: MetalRenderer? = nil
     private var screenCapturer: ScreenCapturer? = nil
     private var mouseTimer: Timer?
-    private weak var filterManager: FilterStoreManager!
+    private weak var filterStore: FilterStore!
 
     override func viewWillAppear() {
         super.viewWillAppear()
         guard let parent = filteredView.window?.windowController as? WindowController else { return }
-        self.filterManager = parent.filterManager
+        self.filterStore = parent.filterStore
 
         // Grab frame on main thread
         let initialFrame = view.frame
@@ -39,7 +39,7 @@ class ViewController: NSViewController {
 
         screenCapturer = CGWindowListScreenCapturer(view: filteredView,
                                                     window: view.window!,
-                                                    queue: filterManager.queue)
+                                                    queue: filterStore.queue)
 
         do { try self.screenCapturer?.startSession(in: initialFrame, delegate: renderer!) }
         catch let error { NSApp.mainWindow?.presentError(error) }
@@ -66,7 +66,7 @@ private extension ViewController {
 
         filteredView.device = initialDevice
 
-        guard let renderer = MetalRenderer(mtkview: filteredView, filterManager: filterManager)
+        guard let renderer = MetalRenderer(mtkview: filteredView, filter: filterStore)
         else { throw MetalRendererError }
 
         self.renderer = renderer

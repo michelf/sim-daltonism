@@ -15,7 +15,7 @@
 
 import Foundation
 
-public enum VisionType: Int {
+public enum VisionType: Int, CaseIterable {
     case normal
     case deutan
     case deuteranomaly

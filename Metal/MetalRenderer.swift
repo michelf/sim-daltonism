@@ -24,15 +24,15 @@ class MetalRenderer: NSObject {
     private var commandQueue: MTLCommandQueue
     private var colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
     weak var mtkview: MTKView?
-    private weak var filterManager: FilterStoreManager?
+    private weak var filterStore: FilterStore?
     
-    init?(mtkview: MTKView, filterManager: FilterStoreManager) {
+    init?(mtkview: MTKView, filter: FilterStore) {
         guard let device = mtkview.device,
               let commandQueue = device.makeCommandQueue()
         else { return nil }
         self.mtkview = mtkview
         self.commandQueue = commandQueue
-        self.filterManager = filterManager
+        self.filterStore = filter
         context = CIContext(mtlDevice: device, options: [.workingColorSpace : colorSpace])
     }
 }
@@ -51,7 +51,7 @@ extension MetalRenderer {
     
     /// Prepare the frame received by applying available filter(s). Call MTKView.draw(in:) to execute.
     func render(_ image: CIImage) {
-        self.image = filterManager?.current?.applyFilter(to: image) ?? image
+        self.image = filterStore?.applyFilter(to: image) ?? image
         mtkview?.draw()
     }
 }

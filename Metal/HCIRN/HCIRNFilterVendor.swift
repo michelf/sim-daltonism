@@ -50,66 +50,16 @@ import CoreImage
 
 class HCIRNFilterVendor: NSObject, CIFilterConstructor {
 
-    public static let MonochromatFilterName = "Monochromat"
-    public static let TritanFilterName = "Tritan"
-    public static let DeutanFilterName = "Deutan"
-    public static let ProtanFilterName = "Protan"
-
-    public static let PartialMonochromacyFilterName = "PartialMonochromacy"
-    public static let TritanomalyFilterName = "Tritanomaly"
-    public static let DeutanomalyFilterName = "Deutanomaly"
-    public static let ProtanomalyFilterName = "Protanomaly"
-
     static func registerFilters() {
         let classAttributes = [kCIAttributeFilterCategories: ["CustomFilters"]]
 
-        HCIRN.registerName(
-            MonochromatFilterName,
-            constructor: HCIRNFilterVendor(),
-            classAttributes: classAttributes
-        )
-
-        HCIRN.registerName(
-            TritanFilterName,
-            constructor: HCIRNFilterVendor(),
-            classAttributes: classAttributes
-        )
-
-        HCIRN.registerName(
-            DeutanFilterName,
-            constructor: HCIRNFilterVendor(),
-            classAttributes: classAttributes
-        )
-
-        HCIRN.registerName(
-            ProtanFilterName,
-            constructor: HCIRNFilterVendor(),
-            classAttributes: classAttributes
-        )
-
-        HCIRN.registerName(
-            PartialMonochromacyFilterName,
-            constructor: HCIRNFilterVendor(),
-            classAttributes: classAttributes
-        )
-
-        HCIRN.registerName(
-            TritanomalyFilterName,
-            constructor: HCIRNFilterVendor(),
-            classAttributes: classAttributes
-        )
-
-        HCIRN.registerName(
-            DeutanomalyFilterName,
-            constructor: HCIRNFilterVendor(),
-            classAttributes: classAttributes
-        )
-
-        HCIRN.registerName(
-            ProtanomalyFilterName,
-            constructor: HCIRNFilterVendor(),
-            classAttributes: classAttributes
-        )
+        VisionType.allCases.forEach { vision in
+            HCIRN.registerName(
+                vision.ciFilterString,
+                constructor: HCIRNFilterVendor(),
+                classAttributes: classAttributes
+            )
+        }
     }
 
     func filter(withName name: String) -> CIFilter? {
@@ -118,27 +68,29 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
         var ae = CIVector()
         var anomalize = Float(0)
 
-        switch name {
-            case Self.DeutanFilterName: fallthrough
-            case Self.DeutanomalyFilterName:
+        let vision = VisionType(ciFilterVendor: name)
+
+        switch vision {
+            case .deutan: fallthrough
+            case .deuteranomaly:
                 cp = .init(x: 1.14, y: -0.14)
                 ab = .init(x: 0.102776, y: 0.102864)
                 ae = .init(x: 0.505845, y: 0.493211)
 
-            case Self.ProtanFilterName: fallthrough
-            case Self.ProtanomalyFilterName:
+            case .protan: fallthrough
+            case .protanomaly:
                 cp = .init(x: 0.735, y: 0.265)
                 ab = .init(x: 0.115807, y: 0.073581)
                 ae = .init(x: 0.471899, y: 0.527051)
 
-            case Self.TritanFilterName: fallthrough
-            case Self.TritanomalyFilterName:
+            case .tritan: fallthrough
+            case .tritanomaly:
                 cp = .init(x: 0.171, y: -0.003)
                 ab = .init(x: 0.045391, y: 0.294976)
                 ae = .init(x: 0.665764, y: 0.334011)
 
-            case Self.MonochromatFilterName: fallthrough
-            case Self.PartialMonochromacyFilterName:
+            case .monochromat: fallthrough
+            case .monochromacyPartial:
                 cp = .init(x: 0, y: 0)
                 ab = .init(x: 0, y: 0)
                 ae = .init(x: 0, y: 0)
@@ -146,20 +98,20 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
             default: return nil
         }
 
-        switch name {
-            case Self.DeutanFilterName: fallthrough
-            case Self.ProtanFilterName: fallthrough
-            case Self.TritanFilterName:
+        switch vision {
+            case .deutan: fallthrough
+            case .protan: fallthrough
+            case .tritan:
                 anomalize = 1.0
 
-            case Self.DeutanomalyFilterName: fallthrough
-            case Self.ProtanomalyFilterName: fallthrough
-            case Self.TritanomalyFilterName:
+            case .deuteranomaly: fallthrough
+            case .protanomaly: fallthrough
+            case .tritanomaly:
                 anomalize = 0.66
 
-            case Self.MonochromatFilterName:
+            case .monochromat:
                 anomalize = -1
-            case Self.PartialMonochromacyFilterName:
+            case .monochromacyPartial:
                 anomalize = -0.66
 
             default: return nil

@@ -18,20 +18,27 @@ import CoreImage
 
 /// A FilterStore controls sets of CIFilters for one simulation (e.g., Machado, Wickline/HCIRN) that are accessed by a Metal renderer.
 ///
+/// When using a CIFilter, use the queue in this store.
+///
 public protocol FilterStore: AnyObject {
 
-    init(vision: VisionType)
+    init(vision: VisionType, simulation: Simulation)
     
     var visionFilter: CIFilter? { get }
-    var visionSimulation: VisionType { get }
 
-    /// Call this async on the queue in which the store was created
+    /// For thread-safe use of CIFilters
     ///
-    func setVisionFilter(to vision: VisionType)
+    var queue: DispatchQueue { get }
+
+    /// Makes a thread-safe change to the current filter
+    ///
+    func setSimulation(to simulation: Simulation)
+
+    /// Makes a thread-safe change to the current filter
+    ///
+    func setVision(to vision: VisionType)
     
-    /// Applies a vision filter if available.
-    /// Call on the queue in which the store was created.
+    /// Applies a vision filter if available. Call on the store's queue (that creates and adjusts the filter).
     ///
     func applyFilter(to image: CIImage) -> CIImage?
-
 }

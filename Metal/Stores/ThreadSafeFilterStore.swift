@@ -13,6 +13,7 @@
 //    limitations under the License.
 
 import Foundation
+import CoreImage
 
 /// This implementation owns the DispatchQueue for
 /// managing and using CIFilters.
@@ -21,40 +22,53 @@ import Foundation
 /// or as supplied. Thereafter, it is up to the instance owner
 /// to manage filter state changes.
 ///
-public class QueueOwningFilterStoreManager: FilterStoreManager {
+public class ThreadSafeFilterStore: FilterStore {
 
-    public private(set) var current: FilterStore? = nil
+    public private(set) var visionFilter: CIFilter? = nil
     public let queue = DispatchQueue.uniqueUserInitiatedQueue()
     private var vision: VisionType
-    private var simulation: Simulation
 
-    public init(vision: VisionType = UserDefaults.getVision(),
-                simulation: Simulation = UserDefaults.getSimulation()) {
+    public required init(vision: VisionType = UserDefaults.getVision(),
+                         simulation: Simulation = UserDefaults.getSimulation()) {
         self.vision = vision
-        self.simulation = simulation
         queue.async { [weak self] in
-            self?.current = Self.simulationStore(for: simulation, vision: vision)
+            self?.setSimulation(to: simulation)
         }
     }
+}
 
-    public func setVisionFilter(to vision: VisionType) {
+// MARK: - Apply Filter
+
+extension ThreadSafeFilterStore {
+
+    /// Applies a vision filter if available.
+    /// Call on the queue in which the store was created.
+    ///
+    public func applyFilter(to image: CIImage) -> CIImage? {
+        visionFilter?.setValue(image, forKey: kCIInputImageKey)
+        return visionFilter?.outputImage
+    }
+}
+
+// MARK: - Change Filters
+
+extension ThreadSafeFilterStore {
+
+    public func setVision(to vision: VisionType) {
         queue.async { [weak self] in
-            self?.current?.setVisionFilter(to: vision)
+            self?.visionFilter = CIFilter(name: vision.ciFilterString)
+            self?.vision = vision
         }
     }
 
     public func setSimulation(to simulation: Simulation) {
         queue.async { [weak self] in
             guard let self = self else { return }
-            self.current = Self.simulationStore(for: simulation, vision: self.vision)
-        }
-    }
-
-    /// Call in the queue in which the CIFilters will be used.
-    private static func simulationStore(for sim: Simulation, vision: VisionType) -> FilterStore {
-        switch sim {
-            case .wicklineHCIRN: return HCIRNFilterStore(vision: vision)
-            case .machadoEtAl: return MachadoFilterStore(vision: vision)
+            switch simulation {
+                case .wicklineHCIRN: HCIRNFilterVendor.registerFilters()
+                case .machadoEtAl: MachadoFilterVendor.registerFilters()
+            }
+            self.visionFilter = CIFilter(name: self.vision.ciFilterString)
         }
     }
 }

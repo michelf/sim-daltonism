@@ -20,6 +20,6 @@ public extension DispatchQueue {
 
     static func uniqueUserInitiatedQueue() -> DispatchQueue {
         queueCount += 1
-        return DispatchQueue(label: String(queueCount), qos: .userInitiated)
+        return DispatchQueue(label: "com.michelf.sim-daltonism" + String(queueCount), qos: .userInitiated)
     }
 }
