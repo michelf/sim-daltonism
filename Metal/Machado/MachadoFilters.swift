@@ -85,7 +85,7 @@ class MachadoFilter: CIFilter {
 
     override var attributes: [String : Any] {
         return [
-            kCIAttributeFilterDisplayName: "Monochromacy",
+            kCIAttributeFilterDisplayName: "Machado",
 
             "inputImage": [
                 kCIAttributeIdentity: 0,
