@@ -1,0 +1,23 @@
+/* Screen recording permissions alert */
+"AllowScreenRecording" = "允许屏幕录制";
+
+/* Screen recording permissions alert */
+"AllowScreenRecordingMessage" = "请授予Sim道尔顿权限以捕获您的屏幕窗口以应用色盲滤色镜。";
+
+/* Screen recording permissions alert */
+"OpenSystemPreferences" = "打开系统预置";
+
+/* Screen recording permissions alert */
+"FilterDesktopOnly" = "仅滤色桌面";
+
+/* Metal unsupported alert */
+"MetalNotSupported" = "您的计算机不支持Metal";
+
+/* Metal unsupported alert */
+"MetalNotSupportedMessage" = "您的电脑可能比此Metal支持的旧。";
+
+/* Metal error alert */
+"MetalFailure" = "渲染器失败";
+
+/* Metal error alert */
+"MetalFailureMessage" = "尝试重新启动Sim道尔顿。 如果错误再次发生，请联系开发人员。";

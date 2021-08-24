@@ -35,25 +35,16 @@ extension NSError {
 
 let MetalUnsupportedError = NSError(
     code: 0,
-    localizedDescription: "Metal Not Supported",
-    localizedFailureReason: "Your computer's graphics hardware does not support Metal.",
+    localizedDescription: NSLocalizedString("MetalNotSupported", tableName: "Alerts", comment: ""),
+    localizedFailureReason: NSLocalizedString("MetalNotSupportedMessage", tableName: "Alerts", comment: ""),
     localizedRecoverySuggestion: nil,
-    alertHelpButton: "Your hardware may be older than is supported by this app."
+    alertHelpButton: nil
 ) as Error
 
 let MetalRendererError = NSError(
     code: 1,
-    localizedDescription: "Metal Renderer Failed",
-    localizedFailureReason: "An attempt to start using Metal failed.",
+    localizedDescription: NSLocalizedString("MetalFailure", tableName: "Alerts", comment: ""),
+    localizedFailureReason: NSLocalizedString("MetalFailureMessage", tableName: "Alerts", comment: ""),
     localizedRecoverySuggestion: nil,
-    alertHelpButton: "Contact the developer about this error."
+    alertHelpButton: nil
 ) as Error
-
-let AVScreenCaptureSessionSetupFailure = NSError(
-    code: 2,
-    localizedDescription: "Screen Capture Failed",
-    localizedFailureReason: "An attempt to start capturing your screen failed.",
-    localizedRecoverySuggestion: "In System Preferences, check your Privacy settings for Screen Capture. Ensure Sim Daltonism is checked as allowed.",
-    alertHelpButton: "Contact the developer about this error."
-) as Error
-
