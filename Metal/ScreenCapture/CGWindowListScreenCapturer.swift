@@ -147,8 +147,10 @@ private extension CGWindowListScreenCapturer {
 
     func afterCapturingUnhideOnNextDisplayIfNeeded() {
         guard unhideOnNextDisplay else { return }
-        unhideOnNextDisplay = false
         DispatchQueue.main.async { [weak self] in
+            // recheck, because the state could have changed since the dispatch
+            guard self?.unhideOnNextDisplay == true else { return }
+            self?.unhideOnNextDisplay = false
             self?.view?.isHidden = false
         }
     }
@@ -265,9 +267,7 @@ private extension CGWindowListScreenCapturer {
             if let link = displayLink { CVDisplayLinkStart(link) }
             capturingDisabled = false
             captureImmediately()
-            queue?.async { [weak self]  in
-                self?.unhideOnNextDisplay = true
-            }
+            unhideOnNextDisplay = true
         }
     }
 }
