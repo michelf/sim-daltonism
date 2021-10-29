@@ -37,9 +37,9 @@ class MetalRenderer: NSObject {
     }
 }
 
-extension MetalRenderer: ScreenCaptureDelegate {
+extension MetalRenderer: ImageCaptureDelegate {
 
-    /// Called on the ScreenCapturer's queue,
+    /// Called on the ImageCapturer's queue,
     /// which should be the CIFilter queue
     ///
     func didCaptureFrame(image: CIImage) {

@@ -76,7 +76,7 @@
 		1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */; };
 		9424DE7326B63747007ADF4B /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6026B63747007ADF4B /* MetalRenderer.swift */; };
 		9424DE7426B63747007ADF4B /* CGWindowListScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6226B63747007ADF4B /* CGWindowListScreenCapturer.swift */; };
-		9424DE7526B63747007ADF4B /* ScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* ScreenCapturer.swift */; };
+		9424DE7526B63747007ADF4B /* ImageCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* ImageCapturer.swift */; };
 		9424DE7A26B63747007ADF4B /* HCIRN.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6A26B63747007ADF4B /* HCIRN.metal */; };
 		9424DE7B26B63747007ADF4B /* HCIRNFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6B26B63747007ADF4B /* HCIRNFilter.swift */; };
 		9424DE7C26B63747007ADF4B /* HCIRNFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6C26B63747007ADF4B /* HCIRNFilterVendor.swift */; };
@@ -206,7 +206,7 @@
 		6F90DE0A1395CCF500125BDA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		9424DE6026B63747007ADF4B /* MetalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderer.swift; sourceTree = "<group>"; };
 		9424DE6226B63747007ADF4B /* CGWindowListScreenCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGWindowListScreenCapturer.swift; sourceTree = "<group>"; };
-		9424DE6326B63747007ADF4B /* ScreenCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCapturer.swift; sourceTree = "<group>"; };
+		9424DE6326B63747007ADF4B /* ImageCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCapturer.swift; sourceTree = "<group>"; };
 		9424DE6A26B63747007ADF4B /* HCIRN.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = HCIRN.metal; sourceTree = "<group>"; };
 		9424DE6B26B63747007ADF4B /* HCIRNFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilter.swift; sourceTree = "<group>"; };
 		9424DE6C26B63747007ADF4B /* HCIRNFilterVendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilterVendor.swift; sourceTree = "<group>"; };
@@ -467,19 +467,19 @@
 				9426E39D26D43D8C00D5356F /* VisionType+CIFilterVendor.swift */,
 				9424DE6926B63747007ADF4B /* HCIRN */,
 				9424DE6E26B63747007ADF4B /* Machado */,
-				9424DE6126B63747007ADF4B /* ScreenCapture */,
+				9424DE6126B63747007ADF4B /* ImageCapture */,
 				9424DE6426B63747007ADF4B /* Stores */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
 		};
-		9424DE6126B63747007ADF4B /* ScreenCapture */ = {
+		9424DE6126B63747007ADF4B /* ImageCapture */ = {
 			isa = PBXGroup;
 			children = (
 				9424DE6226B63747007ADF4B /* CGWindowListScreenCapturer.swift */,
-				9424DE6326B63747007ADF4B /* ScreenCapturer.swift */,
+				9424DE6326B63747007ADF4B /* ImageCapturer.swift */,
 			);
-			path = ScreenCapture;
+			path = ImageCapture;
 			sourceTree = "<group>";
 		};
 		9424DE6426B63747007ADF4B /* Stores */ = {
@@ -712,7 +712,7 @@
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
 				94E1494626C2308500327367 /* DispatchQueue+Uniqued.swift in Sources */,
 				9426E39E26D43D8C00D5356F /* VisionType+CIFilterVendor.swift in Sources */,
-				9424DE7526B63747007ADF4B /* ScreenCapturer.swift in Sources */,
+				9424DE7526B63747007ADF4B /* ImageCapturer.swift in Sources */,
 				9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,

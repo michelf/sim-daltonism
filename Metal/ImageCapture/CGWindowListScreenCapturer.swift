@@ -17,7 +17,7 @@ import AppKit
 
 public class CGWindowListScreenCapturer {
 
-    public weak var delegate: ScreenCaptureDelegate? = nil // Recipient of captured CIImages
+    public weak var delegate: ImageCaptureDelegate? = nil // Recipient of captured CIImages
     private weak var view: FilteredMetalView? = nil // Rendering view to read geometry
     private weak var window: NSWindow? = nil // Parent window to read geometry
 
@@ -63,7 +63,7 @@ public class CGWindowListScreenCapturer {
 
 // MARK: - Setup
 
-extension CGWindowListScreenCapturer: ScreenCapturer {
+extension CGWindowListScreenCapturer: ImageCapturer {
 
     public func stopSession() {
         NotificationCenter.default.removeObserver(self)
@@ -73,7 +73,7 @@ extension CGWindowListScreenCapturer: ScreenCapturer {
         }
     }
 
-    public func startSession(in frame: NSRect, delegate: ScreenCaptureDelegate) throws {
+    public func startSession(in frame: NSRect, delegate: ImageCaptureDelegate) throws {
         self.delegate = delegate
         monitorUserPreferences()
         guard let window = window else { return }

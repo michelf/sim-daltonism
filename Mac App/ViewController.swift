@@ -21,7 +21,7 @@ class ViewController: NSViewController {
 
     @IBOutlet var filteredView: FilteredMetalView!
     private var renderer: MetalRenderer? = nil
-    private var screenCapturer: ScreenCapturer? = nil
+    private var imageCapturer: ImageCapturer? = nil
     private var mouseTimer: Timer?
     private weak var filterStore: FilterStore!
 
@@ -37,11 +37,11 @@ class ViewController: NSViewController {
         do { try self.connectMetalViewAndFilterPipeline() }
         catch let error { NSApp.mainWindow?.presentError(error) }
 
-        screenCapturer = CGWindowListScreenCapturer(view: filteredView,
+        imageCapturer = CGWindowListScreenCapturer(view: filteredView,
                                                     window: view.window!,
                                                     queue: filterStore.queue)
 
-        do { try self.screenCapturer?.startSession(in: initialFrame, delegate: renderer!) }
+        do { try self.imageCapturer?.startSession(in: initialFrame, delegate: renderer!) }
         catch let error { NSApp.mainWindow?.presentError(error) }
 
         DispatchQueue.main.async {
@@ -52,7 +52,7 @@ class ViewController: NSViewController {
     override func viewDidDisappear() {
         mouseTimer?.invalidate()
         mouseTimer = nil
-        screenCapturer?.stopSession()
+        imageCapturer?.stopSession()
     }
 }
 
