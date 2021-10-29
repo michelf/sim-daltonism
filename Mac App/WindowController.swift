@@ -19,7 +19,7 @@ import Cocoa
 class WindowController: NSWindowController, NSWindowDelegate {
 
     /// Unique instance per window
-    var filterStore: FilterStore = ThreadSafeFilterStore()
+    var filterStore: FilterStore = FilterStore()
 
     // MARK: - User Settings
 

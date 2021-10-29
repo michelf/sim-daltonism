@@ -1,4 +1,3 @@
-
 //    Copyright 2005-2021 Michel Fortin
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,29 +15,60 @@
 import Foundation
 import CoreImage
 
-/// A FilterStore controls sets of CIFilters for one simulation (e.g., Machado, Wickline/HCIRN) that are accessed by a Metal renderer.
+/// This implementation owns the DispatchQueue for
+/// managing and using CIFilters.
 ///
-/// When using a CIFilter, use the queue in this store.
+/// Settings are initially pulled from the latest UserDefaults
+/// or as supplied. Thereafter, it is up to the instance owner
+/// to manage filter state changes.
 ///
-public protocol FilterStore: AnyObject {
+public class FilterStore {
 
-    init(vision: VisionType, simulation: Simulation)
-    
-    var visionFilter: CIFilter? { get }
+    public private(set) var visionFilter: CIFilter? = nil
+    public let queue = DispatchQueue.uniqueUserInitiatedQueue()
+    private var vision: VisionType
 
-    /// For thread-safe use of CIFilters
-    ///
-    var queue: DispatchQueue { get }
+    public required init(vision: VisionType = UserDefaults.getVision(),
+                         simulation: Simulation = UserDefaults.getSimulation()) {
+        self.vision = vision
+        queue.async { [weak self] in
+            self?.setSimulation(to: simulation)
+        }
+    }
+}
 
-    /// Makes a thread-safe change to the current filter
-    ///
-    func setSimulation(to simulation: Simulation)
+// MARK: - Apply Filter
 
-    /// Makes a thread-safe change to the current filter
+extension FilterStore {
+
+    /// Applies a vision filter if available.
+    /// Call on the queue in which the store was created.
     ///
-    func setVision(to vision: VisionType)
-    
-    /// Applies a vision filter if available. Call on the store's queue (that creates and adjusts the filter).
-    ///
-    func applyFilter(to image: CIImage) -> CIImage?
+    public func applyFilter(to image: CIImage) -> CIImage? {
+        visionFilter?.setValue(image, forKey: kCIInputImageKey)
+        return visionFilter?.outputImage
+    }
+}
+
+// MARK: - Change Filters
+
+extension FilterStore {
+
+    public func setVision(to vision: VisionType) {
+        queue.async { [weak self] in
+            self?.visionFilter = CIFilter(name: vision.ciFilterString)
+            self?.vision = vision
+        }
+    }
+
+    public func setSimulation(to simulation: Simulation) {
+        queue.async { [weak self] in
+            guard let self = self else { return }
+            switch simulation {
+                case .wicklineHCIRN: HCIRNFilterVendor.registerFilters()
+                case .machadoEtAl: MachadoFilterVendor.registerFilters()
+            }
+            self.visionFilter = CIFilter(name: self.vision.ciFilterString)
+        }
+    }
 }
