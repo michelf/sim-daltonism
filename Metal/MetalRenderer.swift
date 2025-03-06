@@ -75,7 +75,7 @@ extension MetalRenderer: MTKViewDelegate {
             image,
             to: currentDrawable.texture,
             commandBuffer: buffer,
-            bounds: view.drawableSize.withOriginAtZero(),
+			bounds: CGRect(origin: .zero, size: view.drawableSize),
             colorSpace: colorSpace
         )
         
