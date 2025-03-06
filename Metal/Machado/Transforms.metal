@@ -4,6 +4,11 @@ using namespace metal;
 
 extern "C" {
 
+#if __CIKERNEL_METAL_VERSION__ < 200
+	// missing typedef in older metal
+	typedef half4 sample_h;
+#endif
+
     namespace coreimage {
         half4 colorTransform_kernel(sample_h color, half3x3 transform) {
             half3 transformed = transform * color.rgb;
