@@ -16,13 +16,13 @@
 import Foundation
 import CoreImage
 
-public protocol ImageCapturer: AnyObject {
-    var delegate: ImageCaptureDelegate? { get set }
-    func startSession(in frame: NSRect, delegate: ImageCaptureDelegate) throws
+public protocol ScreenCaptureStream: AnyObject {
+    var delegate: ScreenCaptureStreamDelegate? { get set }
+    func startSession(in frame: NSRect, delegate: ScreenCaptureStreamDelegate) throws
     func stopSession()
 }
 
-public protocol ImageCaptureDelegate: AnyObject {
+public protocol ScreenCaptureStreamDelegate: AnyObject {
 
     func didCaptureFrame(image: CIImage)
 }

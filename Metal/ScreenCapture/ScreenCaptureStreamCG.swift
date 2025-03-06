@@ -15,9 +15,9 @@
 
 import AppKit
 
-public class CGWindowListScreenCapturer {
+public class ScreenCaptureStreamCG {
 
-    public weak var delegate: ImageCaptureDelegate? = nil // Recipient of captured CIImages
+    public weak var delegate: ScreenCaptureStreamDelegate? = nil // Recipient of captured CIImages
     private weak var view: FilteredMetalView? = nil // Rendering view to read geometry
     private weak var window: NSWindow? = nil // Parent window to read geometry
 
@@ -63,7 +63,7 @@ public class CGWindowListScreenCapturer {
 
 // MARK: - Setup
 
-extension CGWindowListScreenCapturer: ImageCapturer {
+extension ScreenCaptureStreamCG: ScreenCaptureStream {
 
     public func stopSession() {
         NotificationCenter.default.removeObserver(self)
@@ -73,7 +73,7 @@ extension CGWindowListScreenCapturer: ImageCapturer {
         }
     }
 
-    public func startSession(in frame: NSRect, delegate: ImageCaptureDelegate) throws {
+    public func startSession(in frame: NSRect, delegate: ScreenCaptureStreamDelegate) throws {
         self.delegate = delegate
         monitorUserPreferences()
         guard let window = window else { return }
@@ -83,7 +83,7 @@ extension CGWindowListScreenCapturer: ImageCapturer {
 
 }
 
-private extension CGWindowListScreenCapturer {
+private extension ScreenCaptureStreamCG {
 
     func monitorUserPreferences() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateFromDefaults),
@@ -129,7 +129,7 @@ private extension CGWindowListScreenCapturer {
 
 // MARK: - Capture
 
-private extension CGWindowListScreenCapturer {
+private extension ScreenCaptureStreamCG {
 
     func captureWindowsBelow(_ captureRect: CGRect, windowID: CGWindowID, backingScaleFactor: CGFloat) {
         defer { isCapturing = false }
@@ -160,7 +160,7 @@ private extension CGWindowListScreenCapturer {
 
 import CoreVideo
 
-private extension CGWindowListScreenCapturer {
+private extension ScreenCaptureStreamCG {
 
     private func createDisplayLink() {
         queue?.async { [weak self] in
@@ -169,7 +169,7 @@ private extension CGWindowListScreenCapturer {
             guard let displayLink = self.displayLink else { return }
 
             let callback: CVDisplayLinkOutputCallback = { (_, _, _, _, _, userInfo) -> CVReturn in
-                let myView = Unmanaged<CGWindowListScreenCapturer>.fromOpaque(UnsafeRawPointer(userInfo!)).takeUnretainedValue()
+                let myView = Unmanaged<ScreenCaptureStreamCG>.fromOpaque(UnsafeRawPointer(userInfo!)).takeUnretainedValue()
                 DispatchQueue.main.async {
                     myView.displayLinkCallback()
                 }
@@ -233,7 +233,7 @@ private extension CGWindowListScreenCapturer {
 
 // MARK: - Helpers to Schedule/Prepare Capture
 
-private extension CGWindowListScreenCapturer {
+private extension ScreenCaptureStreamCG {
 
     func getPreferredViewAreaInScreenCoordinates() -> CGRect {
         guard let view = view, let window = window else { return .zero }
@@ -272,7 +272,7 @@ private extension CGWindowListScreenCapturer {
     }
 }
 
-extension CGWindowListScreenCapturer: ViewUpdatesSubscriber {
+extension ScreenCaptureStreamCG: ViewUpdatesSubscriber {
 
     public func viewWillStartLiveResize() {
         markAsMoving()
@@ -286,7 +286,7 @@ extension CGWindowListScreenCapturer: ViewUpdatesSubscriber {
 
 // MARK: - Apply User Preferences
 
-private extension CGWindowListScreenCapturer {
+private extension ScreenCaptureStreamCG {
 
     @objc func updateFromDefaults() {
         refreshSpeed = refreshSpeedDefault
@@ -296,7 +296,7 @@ private extension CGWindowListScreenCapturer {
 
 // MARK: - Permission Alert
 
-private extension CGWindowListScreenCapturer {
+private extension ScreenCaptureStreamCG {
 
     func presentScreenCaptureAlert() {
         guard let window = window else { return }

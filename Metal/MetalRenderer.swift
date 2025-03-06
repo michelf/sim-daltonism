@@ -37,7 +37,7 @@ class MetalRenderer: NSObject {
     }
 }
 
-extension MetalRenderer: ImageCaptureDelegate {
+extension MetalRenderer: ScreenCaptureStreamDelegate {
 
     /// Called on the ImageCapturer's queue,
     /// which should be the CIFilter queue
