@@ -25,7 +25,7 @@ import CoreImage
 public class FilterStore {
 
     public private(set) var visionFilter: CIFilter? = nil
-    public let queue = DispatchQueue.uniqueUserInitiatedQueue()
+	public let queue = DispatchQueue(label: FilterStore.nextDispatchQueueLabel(), qos: .userInitiated)
     private var vision: VisionType
 
     public required init(vision: VisionType = UserDefaults.getVision(),
@@ -72,3 +72,16 @@ extension FilterStore {
         }
     }
 }
+
+// MARK: - Dispatch Queue Label
+
+public extension FilterStore {
+
+	private static var queueCount = 0
+
+	static func nextDispatchQueueLabel() -> String {
+		queueCount += 1
+		return "\(Self.self)" + String(queueCount)
+	}
+}
+

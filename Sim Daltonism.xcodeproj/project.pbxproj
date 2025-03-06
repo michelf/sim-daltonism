@@ -89,7 +89,6 @@
 		94B926C526B139D300754E0C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B926C326B139C600754E0C /* Errors.swift */; };
 		94C6A75026D4670F00C6D7A5 /* AlertAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C6A74F26D4670F00C6D7A5 /* AlertAssets.xcassets */; };
 		94C6A75326D46E0000C6D7A5 /* Alerts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94C6A75526D46E0000C6D7A5 /* Alerts.strings */; };
-		94E1494626C2308500327367 /* DispatchQueue+Uniqued.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */; };
 		94E1494826C230A700327367 /* FilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494726C230A700327367 /* FilterStore.swift */; };
 		94E1494A26C23EFF00327367 /* Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494926C23EFF00327367 /* Simulation.swift */; };
 		94E8FB2B26B3D30D0027BCF4 /* VisionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2A26B3D30D0027BCF4 /* VisionType.swift */; };
@@ -219,7 +218,6 @@
 		94C6A74F26D4670F00C6D7A5 /* AlertAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AlertAssets.xcassets; sourceTree = "<group>"; };
 		94C6A75426D46E0000C6D7A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Alerts.strings; sourceTree = "<group>"; };
 		94C6A75626D4783E00C6D7A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Alerts.strings"; sourceTree = "<group>"; };
-		94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Uniqued.swift"; sourceTree = "<group>"; };
 		94E1494726C230A700327367 /* FilterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterStore.swift; sourceTree = "<group>"; };
 		94E1494926C23EFF00327367 /* Simulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simulation.swift; sourceTree = "<group>"; };
 		94E8FB2626B3B3F80027BCF4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -332,7 +330,6 @@
 				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
 				1EF253171C274A0200DB3B18 /* ColorView.swift */,
-				94E1494526C2308500327367 /* DispatchQueue+Uniqued.swift */,
 				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
 				1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */,
 				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
@@ -707,7 +704,6 @@
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
-				94E1494626C2308500327367 /* DispatchQueue+Uniqued.swift in Sources */,
 				9426E39E26D43D8C00D5356F /* VisionType+CIFilterVendor.swift in Sources */,
 				9424DE7526B63747007ADF4B /* ImageCapturer.swift in Sources */,
 				9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */,
