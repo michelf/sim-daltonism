@@ -37,9 +37,16 @@ class ViewController: NSViewController {
         do { try self.connectMetalViewAndFilterPipeline() }
         catch let error { NSApp.mainWindow?.presentError(error) }
 
-        screenCaptureStream = ScreenCaptureStreamCG(view: filteredView,
-                                                    window: view.window!,
-                                                    queue: filterStore.queue)
+
+		screenCaptureStream = if #available(macOS 15, *) {
+			ScreenCaptureStreamSCKit(view: filteredView,
+									 window: view.window!,
+									 queue: filterStore.queue)
+		} else {
+			ScreenCaptureStreamCG(view: filteredView,
+								  window: view.window!,
+								  queue: filterStore.queue)
+		}
 
         do { try self.screenCaptureStream?.startSession(in: initialFrame, delegate: renderer!) }
         catch let error { NSApp.mainWindow?.presentError(error) }

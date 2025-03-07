@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */; };
 		1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */; };
 		1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */; };
 		1ED75E5D1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
@@ -97,6 +98,7 @@
 
 /* Begin PBXFileReference section */
 		171999D919C7695800A719B5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureStreamSCKit.swift; sourceTree = "<group>"; };
 		1E3BDB811C26408F00CADF46 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWindowManager.swift; sourceTree = "<group>"; };
 		1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDefaults.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 			children = (
 				9424DE6326B63747007ADF4B /* ScreenCaptureStream.swift */,
 				9424DE6226B63747007ADF4B /* ScreenCaptureStreamCG.swift */,
+				1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */,
 			);
 			path = ScreenCapture;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
+				1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */,
 				9424DE7C26B63747007ADF4B /* HCIRNFilterVendor.swift in Sources */,
 				9424DE8026B63747007ADF4B /* Transforms.metal in Sources */,
 				1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */,
