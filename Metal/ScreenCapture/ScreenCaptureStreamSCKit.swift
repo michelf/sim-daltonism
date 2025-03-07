@@ -79,11 +79,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	}
 
 	func configuration() -> SCStreamConfiguration {
-		let config = if #available(macOS 15, *), false {
-			SCStreamConfiguration(preset: .captureHDRStreamLocalDisplay)
-		} else {
-			SCStreamConfiguration()
-		}
+		let config = SCStreamConfiguration()
 
 		let screenFrame = window?.screen?.frame ?? CGDisplayBounds(CGMainDisplayID())
 		var captureRect = getPreferredViewAreaInScreenCoordinates()
