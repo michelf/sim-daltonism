@@ -46,7 +46,6 @@
 		1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252A11C2742F300DB3B18 /* VisionPicker.m */; };
 		1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253151C274A0200DB3B18 /* AppDelegate.swift */; };
 		1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253171C274A0200DB3B18 /* ColorView.swift */; };
-		1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */; };
 		1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253241C274A0200DB3B18 /* Main.storyboard */; };
 		1EF2533D1C274A0200DB3B18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253261C274A0200DB3B18 /* Credits.html */; };
 		1EF2533E1C274A0200DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253291C274A0200DB3B18 /* InfoPlist.strings */; };
@@ -163,7 +162,6 @@
 		1EF253171C274A0200DB3B18 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		1EF2531D1C274A0200DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Sim Daltonism.entitlements"; sourceTree = "<group>"; };
-		1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = SimDaltonism.iconset; sourceTree = "<group>"; };
 		1EF253251C274A0200DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EF253271C274A0200DB3B18 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.html; name = en; path = en.lproj/Credits.html; sourceTree = "<group>"; };
 		1EF253281C274A0200DB3B18 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.html; name = fr; path = fr.lproj/Credits.html; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				1EF253161C274A0200DB3B18 /* BridgingHeader.h */,
-				1EF253221C274A0200DB3B18 /* SimDaltonism.iconset */,
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
 				1EF253171C274A0200DB3B18 /* ColorView.swift */,
 				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
@@ -658,7 +655,6 @@
 				1EF2538C1C2849B600DB3B18 /* NormalFrameRateTemplate.png in Resources */,
 				1EF2538D1C2849B600DB3B18 /* NormalFrameRateTemplate@2x.png in Resources */,
 				1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */,
-				1EF2533B1C274A0200DB3B18 /* SimDaltonism.iconset in Resources */,
 				1ED75E711C453AA900042CB7 /* URLs.strings in Resources */,
 				1EF2538F1C2849B600DB3B18 /* SlowFrameRateTemplate@2x.png in Resources */,
 				1EF253821C2849B600DB3B18 /* Controls.acorn in Resources */,
@@ -890,6 +886,7 @@
 		1EF253121C27498600DB3B18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -927,6 +924,7 @@
 		1EF253131C27498600DB3B18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
