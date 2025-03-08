@@ -25,7 +25,7 @@ import CoreImage
 public class FilterStore {
 
     public private(set) var visionFilter: CIFilter? = nil
-	public let queue = DispatchQueue(label: FilterStore.nextDispatchQueueLabel(), qos: .userInitiated)
+	private let queue = DispatchQueue(label: FilterStore.nextDispatchQueueLabel(), qos: .userInitiated)
     private var vision: VisionType
 
     public required init(vision: VisionType = UserDefaults.getVision(),
@@ -45,8 +45,10 @@ extension FilterStore {
     /// Call on the queue in which the store was created.
     ///
     public func applyFilter(to image: CIImage) -> CIImage? {
-        visionFilter?.setValue(image, forKey: kCIInputImageKey)
-        return visionFilter?.outputImage
+		queue.sync {
+			visionFilter?.setValue(image, forKey: kCIInputImageKey)
+			return visionFilter?.outputImage
+		}
     }
 }
 

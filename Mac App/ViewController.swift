@@ -40,12 +40,10 @@ class ViewController: NSViewController {
 
 		screenCaptureStream = if #available(macOS 15, *) {
 			ScreenCaptureStreamSCKit(view: filteredView,
-									 window: view.window!,
-									 queue: filterStore.queue)
+									 window: view.window!)
 		} else {
 			ScreenCaptureStreamCG(view: filteredView,
-								  window: view.window!,
-								  queue: filterStore.queue)
+								  window: view.window!)
 		}
 
         do { try self.screenCaptureStream?.startSession(in: initialFrame, delegate: renderer!) }

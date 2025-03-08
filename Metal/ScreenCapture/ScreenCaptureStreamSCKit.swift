@@ -24,7 +24,9 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	private weak var window: NSWindow? = nil // Parent window to read geometry
 
 	// Gating and capture frequency
-	private var refreshSpeed: RefreshSpeed = .normal
+	private var refreshSpeed: RefreshSpeed = .normal {
+		didSet { reconfigureStream() }
+	}
 	private var framesSinceLastCapture = 0
 	private var stream: SCStream?
 
@@ -35,15 +37,17 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	private var unhideOnNextDisplay = false
 
 	// Current capture
-	private var preferredCaptureArea = ViewArea.underWindow
-	private weak var queue: DispatchQueue?
-	private var isCapturing = false
+	private var preferredCaptureArea = ViewArea.underWindow {
+		didSet { reconfigureStream() }
+	}
+	private var isCapturing = false {
+		didSet { reconfigureStream() }
+	}
 
 
-	public init(view: FilteredMetalView, window: NSWindow, queue: DispatchQueue) {
+	public init(view: FilteredMetalView, window: NSWindow) {
 		self.window = window
 		self.view = view
-		self.queue = queue
 		super.init()
 		view.viewUpdatesSubscriber = self
 		updateFromDefaults()
@@ -57,6 +61,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	}
 
 	func setupStream(with content: SCShareableContent?, error: Error?) {
+		assert(Thread.isMainThread)
 		guard let content else {
 			if let error {
 				NSLog("\(#function) \(error)")
@@ -71,7 +76,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 		stream = SCStream(filter: filter, configuration: config, delegate: self)
 		do {
-			try stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: .global(qos: .userInteractive))
+			try stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: nil)
 		} catch {
 			NSLog("\(#function) addStreamOutput error \(error)")
 		}
@@ -79,6 +84,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	}
 
 	func configuration() -> SCStreamConfiguration {
+		assert(Thread.isMainThread)
 		let config = SCStreamConfiguration()
 
 		let screenFrame = window?.screen?.frame ?? CGDisplayBounds(CGMainDisplayID())
@@ -93,7 +99,14 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		config.height = Int(captureRect.size.height * scaleFactor)
 		config.scalesToFit = false
 		config.sourceRect = captureRect
-		config.minimumFrameInterval = .zero
+		switch refreshSpeed {
+		case .slow:
+			config.minimumFrameInterval = CMTime(value: 1, timescale: 12)
+		case .normal:
+			config.minimumFrameInterval = CMTime(value: 1, timescale: 24)
+		case .fast:
+			config.minimumFrameInterval = .zero
+		}
 		config.showsCursor = false
 		if #available(macOS 14.0, *) {
 			config.captureResolution = .automatic
@@ -126,8 +139,34 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		return filter
 	}
 
-	@objc func updateStreamConfiguration() {
+	var streamNeedsReconfiguration = false
+	var streamWaitingFirstFrameAfterReconfiguration = true
+	var streamReconfigurationTimer: Timer?
+
+	@objc func reconfigureStream() {
+		assert(Thread.isMainThread)
 		stream?.updateConfiguration(configuration())
+		switch preferredCaptureArea {
+		case .underWindow:
+			deaactivateMouseEventMonitoring()
+		case .mousePointer:
+			activateMouseEventMonitoring()
+		}
+		streamNeedsReconfiguration = false
+		streamWaitingFirstFrameAfterReconfiguration = true
+		streamReconfigurationTimer?.invalidate()
+		streamReconfigurationTimer = nil
+	}
+
+	@objc func invalidateStreamConfiguration() {
+		if streamWaitingFirstFrameAfterReconfiguration {
+			streamNeedsReconfiguration = true
+			streamReconfigurationTimer = Timer.scheduledTimer(withTimeInterval: 1/60.0, repeats: false) { [weak self] timer in
+				self?.reconfigureStream()
+			}
+		} else {
+			reconfigureStream()
+		}
 	}
 
 	func checkRecordingPermissions() {
@@ -141,6 +180,46 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 			// Permissions handling is for 10.15+
 		}
 	}
+
+
+	// MARK: - Mouse Tracking
+
+	var _globalEventObserver: Any?
+	var _localEventObserver: Any?
+
+	func activateMouseEventMonitoring() {
+		if _globalEventObserver == nil {
+			_globalEventObserver = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseDragged, .rightMouseDragged]) { [weak self] event in
+				self?.handleMouseEvent(event)
+			}
+		}
+		if _localEventObserver == nil {
+			_localEventObserver = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved, .leftMouseDragged, .rightMouseDragged]) { [weak self] event in
+				self?.handleMouseEvent(event)
+				return event
+			}
+		}
+	}
+	func deaactivateMouseEventMonitoring() {
+		if let globalEventObserver = _globalEventObserver {
+			NSEvent.removeMonitor(globalEventObserver)
+			_globalEventObserver = nil
+		}
+		if let localEventObserver = _localEventObserver {
+			NSEvent.removeMonitor(localEventObserver)
+			_localEventObserver = nil
+		}
+	}
+
+	@objc func handleMouseEvent(_ event: NSEvent) {
+		invalidateStreamConfiguration()
+	}
+
+	deinit {
+		deaactivateMouseEventMonitoring()
+		stopSession()
+	}
+
 
 }
 
@@ -176,11 +255,11 @@ private extension ScreenCaptureStreamSCKit {
 	func setupMonitorsForInteraction(with window: NSWindow) {
 		let center = NotificationCenter.default
 
-		center.addObserver(self, selector: #selector(updateStreamConfiguration),
+		center.addObserver(self, selector: #selector(reconfigureStream),
 						   name: NSWindow.didMoveNotification,
 						   object: window)
 
-		center.addObserver(self, selector: #selector(updateStreamConfiguration),
+		center.addObserver(self, selector: #selector(reconfigureStream),
 						   name: NSWindow.didResizeNotification,
 						   object: window)
 
@@ -228,7 +307,7 @@ extension ScreenCaptureStreamSCKit: SCStreamOutput {
 
 		delegate?.didCaptureFrame(image: CIImage(ioSurface: surface))
 
-		afterCapturingUnhideOnNextDisplayIfNeeded()
+		afterCapturing()
 	}
 
 //	func captureWindowsBelow(_ captureRect: CGRect, windowID: CGWindowID, backingScaleFactor: CGFloat) {
@@ -245,13 +324,21 @@ extension ScreenCaptureStreamSCKit: SCStreamOutput {
 //		afterCapturingUnhideOnNextDisplayIfNeeded()
 //	}
 
-	private func afterCapturingUnhideOnNextDisplayIfNeeded() {
-		guard unhideOnNextDisplay else { return }
+	private func afterCapturing() {
+		guard unhideOnNextDisplay || streamNeedsReconfiguration else { return }
 		DispatchQueue.main.async { [weak self] in
+			guard let self else { return }
 			// recheck, because the state could have changed since the dispatch
-			guard self?.unhideOnNextDisplay == true else { return }
-			self?.unhideOnNextDisplay = false
-			self?.view?.isHidden = false
+			if unhideOnNextDisplay == true {
+				unhideOnNextDisplay = false
+				view?.isHidden = false
+			}
+			if streamWaitingFirstFrameAfterReconfiguration {
+				streamWaitingFirstFrameAfterReconfiguration = false
+			}
+			if streamNeedsReconfiguration {
+				reconfigureStream()
+			}
 		}
 	}
 }

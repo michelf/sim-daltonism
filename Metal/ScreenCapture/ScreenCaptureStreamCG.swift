@@ -34,14 +34,13 @@ public class ScreenCaptureStreamCG {
 
     // Current capture
     private var preferredCaptureArea = ViewArea.underWindow
-    private weak var queue: DispatchQueue?
+	private let queue = DispatchQueue(label: nextDispatchQueueLabel(), qos: .userInitiated)
     private var isCapturing = false
 
 
-    public init(view: FilteredMetalView, window: NSWindow, queue: DispatchQueue) {
+    public init(view: FilteredMetalView, window: NSWindow) {
         self.window = window
         self.view = view
-        self.queue = queue
         view.viewUpdatesSubscriber = self
         updateFromDefaults()
         checkRecordingPermissions()
@@ -163,7 +162,7 @@ import CoreVideo
 private extension ScreenCaptureStreamCG {
 
     private func createDisplayLink() {
-        queue?.async { [weak self] in
+        queue.async { [weak self] in
             guard let self = self else { return }
             CVDisplayLinkCreateWithActiveCGDisplays(&self.displayLink)
             guard let displayLink = self.displayLink else { return }
@@ -206,6 +205,7 @@ private extension ScreenCaptureStreamCG {
     }
 
     func prepareFrameCapture() {
+		assert(Thread.isMainThread)
         guard let window = window else { return }
         guard legalWindowNumbers.contains(window.windowNumber) else {
             NSLog("Skipping capture for uninitialized window ID \(window.windowNumber).");
@@ -224,7 +224,7 @@ private extension ScreenCaptureStreamCG {
         var captureRect = getPreferredViewAreaInScreenCoordinates()
         captureRect.origin.y = mainDisplayBounds.height - captureRect.origin.y - captureRect.height
 
-        queue?.async { [weak self] in
+        queue.async { [weak self] in
             self?.captureWindowsBelow(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
         }
     }
@@ -236,6 +236,7 @@ private extension ScreenCaptureStreamCG {
 private extension ScreenCaptureStreamCG {
 
     func getPreferredViewAreaInScreenCoordinates() -> CGRect {
+		assert(Thread.isMainThread)
         guard let view = view, let window = window else { return .zero }
         let viewInWindow = view.convert(view.bounds, to: window.contentView)
         var viewInScreen = window.convertToScreen(viewInWindow)
@@ -335,3 +336,16 @@ private extension ScreenCaptureStreamCG {
         NSWorkspace.shared.open(privacyPanel)
     }
 }
+
+// MARK: - Dispatch Queue Label
+
+public extension ScreenCaptureStreamCG {
+
+	private static var queueCount = 0
+
+	static func nextDispatchQueueLabel() -> String {
+		queueCount += 1
+		return "\(Self.self)" + String(queueCount)
+	}
+}
+
