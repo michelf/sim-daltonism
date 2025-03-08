@@ -26,7 +26,14 @@ class ViewController: NSViewController {
 
 	@IBOutlet var permissionRequestView: NSView?
 	@IBOutlet var permissionRequestBackground: NSView?
-	@IBOutlet var openSettingsButton: NSButton?
+	@IBOutlet var openSystemSettingsButton: NSButton?
+
+	override func viewDidLoad() {
+		if #available(macOS 13, *) {
+		} else {
+			openSystemSettingsButton?.title = NSLocalizedString("Open System Preferences", comment: "")
+		}
+	}
 
     override func viewWillAppear() {
         super.viewWillAppear()
