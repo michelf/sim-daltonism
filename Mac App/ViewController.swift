@@ -22,7 +22,6 @@ class ViewController: NSViewController {
     @IBOutlet var filteredView: FilteredMetalView!
     private var renderer: MetalRenderer? = nil
     private var screenCaptureStream: ScreenCaptureStream? = nil
-    private var mouseTimer: Timer?
     private weak var filterStore: FilterStore!
 
 	@IBOutlet var permissionRequestView: NSView?
@@ -55,16 +54,52 @@ class ViewController: NSViewController {
         do { try self.screenCaptureStream?.startSession(in: initialFrame, delegate: renderer!) }
         catch let error { NSApp.mainWindow?.presentError(error) }
 
-        DispatchQueue.main.async {
-            self.setupTimerToPeriodicallyTrackMouse()
-        }
+		activateMouseEventMonitoring()
     }
 
     override func viewDidDisappear() {
-        mouseTimer?.invalidate()
-        mouseTimer = nil
+		deaactivateMouseEventMonitoring()
         screenCaptureStream?.stopSession()
     }
+
+	// MARK: - Mouse Tracking
+
+	var _globalEventObserver: Any?
+	var _localEventObserver: Any?
+
+	func activateMouseEventMonitoring() {
+		if _globalEventObserver == nil {
+			_globalEventObserver = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseDragged, .rightMouseDragged]) { [weak self] event in
+				self?.handleMouseEvent(event)
+			}
+		}
+		if _localEventObserver == nil {
+			_localEventObserver = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved, .leftMouseDragged, .rightMouseDragged]) { [weak self] event in
+				self?.handleMouseEvent(event)
+				return event
+			}
+		}
+	}
+	func deaactivateMouseEventMonitoring() {
+		if let globalEventObserver = _globalEventObserver {
+			NSEvent.removeMonitor(globalEventObserver)
+			_globalEventObserver = nil
+		}
+		if let localEventObserver = _localEventObserver {
+			NSEvent.removeMonitor(localEventObserver)
+			_localEventObserver = nil
+		}
+	}
+
+	@objc func handleMouseEvent(_ event: NSEvent) {
+		setWindowIgnoresMouseEventsState()
+		screenCaptureStream?.handleMouseEvent(event)
+	}
+
+	deinit {
+		deaactivateMouseEventMonitoring()
+	}
+
 }
 
 private extension ViewController {
@@ -115,12 +150,6 @@ private extension ViewController {
         } else {
             return filteredView.getBestMTLDevice()
         }
-    }
-
-    func setupTimerToPeriodicallyTrackMouse() {
-        mouseTimer = Timer(timeInterval: 0.25, target: self, selector: #selector(setWindowIgnoresMouseEventsState), userInfo: nil, repeats: true)
-        RunLoop.current.add(mouseTimer!, forMode: .common)
-        mouseTimer?.tolerance = 0.2
     }
 
     @objc func setWindowIgnoresMouseEventsState() {

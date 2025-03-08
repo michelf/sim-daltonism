@@ -145,12 +145,6 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	@objc func reconfigureStream() {
 		assert(Thread.isMainThread)
 		stream?.updateConfiguration(configuration())
-		switch preferredCaptureArea {
-		case .underWindow:
-			deaactivateMouseEventMonitoring()
-		case .mousePointer:
-			activateMouseEventMonitoring()
-		}
 		streamNeedsReconfiguration = false
 		streamWaitingFirstFrameAfterReconfiguration = true
 		streamReconfigurationTimer?.invalidate()
@@ -179,39 +173,11 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 	// MARK: - Mouse Tracking
 
-	var _globalEventObserver: Any?
-	var _localEventObserver: Any?
-
-	func activateMouseEventMonitoring() {
-		if _globalEventObserver == nil {
-			_globalEventObserver = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved, .leftMouseDragged, .rightMouseDragged]) { [weak self] event in
-				self?.handleMouseEvent(event)
-			}
-		}
-		if _localEventObserver == nil {
-			_localEventObserver = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved, .leftMouseDragged, .rightMouseDragged]) { [weak self] event in
-				self?.handleMouseEvent(event)
-				return event
-			}
-		}
-	}
-	func deaactivateMouseEventMonitoring() {
-		if let globalEventObserver = _globalEventObserver {
-			NSEvent.removeMonitor(globalEventObserver)
-			_globalEventObserver = nil
-		}
-		if let localEventObserver = _localEventObserver {
-			NSEvent.removeMonitor(localEventObserver)
-			_localEventObserver = nil
-		}
-	}
-
-	@objc func handleMouseEvent(_ event: NSEvent) {
+	public func handleMouseEvent(_ event: NSEvent) {
 		invalidateStreamConfiguration()
 	}
 
 	deinit {
-		deaactivateMouseEventMonitoring()
 		stopSession()
 	}
 

@@ -78,6 +78,10 @@ extension ScreenCaptureStreamCG: ScreenCaptureStream {
         createDisplayLink()
     }
 
+	public func handleMouseEvent(_ event: NSEvent) {
+		captureImmediately()
+	}
+
 }
 
 private extension ScreenCaptureStreamCG {

@@ -63,16 +63,16 @@ extension FilterStore {
         }
     }
 
-    public func setSimulation(to simulation: Simulation) {
-        queue.async { [weak self] in
-            guard let self = self else { return }
-            switch simulation {
-                case .wicklineHCIRN: HCIRNFilterVendor.registerFilters()
-                case .machadoEtAl: MachadoFilterVendor.registerFilters()
-            }
-            self.visionFilter = CIFilter(name: self.vision.ciFilterString)
-        }
-    }
+	public func setSimulation(to simulation: Simulation) {
+		queue.async { [weak self] in
+			guard let self = self else { return }
+			switch simulation {
+			case .wicklineHCIRN: HCIRNFilterVendor.registerFilters()
+			case .machadoEtAl: MachadoFilterVendor.registerFilters()
+			}
+			self.visionFilter = CIFilter(name: self.vision.ciFilterString)
+		}
+	}
 }
 
 // MARK: - Dispatch Queue Label
