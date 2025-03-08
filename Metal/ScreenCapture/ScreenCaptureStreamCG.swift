@@ -43,19 +43,17 @@ public class ScreenCaptureStreamCG {
         self.view = view
         view.viewUpdatesSubscriber = self
         updateFromDefaults()
-        checkRecordingPermissions()
     }
 
-    func checkRecordingPermissions() {
-        if #available(macOS 10.15, *) {
-            let permissionGranted = CGPreflightScreenCaptureAccess()
-            if !permissionGranted {
-                presentScreenCaptureAlert()
-                CGRequestScreenCaptureAccess()
-            }
-        } else {
-            // Permissions handling is for 10.15+
-        }
+    public func checkCapturePermission() -> Bool {
+		guard #available(macOS 10.15, *) else {
+			return true // no permission needed before 10.15
+		}
+		let permissionGranted = CGPreflightScreenCaptureAccess()
+		if !permissionGranted {
+			CGRequestScreenCaptureAccess()
+		}
+		return permissionGranted
     }
 
 }
@@ -292,48 +290,6 @@ private extension ScreenCaptureStreamCG {
     @objc func updateFromDefaults() {
         refreshSpeed = refreshSpeedDefault
         preferredCaptureArea = viewAreaDefault
-    }
-}
-
-// MARK: - Permission Alert
-
-private extension ScreenCaptureStreamCG {
-
-    func presentScreenCaptureAlert() {
-        guard let window = window else { return }
-
-        let title = NSLocalizedString("AllowScreenRecording", tableName: "Alerts", comment: "")
-        let explanation = NSLocalizedString("AllowScreenRecordingMessage", tableName: "Alerts", comment: "")
-        let okButton = NSLocalizedString("OpenSystemPreferences", tableName: "Alerts", comment: "")
-        let cancelButton = NSLocalizedString("FilterDesktopOnly", tableName: "Alerts", comment: "")
-        let image = NSImage(named: NSImage.Name("ScreenCaptureAlert"))!
-        let imageSize = CGSize(width: 450, height: 450)
-
-        let alert = NSAlert()
-
-        alert.messageText = title
-        alert.informativeText = explanation
-        alert.addButton(withTitle: okButton)
-        alert.addButton(withTitle: cancelButton)
-
-        let view = NSImageView(image: image)
-        view.frame = CGRect(origin: .zero, size: imageSize)
-        alert.accessoryView = view
-
-        alert.beginSheetModal(for: window) { [weak self] response in
-            switch response {
-                case .alertSecondButtonReturn: return
-                // Does nothing on "cancel".
-                // The desktop will be shown and filtered, but no windows can be captured.
-
-                default: self?.openPrivacyPanel()
-            }
-        }
-    }
-
-    func openPrivacyPanel() {
-        let privacyPanel = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy")!
-        NSWorkspace.shared.open(privacyPanel)
     }
 }
 

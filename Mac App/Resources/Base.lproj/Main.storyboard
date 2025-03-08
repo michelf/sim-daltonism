@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,12 +37,9 @@
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-0U-tb8">
                                 <rect key="frame" x="140" y="148" width="122" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="qR5-4P-934"/>
-                                </constraints>
                                 <popUpButtonCell key="cell" type="push" title="Normal" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2yn-G6-M6Q" id="Eev-ok-KE4">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
+                                    <font key="font" metaFont="message"/>
                                     <menu key="menu" id="qM3-Uc-raZ">
                                         <items>
                                             <menuItem title="Slow" image="SlowFrameRateTemplate" tag="-1" id="0Ta-j5-x1B"/>
@@ -50,11 +48,14 @@
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="qR5-4P-934"/>
+                                </constraints>
                                 <connections>
                                     <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.RefreshSpeed" id="yeF-Aq-d1A"/>
                                 </connections>
                             </popUpButton>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b25-fi-qFB">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b25-fi-qFB">
                                 <rect key="frame" x="36" y="75" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="View Area:" id="BBH-Y8-kr1">
                                     <font key="font" metaFont="system"/>
@@ -62,7 +63,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojT-ce-bUD">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojT-ce-bUD">
                                 <rect key="frame" x="36" y="155" width="99" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Refresh Speed:" id="xkd-TQ-kuW">
                                     <font key="font" metaFont="system"/>
@@ -70,22 +71,22 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
                                 <rect key="frame" x="144" y="106" width="300" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="296" id="QP5-2E-CYY"/>
                                 </constraints>
                                 <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="XYj-CE-0ar">
-                                    <font key="font" metaFont="smallSystem"/>
+                                    <font key="font" metaFont="message" size="11"/>
                                     <string key="title">A faster refresh speed will reduce the lag if the area to filter is not too large. A slower refresh speed will reduce energy consumption.</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-hr-bpk">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-hr-bpk">
                                 <rect key="frame" x="144" y="26" width="300" height="42"/>
                                 <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="When the view area is the content under the window, clicking inside the filtered view will hit the content underneath." id="vIP-qu-9Lh">
-                                    <font key="font" metaFont="smallSystem"/>
+                                    <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -94,7 +95,7 @@
                                 <rect key="frame" x="140" y="68" width="245" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="Content under the window" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="v8C-eT-i5k" id="I9X-XY-5dw">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
+                                    <font key="font" metaFont="message"/>
                                     <menu key="menu" id="B2K-uM-XK8">
                                         <items>
                                             <menuItem title="Content under the window" state="on" image="FilteredTransparencyTemplate" id="v8C-eT-i5k"/>
@@ -208,23 +209,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="h5H-Ve-nGd"/>
-                                        <menuItem title="Methodology" enabled="NO" id="k8K-Sj-41W">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="Machado et al" tag="1" keyEquivalent="m" indentationLevel="1" id="GZ5-cs-eRF">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                            <connections>
-                                                <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="J3c-65-2YF"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Wickline HCIRN" keyEquivalent="h" indentationLevel="1" id="K9c-GK-izG">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                            <connections>
-                                                <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="Ypc-jU-22H"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="sUm-R3-pBz"/>
-                                        <menuItem title="Normal Vision" keyEquivalent="0" indentationLevel="1" id="vdT-ac-lg7">
+                                        <menuItem title="Normal Vision" keyEquivalent="0" id="vdT-ac-lg7">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="p0b-I7-7nt"/>
                                             </connections>
@@ -265,15 +250,12 @@
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Gqz-m3-IO9"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Monochromatism" enabled="NO" id="6gV-VJ-KbN">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" indentationLevel="1" id="szF-Cd-B1t">
+                                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="szF-Cd-B1t">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="guc-mg-yql"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="pFL-0F-7Lj">
+                                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" id="pFL-0F-7Lj">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Bqg-sa-Fs8"/>
                                             </connections>
@@ -354,11 +336,6 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Sim Daltonism Help" keyEquivalent="?" id="FKE-Sm-Kum">
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="Sim Daltonism Website" id="1Td-9o-LAZ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -406,31 +383,132 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="340"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="hhN-ix-5O1" customClass="ColorView" customModule="Sim_Daltonism" customModuleProvider="target">
-                                <rect key="frame" x="3" y="3" width="354" height="337"/>
-                            </customView>
-                            <customView id="Yqu-aF-FCy" userLabel="MetalView" customClass="FilteredMetalView" customModule="Sim_Daltonism" customModuleProvider="target">
-                                <rect key="frame" x="98" y="122" width="163" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
+                            <visualEffectView blendingMode="behindWindow" material="mediumLight" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="uEx-hU-M7U" userLabel="Resizing Gray View">
+                                <rect key="frame" x="3" y="3" width="354" height="397"/>
+                            </visualEffectView>
+                            <openGLView wantsLayer="YES" depthSize="32bit" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" wantsBestResolutionOpenGLSurface="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhm-1p-zVd" customClass="FilteredMetalView" customModule="Sim_Daltonism" customModuleProvider="target">
+                                <rect key="frame" x="3" y="3" width="354" height="397"/>
+                            </openGLView>
+                            <visualEffectView blendingMode="behindWindow" material="ultraDark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="LDz-iv-fQe" userLabel="Message Background View">
+                                <rect key="frame" x="3" y="3" width="354" height="397"/>
+                            </visualEffectView>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cPQ-Of-lUh">
+                                <rect key="frame" x="36" y="106" width="288" height="208"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mbW-I5-kbb">
+                                        <rect key="frame" x="0.0" y="94" width="288" height="114"/>
+                                        <subviews>
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iC5-er-vQq" customClass="MoveWindowImageView" customModule="Sim_Daltonism" customModuleProvider="target">
+                                                <rect key="frame" x="131" y="88" width="26" height="26"/>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="XNu-XM-k88">
+                                                    <imageReference key="image" image="ScreenRecordingIcon" symbolScale="large"/>
+                                                </imageCell>
+                                            </imageView>
+                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a9C-WW-HEW">
+                                                <rect key="frame" x="63" y="64" width="162" height="16"/>
+                                                <textFieldCell key="cell" alignment="center" title="Allow Screen Recording" id="3C2-ht-9Py">
+                                                    <font key="font" textStyle="headline" name=".SFNS-Bold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ogo-IR-kgn">
+                                                <rect key="frame" x="-2" y="24" width="292" height="32"/>
+                                                <textFieldCell key="cell" alignment="center" title="Sim Daltonism needs your permission to display a filtered capture of the screen." id="V0K-QP-7mN">
+                                                    <font key="font" textStyle="body" name=".SFNS-Regular"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="KUs-bh-1pg">
+                                                <rect key="frame" x="40" y="0.0" width="209" height="16"/>
+                                                <textFieldCell key="cell" alignment="center" title="(Nothing actually gets recorded.)" id="VqT-Hv-jHT">
+                                                    <font key="font" textStyle="body" name=".SFNS-Regular"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ahd-XE-EGQ">
+                                        <rect key="frame" x="61" y="40" width="167" height="40"/>
+                                        <buttonCell key="cell" type="push" title="Open System Settings" bezelStyle="rounded" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FIX-ry-bLd">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="openPrivacyPanel:" target="XfG-lQ-9wD" id="YoO-bo-X8I"/>
+                                        </connections>
+                                    </button>
+                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="UWU-xa-uE5">
+                                        <rect key="frame" x="-2" y="0.0" width="292" height="26"/>
+                                        <textFieldCell key="cell" alignment="center" title="After giving the Screen Recording permission, quit and reopen Sim Daltonism for the change to take effect." id="zOt-6e-Bty">
+                                            <font key="font" textStyle="footnote" name=".SFNS-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="292" id="eGs-r8-qYe"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="hhN-ix-5O1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="BYT-mK-BEw"/>
-                            <constraint firstItem="hhN-ix-5O1" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="jVw-11-FPL"/>
-                            <constraint firstAttribute="bottom" secondItem="hhN-ix-5O1" secondAttribute="bottom" constant="3" id="qVp-mR-bmP"/>
-                            <constraint firstAttribute="trailing" secondItem="hhN-ix-5O1" secondAttribute="trailing" constant="3" id="shI-Ug-XcF"/>
+                            <constraint firstItem="cPQ-Of-lUh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="1VC-EH-N57"/>
+                            <constraint firstAttribute="bottom" secondItem="LDz-iv-fQe" secondAttribute="bottom" constant="3" id="7Ao-oT-scz"/>
+                            <constraint firstItem="LDz-iv-fQe" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="BsV-p3-aom"/>
+                            <constraint firstItem="cPQ-Of-lUh" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" multiplier="0.95" priority="300" id="Hib-4T-fcw"/>
+                            <constraint firstAttribute="bottom" secondItem="xhm-1p-zVd" secondAttribute="bottom" constant="3" id="IAv-CE-8Ao"/>
+                            <constraint firstAttribute="trailing" secondItem="xhm-1p-zVd" secondAttribute="trailing" constant="3" id="JSc-hL-vj9"/>
+                            <constraint firstItem="cPQ-Of-lUh" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" multiplier="0.8" priority="300" id="KKM-fb-KNf"/>
+                            <constraint firstAttribute="trailing" secondItem="uEx-hU-M7U" secondAttribute="trailing" constant="3" id="QdV-QV-RLw"/>
+                            <constraint firstItem="LDz-iv-fQe" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Qyb-eF-E8f"/>
+                            <constraint firstItem="xhm-1p-zVd" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Swy-yM-azr"/>
+                            <constraint firstItem="uEx-hU-M7U" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Zl6-L9-IJc"/>
+                            <constraint firstItem="uEx-hU-M7U" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="duJ-2k-wuQ"/>
+                            <constraint firstItem="xhm-1p-zVd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="mar-0C-ceC"/>
+                            <constraint firstAttribute="bottom" secondItem="uEx-hU-M7U" secondAttribute="bottom" constant="3" id="mrE-UA-gQ0"/>
+                            <constraint firstItem="cPQ-Of-lUh" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="nnv-Sg-hb4"/>
+                            <constraint firstAttribute="trailing" secondItem="LDz-iv-fQe" secondAttribute="trailing" constant="3" id="wWN-56-mNT"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="filteredView" destination="Yqu-aF-FCy" id="Cxb-0j-NMM"/>
+                        <outlet property="filteredView" destination="xhm-1p-zVd" id="t3d-bm-OyD"/>
+                        <outlet property="openSettingsButton" destination="ahd-XE-EGQ" id="r3c-5w-gP5"/>
+                        <outlet property="openSystemSettingsButton" destination="ahd-XE-EGQ" id="cb0-ko-9Fh"/>
+                        <outlet property="permissionRequestBackground" destination="LDz-iv-fQe" id="Luk-Yd-A6R"/>
+                        <outlet property="permissionRequestView" destination="cPQ-Of-lUh" id="NoJ-aQ-xR3"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="743"/>
+            <point key="canvasLocation" x="75" y="793"/>
         </scene>
         <!--Filter Settings Controller-->
         <scene sceneID="5PC-k1-vN1">
@@ -442,13 +520,13 @@
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zww-Y2-pp3" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="49" y="0.0" width="22" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="I06-P0-prg"/>
-                                </constraints>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="FilteredTransparencyTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="fro-4D-xea">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="I06-P0-prg"/>
+                                </constraints>
                                 <accessibility description="View Area"/>
                                 <connections>
                                     <outlet property="menu" destination="pqH-cF-rp6" id="sAc-jo-oIG"/>
@@ -456,14 +534,14 @@
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9vI-EY-Qrh" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="2" y="0.0" width="25" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="as8-pS-5eU"/>
-                                    <constraint firstAttribute="width" constant="25" id="gSO-jY-5Oq"/>
-                                </constraints>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="VisionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="vVX-GJ-Az2">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="as8-pS-5eU"/>
+                                    <constraint firstAttribute="width" constant="25" id="gSO-jY-5Oq"/>
+                                </constraints>
                                 <accessibility description="Simulated Vision"/>
                                 <connections>
                                     <outlet property="menu" destination="wYE-Gi-tJj" id="kRs-Bz-hdZ"/>
@@ -471,13 +549,13 @@
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OjX-GL-RFl" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="27" y="0.0" width="22" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="UI9-tA-dwv"/>
-                                </constraints>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NormalFrameRateTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="LtX-26-KwI">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="UI9-tA-dwv"/>
+                                </constraints>
                                 <accessibility description="Refresh Speed"/>
                                 <connections>
                                     <outlet property="menu" destination="D7c-iD-Fng" id="wVD-Wf-Pty"/>
@@ -504,7 +582,7 @@
                 </viewController>
                 <menu title="Filter" id="wYE-Gi-tJj">
                     <items>
-                        <menuItem title="Normal Vision" keyEquivalent="0" indentationLevel="1" id="wh1-bY-2Li">
+                        <menuItem title="Normal Vision" keyEquivalent="0" id="wh1-bY-2Li">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="G60-EO-Eeu"/>
                             </connections>
@@ -548,12 +626,12 @@
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="wiF-1D-XGb"/>
-                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" indentationLevel="1" id="Npk-y4-wqh">
+                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="Npk-y4-wqh">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="L4d-aW-ww3"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="cWO-ZF-xPw">
+                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" id="cWO-ZF-xPw">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="9P6-uH-LcD"/>
                             </connections>
@@ -609,6 +687,7 @@
         <image name="FilteredMouseAreaTemplate" width="13" height="13"/>
         <image name="FilteredTransparencyTemplate" width="13" height="13"/>
         <image name="NormalFrameRateTemplate" width="13" height="13"/>
+        <image name="ScreenRecordingIcon" width="26" height="26"/>
         <image name="SlowFrameRateTemplate" width="13" height="13"/>
         <image name="VisionTemplate" width="18" height="11"/>
     </resources>

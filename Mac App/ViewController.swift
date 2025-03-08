@@ -25,6 +25,10 @@ class ViewController: NSViewController {
     private var mouseTimer: Timer?
     private weak var filterStore: FilterStore!
 
+	@IBOutlet var permissionRequestView: NSView?
+	@IBOutlet var permissionRequestBackground: NSView?
+	@IBOutlet var openSettingsButton: NSButton?
+
     override func viewWillAppear() {
         super.viewWillAppear()
         guard let parent = filteredView.window?.windowController as? WindowController else { return }
@@ -46,6 +50,8 @@ class ViewController: NSViewController {
 								  window: view.window!)
 		}
 
+		updateCapturePermissionVisibility()
+
         do { try self.screenCaptureStream?.startSession(in: initialFrame, delegate: renderer!) }
         catch let error { NSApp.mainWindow?.presentError(error) }
 
@@ -59,6 +65,30 @@ class ViewController: NSViewController {
         mouseTimer = nil
         screenCaptureStream?.stopSession()
     }
+}
+
+private extension ViewController {
+
+	@objc func updateCapturePermissionVisibility() {
+		let hasCapturePermission = screenCaptureStream?.checkCapturePermission() ?? true
+
+		permissionRequestView?.isHidden = hasCapturePermission
+		permissionRequestBackground?.isHidden = hasCapturePermission
+		filteredView.isHidden = !hasCapturePermission
+	}
+
+	@IBAction func openPrivacyPanel(_ sender: Any) {
+		openSystemSettings(panel: "Privacy_ScreenCapture", fallback: "Privacy")
+	}
+
+	private func openSystemSettings(panel: String, fallback: String? = nil) {
+		let privacyPanel = URL(string: "x-apple.systempreferences:com.apple.preference.security?\(panel)")!
+		let success = NSWorkspace.shared.open(privacyPanel)
+		if !success, let fallback {
+			openSystemSettings(panel: fallback)
+		}
+	}
+
 }
 
 private extension ViewController {
@@ -94,6 +124,10 @@ private extension ViewController {
     }
 
     @objc func setWindowIgnoresMouseEventsState() {
+		guard !filteredView.isHidden else {
+			self.view.window?.ignoresMouseEvents = false
+			return
+		}
         let viewBounds = filteredView.bounds
         let mouseLocationInView: CGPoint = {
             let mouseRect = NSRect(origin: NSEvent.mouseLocation, size: NSMakeSize(1, 1))

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0E34A02D7CB29900846C27 /* MoveWindowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E349F2D7CB29900846C27 /* MoveWindowImageView.swift */; };
 		1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */; };
 		1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */; };
 		1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */; };
@@ -88,7 +89,7 @@
 		9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */; };
 		9426E39E26D43D8C00D5356F /* VisionType+CIFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9426E39D26D43D8C00D5356F /* VisionType+CIFilterVendor.swift */; };
 		94B926C526B139D300754E0C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B926C326B139C600754E0C /* Errors.swift */; };
-		94C6A75026D4670F00C6D7A5 /* AlertAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C6A74F26D4670F00C6D7A5 /* AlertAssets.xcassets */; };
+		94C6A75026D4670F00C6D7A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C6A74F26D4670F00C6D7A5 /* Assets.xcassets */; };
 		94C6A75326D46E0000C6D7A5 /* Alerts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94C6A75526D46E0000C6D7A5 /* Alerts.strings */; };
 		94E1494826C230A700327367 /* FilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494726C230A700327367 /* FilterStore.swift */; };
 		94E1494A26C23EFF00327367 /* Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494926C23EFF00327367 /* Simulation.swift */; };
@@ -98,6 +99,7 @@
 
 /* Begin PBXFileReference section */
 		171999D919C7695800A719B5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		1E0E349F2D7CB29900846C27 /* MoveWindowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveWindowImageView.swift; sourceTree = "<group>"; };
 		1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureStreamSCKit.swift; sourceTree = "<group>"; };
 		1E3BDB811C26408F00CADF46 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWindowManager.swift; sourceTree = "<group>"; };
@@ -217,7 +219,7 @@
 		9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+GetBestMetalDevice.swift"; sourceTree = "<group>"; };
 		9426E39D26D43D8C00D5356F /* VisionType+CIFilterVendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionType+CIFilterVendor.swift"; sourceTree = "<group>"; };
 		94B926C326B139C600754E0C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		94C6A74F26D4670F00C6D7A5 /* AlertAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AlertAssets.xcassets; sourceTree = "<group>"; };
+		94C6A74F26D4670F00C6D7A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94C6A75426D46E0000C6D7A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Alerts.strings; sourceTree = "<group>"; };
 		94C6A75626D4783E00C6D7A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Alerts.strings"; sourceTree = "<group>"; };
 		94E1494726C230A700327367 /* FilterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterStore.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				1EF2532F1C274A0200DB3B18 /* ViewController.swift */,
 				1EF253301C274A0200DB3B18 /* Window.swift */,
 				1EF253311C274A0200DB3B18 /* WindowController.swift */,
+				1E0E349F2D7CB29900846C27 /* MoveWindowImageView.swift */,
 				1EF2539F1C2AF1D600DB3B18 /* AboutBox */,
 				1EF253711C2849B600DB3B18 /* Control Icons */,
 				94BFDA8726B39B91009944AC /* Model */,
@@ -349,7 +352,7 @@
 		1EF253231C274A0200DB3B18 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				94C6A74F26D4670F00C6D7A5 /* AlertAssets.xcassets */,
+				94C6A74F26D4670F00C6D7A5 /* Assets.xcassets */,
 				1EF2531D1C274A0200DB3B18 /* Info.plist */,
 				1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */,
 				1EF253241C274A0200DB3B18 /* Main.storyboard */,
@@ -640,7 +643,7 @@
 				1EF253891C2849B600DB3B18 /* FilteredMoveableFrameTemplate@2x.png in Resources */,
 				1EF2538E1C2849B600DB3B18 /* SlowFrameRateTemplate.png in Resources */,
 				1EF253841C2849B600DB3B18 /* FastFrameRateTemplate.png in Resources */,
-				94C6A75026D4670F00C6D7A5 /* AlertAssets.xcassets in Resources */,
+				94C6A75026D4670F00C6D7A5 /* Assets.xcassets in Resources */,
 				1EF253831C2849B600DB3B18 /* Controls@2x.acorn in Resources */,
 				94C6A75326D46E0000C6D7A5 /* Alerts.strings in Resources */,
 				1EF253861C2849B600DB3B18 /* FilteredMouseAreaTemplate.png in Resources */,
@@ -698,6 +701,7 @@
 				94E8FB2B26B3D30D0027BCF4 /* VisionType.swift in Sources */,
 				9424DE7A26B63747007ADF4B /* HCIRN.metal in Sources */,
 				94B926C526B139D300754E0C /* Errors.swift in Sources */,
+				1E0E34A02D7CB29900846C27 /* MoveWindowImageView.swift in Sources */,
 				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
 				9424DE7E26B63747007ADF4B /* MachadoFilterVendor.swift in Sources */,
 				9424DE8126B63747007ADF4B /* FilteredMetalView.swift in Sources */,

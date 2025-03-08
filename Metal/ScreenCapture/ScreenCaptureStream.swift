@@ -20,6 +20,7 @@ public protocol ScreenCaptureStream: AnyObject {
     var delegate: ScreenCaptureStreamDelegate? { get set }
     func startSession(in frame: NSRect, delegate: ScreenCaptureStreamDelegate) throws
     func stopSession()
+	func checkCapturePermission() -> Bool
 }
 
 public protocol ScreenCaptureStreamDelegate: AnyObject {
