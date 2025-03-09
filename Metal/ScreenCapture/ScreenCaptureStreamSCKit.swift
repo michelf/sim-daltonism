@@ -21,7 +21,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 	public weak var delegate: ScreenCaptureStreamDelegate? = nil // Recipient of captured CIImages
 	private weak var view: FilteredMetalView? = nil // Rendering view to read geometry
-	private weak var window: NSWindow? = nil // Parent window to read geometry
+	private var window: NSWindow? { view?.window } // Parent window to read geometry
 
 	// Gating and capture frequency
 	private var refreshSpeed: RefreshSpeed = .normal {
@@ -45,41 +45,35 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	}
 
 
-	public init(view: FilteredMetalView, window: NSWindow) {
-		self.window = window
+	public init(view: FilteredMetalView) {
 		self.view = view
 		super.init()
 		view.viewUpdatesSubscriber = self
 		updateFromDefaults()
 
-		SCShareableContent.getWithCompletionHandler { [weak self] content, error in
-			DispatchQueue.main.async { [weak self] in
-				self?.setupStream(with: content, error: error)
-			}
-		}
+		setupStream()
+
+		NotificationCenter.default.addObserver(self, selector: #selector(invalidateStreamFilter), name: NSApplication.didBecomeActiveNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(invalidateStreamFilter), name: NSApplication.didResignActiveNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(invalidateStreamFilter), name: NSApplication.didChangeScreenParametersNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(invalidateStreamFilter), name: NSWindow.didBecomeKeyNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(invalidateStreamFilter), name: NSWindow.didBecomeMainNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(invalidateStreamFilter), name: NSWindow.didChangeScreenNotification, object: nil)
 	}
 
-	func setupStream(with content: SCShareableContent?, error: Error?) {
+	func setupStream() {
 		assert(Thread.isMainThread)
-		guard let content else {
-			if let error {
-				NSLog("\(#function) \(error)")
-			} else {
-				NSLog("\(#function) no content")
+		getContentFilter { [weak self] filter in
+			guard let filter, let self else { return }
+			stream = SCStream(filter: filter, configuration: configuration(), delegate: self)
+			streamFilter = filter
+			do {
+				try stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: nil)
+			} catch {
+				NSLog("\(#function) addStreamOutput error \(error)")
 			}
-			return
+			disableOrRestartCaptureAfterWindowInteraction()
 		}
-
-		let filter = contentFilter(for: content)
-		let config = configuration()
-
-		stream = SCStream(filter: filter, configuration: config, delegate: self)
-		do {
-			try stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: nil)
-		} catch {
-			NSLog("\(#function) addStreamOutput error \(error)")
-		}
-		disableOrRestartCaptureAfterWindowInteraction()
 	}
 
 	func configuration() -> SCStreamConfiguration {
@@ -123,24 +117,59 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		return config
 	}
 
-	func contentFilter(for content: SCShareableContent) -> SCContentFilter {
-		let displayID = window?.screen?.directDisplayID
-		let display = content.displays.first {
-			$0.displayID == displayID
+	func getContentFilter(completion: @escaping (SCContentFilter?) -> ()) {
+		assert(Thread.isMainThread)
+		guard let thisWindowID = window?.windowID,
+			  let thisScreenID = window?.screen?.directDisplayID
+		else {
+			completion(nil)
+			return
 		}
 
-		let windowID = window.map { CGWindowID($0.windowNumber) }
-		let currentWindow = content.windows.first {
-			$0.windowID == windowID
+		SCShareableContent.getWithCompletionHandler { content, error in
+			guard let content else {
+				NSLog("\(#function) no content \(error?.localizedDescription ?? "<no error provided>")")
+				completion(nil)
+				return
+			}
+			guard let thisDisplay = content.displays.first(where: { $0.displayID == thisScreenID }) else {
+				NSLog("\(#function) display not found in content")
+				completion(nil)
+				return
+			}
+			let thisWindow = content.windows.first(where: { $0.windowID == thisWindowID })
+			guard let thisWindow else {
+				let filter = SCContentFilter(display: thisDisplay, excludingWindows: [])
+				DispatchQueue.main.async {
+					completion(filter)
+				}
+				return
+			}
+			SCShareableContent.getExcludingDesktopWindows(true, onScreenWindowsOnlyAbove: thisWindow) { contentBelow, error in
+				let excludedWindows = [thisWindow] + (contentBelow?.windows ?? [])
+				let filter = SCContentFilter(display: thisDisplay, excludingWindows: excludedWindows)
+				DispatchQueue.main.async {
+					completion(filter)
+				}
+			}
 		}
-
-		let filter = SCContentFilter(display: display!, excludingWindows: [currentWindow].compactMap { $0 })
-		return filter
 	}
 
 	var streamNeedsReconfiguration = false
 	var streamWaitingFirstFrameAfterReconfiguration = true
 	var streamReconfigurationTimer: Timer?
+	var streamFilter: SCContentFilter?
+
+	@objc func invalidateStreamFilter() {
+		getContentFilter { [weak self] filter in
+			guard let filter, let self else { return }
+			guard streamFilter != filter else {
+				return // no change
+			}
+			streamFilter = filter
+			stream?.updateContentFilter(filter)
+		}
+	}
 
 	@objc func reconfigureStream() {
 		assert(Thread.isMainThread)
@@ -413,6 +442,13 @@ extension NSScreen {
 
 	var directDisplayID: CGDirectDisplayID? {
 		deviceDescription[NSDeviceDescriptionKey(rawValue: "NSScreenNumber")] as? CGDirectDisplayID
+	}
+
+}
+extension NSWindow {
+
+	var windowID: CGWindowID {
+		CGWindowID(windowNumber)
 	}
 
 }

@@ -19,7 +19,7 @@ public class ScreenCaptureStreamCG {
 
     public weak var delegate: ScreenCaptureStreamDelegate? = nil // Recipient of captured CIImages
     private weak var view: FilteredMetalView? = nil // Rendering view to read geometry
-    private weak var window: NSWindow? = nil // Parent window to read geometry
+	private var window: NSWindow? { view?.window } // Parent window to read geometry
 
     // Gating and capture frequency
     private var refreshSpeed: RefreshSpeed = .normal
@@ -38,8 +38,7 @@ public class ScreenCaptureStreamCG {
     private var isCapturing = false
 
 
-    public init(view: FilteredMetalView, window: NSWindow) {
-        self.window = window
+    public init(view: FilteredMetalView) {
         self.view = view
         view.viewUpdatesSubscriber = self
         updateFromDefaults()

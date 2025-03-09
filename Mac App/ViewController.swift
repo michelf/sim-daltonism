@@ -49,11 +49,9 @@ class ViewController: NSViewController {
 
 
 		screenCaptureStream = if #available(macOS 15, *) {
-			ScreenCaptureStreamSCKit(view: filteredView,
-									 window: view.window!)
+			ScreenCaptureStreamSCKit(view: filteredView)
 		} else {
-			ScreenCaptureStreamCG(view: filteredView,
-								  window: view.window!)
+			ScreenCaptureStreamCG(view: filteredView)
 		}
 
 		updateCapturePermissionVisibility()
