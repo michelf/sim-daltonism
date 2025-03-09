@@ -500,7 +500,6 @@
                     </view>
                     <connections>
                         <outlet property="filteredView" destination="xhm-1p-zVd" id="t3d-bm-OyD"/>
-                        <outlet property="openSettingsButton" destination="ahd-XE-EGQ" id="r3c-5w-gP5"/>
                         <outlet property="openSystemSettingsButton" destination="ahd-XE-EGQ" id="cb0-ko-9Fh"/>
                         <outlet property="permissionRequestBackground" destination="LDz-iv-fQe" id="Luk-Yd-A6R"/>
                         <outlet property="permissionRequestView" destination="cPQ-Of-lUh" id="NoJ-aQ-xR3"/>
