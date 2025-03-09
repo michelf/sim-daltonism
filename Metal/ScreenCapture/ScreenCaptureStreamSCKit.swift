@@ -63,10 +63,11 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 	func setupStream() {
 		assert(Thread.isMainThread)
-		getContentFilter { [weak self] filter in
-			guard let filter, let self else { return }
-			stream = SCStream(filter: filter, configuration: configuration(), delegate: self)
-			streamFilter = filter
+		getContentFilter(for: getPreferredViewAreaInScreenCoordinates()) { [weak self] filterGenerator in
+			guard let filterGenerator, let self else { return }
+			let configuration = configuration(for: filterGenerator.display!)
+			stream = SCStream(filter: filterGenerator.filter!, configuration: configuration, delegate: self)
+			streamFilterGenerator = filterGenerator
 			do {
 				try stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: nil)
 			} catch {
@@ -76,15 +77,16 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		}
 	}
 
-	func configuration() -> SCStreamConfiguration {
+	func configuration(for display: SCDisplay?) -> SCStreamConfiguration {
 		assert(Thread.isMainThread)
 		let config = SCStreamConfiguration()
 
-		let screenFrame = window?.screen?.frame ?? CGDisplayBounds(CGMainDisplayID())
+		let screenFrame = display?.frame ?? CGDisplayBounds(CGMainDisplayID())
+		let mainDisplayFrame = CGDisplayBounds(CGMainDisplayID())
 		var captureRect = getPreferredViewAreaInScreenCoordinates()
+		captureRect.origin.y = mainDisplayFrame.height - captureRect.origin.y - captureRect.height
 		captureRect.origin.x -= screenFrame.origin.x
 		captureRect.origin.y -= screenFrame.origin.y
-		captureRect.origin.y = screenFrame.height - captureRect.origin.y - captureRect.height
 
 		let scaleFactor = view?.window?.backingScaleFactor ?? 1
 
@@ -117,11 +119,9 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		return config
 	}
 
-	func getContentFilter(completion: @escaping (SCContentFilter?) -> ()) {
+	private func getContentFilter(for rect: CGRect, completion: @escaping (ContentFilterGenerator?) -> ()) {
 		assert(Thread.isMainThread)
-		guard let thisWindowID = window?.windowID,
-			  let thisScreenID = window?.screen?.directDisplayID
-		else {
+		guard let thisWindowID = window?.windowID else {
 			completion(nil)
 			return
 		}
@@ -132,24 +132,19 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 				completion(nil)
 				return
 			}
-			guard let thisDisplay = content.displays.first(where: { $0.displayID == thisScreenID }) else {
-				NSLog("\(#function) display not found in content")
-				completion(nil)
-				return
-			}
 			let thisWindow = content.windows.first(where: { $0.windowID == thisWindowID })
 			guard let thisWindow else {
-				let filter = SCContentFilter(display: thisDisplay, excludingWindows: [])
+				let filterGenerator = ContentFilterGenerator(content: content, excludedWindows: [], rect: rect)
 				DispatchQueue.main.async {
-					completion(filter)
+					completion(filterGenerator)
 				}
 				return
 			}
 			SCShareableContent.getExcludingDesktopWindows(true, onScreenWindowsOnlyAbove: thisWindow) { contentBelow, error in
 				let excludedWindows = [thisWindow] + (contentBelow?.windows ?? [])
-				let filter = SCContentFilter(display: thisDisplay, excludingWindows: excludedWindows)
+				let filterGenerator = ContentFilterGenerator(content: content, excludedWindows: excludedWindows, rect: rect)
 				DispatchQueue.main.async {
-					completion(filter)
+					completion(filterGenerator)
 				}
 			}
 		}
@@ -158,22 +153,31 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	var streamNeedsReconfiguration = false
 	var streamWaitingFirstFrameAfterReconfiguration = true
 	var streamReconfigurationTimer: Timer?
-	var streamFilter: SCContentFilter?
+	fileprivate var streamFilterGenerator: ContentFilterGenerator?
 
 	@objc func invalidateStreamFilter() {
-		getContentFilter { [weak self] filter in
-			guard let filter, let self else { return }
-			guard streamFilter != filter else {
+		getContentFilter(for: getPreferredViewAreaInScreenCoordinates()) { [weak self] filterGenerator in
+			guard let filterGenerator, let self else { return }
+			guard streamFilterGenerator != filterGenerator else {
 				return // no change
 			}
-			streamFilter = filter
-			stream?.updateContentFilter(filter)
+			let needsReconfiguration = filterGenerator.display != streamFilterGenerator?.display
+			streamFilterGenerator = filterGenerator
+			stream?.updateContentFilter(filterGenerator.filter!)
+			if needsReconfiguration {
+				reconfigureStream()
+			}
 		}
 	}
 
 	@objc func reconfigureStream() {
 		assert(Thread.isMainThread)
-		stream?.updateConfiguration(configuration())
+		if streamFilterGenerator?.reconfigure(for: getPreferredViewAreaInScreenCoordinates()) == true {
+			// need to change display
+			stream?.updateContentFilter(streamFilterGenerator!.filter!)
+		}
+		let newConfiguration = configuration(for: streamFilterGenerator?.display)
+		stream?.updateConfiguration(newConfiguration)
 		streamNeedsReconfiguration = false
 		streamWaitingFirstFrameAfterReconfiguration = true
 		streamReconfigurationTimer?.invalidate()
@@ -453,3 +457,36 @@ extension NSWindow {
 
 }
 #endif
+
+
+@available(macOS 12.3, *)
+private struct ContentFilterGenerator: Equatable {
+	private let content: SCShareableContent
+	let excludedWindows: [SCWindow]
+	private(set) var filter: SCContentFilter?
+	private(set) var display: SCDisplay?
+
+	init(content: SCShareableContent, excludedWindows: [SCWindow], rect: CGRect) {
+		self.content = content
+		self.excludedWindows = excludedWindows
+		_ = reconfigure(for: rect)
+	}
+
+	mutating func reconfigure(for rect: CGRect) -> Bool {
+		let middlePoint = CGPoint(x: rect.midX, y: rect.midY)
+		guard let thisDisplay = content.displays.first(where: { $0.frame.contains(middlePoint) }) else {
+			NSLog("\(#function) display not found in content")
+			return false
+		}
+		if display == thisDisplay {
+			return false // no reconfiguration needed
+		}
+		display = thisDisplay
+		filter = SCContentFilter(display: thisDisplay, excludingWindows: excludedWindows)
+		return true
+	}
+
+	static func ==(a: Self, b: Self) -> Bool {
+		return a.filter == b.filter
+	}
+}
