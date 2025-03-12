@@ -50,9 +50,20 @@ class HCIRN: CIFilter {
         guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"),
               let data = try? Data(contentsOf: url)
         else { return nil }
-        return try? CIColorKernel(functionName: "hcirn_kernel",
-                                  fromMetalLibraryData: data,
-                                  outputPixelFormat: CIFormat.RGBAh)
+		do {
+			if forceOpenGL { throw MetalDisabledError() }
+			return try CIColorKernel(functionName: "hcirn_kernel",
+									  fromMetalLibraryData: data,
+									  outputPixelFormat: CIFormat.RGBAh)
+		} catch {
+			#if os(macOS)
+			let url = Bundle.main.url(forResource: "HCIRN", withExtension: "cikernel")!
+			let source = try! String(contentsOf: url, encoding: .utf8)
+			return CIColorKernel(source: source)
+			#else
+			fatalError("Failed to create CI kernel for \(FinalColorFilter.self): \(error)")
+			#endif
+		}
     }()
 
     override var outputImage: CIImage? {

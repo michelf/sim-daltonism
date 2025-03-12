@@ -17,12 +17,22 @@ import Cocoa
 import MetalKit
 import AVFoundation
 
+#if os(macOS)
+let forceCGCapture = false
+let forceOpenGL = true // surprisingly, OpenGL rendering is faster than Metal, so we're using that
+struct MetalDisabledError: Error {}
+#endif
+
 class ViewController: NSViewController {
 
     @IBOutlet var filteredView: FilteredMetalView!
-    private var renderer: MetalRenderer? = nil
+    private var renderer: ScreenCaptureStreamDelegate? = nil
     private var screenCaptureStream: ScreenCaptureStream? = nil
     private weak var filterStore: FilterStore!
+	#if os(macOS)
+	/// Fallback for old Macs with no Metal support
+	var openGLFilteredView: NSOpenGLView?
+	#endif
 
 	@IBOutlet var permissionRequestView: NSView?
 	@IBOutlet var permissionRequestBackground: NSView?
@@ -48,7 +58,7 @@ class ViewController: NSViewController {
         catch let error { NSApp.mainWindow?.presentError(error) }
 
 
-		screenCaptureStream = if #available(macOS 15, *) {
+		screenCaptureStream = if #available(macOS 15, *), !forceCGCapture {
 			ScreenCaptureStreamSCKit(view: filteredView)
 		} else {
 			ScreenCaptureStreamCG(view: filteredView)
@@ -135,18 +145,34 @@ private extension ViewController {
 
     /// If supported, connect a renderer to the Metal view. Returns false if failed to setup Metal.
     func connectMetalViewAndFilterPipeline() throws {
+		if let initialDevice = getPreferredMTLDevice(), !forceOpenGL {
+			filteredView.device = initialDevice
 
-        guard let initialDevice = getPreferredMTLDevice()
-        else { throw MetalUnsupportedError }
+			guard let renderer = MetalRenderer(mtkview: filteredView, filter: filterStore)
+			else { throw MetalRendererError }
 
-        filteredView.device = initialDevice
+			self.renderer = renderer
+			self.filteredView.delegate = renderer
+		} else {
+			#if os(macOS)
+			// when metal device is not available,
+			// use alternate implementation based on OpenGL:
+			// just insert an OpenGL view as a subview of the metal view
+			// to cover it entirely (a bit patchy, I know, but it works)
+			let openGLView = FilteredOpenGLView(frame: filteredView.bounds)
+			openGLView.autoresizingMask = [.height, .width]
+			filteredView.addSubview(openGLView)
+			openGLFilteredView = openGLView
 
-        guard let renderer = MetalRenderer(mtkview: filteredView, filter: filterStore)
-        else { throw MetalRendererError }
+			guard let renderer = OpenGLRenderer(openGLView: openGLView, filter: filterStore)
+			else { throw MetalRendererError }
 
-        self.renderer = renderer
-        self.filteredView.delegate = renderer
-
+			self.renderer = renderer
+			openGLView.delegate = renderer
+			#else
+			throw MetalUnsupportedError
+			#endif
+		}
     }
 
     private func getPreferredMTLDevice() -> MTLDevice? {

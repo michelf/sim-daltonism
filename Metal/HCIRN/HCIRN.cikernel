@@ -44,26 +44,21 @@
 //        Creative Commons Attribution-ShareAlike 4.0 International License.
 //        http://creativecommons.org/licenses/by-sa/4.0/
 
-
-#include <metal_stdlib>
-using namespace metal;
-#include <CoreImage/CoreImage.h>
-
-extern "C" {
-
-// Dichromacy or monochromacy
-// attrib_cp_uv confusion point
-// attrib_ab_uv color axis begining point (473nm)
-// attrib_ae_uv color axis ending point (574nm), v coord
-namespace coreimage {
-float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, float2 attrib_ae_uv, float attrib_anomalize) {
-
-	const float4 white_xyz0 = float4(0.312713, 0.329016, 0.358271, 0.);
+kernel vec4 HCIRN(sampler src, float2 attrib_cp_uv, float2 attrib_ab_uv, float2 attrib_ae_uv, float attrib_anomalize) {
+	const vec4 white_xyz0 = vec4(0.312713, 0.329016, 0.358271, 0.);
 	const float gamma_value = 2.2;
+	const mat3 xyz_from_rgb_matrix = mat3(
+										  vec3(0.430574,	0.341550,	0.178325),
+										  vec3(0.222015,	0.706655,	0.071330),
+										  vec3(0.020183,	0.129553,	0.939180)
+										  );
+	const mat3 rgb_from_xyz_matrix = mat3(
+										  vec3( 3.063218,	-1.393325,	-0.475802),
+										  vec3(-0.969243,	 1.875966,	 0.041555),
+										  vec3( 0.067871,	-0.228834,	 1.069251)
+										  );
 
-	float3x3 xyz_from_rgb_matrix (float3(0.430574, 0.341550, 0.178325), float3(0.222015, 0.706655, 0.071330), float3(0.020183, 0.129553, 0.939180));
-	float3x3 rgb_from_xyz_matrix (float3(3.063218, -1.393325, -0.475802), float3(-0.969243, 1.875966, 0.041555), float3(0.067871, -0.228834, 1.069251));
-
+	vec4 color = sample(src, samplerCoord(src));
 	if (attrib_anomalize <= 0.0) { // shortcut path
 		// less than zero means monochromacy filter
 		float m = dot(color.rgb, float3(.299, .587, .114));
@@ -71,9 +66,9 @@ float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, fl
 		return float4(newColor.rgb, color.a);
 	}
 
-	float3 c_rgb; float2 c_uv; float3 c_xyz;
-	float3 s_rgb;              float4 s_xyz0;
-	float3 d_rgb; float2 d_uv; float3 d_xyz;
+	vec3 c_rgb; vec2 c_uv; vec3 c_xyz;
+	vec3 s_rgb;            vec4 s_xyz0;
+	vec3 d_rgb; vec2 d_uv; vec3 d_xyz;
 
 	float2 ae_minus_ab = attrib_ae_uv - attrib_ab_uv;
 	// slope of the color axis:
@@ -82,24 +77,24 @@ float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, fl
 	float blindness_ayi = attrib_ab_uv.y  -  attrib_ab_uv.x * blindness_am;
 
 	// map RGB input into XYZ space...
-	c_rgb = pow(color.rgb, float3(gamma_value, gamma_value, gamma_value));
+	c_rgb = pow(color.rgb, vec3(gamma_value, gamma_value, gamma_value));
 	c_xyz = c_rgb * xyz_from_rgb_matrix;
-	float sum_xyz = dot(c_xyz, float3(1., 1., 1.));
+	float sum_xyz = dot(c_xyz, vec3(1., 1., 1.));
 
 	// map into uvY space...
 	c_uv = c_xyz.xy / sum_xyz;
 	// find neutral grey at this luminosity (we keep the same Y value)
-	float4 n_xyz0 = white_xyz0 * c_xyz.yyyy / white_xyz0.yyyy;
+	vec4 n_xyz0 = white_xyz0 * c_xyz.yyyy / white_xyz0.yyyy;
 
 	float clm;  float clyi;
-	float adjust;  float4 adj;
+	float adjust;  vec4 adj;
 
 	// cl is "confusion line" between our color and the confusion point
 	// clm is cl's slope, and clyi is cl's "y-intercept" (actually on the "v" axis at u=0)
-	float2 cp_uv_minus_c_uv = attrib_cp_uv - c_uv;
+	vec2 cp_uv_minus_c_uv = attrib_cp_uv - c_uv;
 	clm = cp_uv_minus_c_uv.y / cp_uv_minus_c_uv.x;
 
-	clyi = dot(c_uv, float2(-clm, 1.));
+	clyi = dot(c_uv, vec2(-clm, 1.));
 
 	// find the change in the u and v dimensions (no Y change)
 	d_uv.x = (blindness_ayi - clyi) / (clm - blindness_am);
@@ -107,12 +102,12 @@ float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, fl
 
 	// find the simulated color's XYZ coords
 	float d_u_div_d_v = d_uv.x / d_uv.y;
-	s_xyz0 = c_xyz.yyyy * float4(
-								 d_u_div_d_v,
-								 1.,
-								 ( 1. / d_uv.y - (d_u_div_d_v + 1.) ),
-								 0.
-								 );
+	s_xyz0 = c_xyz.yyyy * vec4(
+							   d_u_div_d_v,
+							   1.,
+							   ( 1. / d_uv.y - (d_u_div_d_v + 1.) ),
+							   0.
+							   );
 	// and then try to plot the RGB coords
 	s_rgb = s_xyz0.xyz * rgb_from_xyz_matrix;
 
@@ -136,8 +131,6 @@ float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, fl
 	// anomalize
 	s_rgb = mix(c_rgb, s_rgb, attrib_anomalize);
 
-	float3 newcolor = pow(s_rgb, float3(1./gamma_value, 1./gamma_value, 1./gamma_value));
-	return float4(newcolor, color.a);
-}
-}
+	color.rgb = pow(s_rgb, vec3(1./gamma_value, 1./gamma_value, 1./gamma_value));
+	return color;
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1E0E34A02D7CB29900846C27 /* MoveWindowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E349F2D7CB29900846C27 /* MoveWindowImageView.swift */; };
+		1E0E34A82D7E832800846C27 /* FilteredOpenGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */; };
+		1E0E34AA2D7E868A00846C27 /* OpenGLRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */; };
+		1E0E34AE2D7F259100846C27 /* HCIRN.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */; };
 		1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */; };
 		1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */; };
 		1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */; };
@@ -99,6 +102,9 @@
 /* Begin PBXFileReference section */
 		171999D919C7695800A719B5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		1E0E349F2D7CB29900846C27 /* MoveWindowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveWindowImageView.swift; sourceTree = "<group>"; };
+		1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredOpenGLView.swift; sourceTree = "<group>"; };
+		1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGLRenderer.swift; sourceTree = "<group>"; };
+		1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = HCIRN.cikernel; sourceTree = "<group>"; };
 		1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureStreamSCKit.swift; sourceTree = "<group>"; };
 		1E3BDB811C26408F00CADF46 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWindowManager.swift; sourceTree = "<group>"; };
@@ -458,7 +464,9 @@
 			isa = PBXGroup;
 			children = (
 				9424DE7226B63747007ADF4B /* FilteredMetalView.swift */,
+				1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */,
 				9424DE6026B63747007ADF4B /* MetalRenderer.swift */,
+				1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */,
 				9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */,
 				9426E39D26D43D8C00D5356F /* VisionType+CIFilterVendor.swift */,
 				94E1494926C23EFF00327367 /* Simulation.swift */,
@@ -493,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				9424DE6A26B63747007ADF4B /* HCIRN.metal */,
+				1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */,
 				9424DE6B26B63747007ADF4B /* HCIRNFilter.swift */,
 				9424DE6C26B63747007ADF4B /* HCIRNFilterVendor.swift */,
 			);
@@ -648,6 +657,7 @@
 				1EF2538A1C2849B600DB3B18 /* FilteredTransparencyTemplate.png in Resources */,
 				1EF2533D1C274A0200DB3B18 /* Credits.html in Resources */,
 				1EF253851C2849B600DB3B18 /* FastFrameRateTemplate@2x.png in Resources */,
+				1E0E34AE2D7F259100846C27 /* HCIRN.cikernel in Resources */,
 				1EF253901C2849B600DB3B18 /* VisionTemplate.png in Resources */,
 				1EF253871C2849B600DB3B18 /* FilteredMouseAreaTemplate@2x.png in Resources */,
 				1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */,
@@ -704,8 +714,10 @@
 				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
 				94E8FB2D26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift in Sources */,
 				94E1494A26C23EFF00327367 /* Simulation.swift in Sources */,
+				1E0E34AA2D7E868A00846C27 /* OpenGLRenderer.swift in Sources */,
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
+				1E0E34A82D7E832800846C27 /* FilteredOpenGLView.swift in Sources */,
 				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
 				9426E39E26D43D8C00D5356F /* VisionType+CIFilterVendor.swift in Sources */,
 				9424DE7526B63747007ADF4B /* ScreenCaptureStream.swift in Sources */,
@@ -835,6 +847,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 41;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = R5LCPCXJPZ;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -868,6 +881,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 41;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6A59975DQ4;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;

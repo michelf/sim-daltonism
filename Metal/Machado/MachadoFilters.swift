@@ -45,9 +45,25 @@ class MonochromacyFilter: CIFilter {
         guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"),
               let data = try? Data(contentsOf: url)
         else { return nil }
-        return try? CIColorKernel(functionName: "dotIntensity_kernel",
-                                  fromMetalLibraryData: data,
-                                  outputPixelFormat: CIFormat.RGBAh)
+		do {
+			if forceOpenGL { throw MetalDisabledError() }
+			return try CIColorKernel(functionName: "dotIntensity_kernel",
+									 fromMetalLibraryData: data,
+									 outputPixelFormat: CIFormat.RGBAh)
+		} catch {
+			#if os(macOS)
+			return CIColorKernel(source: """
+				kernel float4 dotIntensity_kernel(__sample color, float3 transform, float intensity) {
+					float m = dot(color.rgb, transform);
+					float3 transformed = float3(m,m,m);
+					float3 mixed = mix(color.rgb, transformed, intensity);
+					return float4(mixed, color.a);
+				}
+				""")
+			#else
+			fatalError("Failed to create CI kernel for \(FinalColorFilter.self): \(error)")
+			#endif
+		}
     }()
 
     override var outputImage: CIImage? {
@@ -99,9 +115,23 @@ class MachadoFilter: CIFilter {
         guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"),
               let data = try? Data(contentsOf: url)
         else { return nil }
-        return try? CIColorKernel(functionName: "colorTransform_kernel",
-                                  fromMetalLibraryData: data,
-                                  outputPixelFormat: CIFormat.RGBAh)
+		do {
+			if forceOpenGL { throw MetalDisabledError() }
+			return try CIColorKernel(functionName: "colorTransform_kernel",
+									 fromMetalLibraryData: data,
+									 outputPixelFormat: CIFormat.RGBAh)
+		} catch {
+			#if os(macOS)
+			return CIColorKernel(source: """
+				kernel half4 colorTransform_kernel(sample_h color, hmat3 transform) {
+					half3 transformed = transform * color.rgb;
+					return half4(transformed, color.a);
+				}
+				""")
+			#else
+			fatalError("Failed to create CI kernel for \(FinalColorFilter.self): \(error)")
+			#endif
+		}
     }()
 
     override var outputImage: CIImage? {
