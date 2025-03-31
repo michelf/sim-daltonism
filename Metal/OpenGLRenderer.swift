@@ -83,8 +83,6 @@ extension OpenGLRenderer {
 
 		let drawableRect = CGRect(origin: .zero, size: drawableSize)
 
-		self.image = filterStore?.applyFilter(to: image) ?? image
-
 		view.openGLContext!.makeCurrentContext()
 		context?.draw(image, in: drawableRect, from: image.extent)
 		glFlush()
