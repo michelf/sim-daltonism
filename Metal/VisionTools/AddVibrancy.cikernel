@@ -1,0 +1,33 @@
+
+float max3(float a, float b, float c) {
+	float value = a;
+	if (b > value) value = b;
+	if (c > value) value = c;
+	return value;
+}
+float min3(float a, float b, float c) {
+	float value = a;
+	if (b < value) value = b;
+	if (c < value) value = c;
+	return value;
+}
+
+float lightness(vec3 c)
+{
+	float cmax = max3(c.r, c.g, c.b);
+	float cmin = min3(c.r, c.g, c.b);
+	return cmin;
+	float lx2 = (cmax + cmin);
+	return lx2 * 0.5;
+}
+
+float4 addVibrancy_kernel(float4 color) {
+	const float boostGamma = 2.2 - 0.3;
+	const float colorBoost = 1.5;
+	color.rgb = clamp(color.rgb, 0., 1000);
+	color.rgb = pow(color.rgb, 1/boostGamma);
+	float boostLightness = lightness(color.rgb);
+	color.rgb = (colorBoost*color.rgb - normalize(color.gbr * color.brg + .001) * boostLightness);
+	color.rgb = pow(color.rgb, boostGamma);
+	return clamp(color, 0., 1.);
+}

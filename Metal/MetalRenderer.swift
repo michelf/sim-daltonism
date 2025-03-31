@@ -22,7 +22,7 @@ class MetalRenderer: NSObject {
     private var image = CIImage()
     private var context: CIContext?
     private var commandQueue: MTLCommandQueue
-    private var colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
+	private var workingColorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear)!
     weak var mtkview: MTKView?
     private weak var filterStore: FilterStore?
     
@@ -33,7 +33,7 @@ class MetalRenderer: NSObject {
         self.mtkview = mtkview
         self.commandQueue = commandQueue
         self.filterStore = filter
-        context = CIContext(mtlDevice: device, options: [.workingColorSpace : colorSpace])
+		context = CIContext(mtlDevice: device, options: [.workingColorSpace: workingColorSpace])
     }
 }
 
@@ -60,6 +60,7 @@ extension MetalRenderer: MTKViewDelegate {
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         // Auto-resizing
+		view.colorspace = CGDisplayCopyColorSpace(CGMainDisplayID())
     }
 
     /// Queues rendering commands into GPU
@@ -76,9 +77,9 @@ extension MetalRenderer: MTKViewDelegate {
             to: currentDrawable.texture,
             commandBuffer: buffer,
 			bounds: CGRect(origin: .zero, size: view.drawableSize),
-            colorSpace: colorSpace
+			colorSpace: view.colorspace ?? CGColorSpaceCreateDeviceRGB()
         )
-        
+
         buffer.present(currentDrawable)
         buffer.commit()
     }

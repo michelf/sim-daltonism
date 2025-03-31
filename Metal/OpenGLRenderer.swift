@@ -19,7 +19,8 @@ class OpenGLRenderer: NSObject {
 
     private var image = CIImage()
     private var context: CIContext?
-    private var colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
+	private var colorSpace = CGDisplayCopyColorSpace(CGMainDisplayID())
+	private var workingColorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear)!
     weak var openGLView: NSOpenGLView?
     private weak var filterStore: FilterStore?
 	private var drawableSizeLock = NSLock()
@@ -29,14 +30,9 @@ class OpenGLRenderer: NSObject {
         self.openGLView = openGLView
         self.filterStore = filter
 		self.drawableSize = openGLView.convertToBacking(openGLView.bounds.size)
-		let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
-		let options: [CIContextOption: Any] = [
-			.workingColorSpace: colorSpace,
-			.cacheIntermediates: false,
-		]
 		let pf = openGLView.pixelFormat ?? Self._defaultPixelFormat
 		self.context = CIContext(cglContext: openGLView.openGLContext!.cglContextObj!,
-								 pixelFormat: pf.cglPixelFormatObj, colorSpace: colorSpace, options: options)
+								 pixelFormat: pf.cglPixelFormatObj, colorSpace: colorSpace, options: [.workingColorSpace: workingColorSpace])
 		super.init()
     }
 

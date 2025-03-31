@@ -125,27 +125,94 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     // MARK: - Menu Intents (Unique state per window)
 
-    @IBAction func adoptVisionTypeSetting(_ sender: NSMenuItem) {
-        visionType = .init(rawValue: sender.tag) ?? .defaultValue
-    }
-
     @objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        switch menuItem.action! {
-            case #selector(adoptVisionTypeSetting(_:)):
-                menuItem.state = visionType.rawValue == menuItem.tag ? .on : .off
-                return true
+        switch menuItem.action {
+		case #selector(adoptVisionTypeSetting)?:
+			menuItem.state = visionType.rawValue == menuItem.tag ? .on : .off
+			return true
 
-            case #selector(adoptSimulationSetting):
-                menuItem.state = simulation.rawValue == menuItem.tag ? .on : .off
-                return true
+		case #selector(adoptSimulationSetting)?:
+			menuItem.state = simulation.rawValue == menuItem.tag ? .on : .off
+			return true
 
-            default:
-                return false
-        }
+		case #selector(adoptRedStripeSetting)?:
+			let current = Int(filterStore.stripeConfig.redStripes)
+			menuItem.state = current == menuItem.tag ? .on : .off
+			return true
+		case #selector(adoptGreenStripeSetting)?:
+			let current = Int(filterStore.stripeConfig.greenStripes)
+			menuItem.state = current == menuItem.tag ? .on : .off
+			return true
+		case #selector(adoptBlueStripesSetting)?:
+			let current = Int(filterStore.stripeConfig.blueStripes)
+			menuItem.state = current == menuItem.tag ? .on : .off
+			return true
+		case #selector(toggleInvertHue)?:
+			let current = filterStore.colorEffects.hueShift
+			menuItem.state = current ? .on : .off
+			return true
+		case #selector(toggleInvertLuminance)?:
+			let current = filterStore.colorEffects.invertLuminance
+			menuItem.state = current ? .on : .off
+			return true
+		case #selector(toggleSaturationBoost)?:
+			let current = filterStore.colorBoost
+			menuItem.state = current ? .on : .off
+			return true
+		default:
+			return false
+		}
     }
+
+	@IBAction func adoptVisionTypeSetting(_ sender: NSMenuItem) {
+		visionType = .init(rawValue: sender.tag) ?? .defaultValue
+	}
 
     @IBAction func adoptSimulationSetting(_ sender: NSMenuItem) {
         simulation = .init(runtime: sender.tag)
     }
+
+	@IBAction func adoptRedStripeSetting(_ sender: NSMenuItem) {
+		filterStore.changeStripes {
+			$0.redStripes = Float(sender.tag)
+		}
+	}
+
+	@IBAction func adoptGreenStripeSetting(_ sender: NSMenuItem) {
+		filterStore.changeStripes {
+			$0.greenStripes = Float(sender.tag)
+		}
+	}
+
+	@IBAction func adoptBlueStripesSetting(_ sender: NSMenuItem) {
+		filterStore.changeStripes {
+			$0.blueStripes = Float(sender.tag)
+		}
+	}
+
+	@IBAction func toggleInvertHue(_ sender: NSMenuItem) {
+		let setting = !(sender.state == .on ? true : false)
+		filterStore.changeEffects {
+			$0.hueShift = setting
+		}
+//		UserDefaults.standard.set(setting, forKey: InvertHueKey)
+	}
+
+	@IBAction func toggleInvertLuminance(_ sender: NSMenuItem) {
+		let setting = !(sender.state == .on ? true : false)
+		filterStore.changeEffects {
+			$0.invertLuminance = setting
+		}
+//		UserDefaults.standard.set(setting, forKey: InvertLuminanceKey)
+	}
+
+	@IBAction func toggleSaturationBoost(_ sender: NSMenuItem) {
+		let setting = !(sender.state == .on ? true : false)
+		filterStore.changeColorBoost {
+			$0 = setting
+		}
+//		UserDefaults.standard.set(setting, forKey: SaturationBoostKey)
+	}
+
 
 }

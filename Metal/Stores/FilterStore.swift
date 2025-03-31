@@ -24,20 +24,48 @@ import CoreImage
 ///
 public class FilterStore {
 
-    public private(set) var visionFilter: CIFilter? = nil
+	private(set) var visionFilter: CIFilter? = nil
+	private(set) var stripeFilter: Stripes? = nil
+	private(set) var vibrancyFilter: CIFilter? = nil
+	private(set) var invertFilter: CIFilter? = nil
+	private(set) var hueAdjustFilter: CIFilter? = nil
 	private let queue = DispatchQueue(label: FilterStore.nextDispatchQueueLabel(), qos: .userInitiated)
     private var vision: VisionType
+	internal var stripeConfig = StripeConfig()
+	internal var colorEffects: (invertLuminance: Bool, hueShift: Bool) = (false, false)
+	internal var colorBoost: Bool = false
 
     public required init(vision: VisionType = UserDefaults.getVision(),
                          simulation: Simulation = UserDefaults.getSimulation()) {
         self.vision = vision
         queue.async { [weak self] in
             self?.setSimulation(to: simulation)
+
+			VisionToolsVendor.registerFilters()
         }
     }
 }
 
 // MARK: - Apply Filter
+
+extension CIImage {
+
+	fileprivate func withColorspace(_ colorspace: CGColorSpace, task: (inout CIImage) -> ()) -> CIImage {
+		var image = self.matchedFromWorkingSpace(to: colorspace) ?? self
+		task(&image)
+		return image.matchedToWorkingSpace(from: colorspace) ?? image
+	}
+	fileprivate func applying(_ filter: CIFilter?) -> CIImage {
+		filter?.setValue(self, forKey: kCIInputImageKey)
+		return filter?.outputImage ?? self
+	}
+	fileprivate func applying(_ filter: CIFilter?, in colorspace: CGColorSpace) -> CIImage {
+		withColorspace(colorspace) { image in
+			image = image.applying(filter)
+		}
+	}
+
+}
 
 extension FilterStore {
 
@@ -46,8 +74,14 @@ extension FilterStore {
     ///
     public func applyFilter(to image: CIImage) -> CIImage? {
 		queue.sync {
-			visionFilter?.setValue(image, forKey: kCIInputImageKey)
-			return visionFilter?.outputImage
+			let cs = CGColorSpace(name: CGColorSpace.sRGB)!
+			var image = image
+			image = image.applying(stripeFilter)
+			image = image.applying(hueAdjustFilter, in: cs)
+			image = image.applying(invertFilter, in: cs)
+			image = image.applying(vibrancyFilter)
+			image = image.applying(visionFilter)
+			return image
 		}
     }
 }
@@ -58,8 +92,9 @@ extension FilterStore {
 
     public func setVision(to vision: VisionType) {
         queue.async { [weak self] in
-            self?.visionFilter = CIFilter(name: vision.ciFilterString)
-            self?.vision = vision
+			guard let self = self else { return }
+			self.visionFilter = CIFilter(name: vision.ciFilterString)
+			self.vision = vision
         }
     }
 
@@ -73,6 +108,86 @@ extension FilterStore {
 			self.visionFilter = CIFilter(name: self.vision.ciFilterString)
 		}
 	}
+
+	public func changeStripes(_ task: @escaping (inout StripeConfig) -> ()) {
+		queue.async { [weak self] in
+			guard let self else { return }
+			task(&stripesConfig_inQueue)
+		}
+	}
+
+	private var stripesConfig_inQueue: StripeConfig {
+		get {
+			assert(Thread.isMainThread == false)
+			return self.stripeFilter?.config ?? StripeConfig()
+		}
+		set {
+			assert(Thread.isMainThread == false)
+			if newValue.isPassthrough && stripeFilter != nil {
+				stripeFilter = nil
+			} else if !newValue.isPassthrough && stripeFilter == nil {
+				stripeFilter = (CIFilter(name: "Stripes") as! Stripes)
+			}
+			stripeFilter?.config = newValue
+			self.stripeConfig = newValue
+		}
+	}
+
+	public func changeEffects(_ task: @escaping (inout (invertLuminance: Bool, hueShift: Bool)) -> ()) {
+		queue.async { [weak self] in
+			guard let self else { return }
+			task(&colorEffects_inQueue)
+		}
+	}
+
+	private var colorEffects_inQueue: (invertLuminance: Bool, hueShift: Bool) {
+		get {
+			assert(Thread.isMainThread == false)
+			return colorEffects
+		}
+		set {
+			assert(Thread.isMainThread == false)
+			colorEffects = newValue
+			let needsInvert = newValue.invertLuminance
+			let needsHueAdjust = newValue.hueShift != needsInvert
+			if !needsInvert && invertFilter != nil {
+				invertFilter = nil
+			} else if needsInvert && invertFilter == nil {
+				invertFilter = CIFilter(name: "CIColorInvert")
+			}
+			if !needsHueAdjust && hueAdjustFilter != nil {
+				hueAdjustFilter = nil
+			} else if needsHueAdjust && hueAdjustFilter == nil {
+				let hueAdjustFilter = CIFilter(name: "InvertHue")
+				self.hueAdjustFilter = hueAdjustFilter
+			}
+			colorEffects = newValue
+		}
+	}
+
+	public func changeColorBoost(_ task: @escaping (inout Bool) -> ()) {
+		queue.async { [weak self] in
+			guard let self else { return }
+			task(&colorBoost_inQueue)
+		}
+	}
+
+	private var colorBoost_inQueue: Bool {
+		get {
+			assert(Thread.isMainThread == false)
+			return self.colorBoost
+		}
+		set {
+			assert(Thread.isMainThread == false)
+			colorBoost = newValue
+			if !newValue && vibrancyFilter != nil {
+				vibrancyFilter = nil
+			} else if newValue && vibrancyFilter == nil {
+				vibrancyFilter = CIFilter(name: "AddVibrancy")
+			}
+		}
+	}
+
 }
 
 // MARK: - Dispatch Queue Label

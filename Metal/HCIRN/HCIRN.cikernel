@@ -44,24 +44,18 @@
 //        Creative Commons Attribution-ShareAlike 4.0 International License.
 //        http://creativecommons.org/licenses/by-sa/4.0/
 
-kernel vec4 HCIRN(sampler src, float2 attrib_cp_uv, float2 attrib_ab_uv, float2 attrib_ae_uv, float attrib_anomalize) {
+kernel vec4 HCIRN(__sample color, vec2 attrib_cp_uv, vec2 attrib_ab_uv, vec2 attrib_ae_uv, float attrib_anomalize) {
+	color = clamp(color, 0., 1.);
 	const vec4 white_xyz0 = vec4(0.312713, 0.329016, 0.358271, 0.);
-	const float gamma_value = 2.2;
-	const mat3 xyz_from_rgb_matrix = mat3(
-										  vec3(0.430574,	0.341550,	0.178325),
-										  vec3(0.222015,	0.706655,	0.071330),
-										  vec3(0.020183,	0.129553,	0.939180)
-										  );
-	const mat3 rgb_from_xyz_matrix = mat3(
-										  vec3( 3.063218,	-1.393325,	-0.475802),
-										  vec3(-0.969243,	 1.875966,	 0.041555),
-										  vec3( 0.067871,	-0.228834,	 1.069251)
-										  );
 
-	vec4 color = sample(src, samplerCoord(src));
+	const mat3 xyz_from_rgb_matrix = mat3(vec3(0.430574, 0.341550, 0.178325), vec3(0.222015, 0.706655, 0.071330), vec3(0.020183, 0.129553, 0.939180));
+	const mat3 rgb_from_xyz_matrix = mat3(vec3(3.063218, -1.393325, -0.475802), vec3(-0.969243, 1.875966, 0.041555), vec3(0.067871, -0.228834, 1.069251));
+
 	if (attrib_anomalize <= 0.0) { // shortcut path
 		// less than zero means monochromacy filter
 		float m = dot(color.rgb, float3(.299, .587, .114));
+		float gamma = 1.35;
+		m = pow(m, gamma); // feel-like-it adjustmeent to make it look closer to older Sim Daltonism
 		float4 newColor = mix(color, float4(m,m,m,0), -attrib_anomalize);
 		return float4(newColor.rgb, color.a);
 	}
@@ -77,7 +71,7 @@ kernel vec4 HCIRN(sampler src, float2 attrib_cp_uv, float2 attrib_ab_uv, float2 
 	float blindness_ayi = attrib_ab_uv.y  -  attrib_ab_uv.x * blindness_am;
 
 	// map RGB input into XYZ space...
-	c_rgb = pow(color.rgb, vec3(gamma_value, gamma_value, gamma_value));
+	c_rgb = color.rgb;
 	c_xyz = c_rgb * xyz_from_rgb_matrix;
 	float sum_xyz = dot(c_xyz, vec3(1., 1., 1.));
 
@@ -103,11 +97,11 @@ kernel vec4 HCIRN(sampler src, float2 attrib_cp_uv, float2 attrib_ab_uv, float2 
 	// find the simulated color's XYZ coords
 	float d_u_div_d_v = d_uv.x / d_uv.y;
 	s_xyz0 = c_xyz.yyyy * vec4(
-							   d_u_div_d_v,
-							   1.,
-							   ( 1. / d_uv.y - (d_u_div_d_v + 1.) ),
-							   0.
-							   );
+		d_u_div_d_v,
+		1.,
+		( 1. / d_uv.y - (d_u_div_d_v + 1.) ),
+		0.
+	);
 	// and then try to plot the RGB coords
 	s_rgb = s_xyz0.xyz * rgb_from_xyz_matrix;
 
@@ -131,6 +125,5 @@ kernel vec4 HCIRN(sampler src, float2 attrib_cp_uv, float2 attrib_ab_uv, float2 
 	// anomalize
 	s_rgb = mix(c_rgb, s_rgb, attrib_anomalize);
 
-	color.rgb = pow(s_rgb, vec3(1./gamma_value, 1./gamma_value, 1./gamma_value));
-	return color;
+	return float4(s_rgb, color.a);
 }

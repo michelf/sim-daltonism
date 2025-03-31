@@ -28,7 +28,7 @@ class FilteredOpenGLView: NSOpenGLView {
 	}
 
 	override init?(frame frameRect: NSRect, pixelFormat format: NSOpenGLPixelFormat?) {
-		super.init(frame: frameRect, pixelFormat: format ?? Self._defaultPixelFormat)
+		super.init(frame: frameRect, pixelFormat: format)
 	}
 
 	override init(frame: CGRect) {

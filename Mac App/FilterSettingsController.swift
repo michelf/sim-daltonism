@@ -18,6 +18,7 @@ import Cocoa
 class FilterSettingsController: NSTitlebarAccessoryViewController {
 
 	@IBOutlet var visionButton: NSButton!
+	@IBOutlet var toolsButton: NSButton!
 	@IBOutlet var refreshSpeedButton: NSButton!
 	@IBOutlet var viewAreaButton: NSButton!
 

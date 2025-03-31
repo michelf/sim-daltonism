@@ -59,14 +59,15 @@ namespace coreimage {
 float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, float2 attrib_ae_uv, float attrib_anomalize) {
 
 	const float4 white_xyz0 = float4(0.312713, 0.329016, 0.358271, 0.);
-	const float gamma_value = 2.2;
 
-	float3x3 xyz_from_rgb_matrix (float3(0.430574, 0.341550, 0.178325), float3(0.222015, 0.706655, 0.071330), float3(0.020183, 0.129553, 0.939180));
-	float3x3 rgb_from_xyz_matrix (float3(3.063218, -1.393325, -0.475802), float3(-0.969243, 1.875966, 0.041555), float3(0.067871, -0.228834, 1.069251));
+	const float3x3 xyz_from_rgb_matrix = float3x3(float3(0.430574, 0.341550, 0.178325), float3(0.222015, 0.706655, 0.071330), float3(0.020183, 0.129553, 0.939180));
+	const float3x3 rgb_from_xyz_matrix = float3x3(float3(3.063218, -1.393325, -0.475802), float3(-0.969243, 1.875966, 0.041555), float3(0.067871, -0.228834, 1.069251));
 
 	if (attrib_anomalize <= 0.0) { // shortcut path
 		// less than zero means monochromacy filter
 		float m = dot(color.rgb, float3(.299, .587, .114));
+		float gamma = 1.35;
+		m = pow(m, gamma); // feel-like-it adjustmeent to make it look closer to older Sim Daltonism
 		float4 newColor = mix(color, float4(m,m,m,0), -attrib_anomalize);
 		return float4(newColor.rgb, color.a);
 	}
@@ -82,7 +83,7 @@ float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, fl
 	float blindness_ayi = attrib_ab_uv.y  -  attrib_ab_uv.x * blindness_am;
 
 	// map RGB input into XYZ space...
-	c_rgb = pow(color.rgb, float3(gamma_value, gamma_value, gamma_value));
+	c_rgb = color.rgb;
 	c_xyz = c_rgb * xyz_from_rgb_matrix;
 	float sum_xyz = dot(c_xyz, float3(1., 1., 1.));
 
@@ -108,11 +109,11 @@ float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, fl
 	// find the simulated color's XYZ coords
 	float d_u_div_d_v = d_uv.x / d_uv.y;
 	s_xyz0 = c_xyz.yyyy * float4(
-								 d_u_div_d_v,
-								 1.,
-								 ( 1. / d_uv.y - (d_u_div_d_v + 1.) ),
-								 0.
-								 );
+		d_u_div_d_v,
+		1.,
+		( 1. / d_uv.y - (d_u_div_d_v + 1.) ),
+		0.
+	);
 	// and then try to plot the RGB coords
 	s_rgb = s_xyz0.xyz * rgb_from_xyz_matrix;
 
@@ -136,8 +137,7 @@ float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, fl
 	// anomalize
 	s_rgb = mix(c_rgb, s_rgb, attrib_anomalize);
 
-	float3 newcolor = pow(s_rgb, float3(1./gamma_value, 1./gamma_value, 1./gamma_value));
-	return float4(newcolor, color.a);
+	return float4(s_rgb, color.a);
 }
 }
 }
