@@ -163,7 +163,9 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 			}
 			let needsReconfiguration = filterGenerator.display != streamFilterGenerator?.display
 			streamFilterGenerator = filterGenerator
-			stream?.updateContentFilter(filterGenerator.filter!)
+			if let filter = filterGenerator.filter {
+				stream?.updateContentFilter(filter)
+			}
 			if needsReconfiguration {
 				reconfigureStream()
 			}
