@@ -72,7 +72,6 @@
 		1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2529F1C2742F300DB3B18 /* ViewController.m */; };
 		1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252A11C2742F300DB3B18 /* VisionPicker.m */; };
 		1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253151C274A0200DB3B18 /* AppDelegate.swift */; };
-		1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253171C274A0200DB3B18 /* ColorView.swift */; };
 		1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253241C274A0200DB3B18 /* Main.storyboard */; };
 		1EF2533D1C274A0200DB3B18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253261C274A0200DB3B18 /* Credits.html */; };
 		1EF2533E1C274A0200DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253291C274A0200DB3B18 /* InfoPlist.strings */; };
@@ -215,7 +214,6 @@
 		1EF253071C27498600DB3B18 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF253151C274A0200DB3B18 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EF253161C274A0200DB3B18 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		1EF253171C274A0200DB3B18 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		1EF2531D1C274A0200DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF253211C274A0200DB3B18 /* Sim Daltonism.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Sim Daltonism.entitlements"; sourceTree = "<group>"; };
 		1EF253251C274A0200DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -426,7 +424,6 @@
 			children = (
 				1EF253161C274A0200DB3B18 /* BridgingHeader.h */,
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
-				1EF253171C274A0200DB3B18 /* ColorView.swift */,
 				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
 				1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */,
 				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
@@ -834,7 +831,6 @@
 				1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */,
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				1E0E34A82D7E832800846C27 /* FilteredOpenGLView.swift in Sources */,
-				1EF253331C274A0200DB3B18 /* ColorView.swift in Sources */,
 				9426E39E26D43D8C00D5356F /* VisionType+CIFilterVendor.swift in Sources */,
 				9424DE7526B63747007ADF4B /* ScreenCaptureStream.swift in Sources */,
 				9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */,
