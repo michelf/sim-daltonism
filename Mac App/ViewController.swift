@@ -41,7 +41,8 @@ class ViewController: NSViewController {
 	override func viewDidLoad() {
 		if #available(macOS 13, *) {
 		} else {
-			openSystemSettingsButton?.title = NSLocalizedString("Open System Preferences", comment: "")
+			openSystemSettingsButton?.title = NSLocalizedString("Open System Preferences",
+				comment: "Replacement title for button 'Open System Settings' on macOS 12 and earlier (uses the name System Preferences instead of System Settings")
 		}
 	}
 
