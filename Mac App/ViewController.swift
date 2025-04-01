@@ -189,23 +189,23 @@ private extension ViewController {
 			return
 		}
         let viewBounds = filteredView.bounds
-        let mouseLocationInView: CGPoint = {
-            let mouseRect = NSRect(origin: NSEvent.mouseLocation, size: NSMakeSize(1, 1))
-            let locationInWindow = view.window?.convertFromScreen(mouseRect).origin ?? .zero
-            return view.convert(locationInWindow, from: nil)
-        }()
+		let mouseLocationRect = NSRect(origin: NSEvent.mouseLocation, size: .zero)
+		let locationInWindow = view.window?.convertFromScreen(mouseLocationRect).origin ?? .zero
+        let mouseLocationInView = view.convert(locationInWindow, from: nil)
         let mouseIsInView = viewBounds.contains(mouseLocationInView)
 
-        // To allow more room to grab the window edges, calculate inset
-        // bottom and side bounds so that grabbing the window edge
-        // is easier
-        let resizeCornerSize = CGFloat(12)
-        let insetRectForEasierWindowResizing = viewBounds
-            .insetBy(dx: resizeCornerSize, dy: resizeCornerSize / 2)
-            .offsetBy(dx: 0, dy: resizeCornerSize)
+        // Allow more room for grabbing the window resize corners
+		let resizeCornerSize = CGSize(width: 15, height: 15) // from the window's edge
+		let windowBounds = view.window?.contentView?.bounds ?? .zero
+		let insideResizeCorner = locationInWindow.y < resizeCornerSize.height && (
+			mouseLocationInView.x < resizeCornerSize.width ||
+			mouseLocationInView.x > windowBounds.width - resizeCornerSize.width
+		)
 
-        let newState = mouseIsInView && insetRectForEasierWindowResizing.contains(mouseLocationInView)
+        let newState = mouseIsInView && !insideResizeCorner
         self.view.window?.ignoresMouseEvents = newState
+		// debugging helper:
+		//filteredView.alphaValue = newState ? 1 : 0.5
     }
 
 }
