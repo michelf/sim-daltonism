@@ -533,10 +533,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="102" height="20"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zww-Y2-pp3" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
+                            <button toolTip="View Area" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zww-Y2-pp3" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="74" y="0.0" width="22" height="20"/>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="FilteredTransparencyTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="fro-4D-xea">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
                                 <constraints>
@@ -547,24 +547,24 @@
                                     <outlet property="menu" destination="pqH-cF-rp6" id="sAc-jo-oIG"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9vI-EY-Qrh" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
+                            <button toolTip="Vision Tools" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9vI-EY-Qrh" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="27" y="0.0" width="25" height="20"/>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="ToolsTemplate" imagePosition="overlaps" alignment="center" controlSize="small" toolTip="Tools" imageScaling="proportionallyDown" inset="2" id="vVX-GJ-Az2">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="9z8-8w-zRm"/>
                                 </constraints>
-                                <accessibility description="Tools"/>
+                                <accessibility description="Vision Tools"/>
                                 <connections>
                                     <outlet property="menu" destination="oNq-0I-6VM" id="iJx-D0-MCk"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OjX-GL-RFl" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
+                            <button toolTip="Refresh Speed" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OjX-GL-RFl" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="52" y="0.0" width="22" height="20"/>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NormalFrameRateTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="LtX-26-KwI">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
                                 <constraints>
@@ -575,10 +575,10 @@
                                     <outlet property="menu" destination="D7c-iD-Fng" id="wVD-Wf-Pty"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fxx-Ns-Swc" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
+                            <button toolTip="Simulated Vision" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fxx-Ns-Swc" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="2" y="0.0" width="25" height="20"/>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="VisionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="6Kx-7O-jdp">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
                                 <constraints>
