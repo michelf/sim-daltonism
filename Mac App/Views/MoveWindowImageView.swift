@@ -15,6 +15,8 @@
 
 import AppKit
 
+/// Image view that won't prevent the window from being dragged. For use with
+/// [`NSWindow.isMovableByWindowBackground`](https://developer.apple.com/documentation/appkit/nswindow/ismovablebywindowbackground).
 class MoveWindowImageView: NSImageView {
 
 	override var mouseDownCanMoveWindow: Bool {

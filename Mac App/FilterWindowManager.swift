@@ -15,6 +15,7 @@
 
 import Cocoa
 
+/// An object that manages filter windows.
 class FilterWindowManager: NSObject, NSWindowRestoration {
 
 	static let shared = FilterWindowManager()
@@ -24,12 +25,12 @@ class FilterWindowManager: NSObject, NSWindowRestoration {
 	/// Set of all the registered filter windows.
 	/// - Note: Someone need to retain the window controllers if we want the
 	/// windows to stay on screen. This is what we do here.
-	private(set) var windowControllers: Set<WindowController> = []
+	private(set) var windowControllers: Set<FilterWindowController> = []
 
 	/// Instantiate a new filter window controller and return it. The window 
 	/// is not visible yet. Call `showWindow` on the returned controller.
-	func createNewWindow() -> WindowController {
-		let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "FilterWindow") as! WindowController
+	func createNewWindow() -> FilterWindowController {
+		let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "FilterWindow") as! FilterWindowController
 		positionNewWindow(for: controller)
 		return controller
 	}
@@ -37,7 +38,7 @@ class FilterWindowManager: NSObject, NSWindowRestoration {
 	/// Create a new filter window and make it visible, but only if there is 
 	/// currently no other filter window.
 	@discardableResult
-	func showFirstWindow() -> WindowController? {
+	func showFirstWindow() -> FilterWindowController? {
 		if windowControllers.isEmpty {
 			let controller = createNewWindow()
 			positionNewWindow(for: controller)
@@ -50,21 +51,21 @@ class FilterWindowManager: NSObject, NSWindowRestoration {
 
 	/// Register the controller of a filter window. The controller is retained
 	/// (so the window doesn't disappear) and added to the Window menu.
-	func addWindowController(_ controller: WindowController) {
+	func addWindowController(_ controller: FilterWindowController) {
 		windowControllers.insert(controller)
 		if let window = controller.window {
 			NSApp.addWindowsItem(window, title: window.title, filename: false)
 		}
 	}
 	/// Update the listing of this window controller in the Window menu.
-	func changedWindowController(_ controller: WindowController) {
+	func changedWindowController(_ controller: FilterWindowController) {
 		if let window = controller.window {
 			NSApp.changeWindowsItem(window, title: window.title, filename: false)
 		}
 	}
 	/// Unregister the controller of a filter window. The controller is released
 	/// and removed from the Window menu.
-	func removeWindowController(_ controller: WindowController) {
+	func removeWindowController(_ controller: FilterWindowController) {
 		if let window = controller.window {
 			NSApp.removeWindowsItem(window)
 		}
@@ -78,9 +79,9 @@ class FilterWindowManager: NSObject, NSWindowRestoration {
 	/// Position new window by copying frame from the filter window that is key
 	/// (if applicable) or from the default filter window location saved in the
 	/// user defaults.
-	private func positionNewWindow(for controller: WindowController) {
+	private func positionNewWindow(for controller: FilterWindowController) {
 		guard controller.window?.isVisible == false else { return }
-		if let current = NSApp.keyWindow?.windowController as? WindowController, windowControllers.contains(current), let frame = current.window?.frame {
+		if let current = NSApp.keyWindow?.windowController as? FilterWindowController, windowControllers.contains(current), let frame = current.window?.frame {
 			controller.window?.setFrame(frame, display: false)
 		} else {
 			controller.window?.setFrameUsingName("FilterWindow")

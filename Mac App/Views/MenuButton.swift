@@ -15,6 +15,7 @@
 
 import Cocoa
 
+/// Button with a rollover effect to be put in the filter window frame.
 class MenuButton : NSButton {
 
 	required init?(coder: NSCoder) {
@@ -47,8 +48,6 @@ class MenuButton : NSButton {
 			menu.font = NSFont.systemFont(ofSize: 12)
 			menu.popUp(positioning: nil, at: location, in: self)
 		}
-	}
-	override func mouseUp(with theEvent: NSEvent) {
 	}
 
 }

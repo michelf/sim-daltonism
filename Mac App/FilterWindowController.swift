@@ -16,7 +16,7 @@
 import Cocoa
 
 
-class WindowController: NSWindowController, NSWindowDelegate {
+class FilterWindowController: NSWindowController, NSWindowDelegate {
 
     /// Unique instance per window
     var filterStore: FilterStore = FilterStore()
@@ -68,7 +68,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         // cannot set from IB:
         // Note: window level is set to 1 above Red Stripe's window level
         // so you can use the two together.
-        window?.level = WindowController.windowLevel
+        window?.level = FilterWindowController.windowLevel
         window?.hidesOnDeactivate = false
         window?.standardWindowButton(.zoomButton)?.isEnabled = false
         if #available(OSX 10.12, *) {

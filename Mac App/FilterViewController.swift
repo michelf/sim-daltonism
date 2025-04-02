@@ -23,7 +23,7 @@ let forceOpenGL = true // surprisingly, OpenGL rendering is faster than Metal, s
 struct MetalDisabledError: Error {}
 #endif
 
-class ViewController: NSViewController {
+class FilterViewController: NSViewController {
 
     @IBOutlet var filteredView: FilteredMetalView!
     private var renderer: ScreenCaptureStreamDelegate? = nil
@@ -48,7 +48,7 @@ class ViewController: NSViewController {
 
     override func viewWillAppear() {
         super.viewWillAppear()
-        guard let parent = filteredView.window?.windowController as? WindowController else { return }
+        guard let parent = filteredView.window?.windowController as? FilterWindowController else { return }
         self.filterStore = parent.filterStore
 
         // Grab frame on main thread
@@ -118,7 +118,7 @@ class ViewController: NSViewController {
 
 }
 
-private extension ViewController {
+private extension FilterViewController {
 
 	@objc func updateCapturePermissionVisibility() {
 		let hasCapturePermission = screenCaptureStream?.checkCapturePermission() ?? true
@@ -142,7 +142,7 @@ private extension ViewController {
 
 }
 
-private extension ViewController {
+private extension FilterViewController {
 
     /// If supported, connect a renderer to the Metal view. Returns false if failed to setup Metal.
     func connectMetalViewAndFilterPipeline() throws {

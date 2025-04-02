@@ -15,6 +15,7 @@
 
 import Cocoa
 
+/// A controller for the buttons in the title bar controlling the various filter settings.
 class FilterSettingsController: NSTitlebarAccessoryViewController {
 
 	@IBOutlet var visionButton: NSButton!
@@ -35,4 +36,23 @@ class FilterSettingsController: NSTitlebarAccessoryViewController {
 		viewAreaButton.image = viewAreaDefault.image
 	}
 
+}
+
+extension RefreshSpeed {
+	fileprivate var image: NSImage {
+		switch self {
+		case .slow: return NSImage(named: "SlowFrameRateTemplate.png")!
+		case .normal: return NSImage(named: "NormalFrameRateTemplate.png")!
+		case .fast: return NSImage(named: "FastFrameRateTemplate.png")!
+		}
+	}
+}
+
+extension ViewArea {
+	fileprivate var image: NSImage {
+		switch self {
+		case .underWindow: return NSImage(named: "FilteredTransparencyTemplate.png")!
+		case .mousePointer: return NSImage(named: "FilteredMouseAreaTemplate.png")!
+		}
+	}
 }

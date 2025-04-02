@@ -75,9 +75,9 @@
 		1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253241C274A0200DB3B18 /* Main.storyboard */; };
 		1EF2533D1C274A0200DB3B18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253261C274A0200DB3B18 /* Credits.html */; };
 		1EF2533E1C274A0200DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253291C274A0200DB3B18 /* InfoPlist.strings */; };
-		1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2532F1C274A0200DB3B18 /* ViewController.swift */; };
-		1EF253421C274A0200DB3B18 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253301C274A0200DB3B18 /* Window.swift */; };
-		1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253311C274A0200DB3B18 /* WindowController.swift */; };
+		1EF253411C274A0200DB3B18 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2532F1C274A0200DB3B18 /* FilterViewController.swift */; };
+		1EF253421C274A0200DB3B18 /* DragObservableWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253301C274A0200DB3B18 /* DragObservableWindow.swift */; };
+		1EF253431C274A0200DB3B18 /* FilterWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253311C274A0200DB3B18 /* FilterWindowController.swift */; };
 		1EF2534B1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */; };
 		1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2536E1C27B26300DB3B18 /* MenuButton.swift */; };
 		1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */; };
@@ -220,9 +220,9 @@
 		1EF253271C274A0200DB3B18 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.html; name = en; path = en.lproj/Credits.html; sourceTree = "<group>"; };
 		1EF253281C274A0200DB3B18 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.html; name = fr; path = fr.lproj/Credits.html; sourceTree = "<group>"; };
 		1EF2532A1C274A0200DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1EF2532F1C274A0200DB3B18 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1EF253301C274A0200DB3B18 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
-		1EF253311C274A0200DB3B18 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		1EF2532F1C274A0200DB3B18 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		1EF253301C274A0200DB3B18 /* DragObservableWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragObservableWindow.swift; sourceTree = "<group>"; };
+		1EF253311C274A0200DB3B18 /* FilterWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWindowController.swift; sourceTree = "<group>"; };
 		1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ShaderUtilities.c; sourceTree = "<group>"; };
 		1EF2534A1C274AFC00DB3B18 /* ShaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderUtilities.h; sourceTree = "<group>"; };
 		1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSettingsController.swift; sourceTree = "<group>"; };
@@ -304,6 +304,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E0FDB162D9CB76F008BBC1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1EF253301C274A0200DB3B18 /* DragObservableWindow.swift */,
+				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
+				1E0E349F2D7CB29900846C27 /* MoveWindowImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1E3331C62D82147400BE6092 /* VisionTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,13 +434,11 @@
 			children = (
 				1EF253161C274A0200DB3B18 /* BridgingHeader.h */,
 				1EF253151C274A0200DB3B18 /* AppDelegate.swift */,
-				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
 				1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */,
-				1EF2536E1C27B26300DB3B18 /* MenuButton.swift */,
-				1EF2532F1C274A0200DB3B18 /* ViewController.swift */,
-				1EF253301C274A0200DB3B18 /* Window.swift */,
-				1EF253311C274A0200DB3B18 /* WindowController.swift */,
-				1E0E349F2D7CB29900846C27 /* MoveWindowImageView.swift */,
+				1EF253311C274A0200DB3B18 /* FilterWindowController.swift */,
+				1EF2532F1C274A0200DB3B18 /* FilterViewController.swift */,
+				1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */,
+				1E0FDB162D9CB76F008BBC1B /* Views */,
 				1EF2539F1C2AF1D600DB3B18 /* AboutBox */,
 				1EF253711C2849B600DB3B18 /* Control Icons */,
 				1EBB1B142D89B33C004493E2 /* Stripe Icons */,
@@ -814,7 +822,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF253431C274A0200DB3B18 /* WindowController.swift in Sources */,
+				1EF253431C274A0200DB3B18 /* FilterWindowController.swift in Sources */,
 				1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				94E8FB2B26B3D30D0027BCF4 /* VisionType.swift in Sources */,
 				9424DE7A26B63747007ADF4B /* HCIRN.metal in Sources */,
@@ -823,7 +831,7 @@
 				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
 				9424DE7E26B63747007ADF4B /* MachadoFilterVendor.swift in Sources */,
 				9424DE8126B63747007ADF4B /* FilteredMetalView.swift in Sources */,
-				1EF253421C274A0200DB3B18 /* Window.swift in Sources */,
+				1EF253421C274A0200DB3B18 /* DragObservableWindow.swift in Sources */,
 				1EDBF34E2D87956900CD0BC4 /* AddVibrancyFilter.swift in Sources */,
 				94E8FB2D26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift in Sources */,
 				94E1494A26C23EFF00327367 /* Simulation.swift in Sources */,
@@ -839,7 +847,7 @@
 				1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */,
 				9424DE7C26B63747007ADF4B /* HCIRNFilterVendor.swift in Sources */,
 				9424DE8026B63747007ADF4B /* Transforms.metal in Sources */,
-				1EF253411C274A0200DB3B18 /* ViewController.swift in Sources */,
+				1EF253411C274A0200DB3B18 /* FilterViewController.swift in Sources */,
 				1E3331CC2D82148300BE6092 /* VisionToolsVendor.swift in Sources */,
 				1E3331CD2D82148300BE6092 /* VisionTools.metal in Sources */,
 				1E3331CE2D82148300BE6092 /* StripesFilter.swift in Sources */,

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t7Y-jQ-554">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t7Y-jQ-554">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Filter View Controller-->
         <scene sceneID="oFs-Qv-g6U">
             <objects>
-                <viewController id="t7Y-jQ-554" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="t7Y-jQ-554" customClass="FilterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uLb-Gs-h46"/>
                         <viewControllerLayoutGuide type="bottom" id="cqm-bB-vdD"/>
@@ -93,17 +90,17 @@
                                     <outletCollection property="gestureRecognizers" destination="EQF-Hf-18C" appends="YES" id="ict-mg-WJl"/>
                                 </connections>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-fM-uGE">
-                                <rect key="frame" x="0.0" y="246.5" width="320" height="75"/>
+                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="100" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcO-fM-uGE">
+                                <rect key="frame" x="0.0" y="237" width="320" height="94"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sim Daltonism does not have persmission to access the camera." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt2-yZ-67p">
-                                        <rect key="frame" x="10" y="8" width="300" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sim Daltonism does not have persmission to access the camera." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt2-yZ-67p">
+                                        <rect key="frame" x="10" y="8" width="300" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDW-fF-Jjq">
-                                        <rect key="frame" x="71.5" y="35" width="178" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDW-fF-Jjq">
+                                        <rect key="frame" x="71.5" y="54" width="178" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="tintColor" red="1" green="0.8030350208" blue="0.0001922522351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Change Privacy Settings">
@@ -170,10 +167,10 @@
             <point key="canvasLocation" x="206" y="-53"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="1" green="0.01457794618535535" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="CameraSwap.png" width="34" height="25"/>
         <image name="FlashDark.png" width="20" height="35"/>
         <image name="View.png" width="42" height="25"/>
     </resources>
-    <color key="tintColor" red="1" green="0.01457794618535535" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

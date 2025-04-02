@@ -15,7 +15,8 @@
 
 import Cocoa
 
-class Window: NSPanel {
+/// A window that post notifications when to signal the start and end of the window being dragged.
+class DragObservableWindow: NSPanel {
 	
 	static let willStartDragging = Notification.Name("WindowWillStartDraggingNotification")
 	static let didEndDragging = Notification.Name("WindowDidEndDraggingNotification")
@@ -26,7 +27,7 @@ class Window: NSPanel {
 	override func mouseDragged(with event: NSEvent) {
 		if !dragging {
 			dragging = true
-			NotificationCenter.default.post(name: Window.willStartDragging, object: self)
+			NotificationCenter.default.post(name: DragObservableWindow.willStartDragging, object: self)
 		}
 		pausedDragTimer?.invalidate()
 		pausedDragTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(stoppedDragging), userInfo: nil, repeats: false)
@@ -36,7 +37,7 @@ class Window: NSPanel {
 
 	@objc private func stoppedDragging() {
 		dragging = false
-		NotificationCenter.default.post(name: Window.didEndDragging, object: self)
+		NotificationCenter.default.post(name: DragObservableWindow.didEndDragging, object: self)
 	}
 
 	override func orderOut(_ sender: Any?) {

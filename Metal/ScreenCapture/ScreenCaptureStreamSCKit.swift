@@ -260,11 +260,11 @@ private extension ScreenCaptureStreamSCKit {
 						   object: window)
 
 		center.addObserver(self, selector: #selector(markAsMoving),
-						   name: Window.willStartDragging,
+						   name: DragObservableWindow.willStartDragging,
 						   object: window)
 
 		center.addObserver(self, selector: #selector(markAsStationary),
-						   name: Window.didEndDragging,
+						   name: DragObservableWindow.didEndDragging,
 						   object: window)
 
 		center.addObserver(self, selector: #selector(windowDidChangeOcclusionState),
