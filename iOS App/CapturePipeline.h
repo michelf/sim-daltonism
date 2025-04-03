@@ -48,6 +48,6 @@
 
 // Preview
 - (void)capturePipeline:(CapturePipeline *)capturePipeline previewPixelBufferReadyForDisplay:(CVPixelBufferRef)previewPixelBuffer;
-- (void)capturePipelineDidRunOutOfPreviewBuffers:(CapturePipeline *)capturePipeline;
+- (void)capturePipelineDidRunOutOfPreviewBuffers:(CapturePipeline *)capturePipeline __attribute__((swift_name("capturePipelineDidRunOutOfPreviewBuffers(_:)")));
 
 @end

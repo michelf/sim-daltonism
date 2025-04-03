@@ -11,6 +11,14 @@
 		1E0E34A82D7E832800846C27 /* FilteredOpenGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */; };
 		1E0E34AA2D7E868A00846C27 /* OpenGLRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */; };
 		1E0E34AE2D7F259100846C27 /* HCIRN.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */; };
+		1E0FDB1A2D9E10CA008BBC1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */; };
+		1E0FDB1D2D9E1483008BBC1B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */; };
+		1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */; };
+		1E0FDB262D9EA780008BBC1B /* MirroredScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB252D9EA77A008BBC1B /* MirroredScrollView.swift */; };
+		1E0FDB282D9EA9B4008BBC1B /* PaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB272D9EA9B0008BBC1B /* PaletteView.swift */; };
+		1E0FDB2A2D9EB0B5008BBC1B /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB292D9EB0B1008BBC1B /* AboutController.swift */; };
+		1E0FDB2C2D9EB55D008BBC1B /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB2B2D9EB55A008BBC1B /* IconImageView.swift */; };
+		1E0FDB2E2D9EB619008BBC1B /* VisionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB2D2D9EB616008BBC1B /* VisionPicker.swift */; };
 		1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */; };
 		1E3331CB2D82148300BE6092 /* Stripes.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E3331C82D82148300BE6092 /* Stripes.cikernel */; };
 		1E3331CC2D82148300BE6092 /* VisionToolsVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331CA2D82148300BE6092 /* VisionToolsVendor.swift */; };
@@ -43,20 +51,13 @@
 		1ED75E711C453AA900042CB7 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E6F1C453AA900042CB7 /* URLs.strings */; };
 		1EDBF34E2D87956900CD0BC4 /* AddVibrancyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBF34D2D87956900CD0BC4 /* AddVibrancyFilter.swift */; };
 		1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */; };
-		1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252681C2742F300DB3B18 /* AboutController.m */; };
-		1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526A1C2742F300DB3B18 /* AppDelegate.m */; };
 		1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */; };
-		1EF252C71C2742F300DB3B18 /* IconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526E1C2742F300DB3B18 /* IconImageView.m */; };
 		1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2526F1C2742F300DB3B18 /* Images.xcassets */; };
-		1EF252CD1C2742F300DB3B18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252751C2742F300DB3B18 /* main.m */; };
-		1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252771C2742F300DB3B18 /* MirroredScrollView.m */; };
 		1EF252CF1C2742F300DB3B18 /* OpenGLPixelBufferView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */; };
-		1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2527B1C2742F300DB3B18 /* PaletteView.m */; };
 		1EF252D11C2742F300DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527D1C2742F300DB3B18 /* Main.storyboard */; };
 		1EF252D21C2742F300DB3B18 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527F1C2742F300DB3B18 /* Options.storyboard */; };
 		1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252831C2742F300DB3B18 /* InfoPlist.strings */; };
 		1EF252D81C2742F300DB3B18 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528B1C2742F300DB3B18 /* Launch.storyboard */; };
-		1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2528D1C2742F300DB3B18 /* SettingsViewController.m */; };
 		1EF252DA1C2742F300DB3B18 /* CameraSwap.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528F1C2742F300DB3B18 /* CameraSwap.png */; };
 		1EF252DB1C2742F300DB3B18 /* CameraSwap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252901C2742F300DB3B18 /* CameraSwap@2x.png */; };
 		1EF252DC1C2742F300DB3B18 /* CameraSwap@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252911C2742F300DB3B18 /* CameraSwap@3x.png */; };
@@ -69,8 +70,6 @@
 		1EF252E61C2742F300DB3B18 /* View.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2529B1C2742F300DB3B18 /* View.png */; };
 		1EF252E71C2742F300DB3B18 /* View@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2529C1C2742F300DB3B18 /* View@2x.png */; };
 		1EF252E81C2742F300DB3B18 /* View@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2529D1C2742F300DB3B18 /* View@3x.png */; };
-		1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2529F1C2742F300DB3B18 /* ViewController.m */; };
-		1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252A11C2742F300DB3B18 /* VisionPicker.m */; };
 		1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253151C274A0200DB3B18 /* AppDelegate.swift */; };
 		1EF2533C1C274A0200DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253241C274A0200DB3B18 /* Main.storyboard */; };
 		1EF2533D1C274A0200DB3B18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253261C274A0200DB3B18 /* Credits.html */; };
@@ -130,6 +129,15 @@
 		1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredOpenGLView.swift; sourceTree = "<group>"; };
 		1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGLRenderer.swift; sourceTree = "<group>"; };
 		1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = HCIRN.cikernel; sourceTree = "<group>"; };
+		1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1E0FDB1B2D9E10CC008BBC1B /* Sim Daltonism (iOS)-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sim Daltonism (iOS)-Bridging-Header.h"; sourceTree = "<group>"; };
+		1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1E0FDB252D9EA77A008BBC1B /* MirroredScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirroredScrollView.swift; sourceTree = "<group>"; };
+		1E0FDB272D9EA9B0008BBC1B /* PaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteView.swift; sourceTree = "<group>"; };
+		1E0FDB292D9EB0B1008BBC1B /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
+		1E0FDB2B2D9EB55A008BBC1B /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
+		1E0FDB2D2D9EB616008BBC1B /* VisionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPicker.swift; sourceTree = "<group>"; };
 		1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureStreamSCKit.swift; sourceTree = "<group>"; };
 		1E3331C72D82148300BE6092 /* VisionTools.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = VisionTools.metal; sourceTree = "<group>"; };
 		1E3331C82D82148300BE6092 /* Stripes.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = Stripes.cikernel; sourceTree = "<group>"; };
@@ -170,29 +178,16 @@
 		1EF252631C2742F300DB3B18 /* PassThroughFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassThroughFilter.m; sourceTree = "<group>"; };
 		1EF252641C2742F300DB3B18 /* SimDaltonismFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimDaltonismFilter.h; sourceTree = "<group>"; };
 		1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimDaltonismFilter.m; sourceTree = "<group>"; };
-		1EF252671C2742F300DB3B18 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
-		1EF252681C2742F300DB3B18 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
-		1EF252691C2742F300DB3B18 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1EF2526A1C2742F300DB3B18 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturePipeline.h; sourceTree = "<group>"; };
 		1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturePipeline.m; sourceTree = "<group>"; };
-		1EF2526D1C2742F300DB3B18 /* IconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconImageView.h; sourceTree = "<group>"; };
-		1EF2526E1C2742F300DB3B18 /* IconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconImageView.m; sourceTree = "<group>"; };
 		1EF2526F1C2742F300DB3B18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1EF252751C2742F300DB3B18 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1EF252761C2742F300DB3B18 /* MirroredScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MirroredScrollView.h; sourceTree = "<group>"; };
-		1EF252771C2742F300DB3B18 /* MirroredScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MirroredScrollView.m; sourceTree = "<group>"; };
 		1EF252781C2742F300DB3B18 /* OpenGLPixelBufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLPixelBufferView.h; sourceTree = "<group>"; };
 		1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLPixelBufferView.m; sourceTree = "<group>"; };
-		1EF2527A1C2742F300DB3B18 /* PaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteView.h; sourceTree = "<group>"; };
-		1EF2527B1C2742F300DB3B18 /* PaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteView.m; sourceTree = "<group>"; };
 		1EF2527E1C2742F300DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EF252801C2742F300DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Options.storyboard; sourceTree = "<group>"; };
 		1EF252841C2742F300DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1EF2528A1C2742F300DB3B18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF2528B1C2742F300DB3B18 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
-		1EF2528C1C2742F300DB3B18 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		1EF2528D1C2742F300DB3B18 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1EF2528F1C2742F300DB3B18 /* CameraSwap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraSwap.png; sourceTree = "<group>"; };
 		1EF252901C2742F300DB3B18 /* CameraSwap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CameraSwap@2x.png"; sourceTree = "<group>"; };
 		1EF252911C2742F300DB3B18 /* CameraSwap@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CameraSwap@3x.png"; sourceTree = "<group>"; };
@@ -205,10 +200,6 @@
 		1EF2529B1C2742F300DB3B18 /* View.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = View.png; sourceTree = "<group>"; };
 		1EF2529C1C2742F300DB3B18 /* View@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View@2x.png"; sourceTree = "<group>"; };
 		1EF2529D1C2742F300DB3B18 /* View@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "View@3x.png"; sourceTree = "<group>"; };
-		1EF2529E1C2742F300DB3B18 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1EF2529F1C2742F300DB3B18 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1EF252A01C2742F300DB3B18 /* VisionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisionPicker.h; sourceTree = "<group>"; };
-		1EF252A11C2742F300DB3B18 /* VisionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisionPicker.m; sourceTree = "<group>"; };
 		1EF252FF1C27471400DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Options.strings; sourceTree = "<group>"; };
 		1EF253021C27474200DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1EF253071C27498600DB3B18 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,27 +360,19 @@
 		1EF252661C2742F300DB3B18 /* iOS App */ = {
 			isa = PBXGroup;
 			children = (
-				1EF252751C2742F300DB3B18 /* main.m */,
-				1EF252691C2742F300DB3B18 /* AppDelegate.h */,
-				1EF2526A1C2742F300DB3B18 /* AppDelegate.m */,
-				1EF2529E1C2742F300DB3B18 /* ViewController.h */,
-				1EF2529F1C2742F300DB3B18 /* ViewController.m */,
+				1E0FDB1B2D9E10CC008BBC1B /* Sim Daltonism (iOS)-Bridging-Header.h */,
+				1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */,
+				1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */,
 				1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */,
 				1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */,
 				1EF252781C2742F300DB3B18 /* OpenGLPixelBufferView.h */,
 				1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */,
-				1EF2528C1C2742F300DB3B18 /* SettingsViewController.h */,
-				1EF2528D1C2742F300DB3B18 /* SettingsViewController.m */,
-				1EF252A01C2742F300DB3B18 /* VisionPicker.h */,
-				1EF252A11C2742F300DB3B18 /* VisionPicker.m */,
-				1EF252761C2742F300DB3B18 /* MirroredScrollView.h */,
-				1EF252771C2742F300DB3B18 /* MirroredScrollView.m */,
-				1EF2527A1C2742F300DB3B18 /* PaletteView.h */,
-				1EF2527B1C2742F300DB3B18 /* PaletteView.m */,
-				1EF252671C2742F300DB3B18 /* AboutController.h */,
-				1EF252681C2742F300DB3B18 /* AboutController.m */,
-				1EF2526D1C2742F300DB3B18 /* IconImageView.h */,
-				1EF2526E1C2742F300DB3B18 /* IconImageView.m */,
+				1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */,
+				1E0FDB2D2D9EB616008BBC1B /* VisionPicker.swift */,
+				1E0FDB252D9EA77A008BBC1B /* MirroredScrollView.swift */,
+				1E0FDB272D9EA9B0008BBC1B /* PaletteView.swift */,
+				1E0FDB292D9EB0B1008BBC1B /* AboutController.swift */,
+				1E0FDB2B2D9EB55A008BBC1B /* IconImageView.swift */,
 				1EF2526F1C2742F300DB3B18 /* Images.xcassets */,
 				1EF2527C1C2742F300DB3B18 /* Resources */,
 				1EF2528E1C2742F300DB3B18 /* Toolbar Icons */,
@@ -676,7 +659,7 @@
 					1EEA1DB61B86A24B001D7B26 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = R5LCPCXJPZ;
-						LastSwiftMigration = 1300;
+						LastSwiftMigration = 1620;
 					};
 					1EF253061C27498600DB3B18 = {
 						CreatedOnToolsVersion = 7.2;
@@ -802,19 +785,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EF252CF1C2742F300DB3B18 /* OpenGLPixelBufferView.m in Sources */,
+				1E0FDB262D9EA780008BBC1B /* MirroredScrollView.swift in Sources */,
 				1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */,
-				1EF252C51C2742F300DB3B18 /* AppDelegate.m in Sources */,
-				1EF252C71C2742F300DB3B18 /* IconImageView.m in Sources */,
-				1EF252C41C2742F300DB3B18 /* AboutController.m in Sources */,
-				1EF252E91C2742F300DB3B18 /* ViewController.m in Sources */,
-				1EF252D01C2742F300DB3B18 /* PaletteView.m in Sources */,
+				1E0FDB1A2D9E10CA008BBC1B /* AppDelegate.swift in Sources */,
 				1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
-				1EF252EA1C2742F300DB3B18 /* VisionPicker.m in Sources */,
-				1EF252CE1C2742F300DB3B18 /* MirroredScrollView.m in Sources */,
-				1EF252D91C2742F300DB3B18 /* SettingsViewController.m in Sources */,
-				1EF252CD1C2742F300DB3B18 /* main.m in Sources */,
+				1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */,
+				1E0FDB2E2D9EB619008BBC1B /* VisionPicker.swift in Sources */,
+				1E0FDB1D2D9E1483008BBC1B /* FilterViewController.swift in Sources */,
+				1E0FDB282D9EA9B4008BBC1B /* PaletteView.swift in Sources */,
+				1E0FDB2C2D9EB55D008BBC1B /* IconImageView.swift in Sources */,
 				1EF2534B1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
 				1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */,
+				1E0FDB2A2D9EB0B5008BBC1B /* AboutController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,6 +967,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.michelf.SimDaltonismMobile;
 				PRODUCT_NAME = "Sim Daltonism";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS App/Sim Daltonism (iOS)-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1016,6 +999,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.michelf.SimDaltonismMobile;
 				PRODUCT_NAME = "Sim Daltonism";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS App/Sim Daltonism (iOS)-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

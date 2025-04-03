@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t7Y-jQ-554">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,7 +10,7 @@
         <!--Filter View Controller-->
         <scene sceneID="oFs-Qv-g6U">
             <objects>
-                <viewController id="t7Y-jQ-554" customClass="FilterViewController" sceneMemberID="viewController">
+                <viewController id="t7Y-jQ-554" customClass="FilterViewController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uLb-Gs-h46"/>
                         <viewControllerLayoutGuide type="bottom" id="cqm-bB-vdD"/>
@@ -170,7 +171,7 @@
     <color key="tintColor" red="1" green="0.01457794618535535" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="CameraSwap.png" width="34" height="25"/>
-        <image name="FlashDark.png" width="20" height="35"/>
+        <image name="FlashDark.png" width="20.5" height="35.5"/>
         <image name="View.png" width="42" height="25"/>
     </resources>
 </document>
