@@ -10,8 +10,8 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 	var _mainCameraUIAdapted = false
 	var _presentingShareView = false
 #if targetEnvironment(simulator)
-	var _slideshowURLs: [URL] = []
-	var slideshowIndex: Int = 0
+	var _slideshowURLs: [URL]?
+	var _slideshowIndex: Int = 0
 #endif
 
 	@IBOutlet var photoButton:  UIBarButtonItem!
@@ -132,22 +132,21 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 #if targetEnvironment(simulator)
 	func prepareSlideshow() {
 		if _slideshowURLs == nil {
-			_slideshowIndex = -1
 			let slideshowDir = URL(fileURLWithPath: "Pictures", isDirectory: true)
-			_slideshowURLs = FileManager.default.contentsOfDirectoryAt(slideshowDir, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationSkipsPackageDescendants|NSDirectoryEnumerationSkipsHiddenFiles)
+			_slideshowURLs = try? FileManager.default.contentsOfDirectory(at: slideshowDir, includingPropertiesForKeys: nil, options: [.skipsPackageDescendants, .skipsHiddenFiles])
 			self.goNextSlide()
 
-			NotificationCenter.default.addObserver(self, selector: #selector(refreshCurrentSlide), name: NSUserDefaultsDidChangeNotification, object: nil)
+			NotificationCenter.default.addObserver(self, selector: #selector(refreshCurrentSlide), name: UserDefaults.didChangeNotification, object: nil)
 		}
 	}
 
 	func goNextSlide() {
 		_slideshowIndex += 1
-		if _slideshowIndex >= _slideshowURLs.count {
+		if _slideshowIndex >= (_slideshowURLs?.count ?? 0) {
 			_slideshowIndex = 0
 		}
-		while _slideshowIndex >= 0 && _slideshowIndex < _slideshowURLs.count {
-			if self.refreshCurrentSlide() {
+		while _slideshowIndex >= 0 && _slideshowIndex < (_slideshowURLs?.count ?? 0) {
+			if refreshCurrentSlide() {
 				return
 			}
 			_slideshowIndex += 1
@@ -157,21 +156,25 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 	func goPreviousSlide() {
 		_slideshowIndex -= 1
 		if _slideshowIndex < 0 {
-			_slideshowIndex = _slideshowURLs.count-1
+			_slideshowIndex = (_slideshowURLs?.count ?? 0)-1
 		}
-		while _slideshowIndex >= 0 && _slideshowIndex < _slideshowURLs.count {
-			if self.refreshCurrentSlide() {
+		while _slideshowIndex >= 0 && _slideshowIndex < (_slideshowURLs?.count ?? 0) {
+			if refreshCurrentSlide() {
 				return
 			}
 			_slideshowIndex -= 1
 		}
 	}
 
-	func refreshCurrentSlide() {
-		if let image = UIImage(contentsOfFile: _slideshowURLs[_slideshowIndex].path) {
-			self.previewView.displayImage(image)
+	@objc func refreshCurrentSlide() -> Bool {
+		if let imageURL = _slideshowURLs?[_slideshowIndex],
+		   let image = UIImage(contentsOfFile: imageURL.path)
+		{
+			self.previewView?.display(image)
+			return true
+		} else {
+			return false
 		}
-		return image != nil
 	}
 #endif
 
