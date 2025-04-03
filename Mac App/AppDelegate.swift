@@ -27,7 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		FilterWindowManager.shared.showFirstWindow()
-		ReviewPrompt.promptForReview(afterDelay: 2.3, minimumNumberOfLaunches: 10, minimumDaysSinceFirstLaunch: 6, minimumDaysSinceLastPrompt: 365)
 	}
 
 	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {

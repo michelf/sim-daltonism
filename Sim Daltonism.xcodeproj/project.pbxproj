@@ -100,8 +100,6 @@
 		1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253A11C2AF1D600DB3B18 /* AboutBox.xib */; };
 		1EF43E4C2D986E2D006441A2 /* InvertHue.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1EF43E4B2D986E2D006441A2 /* InvertHue.cikernel */; };
 		1EF43E4E2D986E80006441A2 /* InvertHueFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF43E4D2D986E80006441A2 /* InvertHueFilter.swift */; };
-		1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */; };
-		1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */; };
 		9424DE7326B63747007ADF4B /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6026B63747007ADF4B /* MetalRenderer.swift */; };
 		9424DE7426B63747007ADF4B /* ScreenCaptureStreamCG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6226B63747007ADF4B /* ScreenCaptureStreamCG.swift */; };
 		9424DE7526B63747007ADF4B /* ScreenCaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* ScreenCaptureStream.swift */; };
@@ -238,8 +236,6 @@
 		1EF253A11C2AF1D600DB3B18 /* AboutBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutBox.xib; sourceTree = "<group>"; };
 		1EF43E4B2D986E2D006441A2 /* InvertHue.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = InvertHue.cikernel; sourceTree = "<group>"; };
 		1EF43E4D2D986E80006441A2 /* InvertHueFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertHueFilter.swift; sourceTree = "<group>"; };
-		1EFC7CDE223ABB9400C9E65A /* ReviewPrompt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewPrompt.h; sourceTree = "<group>"; };
-		1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewPrompt.m; sourceTree = "<group>"; };
 		269351C0156CB42100512474 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6F096BF9157ED5110075E328 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6F90DDD91395CAAA00125BDA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -489,15 +485,6 @@
 			path = AboutBox;
 			sourceTree = "<group>";
 		};
-		1EFC7CDD223ABB6400C9E65A /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				1EFC7CDE223ABB9400C9E65A /* ReviewPrompt.h */,
-				1EFC7CDF223ABB9400C9E65A /* ReviewPrompt.m */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		6F90DDCA1395CAAA00125BDA = {
 			isa = PBXGroup;
 			children = (
@@ -505,7 +492,6 @@
 				1E3BDB811C26408F00CADF46 /* ReadMe.md */,
 				9424DE5F26B63747007ADF4B /* Metal */,
 				1EF252601C2742F300DB3B18 /* Filter */,
-				1EFC7CDD223ABB6400C9E65A /* Common */,
 				1EF252661C2742F300DB3B18 /* iOS App */,
 				1EF253141C274A0200DB3B18 /* Mac App */,
 				6F90DDD81395CAAA00125BDA /* Frameworks */,
@@ -788,7 +774,6 @@
 				1E0FDB262D9EA780008BBC1B /* MirroredScrollView.swift in Sources */,
 				1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */,
 				1E0FDB1A2D9E10CA008BBC1B /* AppDelegate.swift in Sources */,
-				1EFC7CE0223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */,
 				1E0FDB2E2D9EB619008BBC1B /* VisionPicker.swift in Sources */,
 				1E0FDB1D2D9E1483008BBC1B /* FilterViewController.swift in Sources */,
@@ -805,7 +790,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EF253431C274A0200DB3B18 /* FilterWindowController.swift in Sources */,
-				1EFC7CE1223ABB9400C9E65A /* ReviewPrompt.m in Sources */,
 				94E8FB2B26B3D30D0027BCF4 /* VisionType.swift in Sources */,
 				9424DE7A26B63747007ADF4B /* HCIRN.metal in Sources */,
 				94B926C526B139D300754E0C /* Errors.swift in Sources */,
