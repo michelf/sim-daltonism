@@ -23,13 +23,17 @@ public class FilteredMetalView: MTKView {
         self.enableSetNeedsDisplay = true
         self.framebufferOnly = false
         self.autoResizeDrawable = true
+		#if os(macOS)
         self.autoresizingMask = [.height, .width]
+		#else
+		self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+		#endif
     }
-    
+
+	#if os(macOS)
     public override var isOpaque: Bool { get { true } }
     public override var wantsDefaultClipping: Bool { get { false } }
-
-    #if os(macOS)
+	
     public weak var viewUpdatesSubscriber: ViewUpdatesSubscriber? = nil
 
     public override func viewWillStartLiveResize() {

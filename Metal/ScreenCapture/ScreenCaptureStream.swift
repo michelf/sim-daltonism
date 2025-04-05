@@ -15,14 +15,18 @@
 
 import Foundation
 import CoreImage
+#if os(macOS)
 import AppKit
+#endif
 
 public protocol ScreenCaptureStream: AnyObject {
     var delegate: ScreenCaptureStreamDelegate? { get set }
-    func startSession(in frame: NSRect, delegate: ScreenCaptureStreamDelegate) throws
+    func startSession(in frame: CGRect, delegate: ScreenCaptureStreamDelegate) throws
     func stopSession()
 	func checkCapturePermission() -> Bool
+#if os(macOS)
 	func handleMouseEvent(_ event: NSEvent)
+#endif
 }
 
 public protocol ScreenCaptureStreamDelegate: AnyObject {

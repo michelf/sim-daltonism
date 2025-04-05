@@ -60,7 +60,9 @@ extension MetalRenderer: MTKViewDelegate {
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         // Auto-resizing
+		#if os(macOS)
 		view.colorspace = CGDisplayCopyColorSpace(CGMainDisplayID())
+		#endif
     }
 
     /// Queues rendering commands into GPU
@@ -72,12 +74,17 @@ extension MetalRenderer: MTKViewDelegate {
 
         rescaleIfNeeded(drawableSize: view.drawableSize, imageExtent: image.extent)
 
+		#if os(macOS)
+		let colorspace = view.colorspace ?? CGColorSpaceCreateDeviceRGB()
+		#else
+		let colorspace = CGColorSpaceCreateDeviceRGB()
+		#endif
         context?.render(
             image,
             to: currentDrawable.texture,
             commandBuffer: buffer,
 			bounds: CGRect(origin: .zero, size: view.drawableSize),
-			colorSpace: view.colorspace ?? CGColorSpaceCreateDeviceRGB()
+			colorSpace: colorspace
         )
 
         buffer.present(currentDrawable)

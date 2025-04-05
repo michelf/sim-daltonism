@@ -46,7 +46,9 @@ class MonochromacyFilter: CIFilter {
               let data = try? Data(contentsOf: url)
         else { return nil }
 		do {
+			#if os(macOS)
 			if forceOpenGL { throw MetalDisabledError() }
+			#endif
 			return try CIColorKernel(functionName: "dotIntensity_kernel",
 									 fromMetalLibraryData: data,
 									 outputPixelFormat: CIFormat.RGBAh)
@@ -61,7 +63,7 @@ class MonochromacyFilter: CIFilter {
 				}
 				""")
 			#else
-			fatalError("Failed to create CI kernel for \(FinalColorFilter.self): \(error)")
+			fatalError("Failed to create CI kernel for \(Self.self): \(error)")
 			#endif
 		}
     }()
@@ -116,7 +118,9 @@ class MachadoFilter: CIFilter {
               let data = try? Data(contentsOf: url)
         else { return nil }
 		do {
+			#if os(macOS)
 			if forceOpenGL { throw MetalDisabledError() }
+			#endif
 			return try CIColorKernel(functionName: "colorTransform_kernel",
 									 fromMetalLibraryData: data,
 									 outputPixelFormat: CIFormat.RGBAh)
@@ -129,7 +133,7 @@ class MachadoFilter: CIFilter {
 				}
 				""")
 			#else
-			fatalError("Failed to create CI kernel for \(FinalColorFilter.self): \(error)")
+			fatalError("Failed to create CI kernel for \(Self.self): \(error)")
 			#endif
 		}
     }()

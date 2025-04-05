@@ -42,7 +42,9 @@ class AddVibrancy: CIFilter {
               let data = try? Data(contentsOf: url)
         else { return nil }
 		do {
+			#if os(macOS)
 			if forceOpenGL { throw MetalDisabledError() }
+			#endif
 			return try CIColorKernel(functionName: "addVibrancy_kernel",
 								fromMetalLibraryData: data,
 								outputPixelFormat: CIFormat.RGBAh)
@@ -52,7 +54,7 @@ class AddVibrancy: CIFilter {
 			let source = try! String(contentsOf: url, encoding: .utf8)
 			return CIColorKernel(source: source)
 			#else
-			fatalError("Failed to create CI kernel for \(FinalColorFilter.self): \(error)")
+			fatalError("Failed to create CI kernel for \(Self.self): \(error)")
 			#endif
 		}
     }()
