@@ -23,7 +23,8 @@ private let whiteBlackEffect = [
 	(w: 1.0, b: 0.4),
 	(w: 1.0, b: 0.2),
 ]
-private let margin: CGFloat = 2.0
+private let margin: CGFloat = 1.0
+private let spacing: CGFloat = 0.0
 
 class PaletteView: UIView {
 	var _colorViews: [UIView] = []
@@ -59,9 +60,9 @@ class PaletteView: UIView {
 		let bounds = self.bounds;
 		var colorRect = CGRect(x: margin,
 							   y: margin,
-							   width: max(margin, floor((bounds.size.width - margin) / CGFloat(numColumns)) - 2*margin),
-							   height: max(margin, floor((bounds.size.height - margin) / CGFloat(numRows)) - 2*margin))
-		colorRect.origin.x = round((bounds.size.width - (colorRect.size.width + margin) * CGFloat(numColumns)) / 2)
+							   width: max(margin, floor((bounds.size.width - spacing) / CGFloat(numColumns)) - 2*margin),
+							   height: max(margin, floor((bounds.size.height - spacing) / CGFloat(numRows)) - 2*margin))
+		colorRect.origin.x = round((bounds.size.width - (colorRect.size.width + spacing) * CGFloat(numColumns)) / 2)
 
 		for column in 0..<numColumns {
 			var localRect = colorRect
@@ -69,16 +70,15 @@ class PaletteView: UIView {
 				let viewIndex = row + column*numRows
 				if !_colorViews.indices.contains(viewIndex) {
 					_colorViews.insert(UIView(), at: viewIndex)
-					_colorViews[viewIndex].layer.cornerRadius = 6
 					addSubview(_colorViews[viewIndex])
 				}
 
 				_colorViews[viewIndex].frame = localRect
 				_colorViews[viewIndex].backgroundColor = colorFor(row: row, column: column)
 
-				localRect.origin.y += colorRect.size.height + margin
+				localRect.origin.y += colorRect.size.height + spacing
 			}
-			colorRect.origin.x += colorRect.size.width + margin
+			colorRect.origin.x += colorRect.size.width + spacing
 		}
 
 		DispatchQueue.main.async {
