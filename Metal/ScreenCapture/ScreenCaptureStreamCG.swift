@@ -17,7 +17,7 @@ import AppKit
 
 public class ScreenCaptureStreamCG {
 
-    public weak var delegate: ScreenCaptureStreamDelegate? = nil // Recipient of captured CIImages
+    public weak var delegate: CaptureStreamDelegate? = nil // Recipient of captured CIImages
     private weak var view: FilteredMetalView? = nil // Rendering view to read geometry
 	private var window: NSWindow? { view?.window } // Parent window to read geometry
 
@@ -59,7 +59,7 @@ public class ScreenCaptureStreamCG {
 
 // MARK: - Setup
 
-extension ScreenCaptureStreamCG: ScreenCaptureStream {
+extension ScreenCaptureStreamCG: CaptureStream {
 
     public func stopSession() {
         NotificationCenter.default.removeObserver(self)
@@ -69,7 +69,7 @@ extension ScreenCaptureStreamCG: ScreenCaptureStream {
         }
     }
 
-    public func startSession(in frame: NSRect, delegate: ScreenCaptureStreamDelegate) throws {
+    public func startSession(in frame: NSRect, delegate: CaptureStreamDelegate) throws {
         self.delegate = delegate
         monitorUserPreferences()
         guard let window = window else { return }

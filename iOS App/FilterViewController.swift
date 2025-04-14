@@ -3,10 +3,9 @@ import UIKit
 import Foundation
 import QuartzCore
 
-class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertViewDelegate {
-	
+class FilterViewController: UIViewController, UIAlertViewDelegate {
 	var _addedObservers = false
-	var _allowedToUseGPU = false
+//	var _allowedToUseGPU = false
 	var _mainCameraUIAdapted = false
 	var _presentingShareView = false
 #if targetEnvironment(simulator)
@@ -23,10 +22,14 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 	@IBOutlet var contentView:  UIView!
 	@IBOutlet var noCameraPermissionOverlayView:  UIView!
 	var labelTimer: Timer?
-	var previewView: OpenGLPixelBufferView?
-	var capturePipeline: CapturePipeline?
 
-	var _videoDevice: AVCaptureDevice?
+	private var renderer: CaptureStreamDelegate? = nil
+	private var captureStream: AVCaptureStream?
+	private var filterStore: FilterStore!
+
+	var filteredView: FilteredMetalView!
+
+	var videoDevice: AVCaptureDevice? { captureStream?.capturePipeline.videoDevice }
 
 	deinit {
 		if ( _addedObservers ) {
@@ -41,26 +44,28 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 
 	@objc func applicationDidEnterBackground() {
 		// Avoid using the GPU in the background
-		_allowedToUseGPU = false
-		self.capturePipeline?.renderingEnabled = false
+//		_allowedToUseGPU = false
+//		self.captureStream?.stopSession()
 
 		// We reset the OpenGLPixelBufferView to ensure all resources have been clear when going to the background.
-		self.previewView?.reset()
+//		self.previewView?.reset()
 	}
 
 	override func didReceiveMemoryWarning() {
-		self.previewView?.reset()
-		super.didReceiveMemoryWarning()
+//		self.previewView?.reset()
+//		super.didReceiveMemoryWarning()
 	}
 
 	@objc func applicationWillEnterForeground() {
-		_allowedToUseGPU = true
-		self.capturePipeline?.renderingEnabled = !_presentingShareView
+//		_allowedToUseGPU = true
+//		if !_presentingShareView {
+//			self.captureStream?.startSession(in: .zero, delegate: renderer!)
+//		}
 	}
 
 	override func viewDidLoad() {
-		self.capturePipeline = CapturePipeline()
-		self.capturePipeline?.setDelegate(self, callbackQueue: .main)
+		self.captureStream = AVCaptureStream()
+//		self.capturePipeline?.setDelegate(self, callbackQueue: .main)
 
 		NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: UIApplication.shared)
 		NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: UIApplication.shared)
@@ -72,8 +77,11 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 		_addedObservers = true
 
 		// the willEnterForeground and didEnterBackground notifications are subsequently used to update _allowedToUseGPU
-		_allowedToUseGPU = UIApplication.shared.applicationState != .background
-		self.capturePipeline?.renderingEnabled = _allowedToUseGPU && !_presentingShareView
+//		_allowedToUseGPU = UIApplication.shared.applicationState != .background
+
+//		setupPreviewView()
+//		captureStream?.startSession(in: .zero, delegate: renderer!)
+//		self.capturePipeline?.renderingEnabled = _allowedToUseGPU && !_presentingShareView
 
 		super.viewDidLoad()
 
@@ -83,9 +91,37 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 		self.setVideoDevice(videoDevice: .default(for: .video))
 	}
 
-	func setVideoDevice(videoDevice: AVCaptureDevice?) {
-		_videoDevice = videoDevice;
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.filterStore = FilterStore.global
 
+		setupPreviewView()
+
+		do { try self.connectMetalViewAndFilterPipeline() }
+		catch let error { presentError(error) }
+
+		captureStream = AVCaptureStream()
+
+		updateCapturePermissionVisibility()
+
+		do { try self.captureStream?.startSession(in: .zero, delegate: renderer!) }
+		catch let error { presentError(error) }
+	}
+
+	/// If supported, connect a renderer to the Metal view. Returns false if failed to setup Metal.
+	func connectMetalViewAndFilterPipeline() throws {
+		if let initialDevice = MTLCreateSystemDefaultDevice() {
+			filteredView.device = initialDevice
+
+			guard let renderer = MetalRenderer(mtkview: filteredView, filter: filterStore)
+			else { throw MetalRendererError }
+
+			self.renderer = renderer
+			self.filteredView.delegate = renderer
+		}
+	}
+
+	func setVideoDevice(videoDevice: AVCaptureDevice?) {
 #if targetEnvironment(simulator)
 		let hasTorch = UIDevice.current.userInterfaceIdiom == .phone
 #else
@@ -116,8 +152,6 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-
-		self.capturePipeline?.startRunning()
 
 		self.labelTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateLabels), userInfo: nil, repeats: true)
 
@@ -184,7 +218,7 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 		self.labelTimer?.invalidate()
 		self.labelTimer = nil
 
-		self.capturePipeline?.stopRunning()
+		self.captureStream?.stopSession()
 		UIApplication.shared.isIdleTimerDisabled = false
 	}
 
@@ -209,18 +243,18 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 	}
 
 	@IBAction func zoom(_ gestureRecognizer: UIPinchGestureRecognizer) {
-		guard let _videoDevice else { return }
+		guard let videoDevice else { return }
 		switch gestureRecognizer.state {
 		case .began:
-			_ = try? _videoDevice.lockForConfiguration()
-			gestureRecognizer.scale = _videoDevice.videoZoomFactor
+			_ = try? videoDevice.lockForConfiguration()
+			gestureRecognizer.scale = videoDevice.videoZoomFactor
 		case .ended, .cancelled, .failed:
-			_videoDevice.unlockForConfiguration()
+			videoDevice.unlockForConfiguration()
 		case .changed:
 			let factor = gestureRecognizer.scale
 			let minFactor = 1.0
-			let maxFactor = min(_videoDevice.activeFormat.videoZoomFactorUpscaleThreshold*2, _videoDevice.activeFormat.videoMaxZoomFactor)
-			_videoDevice.videoZoomFactor = min(maxFactor, max(minFactor, factor))
+			let maxFactor = min(videoDevice.activeFormat.videoZoomFactorUpscaleThreshold*2, videoDevice.activeFormat.videoMaxZoomFactor)
+			videoDevice.videoZoomFactor = min(maxFactor, max(minFactor, factor))
 		case .possible:
 			break
 		@unknown default:
@@ -235,15 +269,15 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 #if targetEnvironment(simulator)
 		self.goNextSlide()
 #else
-		let changed = self.capturePipeline?.toggleInputDevice() ?? false
+		let changed = self.captureStream?.toggleInputDevice() ?? false
 		if changed {
-			self.previewView?.reset()
-			self.previewView?.alpha = 0
+//			self.previewView?.reset()
+			self.filteredView?.alpha = 0
 			self.flashButton?.isEnabled = false
 			self.reflectTorchActiveState(false)
 			UIView.transition(from: self.contentView, to: self.contentView, duration:0.5, options: [.transitionFlipFromRight, .allowAnimatedContent, .showHideTransitionViews]) { success in
 				UIView.animate(withDuration: 0.2) {
-					self.previewView?.alpha = 1
+					self.filteredView?.alpha = 1
 				}
 			}
 		}
@@ -254,12 +288,12 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 #if targetEnvironment(simulator)
 		self.goPreviousSlide()
 #else
-		guard let _videoDevice else { return }
+		guard let videoDevice else { return }
 		do {
-			try _videoDevice.lockForConfiguration()
-			let torchActive = !_videoDevice.isTorchActive
-			_videoDevice.torchMode = torchActive ? .on : .off
-			_videoDevice.unlockForConfiguration()
+			try videoDevice.lockForConfiguration()
+			let torchActive = !videoDevice.isTorchActive
+			videoDevice.torchMode = torchActive ? .on : .off
+			videoDevice.unlockForConfiguration()
 			self.reflectTorchActiveState(torchActive)
 		} catch {
 			print("videoDevice lockForConfiguration returned error", error)
@@ -275,22 +309,147 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 	}
 
 	func setupPreviewView() {
-		if (self.previewView != nil) {
-			return;
+		if self.filteredView != nil {
+			return
 		}
 
 		// Set up GL view
-		self.previewView = OpenGLPixelBufferView()
-		self.previewView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+		self.filteredView = FilteredMetalView(frame: .zero, device: nil)
+		self.filteredView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+		self.renderer = MetalRenderer(mtkview: filteredView!, filter: filterStore)
 
 		self.adjustOrientation()
 
-		self.contentView.insertSubview(self.previewView!, at: 0)
+		self.contentView.insertSubview(self.filteredView!, at: 0)
 		var bounds = CGRect.zero
-		bounds.size = self.contentView.convert(self.contentView.bounds, to: self.previewView).size
-		self.previewView?.bounds = bounds
-		self.previewView?.center = CGPoint(x: self.contentView.bounds.size.width/2.0, y: self.contentView.bounds.size.height/2.0);
+		bounds.size = self.contentView.convert(self.contentView.bounds, to: self.filteredView).size
+		self.filteredView?.bounds = bounds
+		self.filteredView?.center = CGPoint(x: self.contentView.bounds.size.width/2.0, y: self.contentView.bounds.size.height/2.0);
 	}
+
+	@objc func updateLabels() {
+		let capturePipeline = captureStream?.capturePipeline
+		let fps = Int(roundf(capturePipeline?.videoFrameRate ?? -1))
+		self.framerateLabel.text = "\(fps) FPS"
+		let width = capturePipeline?.videoDimensions.width ?? 0
+		let height = capturePipeline?.videoDimensions.height ?? 0
+		self.dimensionsLabel.text = "\(width) × \(height)"
+	}
+
+	// MARK: - RosyWriterCapturePipelineDelegate
+
+	func capturePipeline(_ capturePipeline: CapturePipeline, didStartRunningWithVideoDevice videoDevice: AVCaptureDevice) {
+//		self._videoDevice = videoDevice
+		self.adjustOrientation()
+	}
+
+	@objc func adjustOrientation() {
+//		guard let capturePipeline, let previewView else { return }
+//		let currentInterfaceOrientation: AVCaptureVideoOrientation = switch UIApplication.shared.statusBarOrientation {
+//		case .unknown:            .portrait
+//		case .portrait:           .portrait
+//		case .portraitUpsideDown: .portraitUpsideDown
+//		case .landscapeLeft:      .landscapeLeft
+//		case .landscapeRight:     .landscapeRight
+//		@unknown default:         .portrait
+//		}
+//		previewView.transform = capturePipeline.transformFromVideoBufferOrientation(to: currentInterfaceOrientation, withAutoMirroring: false) // Front camera preview should be mirrored
+//		let mirrored = self._videoDevice?.position == .front
+//		previewView.mirrorTransform = mirrored;
+//		previewView.frame = previewView.superview?.bounds ?? previewView.frame
+//
+//		// capture orientation must compensate for the transform that was applied
+//		switch currentInterfaceOrientation {
+//		case .portrait:
+//			previewView.captureOrientation = !mirrored ? .leftMirrored : .rightMirrored
+//		case .portraitUpsideDown:
+//			previewView.captureOrientation = !mirrored ? .rightMirrored : .leftMirrored
+//		case .landscapeLeft:
+//			previewView.captureOrientation = !mirrored ? .upMirrored : .downMirrored
+//		case .landscapeRight:
+//			previewView.captureOrientation = !mirrored ? .downMirrored : .upMirrored
+//		@unknown default:
+//			fatalError()
+//		}
+	}
+
+	func capturePipeline(_ capturePipeline: CapturePipeline, didStopRunningWithError error: Error) {
+//		self._videoDevice = nil
+
+		self.presentError(error)
+
+		self.photoButton.isEnabled = false
+	}
+
+	// Preview
+	func capturePipeline(_ capturePipeline: CapturePipeline, previewPixelBufferReadyForDisplay previewPixelBuffer: CVPixelBuffer) {
+//		if !_allowedToUseGPU {
+//			return
+//		}
+//
+//		if self.previewView == nil {
+//			self.setupPreviewView()
+//		}
+//
+//		self.noCameraPermissionOverlayView.isHidden = true
+//
+//		self.previewView?.display(previewPixelBuffer)
+//
+//		let app = UIApplication.shared
+//		let shouldDisableIdleTimer = self.presentedViewController == nil
+//		if app.isIdleTimerDisabled != shouldDisableIdleTimer {
+//			app.isIdleTimerDisabled = shouldDisableIdleTimer
+//		}
+	}
+
+	func capturePipelineDidRunOutOfPreviewBuffers(_ capturePipeline: CapturePipeline) {
+//		if _allowedToUseGPU {
+//			self.previewView?.flushPixelBufferCache()
+//		}
+	}
+
+	func sharePicture(_ item: UIBarButtonItem) {
+//		let image = self.previewView?.captureCurrentImage()
+//		guard let image else { return }
+//		var torchActive = false
+//		if let _videoDevice, _videoDevice.hasTorch {
+//			do {
+//				try _videoDevice.lockForConfiguration()
+//				torchActive = _videoDevice.isTorchActive
+//				_videoDevice.torchMode = .off
+//				_videoDevice.unlockForConfiguration()
+//				self.reflectTorchActiveState(torchActive)
+//			} catch {
+//				print("videoDevice lockForConfiguration returned error", error)
+//			}
+//		}
+//		_presentingShareView = true
+//		self.capturePipeline?.renderingEnabled = !_presentingShareView // freeze image
+//		let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+//		if UIDevice.current.userInterfaceIdiom == .pad {
+//			activityViewController.modalPresentationStyle = .popover
+//			activityViewController.popoverPresentationController?.barButtonItem = item
+//		}
+//		self.present(activityViewController, animated: true)
+//		activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
+//			self._presentingShareView = false
+//			self.capturePipeline?.renderingEnabled = !self._presentingShareView; // unfreeze image
+//			if torchActive, let videoDevice = self._videoDevice, videoDevice.hasTorch {
+//				do {
+//					try videoDevice.lockForConfiguration()
+//					videoDevice.torchMode = torchActive ? .on : .off
+//					videoDevice.unlockForConfiguration()
+//					self.reflectTorchActiveState(torchActive)
+//				} catch {
+//					print("videoDevice lockForConfiguration returned error", error)
+//				}
+//			}
+//		};
+	}
+
+}
+
+extension FilterViewController {
 
 	func checkCameraPrivacySettings() {
 		AVCaptureDevice.requestAccess(for: .video) { granted in
@@ -300,135 +459,28 @@ class FilterViewController: UIViewController, CapturePipelineDelegate, UIAlertVi
 		}
 	}
 
-	@objc func updateLabels() {
-		let fps = Int(roundf(self.capturePipeline?.videoFrameRate ?? -1))
-		self.framerateLabel.text = "\(fps) FPS"
-		let width = self.capturePipeline?.videoDimensions.width ?? 0
-		let height = self.capturePipeline?.videoDimensions.height ?? 0
-		self.dimensionsLabel.text = "\(width) × \(height)"
-	}
+	func updateCapturePermissionVisibility() {
+		let hasCapturePermission = captureStream?.checkCapturePermission() ?? true
 
-	func showError(_ error: Error) {
-		let alert = UIAlertController(title: (error as? LocalizedError)?.errorDescription ?? error.localizedDescription,
-									  message: (error as? LocalizedError)?.failureReason,
-									  preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
-		self.present(alert, animated: true)
+		noCameraPermissionOverlayView?.isHidden = hasCapturePermission
+		filteredView.isHidden = !hasCapturePermission
 	}
 
 	@IBAction func showCameraPrivacySettings(_ sender: Any) {
 		UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
 	}
 
-	// MARK: - RosyWriterCapturePipelineDelegate
+}
 
-	func capturePipeline(_ capturePipeline: CapturePipeline, didStartRunningWithVideoDevice videoDevice: AVCaptureDevice) {
-		self._videoDevice = videoDevice
-		self.adjustOrientation()
-	}
+extension FilterViewController {
 
-	@objc func adjustOrientation() {
-		guard let capturePipeline, let previewView else { return }
-		let currentInterfaceOrientation: AVCaptureVideoOrientation = switch UIApplication.shared.statusBarOrientation {
-		case .unknown:            .portrait
-		case .portrait:           .portrait
-		case .portraitUpsideDown: .portraitUpsideDown
-		case .landscapeLeft:      .landscapeLeft
-		case .landscapeRight:     .landscapeRight
-		@unknown default:         .portrait
-		}
-		previewView.transform = capturePipeline.transformFromVideoBufferOrientation(to: currentInterfaceOrientation, withAutoMirroring: false) // Front camera preview should be mirrored
-		let mirrored = self._videoDevice?.position == .front
-		previewView.mirrorTransform = mirrored;
-		previewView.frame = previewView.superview?.bounds ?? previewView.frame
-
-		// capture orientation must compensate for the transform that was applied
-		switch currentInterfaceOrientation {
-		case .portrait:
-			previewView.captureOrientation = !mirrored ? .leftMirrored : .rightMirrored
-		case .portraitUpsideDown:
-			previewView.captureOrientation = !mirrored ? .rightMirrored : .leftMirrored
-		case .landscapeLeft:
-			previewView.captureOrientation = !mirrored ? .upMirrored : .downMirrored
-		case .landscapeRight:
-			previewView.captureOrientation = !mirrored ? .downMirrored : .upMirrored
-		@unknown default:
-			fatalError()
-		}
-	}
-
-	func capturePipeline(_ capturePipeline: CapturePipeline, didStopRunningWithError error: Error) {
-		self._videoDevice = nil
-
-		self.showError(error)
-
-		self.photoButton.isEnabled = false
-	}
-
-	// Preview
-	func capturePipeline(_ capturePipeline: CapturePipeline, previewPixelBufferReadyForDisplay previewPixelBuffer: CVPixelBuffer) {
-		if !_allowedToUseGPU {
-			return
-		}
-
-		if self.previewView == nil {
-			self.setupPreviewView()
-		}
-
-		self.noCameraPermissionOverlayView.isHidden = true
-
-		self.previewView?.display(previewPixelBuffer)
-
-		let app = UIApplication.shared
-		let shouldDisableIdleTimer = self.presentedViewController == nil
-		if app.isIdleTimerDisabled != shouldDisableIdleTimer {
-			app.isIdleTimerDisabled = shouldDisableIdleTimer
-		}
-	}
-
-	func capturePipelineDidRunOutOfPreviewBuffers(_ capturePipeline: CapturePipeline) {
-		if _allowedToUseGPU {
-			self.previewView?.flushPixelBufferCache()
-		}
-	}
-
-	func sharePicture(_ item: UIBarButtonItem) {
-		let image = self.previewView?.captureCurrentImage()
-		guard let image else { return }
-		var torchActive = false
-		if let _videoDevice, _videoDevice.hasTorch {
-			do {
-				try _videoDevice.lockForConfiguration()
-				torchActive = _videoDevice.isTorchActive
-				_videoDevice.torchMode = .off
-				_videoDevice.unlockForConfiguration()
-				self.reflectTorchActiveState(torchActive)
-			} catch {
-				print("videoDevice lockForConfiguration returned error", error)
-			}
-		}
-		_presentingShareView = true
-		self.capturePipeline?.renderingEnabled = !_presentingShareView // freeze image
-		let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-		if UIDevice.current.userInterfaceIdiom == .pad {
-			activityViewController.modalPresentationStyle = .popover
-			activityViewController.popoverPresentationController?.barButtonItem = item
-		}
-		self.present(activityViewController, animated: true)
-		activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
-			self._presentingShareView = false
-			self.capturePipeline?.renderingEnabled = !self._presentingShareView; // unfreeze image
-			if torchActive, let videoDevice = self._videoDevice, videoDevice.hasTorch {
-				do {
-					try videoDevice.lockForConfiguration()
-					videoDevice.torchMode = torchActive ? .on : .off
-					videoDevice.unlockForConfiguration()
-					self.reflectTorchActiveState(torchActive)
-				} catch {
-					print("videoDevice lockForConfiguration returned error", error)
-				}
-			}
-		};
+	func presentError(_ error: Error) {
+		let alert = UIAlertController(
+			title: (error as? LocalizedError)?.errorDescription ?? error.localizedDescription,
+			message: (error as? LocalizedError)?.failureReason,
+			preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
+		present(alert, animated: true)
 	}
 
 }

@@ -16,7 +16,7 @@
 import Foundation
 import CoreImage
 
-public struct StripeConfig {
+public struct StripeConfig: Equatable {
 	var redStripes: Float = 0
 	var greenStripes: Float = 0
 	var blueStripes: Float = 0

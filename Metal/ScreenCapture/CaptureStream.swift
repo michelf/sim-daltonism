@@ -19,9 +19,9 @@ import CoreImage
 import AppKit
 #endif
 
-public protocol ScreenCaptureStream: AnyObject {
-    var delegate: ScreenCaptureStreamDelegate? { get set }
-    func startSession(in frame: CGRect, delegate: ScreenCaptureStreamDelegate) throws
+public protocol CaptureStream: AnyObject {
+    var delegate: CaptureStreamDelegate? { get set }
+    func startSession(in frame: CGRect, delegate: CaptureStreamDelegate) throws
     func stopSession()
 	func checkCapturePermission() -> Bool
 #if os(macOS)
@@ -29,7 +29,7 @@ public protocol ScreenCaptureStream: AnyObject {
 #endif
 }
 
-public protocol ScreenCaptureStreamDelegate: AnyObject {
+public protocol CaptureStreamDelegate: AnyObject {
 
     func didCaptureFrame(image: CIImage)
 }

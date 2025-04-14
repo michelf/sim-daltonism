@@ -2,7 +2,8 @@ import UIKit
 
 class MirroredScrollView: UIScrollView {
 
-	private var mirrorView: OpenGLPixelBufferView?
+	private var mirrorView: FilteredMetalView?
+	private var renderer: MetalRenderer?
 
 	override func didMoveToWindow() {
 		if mirrorView == nil {
@@ -11,14 +12,17 @@ class MirroredScrollView: UIScrollView {
 	}
 
 	func _setupMirrorView() {
-		let mirrorView = OpenGLPixelBufferView(frame: self.frame)
+		let mirrorView = FilteredMetalView(frame: self.frame)
 		mirrorView.isUserInteractionEnabled = false
 		mirrorView.isOpaque = true
+		mirrorView.isPaused = false
+		mirrorView.isHidden = false
+		mirrorView.backgroundColor = .purple
 		mirrorView.translatesAutoresizingMaskIntoConstraints = false
 		mirrorView.transform = CGAffineTransform(scaleX: -1, y: 1)
 		self.mirrorView = mirrorView
 
-		self.superview?.insertSubview(mirrorView, aboveSubview: self)
+		self.superview!.insertSubview(mirrorView, aboveSubview: self)
 		NSLayoutConstraint.deactivate(mirrorView.constraints)
 		NSLayoutConstraint.activate([
 			topAnchor.constraint(equalTo: mirrorView.topAnchor),
@@ -27,11 +31,24 @@ class MirroredScrollView: UIScrollView {
 			widthAnchor.constraint(equalTo: mirrorView.widthAnchor),
 		])
 
-		mirrorView.displayContent(self)
+		renderer = MetalRenderer(mtkview: mirrorView, filter: .global)
+		mirrorView.delegate = renderer
+
+		updateDisplay()
 	}
 
 	func updateDisplay() {
-		mirrorView?.displayContent(self)
+		guard let renderer else { return }
+
+		UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
+
+		layer.render(in: UIGraphicsGetCurrentContext()!)
+		let cgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
+
+		UIGraphicsEndImageContext()
+
+		let image = cgImage.map { CIImage(cgImage: $0) } ?? CIImage(color: .gray)
+		renderer.render(image)
 	}
 
 	override var contentOffset: CGPoint {

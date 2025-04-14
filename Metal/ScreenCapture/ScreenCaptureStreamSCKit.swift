@@ -19,7 +19,7 @@ import ScreenCaptureKit
 @available(macOS 12.3, *)
 public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
-	public weak var delegate: ScreenCaptureStreamDelegate? = nil // Recipient of captured CIImages
+	public weak var delegate: CaptureStreamDelegate? = nil // Recipient of captured CIImages
 	private weak var view: FilteredMetalView? = nil // Rendering view to read geometry
 	private var window: NSWindow? { view?.window } // Parent window to read geometry
 
@@ -222,14 +222,14 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 // MARK: - Setup
 
 @available(macOS 12.3, *)
-extension ScreenCaptureStreamSCKit: ScreenCaptureStream {
+extension ScreenCaptureStreamSCKit: CaptureStream {
 
 	public func stopSession() {
 		NotificationCenter.default.removeObserver(self)
 		stream?.stopCapture()
 	}
 
-	public func startSession(in frame: NSRect, delegate: ScreenCaptureStreamDelegate) throws {
+	public func startSession(in frame: NSRect, delegate: CaptureStreamDelegate) throws {
 		self.delegate = delegate
 		monitorUserPreferences()
 		guard let window = window else { return }

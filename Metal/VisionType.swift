@@ -40,6 +40,21 @@ public enum VisionType: Int, CaseIterable {
         }
     }
 
+	public var description: String {
+		switch self {
+		case .normal:               return NSLocalizedString("Trichromatic: red, green, and blue cones", tableName: "SimDaltonismFilter", comment: "")
+		case .deutan:               return NSLocalizedString("No green cones", tableName: "SimDaltonismFilter", comment: "")
+		case .deuteranomaly:        return NSLocalizedString("Anomalous green cones", tableName: "SimDaltonismFilter", comment: "")
+		case .protan:               return NSLocalizedString("No red cones", tableName: "SimDaltonismFilter", comment: "")
+		case .protanomaly:          return NSLocalizedString("Anomalous red cones", tableName: "SimDaltonismFilter", comment: "")
+		case .tritan:               return NSLocalizedString("No blue cones", tableName: "SimDaltonismFilter", comment: "")
+		case .tritanomaly:          return NSLocalizedString("Anomalous blue cones", tableName: "SimDaltonismFilter", comment: "")
+		case .monochromat:          return NSLocalizedString("Absent or non-functionning cones", tableName: "SimDaltonismFilter", comment: "")
+		case .monochromacyPartial:  return NSLocalizedString("Reduced sensitivity to colors", tableName: "SimDaltonismFilter", comment: "")
+		}
+
+	}
+
     static let defaultValue = VisionType.normal
 
     init(runtime: Int) {

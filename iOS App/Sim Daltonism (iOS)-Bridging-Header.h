@@ -3,7 +3,3 @@
 //
 
 #import "CapturePipeline.h"
-
-// old
-#import "OpenGLPixelBufferView.h"
-#import "SimDaltonismFilter.h"

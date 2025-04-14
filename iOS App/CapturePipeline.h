@@ -15,20 +15,22 @@
 
 // Based on the RosyWriter sample code
 
+@import Foundation;
 @import AVFoundation;
 
 @protocol CapturePipelineDelegate;
 
-@interface CapturePipeline : NSObject 
+@interface CapturePipeline : NSObject
 
 - (void)setDelegate:(id<CapturePipelineDelegate>)delegate callbackQueue:(dispatch_queue_t)delegateCallbackQueue; // delegate is weak referenced
 
 // These methods are synchronous
+@property (getter=isRunning, readonly) BOOL running;
 - (void)startRunning;
 - (void)stopRunning;
 
-@property(readonly) BOOL inputDeviceCount;
-- (BOOL)toggleInputDevice;
+- (BOOL)selectDevice:(AVCaptureDevice *)newVideoDevice;
+@property(readonly) AVCaptureDevice *videoDevice;
 
 @property(readwrite) BOOL renderingEnabled; // When set to false the GPU will not be used after the setRenderingEnabled: call returns.
 
@@ -37,6 +39,7 @@
 // Stats
 @property(readonly) float videoFrameRate;
 @property(readonly) CMVideoDimensions videoDimensions;
+@property(nonatomic, readonly) AVCaptureVideoOrientation videoOrientation;
 
 @end
 

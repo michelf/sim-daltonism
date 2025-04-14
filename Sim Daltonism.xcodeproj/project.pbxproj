@@ -30,10 +30,8 @@
 		1E0FDB392DA03185008BBC1B /* MachadoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7026B63747007ADF4B /* MachadoFilters.swift */; };
 		1E0FDB3A2DA03185008BBC1B /* HCIRNFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6B26B63747007ADF4B /* HCIRNFilter.swift */; };
 		1E0FDB3B2DA03185008BBC1B /* HCIRNFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6C26B63747007ADF4B /* HCIRNFilterVendor.swift */; };
-		1E0FDB3C2DA0318D008BBC1B /* Transforms.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7126B63747007ADF4B /* Transforms.metal */; };
 		1E0FDB3D2DA0318D008BBC1B /* HCIRN.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6A26B63747007ADF4B /* HCIRN.metal */; };
-		1E0FDB3E2DA0318D008BBC1B /* VisionTools.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331C72D82148300BE6092 /* VisionTools.metal */; };
-		1E0FDB3F2DA031D2008BBC1B /* ScreenCaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* ScreenCaptureStream.swift */; };
+		1E0FDB3F2DA031D2008BBC1B /* CaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* CaptureStream.swift */; };
 		1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */; };
 		1E3331CB2D82148300BE6092 /* Stripes.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E3331C82D82148300BE6092 /* Stripes.cikernel */; };
 		1E3331CC2D82148300BE6092 /* VisionToolsVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331CA2D82148300BE6092 /* VisionToolsVendor.swift */; };
@@ -64,15 +62,18 @@
 		1ECCBCBA2DA0C02A00715B93 /* VisionType+CIFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9426E39D26D43D8C00D5356F /* VisionType+CIFilterVendor.swift */; };
 		1ECCBCBB2DA0C05000715B93 /* UserDefaults+WindowRestoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FB2C26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift */; };
 		1ECCBCBC2DA0C06300715B93 /* Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494926C23EFF00327367 /* Simulation.swift */; };
-		1ED75E5D1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
-		1ED75E5E1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */; };
+		1ECCBCBF2DA0C5D800715B93 /* AVCaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCBCBD2DA0C2A000715B93 /* AVCaptureStream.swift */; };
+		1ECCBCC02DA2C08A00715B93 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B926C326B139C600754E0C /* Errors.swift */; };
+		1ECCBCC22DA2DD6E00715B93 /* VisionTools.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331C72D82148300BE6092 /* VisionTools.metal */; };
+		1ECCBCC32DA2DD6E00715B93 /* Transforms.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7126B63747007ADF4B /* Transforms.metal */; };
+		1ECCBCC62DA5C21600715B93 /* FilterStore+Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCBCC52DA5C21600715B93 /* FilterStore+Global.swift */; };
+		1ECCBCCE2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCBCCD2DAC01B800715B93 /* FilterConfiguration.swift */; };
+		1ECCBCCF2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCBCCD2DAC01B800715B93 /* FilterConfiguration.swift */; };
 		1ED75E6C1C453A6500042CB7 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E6E1C453A6500042CB7 /* URLs.strings */; };
 		1ED75E711C453AA900042CB7 /* URLs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED75E6F1C453AA900042CB7 /* URLs.strings */; };
 		1EDBF34E2D87956900CD0BC4 /* AddVibrancyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBF34D2D87956900CD0BC4 /* AddVibrancyFilter.swift */; };
-		1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */; };
 		1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */; };
 		1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2526F1C2742F300DB3B18 /* Images.xcassets */; };
-		1EF252CF1C2742F300DB3B18 /* OpenGLPixelBufferView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */; };
 		1EF252D11C2742F300DB3B18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527D1C2742F300DB3B18 /* Main.storyboard */; };
 		1EF252D21C2742F300DB3B18 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2527F1C2742F300DB3B18 /* Options.storyboard */; };
 		1EF252D41C2742F300DB3B18 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EF252831C2742F300DB3B18 /* InfoPlist.strings */; };
@@ -96,7 +97,6 @@
 		1EF253411C274A0200DB3B18 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2532F1C274A0200DB3B18 /* FilterViewController.swift */; };
 		1EF253421C274A0200DB3B18 /* DragObservableWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253301C274A0200DB3B18 /* DragObservableWindow.swift */; };
 		1EF253431C274A0200DB3B18 /* FilterWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253311C274A0200DB3B18 /* FilterWindowController.swift */; };
-		1EF2534B1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */; };
 		1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2536E1C27B26300DB3B18 /* MenuButton.swift */; };
 		1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */; };
 		1EF253821C2849B600DB3B18 /* Controls.acorn in Resources */ = {isa = PBXBuildFile; fileRef = 1EF253721C2849B600DB3B18 /* Controls.acorn */; };
@@ -121,7 +121,7 @@
 		1EF43E4E2D986E80006441A2 /* InvertHueFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF43E4D2D986E80006441A2 /* InvertHueFilter.swift */; };
 		9424DE7326B63747007ADF4B /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6026B63747007ADF4B /* MetalRenderer.swift */; };
 		9424DE7426B63747007ADF4B /* ScreenCaptureStreamCG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6226B63747007ADF4B /* ScreenCaptureStreamCG.swift */; };
-		9424DE7526B63747007ADF4B /* ScreenCaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* ScreenCaptureStream.swift */; };
+		9424DE7526B63747007ADF4B /* CaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* CaptureStream.swift */; };
 		9424DE7A26B63747007ADF4B /* HCIRN.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6A26B63747007ADF4B /* HCIRN.metal */; };
 		9424DE7B26B63747007ADF4B /* HCIRNFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6B26B63747007ADF4B /* HCIRNFilter.swift */; };
 		9424DE7C26B63747007ADF4B /* HCIRNFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6C26B63747007ADF4B /* HCIRNFilterVendor.swift */; };
@@ -182,24 +182,19 @@
 		1EBB1B132D89B33C004493E2 /* StripesTightTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StripesTightTemplate@2x.png"; sourceTree = "<group>"; };
 		1EBB1B252D8A37DF004493E2 /* ToolsTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolsTemplate.png; sourceTree = "<group>"; };
 		1EBB1B262D8A37DF004493E2 /* ToolsTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolsTemplate@2x.png"; sourceTree = "<group>"; };
+		1ECCBCBD2DA0C2A000715B93 /* AVCaptureStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureStream.swift; sourceTree = "<group>"; };
+		1ECCBCC52DA5C21600715B93 /* FilterStore+Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterStore+Global.swift"; sourceTree = "<group>"; };
+		1ECCBCCD2DAC01B800715B93 /* FilterConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterConfiguration.swift; sourceTree = "<group>"; };
 		1ED75E501C44907B00042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		1ED75E5C1C44942900042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SimDaltonismFilter.strings; sourceTree = "<group>"; };
 		1ED75E5F1C44964B00042CB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1ED75E6D1C453A6500042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/URLs.strings; sourceTree = "<group>"; };
 		1ED75E701C453AA900042CB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/URLs.strings; sourceTree = "<group>"; };
 		1EDBF34D2D87956900CD0BC4 /* AddVibrancyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVibrancyFilter.swift; sourceTree = "<group>"; };
 		1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License 2.0.txt"; sourceTree = "<group>"; };
-		1EF252611C2742F300DB3B18 /* OpenGLShaderFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLShaderFilter.h; sourceTree = "<group>"; };
-		1EF252621C2742F300DB3B18 /* PassThroughFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassThroughFilter.h; sourceTree = "<group>"; };
-		1EF252631C2742F300DB3B18 /* PassThroughFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassThroughFilter.m; sourceTree = "<group>"; };
-		1EF252641C2742F300DB3B18 /* SimDaltonismFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimDaltonismFilter.h; sourceTree = "<group>"; };
-		1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimDaltonismFilter.m; sourceTree = "<group>"; };
 		1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturePipeline.h; sourceTree = "<group>"; };
 		1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapturePipeline.m; sourceTree = "<group>"; };
 		1EF2526F1C2742F300DB3B18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1EF252781C2742F300DB3B18 /* OpenGLPixelBufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLPixelBufferView.h; sourceTree = "<group>"; };
-		1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLPixelBufferView.m; sourceTree = "<group>"; };
 		1EF2527E1C2742F300DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EF252801C2742F300DB3B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Options.storyboard; sourceTree = "<group>"; };
 		1EF252841C2742F300DB3B18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -231,8 +226,6 @@
 		1EF2532F1C274A0200DB3B18 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		1EF253301C274A0200DB3B18 /* DragObservableWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragObservableWindow.swift; sourceTree = "<group>"; };
 		1EF253311C274A0200DB3B18 /* FilterWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWindowController.swift; sourceTree = "<group>"; };
-		1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ShaderUtilities.c; sourceTree = "<group>"; };
-		1EF2534A1C274AFC00DB3B18 /* ShaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderUtilities.h; sourceTree = "<group>"; };
 		1EF2536C1C279A7700DB3B18 /* FilterSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSettingsController.swift; sourceTree = "<group>"; };
 		1EF2536E1C27B26300DB3B18 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		1EF253721C2849B600DB3B18 /* Controls.acorn */ = {isa = PBXFileReference; lastKnownFileType = file; path = Controls.acorn; sourceTree = "<group>"; };
@@ -268,7 +261,7 @@
 		6F90DE0A1395CCF500125BDA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		9424DE6026B63747007ADF4B /* MetalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderer.swift; sourceTree = "<group>"; };
 		9424DE6226B63747007ADF4B /* ScreenCaptureStreamCG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCaptureStreamCG.swift; sourceTree = "<group>"; };
-		9424DE6326B63747007ADF4B /* ScreenCaptureStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCaptureStream.swift; sourceTree = "<group>"; };
+		9424DE6326B63747007ADF4B /* CaptureStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureStream.swift; sourceTree = "<group>"; };
 		9424DE6A26B63747007ADF4B /* HCIRN.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = HCIRN.metal; sourceTree = "<group>"; };
 		9424DE6B26B63747007ADF4B /* HCIRNFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilter.swift; sourceTree = "<group>"; };
 		9424DE6C26B63747007ADF4B /* HCIRNFilterVendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCIRNFilterVendor.swift; sourceTree = "<group>"; };
@@ -358,30 +351,15 @@
 			path = "Stripe Icons";
 			sourceTree = "<group>";
 		};
-		1EF252601C2742F300DB3B18 /* Filter */ = {
-			isa = PBXGroup;
-			children = (
-				1EF252611C2742F300DB3B18 /* OpenGLShaderFilter.h */,
-				1EF252621C2742F300DB3B18 /* PassThroughFilter.h */,
-				1EF252631C2742F300DB3B18 /* PassThroughFilter.m */,
-				1EF252641C2742F300DB3B18 /* SimDaltonismFilter.h */,
-				1EF252651C2742F300DB3B18 /* SimDaltonismFilter.m */,
-				1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */,
-				1EF253481C274AFC00DB3B18 /* GL */,
-			);
-			path = Filter;
-			sourceTree = "<group>";
-		};
 		1EF252661C2742F300DB3B18 /* iOS App */ = {
 			isa = PBXGroup;
 			children = (
 				1E0FDB1B2D9E10CC008BBC1B /* Sim Daltonism (iOS)-Bridging-Header.h */,
 				1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */,
 				1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */,
+				1ECCBCC52DA5C21600715B93 /* FilterStore+Global.swift */,
 				1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */,
 				1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */,
-				1EF252781C2742F300DB3B18 /* OpenGLPixelBufferView.h */,
-				1EF252791C2742F300DB3B18 /* OpenGLPixelBufferView.m */,
 				1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */,
 				1E0FDB2D2D9EB616008BBC1B /* VisionPicker.swift */,
 				1E0FDB252D9EA77A008BBC1B /* MirroredScrollView.swift */,
@@ -461,15 +439,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1EF253481C274AFC00DB3B18 /* GL */ = {
-			isa = PBXGroup;
-			children = (
-				1EF253491C274AFC00DB3B18 /* ShaderUtilities.c */,
-				1EF2534A1C274AFC00DB3B18 /* ShaderUtilities.h */,
-			);
-			path = GL;
-			sourceTree = "<group>";
-		};
 		1EF253711C2849B600DB3B18 /* Control Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,7 +479,6 @@
 				1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */,
 				1E3BDB811C26408F00CADF46 /* ReadMe.md */,
 				9424DE5F26B63747007ADF4B /* Metal */,
-				1EF252601C2742F300DB3B18 /* Filter */,
 				1EF252661C2742F300DB3B18 /* iOS App */,
 				1EF253141C274A0200DB3B18 /* Mac App */,
 				6F90DDD81395CAAA00125BDA /* Frameworks */,
@@ -569,9 +537,10 @@
 		9424DE6126B63747007ADF4B /* ScreenCapture */ = {
 			isa = PBXGroup;
 			children = (
-				9424DE6326B63747007ADF4B /* ScreenCaptureStream.swift */,
+				9424DE6326B63747007ADF4B /* CaptureStream.swift */,
 				9424DE6226B63747007ADF4B /* ScreenCaptureStreamCG.swift */,
 				1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */,
+				1ECCBCBD2DA0C2A000715B93 /* AVCaptureStream.swift */,
 			);
 			path = ScreenCapture;
 			sourceTree = "<group>";
@@ -580,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				94E1494726C230A700327367 /* FilterStore.swift */,
+				1ECCBCCD2DAC01B800715B93 /* FilterConfiguration.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -714,7 +684,6 @@
 				1EF252E61C2742F300DB3B18 /* View.png in Resources */,
 				1EF252DA1C2742F300DB3B18 /* CameraSwap.png in Resources */,
 				1EF252DC1C2742F300DB3B18 /* CameraSwap@3x.png in Resources */,
-				1ED75E5D1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */,
 				1EF252DB1C2742F300DB3B18 /* CameraSwap@2x.png in Resources */,
 				1EF252DF1C2742F300DB3B18 /* FlashDark@3x.png in Resources */,
 				1EF252E01C2742F300DB3B18 /* FlashLight.png in Resources */,
@@ -775,7 +744,6 @@
 				1EBB1B232D89B33C004493E2 /* DashesTightTemplate@2x.png in Resources */,
 				1EBB1B242D89B33C004493E2 /* HorizontalStripesLooseTemplate@2x.png in Resources */,
 				1EF253821C2849B600DB3B18 /* Controls.acorn in Resources */,
-				1ED75E5E1C44942900042CB7 /* SimDaltonismFilter.strings in Resources */,
 				1EF253911C2849B600DB3B18 /* VisionTemplate@2x.png in Resources */,
 				1EF2538B1C2849B600DB3B18 /* FilteredTransparencyTemplate@2x.png in Resources */,
 				1EBB1B032D889A51004493E2 /* AddVibrancy.cikernel in Resources */,
@@ -789,15 +757,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF252CF1C2742F300DB3B18 /* OpenGLPixelBufferView.m in Sources */,
 				1ECCBCB92DA0C01500715B93 /* VisionType.swift in Sources */,
 				1ECCBCBC2DA0C06300715B93 /* Simulation.swift in Sources */,
 				1E0FDB312DA03101008BBC1B /* FilteredMetalView.swift in Sources */,
 				1E0FDB382DA03185008BBC1B /* MachadoFilterVendor.swift in Sources */,
-				1E0FDB3C2DA0318D008BBC1B /* Transforms.metal in Sources */,
 				1ECCBCBB2DA0C05000715B93 /* UserDefaults+WindowRestoration.swift in Sources */,
+				1ECCBCC02DA2C08A00715B93 /* Errors.swift in Sources */,
+				1ECCBCBF2DA0C5D800715B93 /* AVCaptureStream.swift in Sources */,
+				1ECCBCC62DA5C21600715B93 /* FilterStore+Global.swift in Sources */,
 				1E0FDB3D2DA0318D008BBC1B /* HCIRN.metal in Sources */,
-				1E0FDB3E2DA0318D008BBC1B /* VisionTools.metal in Sources */,
 				1E0FDB392DA03185008BBC1B /* MachadoFilters.swift in Sources */,
 				1E0FDB3A2DA03185008BBC1B /* HCIRNFilter.swift in Sources */,
 				1E0FDB3B2DA03185008BBC1B /* HCIRNFilterVendor.swift in Sources */,
@@ -807,18 +775,19 @@
 				1E0FDB1A2D9E10CA008BBC1B /* AppDelegate.swift in Sources */,
 				1E0FDB342DA0317A008BBC1B /* AddVibrancyFilter.swift in Sources */,
 				1E0FDB352DA0317A008BBC1B /* InvertHueFilter.swift in Sources */,
-				1E0FDB3F2DA031D2008BBC1B /* ScreenCaptureStream.swift in Sources */,
+				1E0FDB3F2DA031D2008BBC1B /* CaptureStream.swift in Sources */,
 				1E0FDB362DA0317A008BBC1B /* VisionToolsVendor.swift in Sources */,
 				1E0FDB372DA0317A008BBC1B /* StripesFilter.swift in Sources */,
+				1ECCBCCE2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */,
 				1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */,
 				1ECCBCBA2DA0C02A00715B93 /* VisionType+CIFilterVendor.swift in Sources */,
 				1E0FDB2E2D9EB619008BBC1B /* VisionPicker.swift in Sources */,
 				1E0FDB1D2D9E1483008BBC1B /* FilterViewController.swift in Sources */,
 				1E0FDB282D9EA9B4008BBC1B /* PaletteView.swift in Sources */,
 				1E0FDB2C2D9EB55D008BBC1B /* IconImageView.swift in Sources */,
-				1EF2534B1C274AFC00DB3B18 /* ShaderUtilities.c in Sources */,
+				1ECCBCC22DA2DD6E00715B93 /* VisionTools.metal in Sources */,
+				1ECCBCC32DA2DD6E00715B93 /* Transforms.metal in Sources */,
 				1E0FDB332DA0316B008BBC1B /* FilterStore.swift in Sources */,
-				1EF252C31C2742F300DB3B18 /* SimDaltonismFilter.m in Sources */,
 				1E0FDB2A2D9EB0B5008BBC1B /* AboutController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -844,7 +813,7 @@
 				1EF253A21C2AF1D600DB3B18 /* AboutBox.swift in Sources */,
 				1E0E34A82D7E832800846C27 /* FilteredOpenGLView.swift in Sources */,
 				9426E39E26D43D8C00D5356F /* VisionType+CIFilterVendor.swift in Sources */,
-				9424DE7526B63747007ADF4B /* ScreenCaptureStream.swift in Sources */,
+				9424DE7526B63747007ADF4B /* CaptureStream.swift in Sources */,
 				9424DE8326B63D82007ADF4B /* NSView+GetBestMetalDevice.swift in Sources */,
 				1EF2536F1C27B26300DB3B18 /* MenuButton.swift in Sources */,
 				1EF253701C27C1A500DB3B18 /* FilterSettingsController.swift in Sources */,
@@ -857,6 +826,7 @@
 				1E3331CE2D82148300BE6092 /* StripesFilter.swift in Sources */,
 				1EF43E4E2D986E80006441A2 /* InvertHueFilter.swift in Sources */,
 				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
+				1ECCBCCF2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */,
 				9424DE7F26B63747007ADF4B /* MachadoFilters.swift in Sources */,
 				9424DE7426B63747007ADF4B /* ScreenCaptureStreamCG.swift in Sources */,
 				94E1494826C230A700327367 /* FilterStore.swift in Sources */,
@@ -868,14 +838,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1ED75E5B1C44942900042CB7 /* SimDaltonismFilter.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1ED75E5C1C44942900042CB7 /* fr */,
-			);
-			name = SimDaltonismFilter.strings;
-			sourceTree = "<group>";
-		};
 		1ED75E6E1C453A6500042CB7 /* URLs.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -986,6 +948,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.1.5;
+				MTL_COMPILER_FLAGS = "-fcikernel";
+				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.michelf.SimDaltonismMobile;
 				PRODUCT_NAME = "Sim Daltonism";
@@ -1018,6 +982,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.1.5;
+				MTL_COMPILER_FLAGS = "-fcikernel";
+				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.michelf.SimDaltonismMobile;
 				PRODUCT_NAME = "Sim Daltonism";
@@ -1150,6 +1116,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTLLINKER_FLAGS = "-fcikernel";
+				MTL_COMPILER_FLAGS = "-fcikernel";
+				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1198,6 +1168,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTLLINKER_FLAGS = "-fcikernel";
+				MTL_COMPILER_FLAGS = "-fcikernel";
+				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

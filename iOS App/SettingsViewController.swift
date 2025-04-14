@@ -1,3 +1,4 @@
+import UIKit
 
 class SettingsViewController: UIViewController {
 
@@ -23,8 +24,8 @@ class SettingsViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.readDefaults()
-		NotificationCenter.default.addObserver(self, selector: #selector(readDefaults), name: UserDefaults.didChangeNotification, object: nil)
+		self.readConfiguration()
+		NotificationCenter.default.addObserver(self, selector: #selector(readConfiguration), name: FilterStore.didChangeNotification, object: FilterStore.global)
 	}
 
 	func viewWillDisappear(animated: Bool) {
@@ -32,17 +33,14 @@ class SettingsViewController: UIViewController {
 		super.viewWillDisappear(animated)
 	}
 
-	@objc func readDefaults() {
-		let userDefaults = UserDefaults.standard
-
+	@objc func readConfiguration() {
 		DispatchQueue.main.async {
 			self.paletteScrollView?.updateDisplay()
 		}
 
 		// Sim Daltonism
-		let visionType = userDefaults.integer(forKey: SimVisionTypeKey)
-		self.visionTypeName!.text = SimVisionTypeName(visionType)
-		self.visionTypeDescription!.text = SimVisionTypeDesc(visionType)
+		self.visionTypeName!.text = FilterStore.global.configuration.vision.name
+		self.visionTypeDescription!.text = FilterStore.global.configuration.vision.description
 	}
 
 	@IBAction func closeSettings(_ sender: Any) {

@@ -17,9 +17,11 @@
 
 #import "CapturePipeline.h"
 
+#if TARGET_OS_IPHONE
 @import UIKit;
-@import CoreMedia;
 @import AssetsLibrary;
+#endif
+@import CoreMedia;
 @import ImageIO;
 
 /*
@@ -42,23 +44,25 @@
 {
 	__weak id <CapturePipelineDelegate> _delegate; // __weak doesn't actually do anything under non-ARC
 	dispatch_queue_t _delegateCallbackQueue;
-	
+
 	NSMutableArray *_previousSecondTimestamps;
 
 	AVCaptureSession *_captureSession;
 	AVCaptureDevice *_videoDevice;
 	AVCaptureConnection *_videoConnection;
 	BOOL _running;
-	BOOL _startCaptureSessionOnEnteringForeground;
-	id _applicationWillEnterForegroundNotificationObserver;
-	NSDictionary *_videoCompressionSettings;
+	//	NSDictionary *_videoCompressionSettings;
 
 	dispatch_queue_t _sessionQueue;
 	dispatch_queue_t _videoDataOutputQueue;
-	
+
 	BOOL _renderingEnabled;
-	
+
+#if TARGET_OS_IPHONE
+	BOOL _startCaptureSessionOnEnteringForeground;
+	id _applicationWillEnterForegroundNotificationObserver;
 	UIBackgroundTaskIdentifier _pipelineRunningTask;
+#endif
 }
 
 @property(nonatomic, retain) __attribute__((NSObject)) CVPixelBufferRef currentPreviewPixelBuffer;
@@ -80,16 +84,19 @@
 	{
 		_previousSecondTimestamps = [[NSMutableArray alloc] init];
 
-		_sessionQueue = dispatch_queue_create( "com.apple.sample.capturepipeline.session", DISPATCH_QUEUE_SERIAL );
-		
+		_sessionQueue = dispatch_queue_create( "ca.michelf.capturepipeline.session", DISPATCH_QUEUE_SERIAL );
+
 		// In a multi-threaded producer consumer system it's generally a good idea to make sure that producers do not get starved of CPU time by their consumers.
 		// In this app we start with VideoDataOutput frames on a high priority queue, and downstream consumers use default priority queues.
 		// Audio uses a default priority queue because we aren't monitoring it live and just want to get it into the movie.
 		// AudioDataOutput can tolerate more latency than VideoDataOutput as its buffers aren't allocated out of a fixed size pool.
-		_videoDataOutputQueue = dispatch_queue_create( "com.apple.sample.capturepipeline.video", DISPATCH_QUEUE_SERIAL );
+		_videoDataOutputQueue = dispatch_queue_create( "ca.michelf.capturepipeline.video", DISPATCH_QUEUE_SERIAL );
 		dispatch_set_target_queue( _videoDataOutputQueue, dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0 ) );
 
+#if TARGET_OS_IPHONE
 		_pipelineRunningTask = UIBackgroundTaskInvalid;
+		[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(adjustVideoOrientation) name:UIDeviceOrientationDidChangeNotification object:nil];
+#endif
 	}
 	return self;
 }
@@ -99,12 +106,16 @@
 	if ( _currentPreviewPixelBuffer ) {
 		CFRelease( _currentPreviewPixelBuffer );
 	}
-	
+
 	[self teardownCaptureSession];
-	
+
 	if ( _outputVideoFormatDescription ) {
 		CFRelease( _outputVideoFormatDescription );
 	}
+
+#if TARGET_OS_IPHONE
+	[NSNotificationCenter.defaultCenter removeObserver:self];
+#endif
 }
 
 #pragma mark Delegate
@@ -114,7 +125,7 @@
 	if ( delegate && ( delegateCallbackQueue == NULL ) ) {
 		@throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Caller must provide a delegateCallbackQueue" userInfo:nil];
 	}
-	
+
 	@synchronized( self )
 	{
 		_delegate = delegate; // unnecessary under ARC, just assign to _delegate directly
@@ -138,7 +149,7 @@
 - (void)_startRunningCaptureSession {
 	[_captureSession startRunning];
 
-	@synchronized( self ) 
+	@synchronized( self )
 	{
 		if (self.delegate)
 		{
@@ -149,6 +160,18 @@
 			});
 		}
 	}
+}
+
+- (BOOL)isRunning
+{
+	__block BOOL running = NO;
+#if TARGET_IPHONE_SIMULATOR
+#else
+	dispatch_sync( _sessionQueue, ^{
+		running = self->_running;
+	} );
+#endif
+	return running;
 }
 
 - (void)startRunning
@@ -170,11 +193,11 @@
 #else
 	dispatch_sync( _sessionQueue, ^{
 		self->_running = NO;
-		
+
 		[self->_captureSession stopRunning];
-		
+
 		[self captureSessionDidStopRunning];
-		
+
 		[self teardownCaptureSession];
 	} );
 #endif
@@ -185,81 +208,88 @@
 	if ( _captureSession ) {
 		return;
 	}
-	
-	_captureSession = [[AVCaptureSession alloc] init];	
+
+	_captureSession = [[AVCaptureSession alloc] init];
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(captureSessionNotification:) name:nil object:_captureSession];
+#if TARGET_OS_IPHONE
 	_applicationWillEnterForegroundNotificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication] queue:nil usingBlock:^(NSNotification *note) {
 		// Retain self while the capture session is alive by referencing it in this observer block which is tied to the session lifetime
 		// Client must stop us running before we can be deallocated
 		[self applicationWillEnterForeground];
 	}];
-	
+#endif
+
 	/* Video */
-	if (_videoDevice == nil)
-		_videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+	//	if (_videoDevice == nil)
+	//		_videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 	AVCaptureDeviceInput *videoIn = [[AVCaptureDeviceInput alloc] initWithDevice:_videoDevice error:nil];
 	if ( [_captureSession canAddInput:videoIn] ) {
 		[_captureSession addInput:videoIn];
 	}
-	
+
 	AVCaptureVideoDataOutput *videoOut = [[AVCaptureVideoDataOutput alloc] init];
 	videoOut.videoSettings = @{ (id)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA) };
 	[videoOut setSampleBufferDelegate:self queue:_videoDataOutputQueue];
-	
+
 	// RosyWriter records videos and we prefer not to have any dropped frames in the video recording.
 	// By setting alwaysDiscardsLateVideoFrames to NO we ensure that minor fluctuations in system load or in our processing time for a given frame won't cause framedrops.
 	// We do however need to ensure that on average we can process frames in realtime.
 	// If we were doing preview only we would probably want to set alwaysDiscardsLateVideoFrames to YES.
 	videoOut.alwaysDiscardsLateVideoFrames = NO;
-	
+
 	if ( [_captureSession canAddOutput:videoOut] ) {
 		[_captureSession addOutput:videoOut];
 	}
 	_videoConnection = [videoOut connectionWithMediaType:AVMediaTypeVideo];
-		
-	int frameRate;
-	NSString *sessionPreset = AVCaptureSessionPresetPhoto;
-	CMTime frameDuration = kCMTimeInvalid;
-	// For single core systems like iPhone 4 and iPod Touch 4th Generation we use a lower resolution and framerate to maintain real-time performance.
-	if ( [NSProcessInfo processInfo].processorCount == 1 )
-	{
-		if ( [_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480] ) {
-			sessionPreset = AVCaptureSessionPreset640x480;
-		}
-		frameRate = 15;
-	}
-	else
-	{
-#if ! USE_OPENGL_RENDERER
-		// When using the CPU renderers or the CoreImage renderer we lower the resolution to 720p so that all devices can maintain real-time performance (this is primarily for A5 based devices like iPhone 4s and iPod Touch 5th Generation).
-		if ( [_captureSession canSetSessionPreset:AVCaptureSessionPreset1280x720] ) {
-			sessionPreset = AVCaptureSessionPreset1280x720;
-		}
-#endif // ! USE_OPENGL_RENDERER
+	[self adjustVideoOrientation];
 
-		frameRate = 30;
-	}
-	
-	_captureSession.sessionPreset = sessionPreset;
-	
-	frameDuration = CMTimeMake( 1, frameRate );
+	//	int frameRate;
+	//	NSString *sessionPreset = AVCaptureSessionPresetPhoto;
+	//	CMTime frameDuration = kCMTimeInvalid;
+	//	// For single core systems like iPhone 4 and iPod Touch 4th Generation we use a lower resolution and framerate to maintain real-time performance.
+	//	if ( [NSProcessInfo processInfo].processorCount == 1 )
+	//	{
+	//		if ( [_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480] ) {
+	//			sessionPreset = AVCaptureSessionPreset640x480;
+	//		}
+	//		frameRate = 15;
+	//	}
+	//	else
+	//	{
+	//#if ! USE_OPENGL_RENDERER
+	//		// When using the CPU renderers or the CoreImage renderer we lower the resolution to 720p so that all devices can maintain real-time performance (this is primarily for A5 based devices like iPhone 4s and iPod Touch 5th Generation).
+	//		if ( [_captureSession canSetSessionPreset:AVCaptureSessionPreset1280x720] ) {
+	//			sessionPreset = AVCaptureSessionPreset1280x720;
+	//		}
+	//#endif // ! USE_OPENGL_RENDERER
+	//
+	//		frameRate = 30;
+	//	}
 
-	NSError *error = nil;
-	if ( [_videoDevice lockForConfiguration:&error] ) {
-		_videoDevice.activeVideoMaxFrameDuration = frameDuration;
-		_videoDevice.activeVideoMinFrameDuration = frameDuration;
-		[_videoDevice unlockForConfiguration];
-	}
-	else {
-		NSLog( @"videoDevice lockForConfiguration returned error %@", error );
-	}
+	//	_captureSession.sessionPreset = sessionPreset;
+
+	//	frameDuration = CMTimeMake( 1, frameRate );
+	//
+	//	NSError *error = nil;
+	//	if ( [_videoDevice lockForConfiguration:&error] ) {
+	//		_videoDevice.activeVideoMaxFrameDuration = frameDuration;
+	//		_videoDevice.activeVideoMinFrameDuration = frameDuration;
+	//		[_videoDevice unlockForConfiguration];
+	//	}
+	//	else {
+	//		NSLog( @"videoDevice lockForConfiguration returned error %@", error );
+	//	}
 
 	// Get the recommended compression settings after configuring the session/device.
-	_videoCompressionSettings = [[videoOut recommendedVideoSettingsForAssetWriterWithOutputFileType:AVFileTypeQuickTimeMovie] copy];
-	
+	//	if (@available(macOS 10.15, *)) {
+	//		_videoCompressionSettings = [[videoOut recommendedVideoSettingsForAssetWriterWithOutputFileType:AVFileTypeQuickTimeMovie] copy];
+	//	} else {
+	//		// Fallback on earlier versions
+	//	}
+
 	self.videoOrientation = _videoConnection.videoOrientation;
-	
+
 	return;
 }
 
@@ -268,57 +298,70 @@
 	if ( _captureSession )
 	{
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:_captureSession];
-		
+
+#if TARGET_OS_IPHONE
 		[[NSNotificationCenter defaultCenter] removeObserver:_applicationWillEnterForegroundNotificationObserver];
 		_applicationWillEnterForegroundNotificationObserver = nil;
-		
+#endif
+
 		_captureSession = nil;
-		
-		_videoCompressionSettings = nil;
+
+		//		_videoCompressionSettings = nil;
 	}
 }
 
 - (void)captureSessionNotification:(NSNotification *)notification
 {
 	dispatch_async( _sessionQueue, ^{
-		
-		if ( [notification.name isEqualToString:AVCaptureSessionWasInterruptedNotification] )
-		{
-			NSLog( @"session interrupted, reason: %@", notification.userInfo[AVCaptureSessionInterruptionReasonKey] );
 
-			// Since we can't resume running while in the background we need to remember this for next time we come to the foreground
-			if ( self->_running ) {
-				self->_startCaptureSessionOnEnteringForeground = YES;
+		if (@available(macOS 10.14, *)) {
+			if ( [notification.name isEqualToString:AVCaptureSessionWasInterruptedNotification] )
+			{
+#if TARGET_OS_IPHONE
+				NSLog( @"session interrupted, reason: %@", notification.userInfo[AVCaptureSessionInterruptionReasonKey] );
+
+				// Since we can't resume running while in the background we need to remember this for next time we come to the foreground
+				if ( self->_running ) {
+					self->_startCaptureSessionOnEnteringForeground = YES;
+				}
+#endif
+
+				[self captureSessionDidStopRunning];
+				return;
 			}
-			
-			[self captureSessionDidStopRunning];
+			if ( [notification.name isEqualToString:AVCaptureSessionInterruptionEndedNotification] )
+			{
+				NSLog( @"session interruption ended" );
+				return;
+			}
 		}
-		else if ( [notification.name isEqualToString:AVCaptureSessionInterruptionEndedNotification] )
-		{
-			NSLog( @"session interruption ended" );
-		}
-		else if ( [notification.name isEqualToString:AVCaptureSessionRuntimeErrorNotification] )
+		if ( [notification.name isEqualToString:AVCaptureSessionRuntimeErrorNotification] )
 		{
 			[self captureSessionDidStopRunning];
-			
+
 			NSError *error = notification.userInfo[AVCaptureSessionErrorKey];
+#if TARGET_OS_IPHONE
 			if ( error.code == AVErrorMediaServicesWereReset )
 			{
 				NSLog( @"media services were reset" );
 				[self handleRecoverableCaptureSessionRuntimeError:error];
 			}
 			else
+#endif
 			{
 				[self handleNonRecoverableCaptureSessionRuntimeError:error];
 			}
+			return;
 		}
-		else if ( [notification.name isEqualToString:AVCaptureSessionDidStartRunningNotification] )
+		if ( [notification.name isEqualToString:AVCaptureSessionDidStartRunningNotification] )
 		{
 			NSLog( @"session started running" );
+			return;
 		}
-		else if ( [notification.name isEqualToString:AVCaptureSessionDidStopRunningNotification] )
+		if ( [notification.name isEqualToString:AVCaptureSessionDidStopRunningNotification] )
 		{
 			NSLog( @"session stopped running" );
+			return;
 		}
 	} );
 }
@@ -333,11 +376,11 @@
 - (void)handleNonRecoverableCaptureSessionRuntimeError:(NSError *)error
 {
 	NSLog( @"fatal runtime error %@, code %i", error, (int)error.code );
-	
+
 	_running = NO;
 	[self teardownCaptureSession];
-	
-	@synchronized( self ) 
+
+	@synchronized( self )
 	{
 		if ( self.delegate ) {
 			dispatch_async( _delegateCallbackQueue, ^{
@@ -354,14 +397,15 @@
 	[self teardownVideoPipeline];
 }
 
+#if TARGET_OS_IPHONE
 - (void)applicationWillEnterForeground
 {
 	NSLog( @"-[%@ %@] called", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
-	
+
 	dispatch_sync( _sessionQueue, ^{
 		if ( self->_startCaptureSessionOnEnteringForeground ) {
 			NSLog( @"-[%@ %@] manually restarting session", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
-			
+
 			self->_startCaptureSessionOnEnteringForeground = NO;
 			if ( self->_running ) {
 				[self _startRunningCaptureSession];
@@ -369,15 +413,16 @@
 		}
 	} );
 }
+#endif
 
 #pragma mark Capture Pipeline
 
 - (void)setupVideoPipelineWithInputFormatDescription:(CMFormatDescriptionRef)inputFormatDescription
 {
 	NSLog( @"-[%@ %@] called", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
-	
+
 	[self videoPipelineWillStartRunning];
-	
+
 	self.videoDimensions = CMVideoFormatDescriptionGetDimensions( inputFormatDescription );
 	self.outputVideoFormatDescription = inputFormatDescription;
 }
@@ -391,17 +436,17 @@
 	// Once the pipeline is drained we can tear it down safely.
 
 	NSLog( @"-[%@ %@] called", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
-	
+
 	dispatch_sync( _videoDataOutputQueue, ^{
 		if ( ! self.outputVideoFormatDescription ) {
 			return;
 		}
-		
+
 		self.outputVideoFormatDescription = nil;
 		self.currentPreviewPixelBuffer = NULL;
-		
+
 		NSLog( @"-[%@ %@] finished teardown", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
-		
+
 		[self videoPipelineDidFinishRunning];
 	} );
 }
@@ -409,22 +454,24 @@
 - (void)videoPipelineWillStartRunning
 {
 	NSLog( @"-[%@ %@] called", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
-	
+#if TARGET_OS_IPHONE
 	NSAssert( _pipelineRunningTask == UIBackgroundTaskInvalid, @"should not have a background task active before the video pipeline starts running" );
-	
+
 	_pipelineRunningTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
 		NSLog( @"video capture pipeline background task expired" );
 	}];
+#endif
 }
 
 - (void)videoPipelineDidFinishRunning
 {
 	NSLog( @"-[%@ %@] called", NSStringFromClass([self class]), NSStringFromSelector(_cmd) );
-	
+#if TARGET_OS_IPHONE
 	NSAssert( _pipelineRunningTask != UIBackgroundTaskInvalid, @"should have a background task active when the video pipeline finishes running" );
-	
+
 	[[UIApplication sharedApplication] endBackgroundTask:_pipelineRunningTask];
 	_pipelineRunningTask = UIBackgroundTaskInvalid;
+#endif
 }
 
 // call under @synchronized( self )
@@ -462,7 +509,7 @@
 	{
 		// Keep preview latency low by dropping stale frames that have not been picked up by the delegate yet
 		self.currentPreviewPixelBuffer = previewPixelBuffer;
-		
+
 		dispatch_async( _delegateCallbackQueue, ^{
 			@autoreleasepool
 			{
@@ -475,7 +522,7 @@
 						self.currentPreviewPixelBuffer = NULL;
 					}
 				}
-				
+
 				if ( currentPreviewPixelBuffer ) {
 					[self.delegate capturePipeline:self previewPixelBufferReadyForDisplay:currentPreviewPixelBuffer];
 					CFRelease( currentPreviewPixelBuffer );
@@ -488,7 +535,7 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
 	CMFormatDescriptionRef formatDescription = CMSampleBufferGetFormatDescription( sampleBuffer );
-	
+
 	if ( connection == _videoConnection )
 	{
 		if ( self.outputVideoFormatDescription == nil ) {
@@ -507,9 +554,9 @@
 {
 	CVPixelBufferRef renderedPixelBuffer = NULL;
 	CMTime timestamp = CMSampleBufferGetPresentationTimeStamp( sampleBuffer );
-	
+
 	[self calculateFramerateAtTimestamp:timestamp];
-	
+
 	// We must not use the GPU while running in the background.
 	// setRenderingEnabled: takes the same lock so the caller can guarantee no GPU usage once the setter returns.
 	@synchronized( self )
@@ -535,35 +582,39 @@
 	}
 }
 
-- (BOOL)inputDeviceCount
-{
-	return [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count;
-}
+//- (BOOL)inputDeviceCount
+//{
+//	return [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo].count;
+//}
 
-- (BOOL)toggleInputDevice
-{
-	AVCaptureDevice *currentVideoDevice = _videoDevice;
-	AVCaptureDevice *nextVideoDevice = nil;
-	BOOL passedCurrent = NO;
+//- (BOOL)toggleInputDevice
+//{
+//	AVCaptureDevice *currentVideoDevice = _videoDevice;
+//	AVCaptureDevice *nextVideoDevice = nil;
+//	BOOL passedCurrent = NO;
+//
+//	for (AVCaptureDevice *device in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) {
+//		if (device == currentVideoDevice)
+//		{
+//			passedCurrent = YES;
+//			continue;
+//		}
+//		if (device.connected)
+//		{
+//			nextVideoDevice = device;
+//			if (passedCurrent)
+//				break;
+//		}
+//	}
+//
+//	return [self selectDevice:nextVideoDevice];
+//}
 
-	for (AVCaptureDevice *device in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) {
-		if (device == currentVideoDevice)
-		{
-			passedCurrent = YES;
-			continue;
-		}
-		if (device.connected)
-		{
-			nextVideoDevice = device;
-			if (passedCurrent)
-				break;
-		}
-	}
-
-	if (nextVideoDevice && nextVideoDevice != _videoDevice)
+- (BOOL)selectDevice:(AVCaptureDevice *)newVideoDevice {
+	if (newVideoDevice != _videoDevice)
 	{
 		dispatch_async(_sessionQueue, ^{
-			self->_videoDevice = nextVideoDevice;
+			self->_videoDevice = newVideoDevice;
 			if (self->_running)
 			{
 				[self teardownCaptureSession];
@@ -582,15 +633,38 @@
 
 #pragma mark Utilities
 
-// Auto mirroring: Front camera is mirrored; back camera isn't 
+- (void)adjustVideoOrientation {
+#if TARGET_OS_IPHONE
+	if (_videoConnection.supportsVideoOrientation) {
+		switch (UIApplication.sharedApplication.statusBarOrientation) {
+			case UIInterfaceOrientationPortrait:
+				_videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
+				break;
+			case UIInterfaceOrientationPortraitUpsideDown:
+				_videoConnection.videoOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
+				break;
+			case UIInterfaceOrientationLandscapeLeft:
+				_videoConnection.videoOrientation = AVCaptureVideoOrientationLandscapeLeft;
+				break;
+			case UIInterfaceOrientationLandscapeRight:
+				_videoConnection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
+				break;
+			case UIInterfaceOrientationUnknown:
+				break;
+		}
+	}
+#endif
+}
+
+// Auto mirroring: Front camera is mirrored; back camera isn't
 - (CGAffineTransform)transformFromVideoBufferOrientationToOrientation:(AVCaptureVideoOrientation)orientation withAutoMirroring:(BOOL)mirror
 {
 	CGAffineTransform transform = CGAffineTransformIdentity;
-		
+
 	// Calculate offsets from an arbitrary reference orientation (portrait)
 	CGFloat orientationAngleOffset = angleOffsetFromPortraitOrientationToOrientation( orientation );
 	CGFloat videoOrientationAngleOffset = angleOffsetFromPortraitOrientationToOrientation( self.videoOrientation );
-	
+
 	// Find the difference in angle between the desired orientation and the video orientation
 	CGFloat angleOffset = orientationAngleOffset - videoOrientationAngleOffset;
 	transform = CGAffineTransformMakeRotation( angleOffset );
@@ -601,14 +675,14 @@
 			transform = CGAffineTransformScale( transform, -1, 1 );
 		}
 	}
-	
+
 	return transform;
 }
 
 static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOrientation orientation)
 {
 	CGFloat angle = 0.0;
-	
+
 	switch ( orientation )
 	{
 		case AVCaptureVideoOrientationPortrait:
@@ -626,21 +700,21 @@ static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOri
 		default:
 			break;
 	}
-	
+
 	return angle;
 }
 
 - (void)calculateFramerateAtTimestamp:(CMTime)timestamp
 {
 	[_previousSecondTimestamps addObject:[NSValue valueWithCMTime:timestamp]];
-	
+
 	CMTime oneSecond = CMTimeMake( 1, 1 );
 	CMTime oneSecondAgo = CMTimeSubtract( timestamp, oneSecond );
-	
+
 	while( CMTIME_COMPARE_INLINE( [_previousSecondTimestamps[0] CMTimeValue], <, oneSecondAgo ) ) {
 		[_previousSecondTimestamps removeObjectAtIndex:0];
 	}
-	
+
 	if ( [_previousSecondTimestamps count] > 1 ) {
 		const Float64 duration = CMTimeGetSeconds( CMTimeSubtract( [[_previousSecondTimestamps lastObject] CMTimeValue], [_previousSecondTimestamps[0] CMTimeValue] ) );
 		const float newRate = (float)( [_previousSecondTimestamps count] - 1 ) / duration;

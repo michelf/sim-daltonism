@@ -1,3 +1,4 @@
+import UIKit
 
 private let numColumns = colors.count
 private let numRows = whiteBlackEffect.count

@@ -24,26 +24,34 @@ import CoreImage
 ///
 public class FilterStore {
 
+	public required init(configuration: FilterConfiguration) {
+		self.configuration = configuration
+
+		VisionToolsVendor.registerFilters()
+
+		applyConfigurationAsync(configuration)
+	}
+
+	public var configuration: FilterConfiguration {
+		didSet {
+			assert(Thread.isMainThread)
+			applyConfigurationAsync(configuration)
+			NotificationCenter.default.post(name: Self.didChangeNotification, object: self)
+		}
+	}
+
+	/// Notification sent when the configuration is changed.
+	public static let didChangeNotification = Notification.Name("FilterStoreDidChange")
+
+	private(set) var oldConfig: FilterConfiguration?
 	private(set) var visionFilter: CIFilter? = nil
 	private(set) var stripeFilter: Stripes? = nil
 	private(set) var vibrancyFilter: CIFilter? = nil
 	private(set) var invertFilter: CIFilter? = nil
 	private(set) var hueAdjustFilter: CIFilter? = nil
+
 	private let queue = DispatchQueue(label: FilterStore.nextDispatchQueueLabel(), qos: .userInitiated)
-    private var vision: VisionType
-	internal var stripeConfig = StripeConfig()
-	internal var colorEffects: (invertLuminance: Bool, hueShift: Bool) = (false, false)
-	internal var colorBoost: Bool = false
 
-    public required init(vision: VisionType = UserDefaults.getVision(),
-                         simulation: Simulation = UserDefaults.getSimulation()) {
-        self.vision = vision
-        queue.async { [weak self] in
-            self?.setSimulation(to: simulation)
-
-			VisionToolsVendor.registerFilters()
-        }
-    }
 }
 
 // MARK: - Apply Filter
@@ -69,8 +77,7 @@ extension CIImage {
 
 extension FilterStore {
 
-    /// Applies a vision filter if available.
-    /// Call on the queue in which the store was created.
+    /// Applies a vision filter if available. Thread-safe, can be called from any thread.
     ///
     public func applyFilter(to image: CIImage) -> CIImage? {
 		queue.sync {
@@ -84,109 +91,81 @@ extension FilterStore {
 			return image
 		}
     }
+
 }
 
 // MARK: - Change Filters
 
 extension FilterStore {
 
-    public func setVision(to vision: VisionType) {
-        queue.async { [weak self] in
-			guard let self = self else { return }
-			self.visionFilter = CIFilter(name: vision.ciFilterString)
-			self.vision = vision
-        }
-    }
+	private func applyConfigurationAsync(_ newConfig: FilterConfiguration) {
+		queue.async {
+			self.changeVision(for: newConfig)
+			self.changeStripes(for: newConfig)
+			self.changeEffects(for: newConfig)
+			self.changeColorBoost(for: newConfig)
+			self.oldConfig = newConfig
+		}
+	}
 
-	public func setSimulation(to simulation: Simulation) {
-		queue.async { [weak self] in
-			guard let self = self else { return }
-			switch simulation {
+	private func changeVision(for newConfig: FilterConfiguration) {
+		dispatchPrecondition(condition: .onQueue(queue))
+		let hasNewSimulation = newConfig.simulation != oldConfig?.simulation
+		if hasNewSimulation {
+			switch newConfig.simulation {
 			case .wicklineHCIRN: HCIRNFilterVendor.registerFilters()
 			case .machadoEtAl: MachadoFilterVendor.registerFilters()
 			}
-			self.visionFilter = CIFilter(name: self.vision.ciFilterString)
+		}
+		guard hasNewSimulation || newConfig.vision != oldConfig?.vision else { return }
+		self.visionFilter = CIFilter(name: newConfig.vision.ciFilterString)
+	}
+
+	private func changeStripes(for newConfig: FilterConfiguration) {
+		dispatchPrecondition(condition: .onQueue(queue))
+		let stripeConfig = newConfig.stripeConfig
+		if stripeConfig.isPassthrough && stripeFilter != nil {
+			stripeFilter = nil
+		} else if !stripeConfig.isPassthrough && stripeFilter == nil {
+			_ = Self.visionToolFilterRegistration
+			stripeFilter = (CIFilter(name: "Stripes") as! Stripes)
+		}
+		stripeFilter?.config = stripeConfig
+	}
+
+	private func changeEffects(for newConfig: FilterConfiguration) {
+		dispatchPrecondition(condition: .onQueue(queue))
+		let needsInvert = newConfig.invertLuminance
+		let needsHueAdjust = newConfig.hueShift != needsInvert
+		if !needsInvert && invertFilter != nil {
+			invertFilter = nil
+		} else if needsInvert && invertFilter == nil {
+			_ = Self.visionToolFilterRegistration
+			invertFilter = CIFilter(name: "CIColorInvert")
+		}
+		if !needsHueAdjust && hueAdjustFilter != nil {
+			hueAdjustFilter = nil
+		} else if needsHueAdjust && hueAdjustFilter == nil {
+			_ = Self.visionToolFilterRegistration
+			let hueAdjustFilter = CIFilter(name: "InvertHue")
+			self.hueAdjustFilter = hueAdjustFilter
 		}
 	}
 
-	public func changeStripes(_ task: @escaping (inout StripeConfig) -> ()) {
-		queue.async { [weak self] in
-			guard let self else { return }
-			task(&stripesConfig_inQueue)
+	private func changeColorBoost(for newConfig: FilterConfiguration) {
+		dispatchPrecondition(condition: .onQueue(queue))
+		let colorBoost = newConfig.colorBoost
+		if !colorBoost && vibrancyFilter != nil {
+			vibrancyFilter = nil
+		} else if colorBoost && vibrancyFilter == nil {
+			_ = Self.visionToolFilterRegistration
+			vibrancyFilter = CIFilter(name: "AddVibrancy")
 		}
 	}
 
-	private var stripesConfig_inQueue: StripeConfig {
-		get {
-			assert(Thread.isMainThread == false)
-			return self.stripeFilter?.config ?? StripeConfig()
-		}
-		set {
-			assert(Thread.isMainThread == false)
-			if newValue.isPassthrough && stripeFilter != nil {
-				stripeFilter = nil
-			} else if !newValue.isPassthrough && stripeFilter == nil {
-				stripeFilter = (CIFilter(name: "Stripes") as! Stripes)
-			}
-			stripeFilter?.config = newValue
-			self.stripeConfig = newValue
-		}
-	}
-
-	public func changeEffects(_ task: @escaping (inout (invertLuminance: Bool, hueShift: Bool)) -> ()) {
-		queue.async { [weak self] in
-			guard let self else { return }
-			task(&colorEffects_inQueue)
-		}
-	}
-
-	private var colorEffects_inQueue: (invertLuminance: Bool, hueShift: Bool) {
-		get {
-			assert(Thread.isMainThread == false)
-			return colorEffects
-		}
-		set {
-			assert(Thread.isMainThread == false)
-			colorEffects = newValue
-			let needsInvert = newValue.invertLuminance
-			let needsHueAdjust = newValue.hueShift != needsInvert
-			if !needsInvert && invertFilter != nil {
-				invertFilter = nil
-			} else if needsInvert && invertFilter == nil {
-				invertFilter = CIFilter(name: "CIColorInvert")
-			}
-			if !needsHueAdjust && hueAdjustFilter != nil {
-				hueAdjustFilter = nil
-			} else if needsHueAdjust && hueAdjustFilter == nil {
-				let hueAdjustFilter = CIFilter(name: "InvertHue")
-				self.hueAdjustFilter = hueAdjustFilter
-			}
-			colorEffects = newValue
-		}
-	}
-
-	public func changeColorBoost(_ task: @escaping (inout Bool) -> ()) {
-		queue.async { [weak self] in
-			guard let self else { return }
-			task(&colorBoost_inQueue)
-		}
-	}
-
-	private var colorBoost_inQueue: Bool {
-		get {
-			assert(Thread.isMainThread == false)
-			return self.colorBoost
-		}
-		set {
-			assert(Thread.isMainThread == false)
-			colorBoost = newValue
-			if !newValue && vibrancyFilter != nil {
-				vibrancyFilter = nil
-			} else if newValue && vibrancyFilter == nil {
-				vibrancyFilter = CIFilter(name: "AddVibrancy")
-			}
-		}
-	}
+	/// Lazy initialization for vision tool filters.
+	private static var visionToolFilterRegistration: () = {
+	}()
 
 }
 

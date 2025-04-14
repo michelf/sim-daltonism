@@ -25,15 +25,15 @@ struct MetalDisabledError: Error {}
 
 class FilterViewController: NSViewController {
 
-    @IBOutlet var filteredView: FilteredMetalView!
-    private var renderer: ScreenCaptureStreamDelegate? = nil
-    private var screenCaptureStream: ScreenCaptureStream? = nil
+    private var renderer: CaptureStreamDelegate? = nil
+    private var screenCaptureStream: CaptureStream? = nil
     private weak var filterStore: FilterStore!
 	#if os(macOS)
 	/// Fallback for old Macs with no Metal support
 	var openGLFilteredView: NSOpenGLView?
 	#endif
 
+	@IBOutlet var filteredView: FilteredMetalView!
 	@IBOutlet var permissionRequestView: NSView?
 	@IBOutlet var permissionRequestBackground: NSView?
 	@IBOutlet var openSystemSettingsButton: NSButton?
@@ -56,7 +56,7 @@ class FilterViewController: NSViewController {
         filteredView.frame = initialFrame
 
         do { try self.connectMetalViewAndFilterPipeline() }
-        catch let error { NSApp.mainWindow?.presentError(error) }
+		catch let error { NSApp.presentError(error) }
 
 
 		screenCaptureStream = if #available(macOS 15, *), !forceCGCapture {
@@ -68,7 +68,7 @@ class FilterViewController: NSViewController {
 		updateCapturePermissionVisibility()
 
         do { try self.screenCaptureStream?.startSession(in: initialFrame, delegate: renderer!) }
-        catch let error { NSApp.mainWindow?.presentError(error) }
+		catch let error { NSApp.presentError(error) }
 
 		activateMouseEventMonitoring()
     }

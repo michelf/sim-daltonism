@@ -17,18 +17,28 @@ import MetalKit
 
 public class FilteredMetalView: MTKView {
 
+	public override init(frame: CGRect, device: MTLDevice?) {
+		super.init(frame: frame, device: device)
+		postInit()
+	}
     public required init(coder: NSCoder) {
         super.init(coder: coder)
-        self.isPaused = true
-        self.enableSetNeedsDisplay = true
-        self.framebufferOnly = false
-        self.autoResizeDrawable = true
-		#if os(macOS)
-        self.autoresizingMask = [.height, .width]
-		#else
-		self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-		#endif
+		postInit()
     }
+	private func postInit() {
+		if device == nil {
+			self.device = MTLCreateSystemDefaultDevice()
+		}
+		self.isPaused = true
+		self.enableSetNeedsDisplay = true
+		self.framebufferOnly = false
+		self.autoResizeDrawable = true
+#if os(macOS)
+		self.autoresizingMask = [.height, .width]
+#else
+		self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+#endif
+	}
 
 	#if os(macOS)
     public override var isOpaque: Bool { get { true } }

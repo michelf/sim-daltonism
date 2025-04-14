@@ -45,7 +45,7 @@ class OpenGLRenderer: NSObject {
 	])!
 }
 
-extension OpenGLRenderer: ScreenCaptureStreamDelegate {
+extension OpenGLRenderer: CaptureStreamDelegate {
 
     /// Called on the ImageCapturer's queue,
     /// which should be the CIFilter queue

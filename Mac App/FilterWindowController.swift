@@ -19,7 +19,7 @@ import Cocoa
 class FilterWindowController: NSWindowController, NSWindowDelegate {
 
     /// Unique instance per window
-    var filterStore: FilterStore = FilterStore()
+	var filterStore: FilterStore = FilterStore(configuration: FilterConfiguration())
 
     // MARK: - User Settings
 
@@ -37,7 +37,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
     private func applyVisionType() {
         guard let window = self.window else { return }
         window.title = visionType.name
-        filterStore.setVision(to: visionType)
+		filterStore.configuration.vision = visionType
         FilterWindowManager.shared.changedWindowController(self)
         window.invalidateRestorableState()
     }
@@ -54,7 +54,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
     }
 
     fileprivate func applySimulation() {
-        filterStore.setSimulation(to: simulation)
+		filterStore.configuration.simulation = simulation
     }
 
 
@@ -136,27 +136,27 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 			return true
 
 		case #selector(adoptRedStripeSetting)?:
-			let current = Int(filterStore.stripeConfig.redStripes)
+			let current = Int(filterStore.configuration.stripeConfig.redStripes)
 			menuItem.state = current == menuItem.tag ? .on : .off
 			return true
 		case #selector(adoptGreenStripeSetting)?:
-			let current = Int(filterStore.stripeConfig.greenStripes)
+			let current = Int(filterStore.configuration.stripeConfig.greenStripes)
 			menuItem.state = current == menuItem.tag ? .on : .off
 			return true
 		case #selector(adoptBlueStripesSetting)?:
-			let current = Int(filterStore.stripeConfig.blueStripes)
+			let current = Int(filterStore.configuration.stripeConfig.blueStripes)
 			menuItem.state = current == menuItem.tag ? .on : .off
 			return true
 		case #selector(toggleInvertHue)?:
-			let current = filterStore.colorEffects.hueShift
+			let current = filterStore.configuration.hueShift
 			menuItem.state = current ? .on : .off
 			return true
 		case #selector(toggleInvertLuminance)?:
-			let current = filterStore.colorEffects.invertLuminance
+			let current = filterStore.configuration.invertLuminance
 			menuItem.state = current ? .on : .off
 			return true
 		case #selector(toggleSaturationBoost)?:
-			let current = filterStore.colorBoost
+			let current = filterStore.configuration.colorBoost
 			menuItem.state = current ? .on : .off
 			return true
 		default:
@@ -173,45 +173,30 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
     }
 
 	@IBAction func adoptRedStripeSetting(_ sender: NSMenuItem) {
-		filterStore.changeStripes {
-			$0.redStripes = Float(sender.tag)
-		}
+		filterStore.configuration.stripeConfig.redStripes = Float(sender.tag)
 	}
 
 	@IBAction func adoptGreenStripeSetting(_ sender: NSMenuItem) {
-		filterStore.changeStripes {
-			$0.greenStripes = Float(sender.tag)
-		}
+		filterStore.configuration.stripeConfig.greenStripes = Float(sender.tag)
 	}
 
 	@IBAction func adoptBlueStripesSetting(_ sender: NSMenuItem) {
-		filterStore.changeStripes {
-			$0.blueStripes = Float(sender.tag)
-		}
+		filterStore.configuration.stripeConfig.blueStripes = Float(sender.tag)
 	}
 
 	@IBAction func toggleInvertHue(_ sender: NSMenuItem) {
 		let setting = !(sender.state == .on ? true : false)
-		filterStore.changeEffects {
-			$0.hueShift = setting
-		}
-//		UserDefaults.standard.set(setting, forKey: InvertHueKey)
+		filterStore.configuration.hueShift = setting
 	}
 
 	@IBAction func toggleInvertLuminance(_ sender: NSMenuItem) {
 		let setting = !(sender.state == .on ? true : false)
-		filterStore.changeEffects {
-			$0.invertLuminance = setting
-		}
-//		UserDefaults.standard.set(setting, forKey: InvertLuminanceKey)
+		filterStore.configuration.invertLuminance = setting
 	}
 
 	@IBAction func toggleSaturationBoost(_ sender: NSMenuItem) {
 		let setting = !(sender.state == .on ? true : false)
-		filterStore.changeColorBoost {
-			$0 = setting
-		}
-//		UserDefaults.standard.set(setting, forKey: SaturationBoostKey)
+		filterStore.configuration.colorBoost = setting
 	}
 
 
