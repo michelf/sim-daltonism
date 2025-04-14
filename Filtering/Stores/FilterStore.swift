@@ -27,7 +27,7 @@ public class FilterStore {
 	public required init(configuration: FilterConfiguration) {
 		self.configuration = configuration
 
-		VisionToolsVendor.registerFilters()
+		ColorToolsVendor.registerFilters()
 
 		applyConfigurationAsync(configuration)
 	}

@@ -24,7 +24,7 @@
 		1E0FDB332DA0316B008BBC1B /* FilterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494726C230A700327367 /* FilterStore.swift */; };
 		1E0FDB342DA0317A008BBC1B /* AddVibrancyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBF34D2D87956900CD0BC4 /* AddVibrancyFilter.swift */; };
 		1E0FDB352DA0317A008BBC1B /* InvertHueFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF43E4D2D986E80006441A2 /* InvertHueFilter.swift */; };
-		1E0FDB362DA0317A008BBC1B /* VisionToolsVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331CA2D82148300BE6092 /* VisionToolsVendor.swift */; };
+		1E0FDB362DA0317A008BBC1B /* ColorToolsVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331CA2D82148300BE6092 /* ColorToolsVendor.swift */; };
 		1E0FDB372DA0317A008BBC1B /* StripesFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331C92D82148300BE6092 /* StripesFilter.swift */; };
 		1E0FDB382DA03185008BBC1B /* MachadoFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6F26B63747007ADF4B /* MachadoFilterVendor.swift */; };
 		1E0FDB392DA03185008BBC1B /* MachadoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7026B63747007ADF4B /* MachadoFilters.swift */; };
@@ -34,8 +34,8 @@
 		1E0FDB3F2DA031D2008BBC1B /* CaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* CaptureStream.swift */; };
 		1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */; };
 		1E3331CB2D82148300BE6092 /* Stripes.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E3331C82D82148300BE6092 /* Stripes.cikernel */; };
-		1E3331CC2D82148300BE6092 /* VisionToolsVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331CA2D82148300BE6092 /* VisionToolsVendor.swift */; };
-		1E3331CD2D82148300BE6092 /* VisionTools.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331C72D82148300BE6092 /* VisionTools.metal */; };
+		1E3331CC2D82148300BE6092 /* ColorToolsVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331CA2D82148300BE6092 /* ColorToolsVendor.swift */; };
+		1E3331CD2D82148300BE6092 /* ColorTools.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331C72D82148300BE6092 /* ColorTools.metal */; };
 		1E3331CE2D82148300BE6092 /* StripesFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331C92D82148300BE6092 /* StripesFilter.swift */; };
 		1E7612C31E5E2F85007AF062 /* FilterWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */; };
 		1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */; };
@@ -64,7 +64,7 @@
 		1ECCBCBC2DA0C06300715B93 /* Simulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E1494926C23EFF00327367 /* Simulation.swift */; };
 		1ECCBCBF2DA0C5D800715B93 /* AVCaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCBCBD2DA0C2A000715B93 /* AVCaptureStream.swift */; };
 		1ECCBCC02DA2C08A00715B93 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B926C326B139C600754E0C /* Errors.swift */; };
-		1ECCBCC22DA2DD6E00715B93 /* VisionTools.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331C72D82148300BE6092 /* VisionTools.metal */; };
+		1ECCBCC22DA2DD6E00715B93 /* ColorTools.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331C72D82148300BE6092 /* ColorTools.metal */; };
 		1ECCBCC32DA2DD6E00715B93 /* Transforms.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE7126B63747007ADF4B /* Transforms.metal */; };
 		1ECCBCC62DA5C21600715B93 /* FilterStore+Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCBCC52DA5C21600715B93 /* FilterStore+Global.swift */; };
 		1ECCBCCE2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCBCCD2DAC01B800715B93 /* FilterConfiguration.swift */; };
@@ -147,7 +147,7 @@
 		1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGLRenderer.swift; sourceTree = "<group>"; };
 		1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = HCIRN.cikernel; sourceTree = "<group>"; };
 		1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1E0FDB1B2D9E10CC008BBC1B /* Sim Daltonism (iOS)-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sim Daltonism (iOS)-Bridging-Header.h"; sourceTree = "<group>"; };
+		1E0FDB1B2D9E10CC008BBC1B /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1E0FDB252D9EA77A008BBC1B /* MirroredScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirroredScrollView.swift; sourceTree = "<group>"; };
@@ -156,10 +156,10 @@
 		1E0FDB2B2D9EB55A008BBC1B /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		1E0FDB2D2D9EB616008BBC1B /* VisionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPicker.swift; sourceTree = "<group>"; };
 		1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureStreamSCKit.swift; sourceTree = "<group>"; };
-		1E3331C72D82148300BE6092 /* VisionTools.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = VisionTools.metal; sourceTree = "<group>"; };
+		1E3331C72D82148300BE6092 /* ColorTools.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ColorTools.metal; sourceTree = "<group>"; };
 		1E3331C82D82148300BE6092 /* Stripes.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = Stripes.cikernel; sourceTree = "<group>"; };
 		1E3331C92D82148300BE6092 /* StripesFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripesFilter.swift; sourceTree = "<group>"; };
-		1E3331CA2D82148300BE6092 /* VisionToolsVendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionToolsVendor.swift; sourceTree = "<group>"; };
+		1E3331CA2D82148300BE6092 /* ColorToolsVendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorToolsVendor.swift; sourceTree = "<group>"; };
 		1E3BDB811C26408F00CADF46 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		1E7612C21E5E2F85007AF062 /* FilterWindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWindowManager.swift; sourceTree = "<group>"; };
 		1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureDefaults.swift; sourceTree = "<group>"; };
@@ -313,19 +313,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1E3331C62D82147400BE6092 /* VisionTools */ = {
+		1E3331C62D82147400BE6092 /* ColorTools */ = {
 			isa = PBXGroup;
 			children = (
-				1E3331C72D82148300BE6092 /* VisionTools.metal */,
+				1E3331C72D82148300BE6092 /* ColorTools.metal */,
 				1E3331C82D82148300BE6092 /* Stripes.cikernel */,
 				1EBB1B022D889A51004493E2 /* AddVibrancy.cikernel */,
 				1EF43E4B2D986E2D006441A2 /* InvertHue.cikernel */,
 				1E3331C92D82148300BE6092 /* StripesFilter.swift */,
 				1EDBF34D2D87956900CD0BC4 /* AddVibrancyFilter.swift */,
 				1EF43E4D2D986E80006441A2 /* InvertHueFilter.swift */,
-				1E3331CA2D82148300BE6092 /* VisionToolsVendor.swift */,
+				1E3331CA2D82148300BE6092 /* ColorToolsVendor.swift */,
 			);
-			path = VisionTools;
+			path = ColorTools;
 			sourceTree = "<group>";
 		};
 		1EBB1B142D89B33C004493E2 /* Stripe Icons */ = {
@@ -351,21 +351,75 @@
 			path = "Stripe Icons";
 			sourceTree = "<group>";
 		};
+		1ECCBCDB2DAD8E6600715B93 /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				1ECCBCDF2DAD9A3900715B93 /* Metal */,
+				1ECCBCE02DAD9A4300715B93 /* OpenGL */,
+			);
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		1ECCBCDC2DAD8E8100715B93 /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				9426E39D26D43D8C00D5356F /* VisionType+CIFilterVendor.swift */,
+				94E1494926C23EFF00327367 /* Simulation.swift */,
+				94E8FB2A26B3D30D0027BCF4 /* VisionType.swift */,
+				9424DE6926B63747007ADF4B /* HCIRN */,
+				9424DE6E26B63747007ADF4B /* Machado */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
+		1ECCBCDD2DAD8F7C00715B93 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E0FDB252D9EA77A008BBC1B /* MirroredScrollView.swift */,
+				1E0FDB272D9EA9B0008BBC1B /* PaletteView.swift */,
+				1E0FDB2B2D9EB55A008BBC1B /* IconImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1ECCBCDE2DAD8F9000715B93 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */,
+				1E0FDB2D2D9EB616008BBC1B /* VisionPicker.swift */,
+				1E0FDB292D9EB0B1008BBC1B /* AboutController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1ECCBCDF2DAD9A3900715B93 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				9424DE7226B63747007ADF4B /* FilteredMetalView.swift */,
+				9424DE6026B63747007ADF4B /* MetalRenderer.swift */,
+				9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		1ECCBCE02DAD9A4300715B93 /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */,
+				1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */,
+			);
+			path = OpenGL;
+			sourceTree = "<group>";
+		};
 		1EF252661C2742F300DB3B18 /* iOS App */ = {
 			isa = PBXGroup;
 			children = (
-				1E0FDB1B2D9E10CC008BBC1B /* Sim Daltonism (iOS)-Bridging-Header.h */,
+				1E0FDB1B2D9E10CC008BBC1B /* BridgingHeader.h */,
 				1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */,
 				1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */,
 				1ECCBCC52DA5C21600715B93 /* FilterStore+Global.swift */,
-				1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */,
-				1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */,
-				1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */,
-				1E0FDB2D2D9EB616008BBC1B /* VisionPicker.swift */,
-				1E0FDB252D9EA77A008BBC1B /* MirroredScrollView.swift */,
-				1E0FDB272D9EA9B0008BBC1B /* PaletteView.swift */,
-				1E0FDB292D9EB0B1008BBC1B /* AboutController.swift */,
-				1E0FDB2B2D9EB55A008BBC1B /* IconImageView.swift */,
+				1ECCBCDE2DAD8F9000715B93 /* Settings */,
+				1ECCBCDD2DAD8F7C00715B93 /* Views */,
 				1EF2526F1C2742F300DB3B18 /* Images.xcassets */,
 				1EF2527C1C2742F300DB3B18 /* Resources */,
 				1EF2528E1C2742F300DB3B18 /* Toolbar Icons */,
@@ -478,7 +532,9 @@
 			children = (
 				1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */,
 				1E3BDB811C26408F00CADF46 /* ReadMe.md */,
-				9424DE5F26B63747007ADF4B /* Metal */,
+				9424DE5F26B63747007ADF4B /* Filtering */,
+				1ECCBCDB2DAD8E6600715B93 /* Rendering */,
+				9424DE6126B63747007ADF4B /* Capturing */,
 				1EF252661C2742F300DB3B18 /* iOS App */,
 				1EF253141C274A0200DB3B18 /* Mac App */,
 				6F90DDD81395CAAA00125BDA /* Frameworks */,
@@ -514,35 +570,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9424DE5F26B63747007ADF4B /* Metal */ = {
+		9424DE5F26B63747007ADF4B /* Filtering */ = {
 			isa = PBXGroup;
 			children = (
-				9424DE7226B63747007ADF4B /* FilteredMetalView.swift */,
-				1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */,
-				9424DE6026B63747007ADF4B /* MetalRenderer.swift */,
-				1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */,
-				9424DE8226B63D82007ADF4B /* NSView+GetBestMetalDevice.swift */,
-				9426E39D26D43D8C00D5356F /* VisionType+CIFilterVendor.swift */,
-				94E1494926C23EFF00327367 /* Simulation.swift */,
-				94E8FB2A26B3D30D0027BCF4 /* VisionType.swift */,
-				9424DE6926B63747007ADF4B /* HCIRN */,
-				9424DE6E26B63747007ADF4B /* Machado */,
-				1E3331C62D82147400BE6092 /* VisionTools */,
-				9424DE6126B63747007ADF4B /* ScreenCapture */,
+				1ECCBCDC2DAD8E8100715B93 /* Vision */,
+				1E3331C62D82147400BE6092 /* ColorTools */,
 				9424DE6426B63747007ADF4B /* Stores */,
 			);
-			path = Metal;
+			path = Filtering;
 			sourceTree = "<group>";
 		};
-		9424DE6126B63747007ADF4B /* ScreenCapture */ = {
+		9424DE6126B63747007ADF4B /* Capturing */ = {
 			isa = PBXGroup;
 			children = (
 				9424DE6326B63747007ADF4B /* CaptureStream.swift */,
 				9424DE6226B63747007ADF4B /* ScreenCaptureStreamCG.swift */,
 				1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */,
 				1ECCBCBD2DA0C2A000715B93 /* AVCaptureStream.swift */,
+				1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */,
+				1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */,
 			);
-			path = ScreenCapture;
+			path = Capturing;
 			sourceTree = "<group>";
 		};
 		9424DE6426B63747007ADF4B /* Stores */ = {
@@ -776,7 +824,7 @@
 				1E0FDB342DA0317A008BBC1B /* AddVibrancyFilter.swift in Sources */,
 				1E0FDB352DA0317A008BBC1B /* InvertHueFilter.swift in Sources */,
 				1E0FDB3F2DA031D2008BBC1B /* CaptureStream.swift in Sources */,
-				1E0FDB362DA0317A008BBC1B /* VisionToolsVendor.swift in Sources */,
+				1E0FDB362DA0317A008BBC1B /* ColorToolsVendor.swift in Sources */,
 				1E0FDB372DA0317A008BBC1B /* StripesFilter.swift in Sources */,
 				1ECCBCCE2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */,
 				1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */,
@@ -785,7 +833,7 @@
 				1E0FDB1D2D9E1483008BBC1B /* FilterViewController.swift in Sources */,
 				1E0FDB282D9EA9B4008BBC1B /* PaletteView.swift in Sources */,
 				1E0FDB2C2D9EB55D008BBC1B /* IconImageView.swift in Sources */,
-				1ECCBCC22DA2DD6E00715B93 /* VisionTools.metal in Sources */,
+				1ECCBCC22DA2DD6E00715B93 /* ColorTools.metal in Sources */,
 				1ECCBCC32DA2DD6E00715B93 /* Transforms.metal in Sources */,
 				1E0FDB332DA0316B008BBC1B /* FilterStore.swift in Sources */,
 				1E0FDB2A2D9EB0B5008BBC1B /* AboutController.swift in Sources */,
@@ -821,8 +869,8 @@
 				9424DE7C26B63747007ADF4B /* HCIRNFilterVendor.swift in Sources */,
 				9424DE8026B63747007ADF4B /* Transforms.metal in Sources */,
 				1EF253411C274A0200DB3B18 /* FilterViewController.swift in Sources */,
-				1E3331CC2D82148300BE6092 /* VisionToolsVendor.swift in Sources */,
-				1E3331CD2D82148300BE6092 /* VisionTools.metal in Sources */,
+				1E3331CC2D82148300BE6092 /* ColorToolsVendor.swift in Sources */,
+				1E3331CD2D82148300BE6092 /* ColorTools.metal in Sources */,
 				1E3331CE2D82148300BE6092 /* StripesFilter.swift in Sources */,
 				1EF43E4E2D986E80006441A2 /* InvertHueFilter.swift in Sources */,
 				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
@@ -953,7 +1001,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.michelf.SimDaltonismMobile;
 				PRODUCT_NAME = "Sim Daltonism";
-				SWIFT_OBJC_BRIDGING_HEADER = "iOS App/Sim Daltonism (iOS)-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS App/BridgingHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -987,7 +1035,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.michelf.SimDaltonismMobile;
 				PRODUCT_NAME = "Sim Daltonism";
-				SWIFT_OBJC_BRIDGING_HEADER = "iOS App/Sim Daltonism (iOS)-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS App/BridgingHeader.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

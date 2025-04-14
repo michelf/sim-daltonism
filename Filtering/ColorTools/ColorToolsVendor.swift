@@ -17,14 +17,14 @@
 import Foundation
 import CoreImage
 
-class VisionToolsVendor: NSObject, CIFilterConstructor {
+class ColorToolsVendor: NSObject, CIFilterConstructor {
 
     static func registerFilters() {
         let classAttributes = [kCIAttributeFilterCategories: ["CustomFilters"]]
-		Stripes.registerName("Stripes", constructor: VisionToolsVendor(), classAttributes: classAttributes)
-		Stripes.registerName("AddVibrancy", constructor: VisionToolsVendor(), classAttributes: classAttributes)
-		Stripes.registerName("InvertHue", constructor: VisionToolsVendor(), classAttributes: classAttributes)
-		Stripes.registerName("InvertLuminance", constructor: VisionToolsVendor(), classAttributes: classAttributes)
+		Stripes.registerName("Stripes", constructor: ColorToolsVendor(), classAttributes: classAttributes)
+		Stripes.registerName("AddVibrancy", constructor: ColorToolsVendor(), classAttributes: classAttributes)
+		Stripes.registerName("InvertHue", constructor: ColorToolsVendor(), classAttributes: classAttributes)
+		Stripes.registerName("InvertLuminance", constructor: ColorToolsVendor(), classAttributes: classAttributes)
     }
 
     func filter(withName name: String) -> CIFilter? {
