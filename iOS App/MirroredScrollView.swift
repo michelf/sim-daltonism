@@ -16,8 +16,6 @@ class MirroredScrollView: UIScrollView {
 		mirrorView.isUserInteractionEnabled = false
 		mirrorView.isOpaque = true
 		mirrorView.isPaused = false
-		mirrorView.isHidden = false
-		mirrorView.backgroundColor = .purple
 		mirrorView.translatesAutoresizingMaskIntoConstraints = false
 		mirrorView.transform = CGAffineTransform(scaleX: -1, y: 1)
 		self.mirrorView = mirrorView
