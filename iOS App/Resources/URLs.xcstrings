@@ -1,0 +1,30 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "https://michelf.ca/projects/sim-daltonism/" : {
+      "comment" : "Sim Daltonism website URL",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://michelf.ca/projets/sim-daltonisme/"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "sim-daltonism@michelf.ca" : {
+      "comment" : "Sim Daltonism feedback email",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sim-daltonisme@michelf.ca"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    }
+  },
+  "version" : "1.0"
+}

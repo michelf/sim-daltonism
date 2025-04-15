@@ -1,0 +1,1005 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "1Ob-2N-FR3.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"by Michel Fortin\"; ObjectID = \"1Ob-2N-FR3\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "by Michel Fortin"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "par Michel Fortin"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "5JE-mi-1gU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Hue Shift\"; ObjectID = \"5JE-mi-1gU\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hue Shift"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Décalage de teinte"
+          }
+        }
+      }
+    },
+    "7eB-XC-Sf1.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Protanomaly\"; ObjectID = \"7eB-XC-Sf1\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protanomaly"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protanomalie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红色弱"
+          }
+        }
+      }
+    },
+    "8Fh-iV-BAl.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Anomalous blue cones\"; ObjectID = \"8Fh-iV-BAl\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anomalous blue cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes bleus anormaux"
+          }
+        }
+      }
+    },
+    "8oO-S8-qcf.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"Monochrome vision\"; ObjectID = \"8oO-S8-qcf\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochrome vision"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision monochrome"
+          }
+        }
+      }
+    },
+    "53L-Zl-hPR.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Anomalous red cones\"; ObjectID = \"53L-Zl-hPR\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anomalous red cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes rouges anormaux"
+          }
+        }
+      }
+    },
+    "Adj-xY-RcE.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Stripes on Green\"; ObjectID = \"Adj-xY-RcE\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stripes on Green"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures sur vert"
+          }
+        }
+      }
+    },
+    "AIv-Ok-oRj.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Sim Daltonism © 2005–2020 Michel Fortin\\n\\nIncludes an adaptation of the color_blind_sims Javascript function from the Color Laboratory\\nCopyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network.\"; ObjectID = \"AIv-Ok-oRj\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonism © 2005–2020 Michel Fortin\n\nIncludes an adaptation of the color_blind_sims Javascript function from the Color Laboratory\nCopyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonism © 2005–2020 Michel Fortin\n\nInclus une adaptation de la fonction Javascript color_blind_sims du Color Laboratory\nCopyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resource Network."
+          }
+        }
+      }
+    },
+    "Av2-rq-TNS.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Rate this app\"; ObjectID = \"Av2-rq-TNS\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate this app"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notez cette app"
+          }
+        }
+      }
+    },
+    "aYH-t4-fuh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Send Feedback\"; ObjectID = \"aYH-t4-fuh\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send Feedback"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commentaires"
+          }
+        }
+      }
+    },
+    "BBK-e4-v9v.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"Copyright & Credits\"; ObjectID = \"BBK-e4-v9v\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright & Credits"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Droit d’auteur et remerciments"
+          }
+        }
+      }
+    },
+    "beT-1m-flM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Deuteranopia\"; ObjectID = \"beT-1m-flM\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deuteranopia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deuteranopie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "绿色盲"
+          }
+        }
+      }
+    },
+    "cbr-2u-IFo.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Red Stripe\"; ObjectID = \"cbr-2u-IFo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Red Stripe"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "cKy-5c-spT.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Luminance Flip\"; ObjectID = \"cKy-5c-spT\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luminance Flip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inversion de luminance"
+          }
+        }
+      }
+    },
+    "d2n-BX-GDf.title" : {
+      "comment" : "Class = \"UIBarButtonItem\"; title = \"More\"; ObjectID = \"d2n-BX-GDf\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus"
+          }
+        }
+      }
+    },
+    "da9-4K-ucD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"🍊\"; ObjectID = \"da9-4K-ucD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "🍊"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "dFl-xy-ceC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Website\"; ObjectID = \"dFl-xy-ceC\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Website"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Site web"
+          }
+        }
+      }
+    },
+    "dia-ae-PuQ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Vibrancy Boost\"; ObjectID = \"dia-ae-PuQ\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vibrancy Boost"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couleurs vibrantes"
+          }
+        }
+      }
+    },
+    "Dj3-Uw-TAl.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Deuteranomaly\"; ObjectID = \"Dj3-Uw-TAl\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deuteranomaly"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deuteranomalie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "绿色弱"
+          }
+        }
+      }
+    },
+    "DnW-65-s8L.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Reduced sensitivity to colors\"; ObjectID = \"DnW-65-s8L\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reduced sensitivity to colors"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sensibilité réduite aux couleurs"
+          }
+        }
+      }
+    },
+    "ebU-qD-SjG.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Stripes on Blue\"; ObjectID = \"ebU-qD-SjG\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stripes on Blue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures sur bleu"
+          }
+        }
+      }
+    },
+    "EPr-jD-jaz.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Sim Daltonism lets you see through the eyes of someone with a color blindness. While the colors shown are a good approximation of what a color blind person would see, you should not expect them to be perfect.\\n\\nEveryone has his own perception of colors that differs slightly from other people, and color blindness are often partial at different degrees. More importantly, cameras do not have the same spectral response as cones in your eyes, so the simulation has to make some assumptions about the frequency composition of the colors.\"; ObjectID = \"EPr-jD-jaz\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonism lets you see through the eyes of someone with a color blindness. While the colors shown are a good approximation of what a color blind person would see, you should not expect them to be perfect.\n\nEveryone has his own perception of colors that differs slightly from other people, and color blindness are often partial at different degrees. More importantly, cameras do not have the same spectral response as cones in your eyes, so the simulation has to make some assumptions about the frequency composition of the colors."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonisme vous permet de voir ce que voit une personne daltonienne. Bien que les couleurs affichés soit une bonne approximation de la couleur vue par une personne daltonienne, ne vous attendez pas à ce qu’elles soient parfaites.\n\nTout le monde a sa propre perception des couleurs qui diffère légèrement de celle des autres, et le daltonisme est souvent partiel à différent degrés. Aussi, les caméras n’ont pas la même réponse spectrale que les cônes dans l’œil, donc une simulation doit faire quelque postulats concernant la composition en fréquence des couleurs."
+          }
+        }
+      }
+    },
+    "eW9-FG-sLe.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"🍋\"; ObjectID = \"eW9-FG-sLe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "🍋"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "FGQ-PW-KZU.footerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; footerTitle = \"These two variants are quite rare.\"; ObjectID = \"FGQ-PW-KZU\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These two variants are quite rare."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ces deux variantes sont plutôt rares."
+          }
+        }
+      }
+    },
+    "FGQ-PW-KZU.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"Blue/Yellow Color Blindness\"; ObjectID = \"FGQ-PW-KZU\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blue/Yellow Color Blindness"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daltonisme bleu/jaune"
+          }
+        }
+      }
+    },
+    "FMo-GE-hEe.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Normal vision\"; ObjectID = \"FMo-GE-hEe\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normal vision"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision normale"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正常色觉"
+          }
+        }
+      }
+    },
+    "gcR-m7-f62.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"COLOR TOOLS\"; ObjectID = \"gcR-m7-f62\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "COLOR TOOLS"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OUTILS DE COULEURS"
+          }
+        }
+      }
+    },
+    "hSF-Zo-ucE.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"SIMULATED VISION\"; ObjectID = \"hSF-Zo-ucE\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SIMULATED VISION"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "VISION SIMULÉE"
+          }
+        }
+      }
+    },
+    "HWI-9F-Yjd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"🐳\"; ObjectID = \"HWI-9F-Yjd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "🐳"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "IAx-VM-XMb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"🍇\"; ObjectID = \"IAx-VM-XMb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "🍇"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "iBD-Jm-iAQ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Protanopia\"; ObjectID = \"iBD-Jm-iAQ\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protanopia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protanopie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红色盲"
+          }
+        }
+      }
+    },
+    "jKo-bc-yvf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No green cones\"; ObjectID = \"jKo-bc-yvf\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No green cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun cône vert"
+          }
+        }
+      }
+    },
+    "jxK-7j-Fx2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Monochromacy\"; ObjectID = \"jxK-7j-Fx2\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromacy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatisme"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全色盲"
+          }
+        }
+      }
+    },
+    "Kcx-am-3th.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"🍐\"; ObjectID = \"Kcx-am-3th\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "🍐"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "kOu-8J-OPC.footerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; footerTitle = \"Four variants of the most common color blindness form.\"; ObjectID = \"kOu-8J-OPC\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Four variants of the most common color blindness form."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quatre variantes de la forme la plus commune de daltonisme."
+          }
+        }
+      }
+    },
+    "kOu-8J-OPC.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"Red/Green Color Blindness\"; ObjectID = \"kOu-8J-OPC\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Red/Green Color Blindness"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daltonisme rouge/vert"
+          }
+        }
+      }
+    },
+    "LiB-vW-3WB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"🍒\"; ObjectID = \"LiB-vW-3WB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "🍒"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "MaI-O8-enf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"A simulator for color blindness\"; ObjectID = \"MaI-O8-enf\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A simulator for color blindness"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un simulateur pour le daltonisme"
+          }
+        }
+      }
+    },
+    "MKr-3a-N1J.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Normal vision\"; ObjectID = \"MKr-3a-N1J\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normal vision"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision normale"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正常色觉"
+          }
+        }
+      }
+    },
+    "MwP-hN-TJU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Tritanopia\"; ObjectID = \"MwP-hN-TJU\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tritanopia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tritanopie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蓝色盲"
+          }
+        }
+      }
+    },
+    "nee-lW-V5B.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Stripes on Red\"; ObjectID = \"nee-lW-V5B\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stripes on Red"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures sur rouge"
+          }
+        }
+      }
+    },
+    "PVL-g1-ZDl.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Trichromatic: red, green, and blue cones\"; ObjectID = \"PVL-g1-ZDl\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trichromatic: red, green, and blue cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trichromatique : cônes rouges, verts, et bleus"
+          }
+        }
+      }
+    },
+    "rgF-lB-8xY.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Partial Monochromacy\"; ObjectID = \"rgF-lB-8xY\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partial Monochromacy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatisme partiel"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全色盲弱"
+          }
+        }
+      }
+    },
+    "TCj-Zp-P4m.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Trichromatic: red, green, and blue cones\"; ObjectID = \"TCj-Zp-P4m\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trichromatic: red, green, and blue cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trichromatique : cônes rouges, verts, et bleus"
+          }
+        }
+      }
+    },
+    "UN5-pc-Szy.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Choose\"; ObjectID = \"UN5-pc-Szy\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisir"
+          }
+        }
+      }
+    },
+    "uoT-cc-jKY.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No blue cones\"; ObjectID = \"uoT-cc-jKY\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No blue cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun cône bleu"
+          }
+        }
+      }
+    },
+    "uvA-2y-5uZ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Tritanomaly\"; ObjectID = \"uvA-2y-5uZ\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tritanomaly"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tritanomalie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蓝色弱"
+          }
+        }
+      }
+    },
+    "vcH-0U-5AL.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Anomalous green cones\"; ObjectID = \"vcH-0U-5AL\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anomalous green cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes verts anormaux"
+          }
+        }
+      }
+    },
+    "vTX-4F-okO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Sim Daltonism\"; ObjectID = \"vTX-4F-okO\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonism"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonisme"
+          }
+        }
+      }
+    },
+    "vxa-TM-5Dr.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Absent or non-functionning cones\"; ObjectID = \"vxa-TM-5Dr\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Absent or non-functionning cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes absents ou non-fonctionnels"
+          }
+        }
+      }
+    },
+    "WHf-xM-099.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"🍀\"; ObjectID = \"WHf-xM-099\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "🍀"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "wLH-wG-f7q.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"See also…\"; ObjectID = \"wLH-wG-f7q\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See also…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir aussi…"
+          }
+        }
+      }
+    },
+    "wph-Ia-bIP.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"Sim Daltonism\"; ObjectID = \"wph-Ia-bIP\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonism"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonisme"
+          }
+        }
+      }
+    },
+    "XDI-Ny-fnp.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No red cones\"; ObjectID = \"XDI-Ny-fnp\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No red cones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun cône rouge"
+          }
+        }
+      }
+    },
+    "xoa-iZ-Nbt.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"🐟\"; ObjectID = \"xoa-iZ-Nbt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "🐟"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "y8Y-pM-e8s.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Open in App Store\"; ObjectID = \"y8Y-pM-e8s\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open in App Store"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir dans l’App Store"
+          }
+        }
+      }
+    },
+    "zcz-ua-eaM.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"About\"; ObjectID = \"zcz-ua-eaM\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

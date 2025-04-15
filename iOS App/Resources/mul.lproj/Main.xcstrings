@@ -1,0 +1,66 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "eqF-fh-KLd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"- x -\"; ObjectID = \"eqF-fh-KLd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "- x -"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "HDX-o9-NoD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"- FPS\"; ObjectID = \"HDX-o9-NoD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "- FPS"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Kt2-yZ-67p.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Sim Daltonism does not have persmission to access the camera.\"; ObjectID = \"Kt2-yZ-67p\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonism does not have persmission to access the camera."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim Daltonisme n’a pas la permission d’accéder à la caméra."
+          }
+        }
+      }
+    },
+    "TDW-fF-Jjq.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Change Privacy Settings\"; ObjectID = \"TDW-fF-Jjq\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Privacy Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changer les permissions"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

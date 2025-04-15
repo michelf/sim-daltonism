@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -547,16 +547,16 @@
                                     <outlet property="menu" destination="pqH-cF-rp6" id="sAc-jo-oIG"/>
                                 </connections>
                             </button>
-                            <button toolTip="Vision Tools" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9vI-EY-Qrh" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
+                            <button toolTip="Color Tools" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9vI-EY-Qrh" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="27" y="0.0" width="25" height="20"/>
-                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="ToolsTemplate" imagePosition="overlaps" alignment="center" controlSize="small" toolTip="Tools" imageScaling="proportionallyDown" inset="2" id="vVX-GJ-Az2">
+                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="ToolsTemplate" imagePosition="overlaps" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="vVX-GJ-Az2">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="9z8-8w-zRm"/>
                                 </constraints>
-                                <accessibility description="Vision Tools"/>
+                                <accessibility description="Color Tools"/>
                                 <connections>
                                     <outlet property="menu" destination="oNq-0I-6VM" id="iJx-D0-MCk"/>
                                 </connections>
@@ -613,7 +613,7 @@
                         <outlet property="visionButton" destination="fxx-Ns-Swc" id="JuP-13-Nem"/>
                     </connections>
                 </viewController>
-                <menu title="Filter" id="wYE-Gi-tJj">
+                <menu title="Simulated Vision" id="wYE-Gi-tJj">
                     <items>
                         <menuItem title="Normal Vision" keyEquivalent="0" id="wh1-bY-2Li">
                             <connections>
@@ -672,7 +672,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu title="Filter" id="oNq-0I-6VM">
+                <menu title="Color Tools" id="oNq-0I-6VM">
                     <items>
                         <menuItem title="Stripes on Red" enabled="NO" id="Ve6-N2-IFi">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -751,7 +751,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu id="D7c-iD-Fng">
+                <menu title="Refresh Speed" id="D7c-iD-Fng">
                     <items>
                         <menuItem title="Refresh Speed" enabled="NO" id="fbi-jg-9jO">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -773,7 +773,7 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu id="pqH-cF-rp6">
+                <menu title="View Area" id="pqH-cF-rp6">
                     <items>
                         <menuItem title="View Area" enabled="NO" id="5bi-v8-MT6">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -810,6 +810,6 @@
         <image name="StripesNoneTemplate" width="13" height="13"/>
         <image name="StripesTightTemplate" width="13" height="13"/>
         <image name="ToolsTemplate" width="15" height="15"/>
-        <image name="VisionTemplate" width="18" height="11"/>
+        <image name="VisionTemplate" width="17" height="11"/>
     </resources>
 </document>
