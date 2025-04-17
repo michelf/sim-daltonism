@@ -30,12 +30,18 @@ class DragObservableWindow: NSPanel {
 			NotificationCenter.default.post(name: DragObservableWindow.willStartDragging, object: self)
 		}
 		pausedDragTimer?.invalidate()
-		pausedDragTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(stoppedDragging), userInfo: nil, repeats: false)
+		pausedDragTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(stoppedDragging), userInfo: nil, repeats: true)
 
 		super.mouseDragged(with: event)
 	}
 
 	@objc private func stoppedDragging() {
+		// wait until mouse is up
+		let leftMouseButtonMask = (1 << 0)
+		guard (NSEvent.pressedMouseButtons & leftMouseButtonMask) == 0 else { return }
+
+		pausedDragTimer?.invalidate()
+		pausedDragTimer = nil
 		dragging = false
 		NotificationCenter.default.post(name: DragObservableWindow.didEndDragging, object: self)
 	}
