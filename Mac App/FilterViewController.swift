@@ -34,6 +34,7 @@ class FilterViewController: NSViewController {
 	#endif
 
 	@IBOutlet var filteredView: FilteredMetalView!
+	@IBOutlet var centerCrossView: NSView?
 	@IBOutlet var permissionRequestView: NSView?
 	@IBOutlet var permissionRequestBackground: NSView?
 	@IBOutlet var openSystemSettingsButton: NSButton?
@@ -194,6 +195,7 @@ private extension FilterViewController {
 		let locationInWindow = view.window?.convertFromScreen(mouseLocationRect).origin ?? .zero
         let mouseLocationInView = view.convert(locationInWindow, from: nil)
         let mouseIsInView = viewBounds.contains(mouseLocationInView)
+		centerCrossView?.isHidden = mouseIsInView || viewAreaDefault != .mousePointer
 
         // Allow more room for grabbing the window resize corners
 		let resizeCornerSize = CGSize(width: 15, height: 15) // from the window's edge

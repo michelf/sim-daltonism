@@ -408,6 +408,10 @@
                             <openGLView wantsLayer="YES" depthSize="32bit" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" wantsBestResolutionOpenGLSurface="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhm-1p-zVd" customClass="FilteredMetalView" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="3" y="3" width="354" height="397"/>
                             </openGLView>
+                            <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kFS-vS-yRf">
+                                <rect key="frame" x="173" y="193" width="15" height="15"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="CenterCross" id="Cyu-2C-iRK"/>
+                            </imageView>
                             <visualEffectView blendingMode="behindWindow" material="ultraDark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="LDz-iv-fQe" userLabel="Message Background View">
                                 <rect key="frame" x="3" y="3" width="354" height="397"/>
                             </visualEffectView>
@@ -506,7 +510,9 @@
                             <constraint firstAttribute="trailing" secondItem="uEx-hU-M7U" secondAttribute="trailing" constant="3" id="QdV-QV-RLw"/>
                             <constraint firstItem="LDz-iv-fQe" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Qyb-eF-E8f"/>
                             <constraint firstItem="xhm-1p-zVd" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Swy-yM-azr"/>
+                            <constraint firstItem="kFS-vS-yRf" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="Uhy-4C-uyO"/>
                             <constraint firstItem="uEx-hU-M7U" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Zl6-L9-IJc"/>
+                            <constraint firstItem="kFS-vS-yRf" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="bqO-Sf-Ynn"/>
                             <constraint firstItem="uEx-hU-M7U" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="duJ-2k-wuQ"/>
                             <constraint firstItem="xhm-1p-zVd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="mar-0C-ceC"/>
                             <constraint firstAttribute="bottom" secondItem="uEx-hU-M7U" secondAttribute="bottom" constant="3" id="mrE-UA-gQ0"/>
@@ -515,6 +521,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="centerCrossView" destination="kFS-vS-yRf" id="2vE-94-uZ0"/>
                         <outlet property="filteredView" destination="xhm-1p-zVd" id="t3d-bm-OyD"/>
                         <outlet property="openSystemSettingsButton" destination="ahd-XE-EGQ" id="cb0-ko-9Fh"/>
                         <outlet property="permissionRequestBackground" destination="LDz-iv-fQe" id="Luk-Yd-A6R"/>
@@ -796,6 +803,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CenterCross" width="15" height="15"/>
         <image name="DashesLooseTemplate" width="13" height="13"/>
         <image name="DashesTightTemplate" width="13" height="13"/>
         <image name="FastFrameRateTemplate" width="13" height="13"/>
@@ -810,6 +818,6 @@
         <image name="StripesNoneTemplate" width="13" height="13"/>
         <image name="StripesTightTemplate" width="13" height="13"/>
         <image name="ToolsTemplate" width="15" height="15"/>
-        <image name="VisionTemplate" width="17" height="11"/>
+        <image name="VisionTemplate" width="17" height="12"/>
     </resources>
 </document>

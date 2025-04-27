@@ -41,9 +41,9 @@ class FilterSettingsController: NSTitlebarAccessoryViewController {
 extension RefreshSpeed {
 	fileprivate var image: NSImage {
 		switch self {
-		case .slow: return NSImage(named: "SlowFrameRateTemplate.png")!
-		case .normal: return NSImage(named: "NormalFrameRateTemplate.png")!
-		case .fast: return NSImage(named: "FastFrameRateTemplate.png")!
+		case .slow: return NSImage(named: "SlowFrameRateTemplate")!
+		case .normal: return NSImage(named: "NormalFrameRateTemplate")!
+		case .fast: return NSImage(named: "FastFrameRateTemplate")!
 		}
 	}
 }
@@ -51,8 +51,8 @@ extension RefreshSpeed {
 extension ViewArea {
 	fileprivate var image: NSImage {
 		switch self {
-		case .underWindow: return NSImage(named: "FilteredTransparencyTemplate.png")!
-		case .mousePointer: return NSImage(named: "FilteredMouseAreaTemplate.png")!
+		case .underWindow: return NSImage(named: "FilteredTransparencyTemplate")!
+		case .mousePointer: return NSImage(named: "FilteredMouseAreaTemplate")!
 		}
 	}
 }
