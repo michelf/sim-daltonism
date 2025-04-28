@@ -73,9 +73,11 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
         switch vision {
             case .deutan: fallthrough
             case .deuteranomaly:
+				let deutanCorrection = 0.038
                 cp = .init(x: 1.14, y: -0.14)
                 ab = .init(x: 0.102776, y: 0.102864)
-                ae = .init(x: 0.505845, y: 0.493211)
+				//ae = .init(x: 0.505845, y: 0.493211) // original with issue of light-gray becomming tinted in red
+				ae = .init(x: 0.505845-0.038, y: 0.493211) // corrected version
 
             case .protan: fallthrough
             case .protanomaly:
