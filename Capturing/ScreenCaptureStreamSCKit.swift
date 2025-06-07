@@ -394,7 +394,7 @@ private extension ScreenCaptureStreamSCKit {
 			let mouseLocation = NSEvent.mouseLocation
 			// if mouse is inside window, fall through .UnderWindow instead
 			if !viewInScreen.contains(mouseLocation) {
-				viewInScreen.origin = mouseLocation
+				viewInScreen.origin = CGPoint(x: round(mouseLocation.x), y: round(mouseLocation.y))
 				let mouseView = viewInScreen.offsetBy(dx: -round(viewInScreen.width/2),
 													  dy: -round(viewInScreen.height/2))
 				return mouseView
