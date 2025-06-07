@@ -70,54 +70,56 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
 
         let vision = VisionType(ciFilterVendor: name)
 
-        switch vision {
-            case .deutan: fallthrough
-            case .deuteranomaly:
-				let deutanCorrection = 0.038
-                cp = .init(x: 1.14, y: -0.14)
-                ab = .init(x: 0.102776, y: 0.102864)
-				//ae = .init(x: 0.505845, y: 0.493211) // original with issue of light-gray becomming tinted in red
-				ae = .init(x: 0.505845-0.038, y: 0.493211) // corrected version
+		switch vision {
+		case .normal:
+			break
 
-            case .protan: fallthrough
-            case .protanomaly:
-                cp = .init(x: 0.735, y: 0.265)
-                ab = .init(x: 0.115807, y: 0.073581)
-                ae = .init(x: 0.471899, y: 0.527051)
+		case .deutan, .deuteranomaly:
+			cp = .init(x: 1.14, y: -0.14)
+			ab = .init(x: 0.102776, y: 0.102864)
+			//ae = .init(x: 0.505845, y: 0.493211) // original with issue of light-gray becomming tinted in red
+			ae = .init(x: 0.505845-0.038, y: 0.493211) // corrected version
 
-            case .tritan: fallthrough
-            case .tritanomaly:
-                cp = .init(x: 0.171, y: -0.003)
-                ab = .init(x: 0.045391, y: 0.294976)
-                ae = .init(x: 0.665764, y: 0.334011)
+		case .protan, .protanomaly:
+			cp = .init(x: 0.735, y: 0.265)
+			ab = .init(x: 0.115807, y: 0.073581)
+			ae = .init(x: 0.471899, y: 0.527051)
 
-            case .monochromat: fallthrough
-            case .monochromacyPartial:
-                cp = .init(x: 0, y: 0)
-                ab = .init(x: 0, y: 0)
-                ae = .init(x: 0, y: 0)
+		case .tritan, .tritanomaly:
+			cp = .init(x: 0.171, y: -0.003)
+			ab = .init(x: 0.045391, y: 0.294976)
+			ae = .init(x: 0.665764, y: 0.334011)
 
-            default: return nil
-        }
+		case .achromatopsia:
+			return BlueConeMonochromatFilter(blueSensitivity: 0, intensity: 1)
+		case .achromatopsiaPartial:
+			return BlueConeMonochromatFilter(blueSensitivity: 0, intensity: 0.66)
 
-        switch vision {
-            case .deutan: fallthrough
-            case .protan: fallthrough
-            case .tritan:
-                anomalize = 1.0
+		case .blueConeMonochromat:
+			return BlueConeMonochromatFilter(blueSensitivity: 1, intensity: 1)
+		case .blueConeMonochromacyPartial:
+			return BlueConeMonochromatFilter(blueSensitivity: 1, intensity: 0.66)
 
-            case .deuteranomaly: fallthrough
-            case .protanomaly: fallthrough
-            case .tritanomaly:
-                anomalize = 0.66
+		case .monochromeAnalogTV:
+			return MonochromeFilter(coefficients: (0.299, 0.587, 0.114), intensity: 1)
+		case .monochromeDisplay:
+			return MonochromeFilter(coefficients: (0.2126, 0.7152, 0.0722), intensity: 1)
+		}
 
-            case .monochromat:
-                anomalize = -1
-            case .monochromacyPartial:
-                anomalize = -0.66
+		switch vision {
+		case .normal:
+			break
 
-            default: return nil
-        }
+		case .deutan, .protan, .tritan:
+			anomalize = 1.0
+
+		case .deuteranomaly, .protanomaly, .tritanomaly:
+			anomalize = 0.66
+
+		case .blueConeMonochromat, .blueConeMonochromacyPartial: assert(false)
+		case .achromatopsia, .achromatopsiaPartial: assert(false)
+		case .monochromeAnalogTV, .monochromeDisplay: assert(false)
+		}
 
         return HCIRN(cp: cp, ab: ab, ae: ae, anomalize: anomalize)
     }

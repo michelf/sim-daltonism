@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aVs-cQ-LNp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aVs-cQ-LNp">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
             <objects>
                 <navigationController modalPresentationStyle="formSheet" id="aVs-cQ-LNp" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="moF-Cg-gfg">
-                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -433,24 +433,24 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Monochrome vision" id="8oO-S8-qcf">
+                            <tableViewSection headerTitle="Monochromacy" footerTitle="" id="8oO-S8-qcf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="7" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="jxK-7j-Fx2" detailTextLabel="vxa-TM-5Dr" style="IBUITableViewCellStyleSubtitle" id="ELf-aT-oM7">
-                                        <rect key="frame" x="16" y="602.33333206176758" width="343" height="48"/>
+                                        <rect key="frame" x="16" y="609.66666412353516" width="343" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ELf-aT-oM7" id="I5K-qj-YOT">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Monochromacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jxK-7j-Fx2">
-                                                    <rect key="frame" x="16.000000000000007" y="5.9999999999999982" width="123.66666666666667" height="20.333333333333332"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Achromatopsia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jxK-7j-Fx2">
+                                                    <rect key="frame" x="15.999999999999993" y="5.9999999999999982" width="120.33333333333333" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Absent or non-functionning cones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vxa-TM-5Dr">
-                                                    <rect key="frame" x="16" y="26.333333333333332" width="207" height="15.666666666666666"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Absent or non-functionning cones, rods only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vxa-TM-5Dr">
+                                                    <rect key="frame" x="16" y="26.333333333333332" width="270" height="15.666666666666666"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <nil key="textColor"/>
@@ -459,22 +459,74 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" tag="8" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="rgF-lB-8xY" detailTextLabel="DnW-65-s8L" style="IBUITableViewCellStyleSubtitle" id="R8C-54-wdr">
-                                        <rect key="frame" x="16" y="650.33333206176758" width="343" height="48"/>
+                                    <tableViewCell clipsSubviews="YES" tag="9" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="rgF-lB-8xY" detailTextLabel="DnW-65-s8L" style="IBUITableViewCellStyleSubtitle" id="R8C-54-wdr">
+                                        <rect key="frame" x="16" y="657.66666412353516" width="343" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R8C-54-wdr" id="eT5-JS-EPC">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Partial Monochromacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rgF-lB-8xY">
-                                                    <rect key="frame" x="16" y="5.9999999999999982" width="178.66666666666666" height="20.333333333333332"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Blue Cone Monochromacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rgF-lB-8xY">
+                                                    <rect key="frame" x="16" y="5.9999999999999982" width="208.33333333333334" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Reduced sensitivity to colors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DnW-65-s8L">
-                                                    <rect key="frame" x="16" y="26.333333333333332" width="174.66666666666666" height="15.666666666666666"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Absent or non-functionning red and green cones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DnW-65-s8L">
+                                                    <rect key="frame" x="16" y="26.333333333333332" width="295" height="15.666666666666666"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Other" id="rlq-wP-Crx">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" tag="12" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="iRQ-At-uud" detailTextLabel="XUG-GA-dDA" style="IBUITableViewCellStyleSubtitle" id="8hY-8x-Xd4">
+                                        <rect key="frame" x="16" y="765.66666412353516" width="343" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8hY-8x-Xd4" id="EaF-uB-iVw">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Monochrome Display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iRQ-At-uud">
+                                                    <rect key="frame" x="16" y="5.9999999999999982" width="167.66666666666666" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="BT.709 luma coefficients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XUG-GA-dDA">
+                                                    <rect key="frame" x="16" y="26.333333333333332" width="149.66666666666666" height="15.666666666666666"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" tag="11" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="flK-2k-8KW" detailTextLabel="tst-IK-iP2" style="IBUITableViewCellStyleSubtitle" id="O1Z-nx-A9h">
+                                        <rect key="frame" x="16" y="813.66666412353516" width="343" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O1Z-nx-A9h" id="KXC-Hk-0w0">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Monochrome Analog TV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="flK-2k-8KW">
+                                                    <rect key="frame" x="16" y="5.9999999999999982" width="191" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="BT.601 luma coefficients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tst-IK-iP2">
+                                                    <rect key="frame" x="16" y="26.333333333333332" width="148.33333333333334" height="15.666666666666666"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <nil key="textColor"/>
@@ -510,13 +562,13 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="kdl-Yi-VId" customClass="MirroredScrollView" customModule="Sim_Daltonism" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="334.33333333333326" width="375" height="477.66666666666674"/>
+                                <rect key="frame" x="0.0" y="384.33333333333326" width="375" height="427.66666666666674"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBr-yl-gMQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="477.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="427.66666666666669"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7s-q2-QMg" customClass="PaletteView" customModule="Sim_Daltonism" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="70" width="375" height="365.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="70" width="375" height="281.66666666666669"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍇" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IAx-VM-XMb">
@@ -620,20 +672,20 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Cgl-PG-i5U">
-                                <rect key="frame" x="14" y="100.00000000000001" width="347" height="226.33333333333337"/>
+                                <rect key="frame" x="14" y="150" width="347" height="226.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NWq-0C-K3t">
                                         <rect key="frame" x="0.0" y="0.0" width="347" height="15.666666666666666"/>
                                         <subviews>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDo-MN-yZh">
-                                                <rect key="frame" x="0.0" y="7.3333333333333286" width="97.333333333333329" height="1"/>
+                                                <rect key="frame" x="0.0" y="7.3333333333333428" width="97.333333333333329" height="1"/>
                                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="fyl-sl-jfa"/>
                                                 </constraints>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VisionTemplate.png" translatesAutoresizingMaskIntoConstraints="NO" id="y7n-eS-KfI">
-                                                <rect key="frame" x="102.33333333333333" y="2.3333333333333286" width="18" height="11"/>
+                                                <rect key="frame" x="102.33333333333333" y="2.3333333333333428" width="18" height="11"/>
                                                 <color key="tintColor" systemColor="secondaryLabelColor"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIMULATED VISION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSF-Zo-ucE">
@@ -643,7 +695,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJy-Qe-pih">
-                                                <rect key="frame" x="249.66666666666671" y="7.3333333333333286" width="97.333333333333343" height="1"/>
+                                                <rect key="frame" x="249.66666666666671" y="7.3333333333333428" width="97.333333333333343" height="1"/>
                                                 <color key="backgroundColor" systemColor="separatorColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="1nP-Vi-KPl"/>
@@ -655,7 +707,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RL4-bx-BDm">
-                                        <rect key="frame" x="0.0" y="19.666666666666671" width="347" height="54"/>
+                                        <rect key="frame" x="0.0" y="19.666666666666657" width="347" height="54"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN5-pc-Szy">
                                                 <rect key="frame" x="0.0" y="0.0" width="347" height="37"/>
@@ -675,7 +727,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="222" text="Trichromatic: red, green, and blue cones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVL-g1-ZDl">
-                                                        <rect key="frame" x="0.0" y="21.333333333333329" width="247" height="15.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="21.333333333333343" width="247" height="15.666666666666664"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -759,7 +811,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wcc-oz-Tmg">
-                                                                <rect key="frame" x="0.0" y="45" width="162.33333333333334" height="31"/>
+                                                                <rect key="frame" x="0.0" y="44.999999999999972" width="162.33333333333334" height="31"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stripes on Green" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-xY-RcE">
                                                                         <rect key="frame" x="0.0" y="0.0" width="101.33333333333333" height="31"/>
@@ -827,7 +879,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5Fg-3H-1mL">
-                                                                <rect key="frame" x="0.0" y="45" width="157.33333333333334" height="31"/>
+                                                                <rect key="frame" x="0.0" y="44.999999999999972" width="157.33333333333334" height="31"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luminance Flip" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKy-5c-spT">
                                                                         <rect key="frame" x="0.0" y="0.0" width="96.333333333333329" height="31"/>

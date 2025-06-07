@@ -23,8 +23,12 @@ public enum VisionType: Int, CaseIterable {
     case protanomaly
     case tritan
     case tritanomaly
-    case monochromat
-    case monochromacyPartial
+	case achromatopsia
+	case achromatopsiaPartial
+	case blueConeMonochromat
+	case blueConeMonochromacyPartial
+	case monochromeAnalogTV
+	case monochromeDisplay
 
     public var name: String {
         switch self {
@@ -35,8 +39,12 @@ public enum VisionType: Int, CaseIterable {
             case .protanomaly:          return NSLocalizedString("Protanomaly", tableName: "SimDaltonismFilter", comment: "")
             case .tritan:               return NSLocalizedString("Tritanopia", tableName: "SimDaltonismFilter", comment: "")
             case .tritanomaly:          return NSLocalizedString("Tritanomaly", tableName: "SimDaltonismFilter", comment: "")
-            case .monochromat:          return NSLocalizedString("Monochromacy", tableName: "SimDaltonismFilter", comment: "")
-            case .monochromacyPartial:  return NSLocalizedString("Partial Monochromacy", tableName: "SimDaltonismFilter", comment: "")
+			case .blueConeMonochromat:  return NSLocalizedString("Blue Cone Monochromacy", tableName: "SimDaltonismFilter", comment: "")
+			case .blueConeMonochromacyPartial:  return NSLocalizedString("Partial Blue Cone Monochromacy", tableName: "SimDaltonismFilter", comment: "")
+            case .achromatopsia:        return NSLocalizedString("Achromatopsia", tableName: "SimDaltonismFilter", comment: "")
+            case .achromatopsiaPartial: return NSLocalizedString("Partial Achromatopsia", tableName: "SimDaltonismFilter", comment: "")
+			case .monochromeAnalogTV:   return NSLocalizedString("Monochrome Analog TV", tableName: "SimDaltonismFilter", comment: "")
+			case .monochromeDisplay:    return NSLocalizedString("Monochrome Display", tableName: "SimDaltonismFilter", comment: "")
         }
     }
 
@@ -49,8 +57,12 @@ public enum VisionType: Int, CaseIterable {
 		case .protanomaly:          return NSLocalizedString("Anomalous red cones", tableName: "SimDaltonismFilter", comment: "")
 		case .tritan:               return NSLocalizedString("No blue cones", tableName: "SimDaltonismFilter", comment: "")
 		case .tritanomaly:          return NSLocalizedString("Anomalous blue cones", tableName: "SimDaltonismFilter", comment: "")
-		case .monochromat:          return NSLocalizedString("Absent or non-functionning cones", tableName: "SimDaltonismFilter", comment: "")
-		case .monochromacyPartial:  return NSLocalizedString("Reduced sensitivity to colors", tableName: "SimDaltonismFilter", comment: "")
+		case .blueConeMonochromat:  return NSLocalizedString("Absent or non-functionning red and green cones", tableName: "SimDaltonismFilter", comment: "")
+		case .blueConeMonochromacyPartial: return NSLocalizedString("Anomalous red and green cones", tableName: "SimDaltonismFilter", comment: "")
+		case .achromatopsia:        return NSLocalizedString("Absent or non-functionning cones, rods only", tableName: "SimDaltonismFilter", comment: "")
+		case .achromatopsiaPartial: return NSLocalizedString("Reduced sensitivity to colors", tableName: "SimDaltonismFilter", comment: "")
+		case .monochromeAnalogTV:   return NSLocalizedString("BT.601 luma coefficients", tableName: "SimDaltonismFilter", comment: "")
+		case .monochromeDisplay:    return NSLocalizedString("BT.709 luma coefficients", tableName: "SimDaltonismFilter", comment: "")
 		}
 
 	}

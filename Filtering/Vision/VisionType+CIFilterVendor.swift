@@ -26,15 +26,19 @@ extension VisionType {
     /// Convenience for working CIFilterConstructor's stringly typed filter creation method: 'func filter(withName name: String) -> CIFilter?'
     public var ciFilterString: String {
         switch self {
-            case .normal: return "Normal"
-            case .deutan: return "Deutan"
-            case .deuteranomaly: return "Deutanomaly"
-            case .protan: return "Protan"
-            case .protanomaly: return "Protanomaly"
-            case .tritan: return "Tritan"
-            case .tritanomaly: return "Tritanomaly"
-            case .monochromat: return "Monochromat"
-            case .monochromacyPartial: return "Monochromacy"
-        }
+		case .normal: return "Normal"
+		case .deutan: return "Deutan"
+		case .deuteranomaly: return "Deutanomaly"
+		case .protan: return "Protan"
+		case .protanomaly: return "Protanomaly"
+		case .tritan: return "Tritan"
+		case .tritanomaly: return "Tritanomaly"
+		case .achromatopsia: return "achromatopsia"
+		case .achromatopsiaPartial: return "achromatopsia"
+		case .blueConeMonochromat: return "BlueConeMonochromat"
+		case .blueConeMonochromacyPartial: return "BlueConeMonochromacyPartial"
+		case .monochromeAnalogTV: return "monochromeAnalogTV"
+		case .monochromeDisplay: return "monochromeDisplay"
+		}
     }
 }

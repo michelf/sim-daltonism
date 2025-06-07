@@ -19,22 +19,20 @@ public extension UserDefaults {
 
     static func getVision() -> VisionType {
         let value = UserDefaults.standard.integer(forKey: UserDefaults.VisionKey)
-        return VisionTypeDTO(fromUserDefaults: value).model
+		return VisionType(rawValue: value) ?? .defaultValue
     }
 
     static func getSimulation() -> Simulation {
         let value = UserDefaults.standard.integer(forKey: UserDefaults.SimulationKey)
-        return SimulationDTO(fromUserDefaults: value).model
+		return Simulation(rawValue: value) ?? .defaultValue
     }
 
     static func setVision(_ vision: VisionType) {
-        let dto = VisionTypeDTO(fromVision: vision)
-        UserDefaults.standard.set(dto.userDefaultsValue, forKey: UserDefaults.VisionKey)
+		UserDefaults.standard.set(vision.rawValue, forKey: UserDefaults.VisionKey)
     }
 
     static func setSimulation(_ simulation: Simulation) {
-        let dto = SimulationDTO(fromSimulation: simulation)
-        UserDefaults.standard.set(dto.userDefaultsValue, forKey: UserDefaults.SimulationKey)
+		UserDefaults.standard.set(simulation.rawValue, forKey: UserDefaults.SimulationKey)
     }
 
 }
@@ -45,33 +43,17 @@ enum WindowRestoration {
     static let SimulationKey = "SimulationKey"
 
     static func encodeRestorable(state: NSCoder, _ vision: VisionType, _ sim: Simulation) {
-        let encodedVision = Self.encode(vision)
-        let encodedSimulation = Self.encode(sim)
-        state.encode(encodedVision, forKey: Self.VisionKey)
-        state.encode(encodedSimulation, forKey: Self.SimulationKey)
+		state.encode(vision.rawValue, forKey: Self.VisionKey)
+		state.encode(sim.rawValue, forKey: Self.SimulationKey)
     }
 
     static func decodeRestorable(state: NSCoder) -> (VisionType, Simulation) {
         let vision = state.decodeInteger(forKey: Self.VisionKey)
         let sim = state.decodeInteger(forKey: Self.SimulationKey)
-        return (Self.restore(vision: vision), Self.restore(simulation: sim))
+        return (VisionType(rawValue: vision) ?? .defaultValue,
+				Simulation(rawValue: sim) ?? .defaultValue)
     }
 
-    private static func restore(vision state: Int) -> VisionType {
-        VisionTypeDTO(fromWindowState: state).model
-    }
-
-    private static func restore(simulation state: Int) -> Simulation {
-        SimulationDTO(fromWindowState: state).model
-    }
-
-    private static func encode(_ vision: VisionType) -> Int {
-        VisionTypeDTO(fromVision: vision).windowStateValue
-    }
-
-    private static func encode(_ simulation: Simulation) -> Int {
-        SimulationDTO(fromSimulation: simulation).windowStateValue
-    }
 }
 
 // MARK: - Data Transfer Utilities
@@ -79,85 +61,4 @@ enum WindowRestoration {
 fileprivate extension UserDefaults {
     static let VisionKey = "SimVisionType"
     static let SimulationKey = "SimulationKey"
-}
-
-fileprivate enum SimulationDTO: Int {
-    case wicklineHCIRN
-    case machadoEtAl
-
-    var userDefaultsValue: Int { rawValue }
-    var windowStateValue: Int { rawValue }
-
-    init(fromUserDefaults value: Int) {
-        self = .init(rawValue: value) ?? .wicklineHCIRN
-    }
-
-    init(fromWindowState value: Int) {
-        self.init(fromUserDefaults: value)
-    }
-
-    init(fromSimulation sim: Simulation) {
-        switch sim {
-            case .wicklineHCIRN: self = .wicklineHCIRN
-            case .machadoEtAl:   self = .machadoEtAl
-        }
-    }
-
-    var model: Simulation {
-        switch self {
-            case .wicklineHCIRN: return .wicklineHCIRN
-            case .machadoEtAl:   return .machadoEtAl
-        }
-    }
-}
-
-fileprivate enum VisionTypeDTO: Int {
-    case normal
-    case deutan
-    case deuteranomaly
-    case protan
-    case protanomaly
-    case tritan
-    case tritanomaly
-    case monochromat
-    case monochromacyPartial
-
-    var userDefaultsValue: Int { rawValue }
-    var windowStateValue: Int { rawValue }
-
-    init(fromUserDefaults value: Int) {
-        self = .init(rawValue: value) ?? .normal
-    }
-
-    init(fromWindowState value: Int) {
-        self.init(fromUserDefaults: value)
-    }
-
-    init(fromVision type: VisionType) {
-        switch type {
-            case .normal:               self = .normal
-            case .deutan:               self = .deutan
-            case .deuteranomaly:        self = .deuteranomaly
-            case .protan:               self = .protan
-            case .protanomaly:          self = .protanomaly
-            case .tritan:               self = .tritan
-            case .tritanomaly:          self = .tritanomaly
-            case .monochromat:          self = .monochromat
-            case .monochromacyPartial:  self = .monochromacyPartial
-        }
-    }
-
-    var model: VisionType {
-        switch self {
-            case .normal:               return .normal
-            case .deutan:               return .deutan
-            case .deuteranomaly:        return .deuteranomaly
-            case .protan:               return .protan
-            case .protanomaly:          return .protanomaly
-            case .tritan:               return .tritan
-            case .tritanomaly:          return .tritanomaly
-            case .monochromat:          return .monochromat
-            case .monochromacyPartial:  return .monochromacyPartial
-        }
-    }
 }

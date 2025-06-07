@@ -82,18 +82,18 @@
       }
     },
     "8oO-S8-qcf.headerTitle" : {
-      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"Monochrome vision\"; ObjectID = \"8oO-S8-qcf\";",
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"Monochromacy\"; ObjectID = \"8oO-S8-qcf\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monochrome vision"
+            "value" : "Monochromacy"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vision monochrome"
+            "value" : "Monochromatisme"
           }
         }
       }
@@ -341,18 +341,18 @@
       }
     },
     "DnW-65-s8L.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Reduced sensitivity to colors\"; ObjectID = \"DnW-65-s8L\";",
+      "comment" : "Class = \"UILabel\"; text = \"Absent or non-functionning red and green cones\"; ObjectID = \"DnW-65-s8L\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reduced sensitivity to colors"
+            "value" : "Absent or non-functionning red and green cones"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sensibilité réduite aux couleurs"
+            "value" : "Cônes rouges et verts absents ou non-fonctionnels"
           }
         }
       }
@@ -434,6 +434,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Daltonisme bleu/jaune"
+          }
+        }
+      }
+    },
+    "flK-2k-8KW.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Monochrome Analog TV\"; ObjectID = \"flK-2k-8KW\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Monochrome Analog TV"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télé monochrome analogique"
           }
         }
       }
@@ -544,6 +562,24 @@
         }
       }
     },
+    "iRQ-At-uud.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Monochrome Display\"; ObjectID = \"iRQ-At-uud\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Monochrome Display"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Écran monochrome"
+          }
+        }
+      }
+    },
     "jKo-bc-yvf.text" : {
       "comment" : "Class = \"UILabel\"; text = \"No green cones\"; ObjectID = \"jKo-bc-yvf\";",
       "localizations" : {
@@ -562,23 +598,24 @@
       }
     },
     "jxK-7j-Fx2.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Monochromacy\"; ObjectID = \"jxK-7j-Fx2\";",
+      "comment" : "Class = \"UILabel\"; text = \"Achromatopsia\"; ObjectID = \"jxK-7j-Fx2\";",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Monochromacy"
+            "state" : "new",
+            "value" : "Achromatopsia"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monochromatisme"
+            "value" : "Achromatopsie"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "全色盲"
           }
         }
@@ -646,10 +683,11 @@
     },
     "MaI-O8-enf.text" : {
       "comment" : "Class = \"UILabel\"; text = \"A simulator for color blindness\"; ObjectID = \"MaI-O8-enf\";",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "A simulator for color blindness"
           }
         },
@@ -742,24 +780,36 @@
       }
     },
     "rgF-lB-8xY.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Partial Monochromacy\"; ObjectID = \"rgF-lB-8xY\";",
+      "comment" : "Class = \"UILabel\"; text = \"Blue Cone Monochromacy\"; ObjectID = \"rgF-lB-8xY\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partial Monochromacy"
+            "value" : "Blue Cone Monochromacy"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monochromatisme partiel"
+            "value" : "Monochromatie au bleu"
+          }
+        }
+      }
+    },
+    "rlq-wP-Crx.headerTitle" : {
+      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"Other\"; ObjectID = \"rlq-wP-Crx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Other"
           }
         },
-        "zh-Hans" : {
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "全色盲弱"
+            "value" : "Autre"
           }
         }
       }
@@ -777,6 +827,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Trichromatique : cônes rouges, verts, et bleus"
+          }
+        }
+      }
+    },
+    "tst-IK-iP2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"BT.601 luma coefficients\"; ObjectID = \"tst-IK-iP2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "BT.601 luma coefficients"
           }
         }
       }
@@ -873,18 +935,19 @@
       }
     },
     "vxa-TM-5Dr.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Absent or non-functionning cones\"; ObjectID = \"vxa-TM-5Dr\";",
+      "comment" : "Class = \"UILabel\"; text = \"Absent or non-functionning cones, rods only\"; ObjectID = \"vxa-TM-5Dr\";",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Absent or non-functionning cones"
+            "state" : "new",
+            "value" : "Absent or non-functionning cones, rods only"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cônes absents ou non-fonctionnels"
+            "value" : "Cônes absents ou non-fonctionnels, bâtonnets seulement"
           }
         }
       }
@@ -966,6 +1029,18 @@
       },
       "shouldTranslate" : false
     },
+    "XUG-GA-dDA.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"BT.709 luma coefficients\"; ObjectID = \"XUG-GA-dDA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "BT.709 luma coefficients"
+          }
+        }
+      }
+    },
     "y8Y-pM-e8s.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Open in App Store\"; ObjectID = \"y8Y-pM-e8s\";",
       "localizations" : {
@@ -985,10 +1060,11 @@
     },
     "zcz-ua-eaM.headerTitle" : {
       "comment" : "Class = \"UITableViewSection\"; headerTitle = \"About\"; ObjectID = \"zcz-ua-eaM\";",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "About"
           }
         },

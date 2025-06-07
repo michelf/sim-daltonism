@@ -431,6 +431,24 @@
         }
       }
     },
+    "77h-3K-Sl9.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Analog TV\"; ObjectID = \"77h-3K-Sl9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Monochrome Analog TV"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télé monochrome analogique"
+          }
+        }
+      }
+    },
     "899-rr-sCO.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Filter\"; ObjectID = \"899-rr-sCO\";",
       "localizations" : {
@@ -736,23 +754,23 @@
       }
     },
     "cWO-ZF-xPw.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Partial Monochromacy\"; ObjectID = \"cWO-ZF-xPw\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Partial Achromatomaly\"; ObjectID = \"cWO-ZF-xPw\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partial Monochromacy"
+            "value" : "Partial Achromatopsy"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monochromatisme partiel"
+            "value" : "Achromatopsie partielle"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "全色盲弱"
           }
         }
@@ -1165,6 +1183,24 @@
         }
       }
     },
+    "Jr5-1s-u16.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Display\"; ObjectID = \"Jr5-1s-u16\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Monochrome Display"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Écran monochrome"
+          }
+        }
+      }
+    },
     "k8K-Sj-41W.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Methodology\"; ObjectID = \"k8K-Sj-41W\";",
       "localizations" : {
@@ -1303,6 +1339,24 @@
         }
       }
     },
+    "lOV-rj-oJT.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Partial Blue Cone Monochromacy\"; ObjectID = \"lOV-rj-oJT\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Partial Blue Cone Monochromacy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatie au bleu partiel"
+          }
+        }
+      }
+    },
     "lUu-DQ-TMb.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Deuteranomaly\"; ObjectID = \"lUu-DQ-TMb\";",
       "localizations" : {
@@ -1390,24 +1444,42 @@
       }
     },
     "Npk-y4-wqh.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Monochromacy\"; ObjectID = \"Npk-y4-wqh\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Achromatopsia\"; ObjectID = \"Npk-y4-wqh\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Achromatopsy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achromatopsie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "全色盲"
+          }
+        }
+      }
+    },
+    "o9s-VR-rOe.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Monochromacy\"; ObjectID = \"o9s-VR-rOe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
             "value" : "Monochromacy"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monochromatisme"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "全色盲"
+            "value" : "Monochromatie"
           }
         }
       }
@@ -1837,7 +1909,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monochromatisme"
+            "value" : "Monochromatie"
           }
         },
         "zh-Hans" : {
@@ -1884,6 +1956,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "窗口"
+          }
+        }
+      }
+    },
+    "tWK-Bn-ZFS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Blue Cone Monochromacy\"; ObjectID = \"tWK-Bn-ZFS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Blue Cone Monochromacy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatie au bleu"
           }
         }
       }

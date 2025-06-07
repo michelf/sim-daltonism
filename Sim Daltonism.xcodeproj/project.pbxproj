@@ -11,6 +11,13 @@
 		1E0E34A82D7E832800846C27 /* FilteredOpenGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */; };
 		1E0E34AA2D7E868A00846C27 /* OpenGLRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */; };
 		1E0E34AE2D7F259100846C27 /* HCIRN.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */; };
+		1E0EF4A52DF3E0A70083A26A /* MonochromeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF4A42DF3E09F0083A26A /* MonochromeFilter.swift */; };
+		1E0EF4A62DF3E0A70083A26A /* MonochromeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF4A42DF3E09F0083A26A /* MonochromeFilter.swift */; };
+		1E0EF4A82DF3E2C60083A26A /* BlueConeMonochromat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF4A72DF3E2C60083A26A /* BlueConeMonochromat.swift */; };
+		1E0EF4A92DF3E2C60083A26A /* BlueConeMonochromat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF4A72DF3E2C60083A26A /* BlueConeMonochromat.swift */; };
+		1E0EF4AB2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF4AA2DF44FC60083A26A /* BlueConeMonochromat.metal */; };
+		1E0EF4AC2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF4AA2DF44FC60083A26A /* BlueConeMonochromat.metal */; };
+		1E0EF4AE2DF4500F0083A26A /* BlueConeMonochromat.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E0EF4AD2DF4500F0083A26A /* BlueConeMonochromat.cikernel */; };
 		1E0FDB1A2D9E10CA008BBC1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */; };
 		1E0FDB1D2D9E1483008BBC1B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */; };
 		1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */; };
@@ -112,6 +119,10 @@
 		1E0E34A72D7E832100846C27 /* FilteredOpenGLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredOpenGLView.swift; sourceTree = "<group>"; };
 		1E0E34A92D7E868A00846C27 /* OpenGLRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGLRenderer.swift; sourceTree = "<group>"; };
 		1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = HCIRN.cikernel; sourceTree = "<group>"; };
+		1E0EF4A42DF3E09F0083A26A /* MonochromeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeFilter.swift; sourceTree = "<group>"; };
+		1E0EF4A72DF3E2C60083A26A /* BlueConeMonochromat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueConeMonochromat.swift; sourceTree = "<group>"; };
+		1E0EF4AA2DF44FC60083A26A /* BlueConeMonochromat.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = BlueConeMonochromat.metal; sourceTree = "<group>"; };
+		1E0EF4AD2DF4500F0083A26A /* BlueConeMonochromat.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = BlueConeMonochromat.cikernel; sourceTree = "<group>"; };
 		1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E0FDB1B2D9E10CC008BBC1B /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -485,6 +496,10 @@
 				9424DE6A26B63747007ADF4B /* HCIRN.metal */,
 				1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */,
 				9424DE6B26B63747007ADF4B /* HCIRNFilter.swift */,
+				1E0EF4A42DF3E09F0083A26A /* MonochromeFilter.swift */,
+				1E0EF4AA2DF44FC60083A26A /* BlueConeMonochromat.metal */,
+				1E0EF4AD2DF4500F0083A26A /* BlueConeMonochromat.cikernel */,
+				1E0EF4A72DF3E2C60083A26A /* BlueConeMonochromat.swift */,
 				9424DE6C26B63747007ADF4B /* HCIRNFilterVendor.swift */,
 			);
 			path = HCIRN;
@@ -636,6 +651,7 @@
 				1EF253A31C2AF1D600DB3B18 /* AboutBox.xib in Resources */,
 				1EDDE9B12DADBB8200E77E36 /* Alerts.xcstrings in Resources */,
 				1EDDE9AF2DADBAD900E77E36 /* URLs.xcstrings in Resources */,
+				1E0EF4AE2DF4500F0083A26A /* BlueConeMonochromat.cikernel in Resources */,
 				1EDDE9AD2DADBA3900E77E36 /* InfoPlist.xcstrings in Resources */,
 				1EBB1B032D889A51004493E2 /* AddVibrancy.cikernel in Resources */,
 			);
@@ -660,6 +676,7 @@
 				1E0FDB392DA03185008BBC1B /* MachadoFilters.swift in Sources */,
 				1E0FDB3A2DA03185008BBC1B /* HCIRNFilter.swift in Sources */,
 				1E0FDB3B2DA03185008BBC1B /* HCIRNFilterVendor.swift in Sources */,
+				1E0EF4A62DF3E0A70083A26A /* MonochromeFilter.swift in Sources */,
 				1E0FDB322DA03161008BBC1B /* MetalRenderer.swift in Sources */,
 				1E0FDB262D9EA780008BBC1B /* MirroredScrollView.swift in Sources */,
 				1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */,
@@ -669,7 +686,9 @@
 				1E0FDB3F2DA031D2008BBC1B /* CaptureStream.swift in Sources */,
 				1E0FDB362DA0317A008BBC1B /* ColorToolsVendor.swift in Sources */,
 				1E0FDB372DA0317A008BBC1B /* StripesFilter.swift in Sources */,
+				1E0EF4A82DF3E2C60083A26A /* BlueConeMonochromat.swift in Sources */,
 				1ECCBCCE2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */,
+				1E0EF4AB2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */,
 				1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */,
 				1ECCBCBA2DA0C02A00715B93 /* VisionType+CIFilterVendor.swift in Sources */,
 				1E0FDB2E2D9EB619008BBC1B /* VisionPicker.swift in Sources */,
@@ -687,12 +706,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E0EF4AC2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */,
 				1EF253431C274A0200DB3B18 /* FilterWindowController.swift in Sources */,
 				94E8FB2B26B3D30D0027BCF4 /* VisionType.swift in Sources */,
 				9424DE7A26B63747007ADF4B /* HCIRN.metal in Sources */,
 				94B926C526B139D300754E0C /* Errors.swift in Sources */,
 				1E0E34A02D7CB29900846C27 /* MoveWindowImageView.swift in Sources */,
 				1EA4CB781C3B6B9D00021F64 /* CaptureDefaults.swift in Sources */,
+				1E0EF4A92DF3E2C60083A26A /* BlueConeMonochromat.swift in Sources */,
 				9424DE7E26B63747007ADF4B /* MachadoFilterVendor.swift in Sources */,
 				9424DE8126B63747007ADF4B /* FilteredMetalView.swift in Sources */,
 				1EF253421C274A0200DB3B18 /* DragObservableWindow.swift in Sources */,
@@ -712,6 +733,7 @@
 				9424DE7C26B63747007ADF4B /* HCIRNFilterVendor.swift in Sources */,
 				9424DE8026B63747007ADF4B /* Transforms.metal in Sources */,
 				1EF253411C274A0200DB3B18 /* FilterViewController.swift in Sources */,
+				1E0EF4A52DF3E0A70083A26A /* MonochromeFilter.swift in Sources */,
 				1E3331CC2D82148300BE6092 /* ColorToolsVendor.swift in Sources */,
 				1E3331CD2D82148300BE6092 /* ColorTools.metal in Sources */,
 				1E3331CE2D82148300BE6092 /* StripesFilter.swift in Sources */,

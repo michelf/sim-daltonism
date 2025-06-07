@@ -23,8 +23,8 @@ class MachadoFilterVendor: NSObject, CIFilterConstructor {
         let classAttributes = [kCIAttributeFilterCategories: ["CustomFilters"]]
 
         let monochrome: Set<VisionType> = [
-            .monochromat,
-            .monochromacyPartial
+            .achromatopsia,
+            .achromatopsiaPartial
         ]
 
         VisionType.allCases.forEach { vision in
@@ -73,10 +73,10 @@ class MachadoFilterVendor: NSObject, CIFilterConstructor {
             case .tritanomaly:
                 matrix = [1.193214, -0.058496, -0.002346, -0.109812, 0.979410, 0.403492, -0.083402, 0.079086, 0.598854]
 
-            case .monochromat:
+            case .achromatopsia:
                 return MonochromacyFilter(intensity: 1)
 
-            case .monochromacyPartial:
+            case .achromatopsiaPartial:
                 return MonochromacyFilter(intensity: 0.66)
 
             default: return nil

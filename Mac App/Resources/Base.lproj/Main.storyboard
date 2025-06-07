@@ -666,15 +666,42 @@
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="fSz-4L-h4y"/>
                             </connections>
                         </menuItem>
-                        <menuItem isSeparatorItem="YES" id="wiF-1D-XGb"/>
-                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="Npk-y4-wqh">
+                        <menuItem isSeparatorItem="YES" id="ozv-BG-0WA"/>
+                        <menuItem title="Monochromacy" enabled="NO" id="o9s-VR-rOe">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Achromatopsia" tag="7" keyEquivalent="8" indentationLevel="1" id="Npk-y4-wqh">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="L4d-aW-ww3"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" id="cWO-ZF-xPw">
+                        <menuItem title="Partial Achromatomaly" tag="8" hidden="YES" indentationLevel="1" id="cWO-ZF-xPw">
+                            <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="9P6-uH-LcD"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Blue Cone Monochromacy" tag="9" keyEquivalent="7" indentationLevel="1" id="tWK-Bn-ZFS">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="g41-WV-3iZ"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Partial Blue Cone Monochromacy" tag="10" hidden="YES" indentationLevel="1" id="lOV-rj-oJT">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="9xn-tR-yw6"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="4Yw-gs-v1I"/>
+                        <menuItem title="Monochrome Display" tag="12" keyEquivalent="9" id="Jr5-1s-u16">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="Rcp-m5-cZR"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Monochrome Analog TV" tag="11" id="77h-3K-Sl9">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="8QM-Ja-o1P"/>
                             </connections>
                         </menuItem>
                     </items>
