@@ -518,14 +518,14 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Monochrome Analog TV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="flK-2k-8KW">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Monochrome Analog TV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="flK-2k-8KW">
                                                     <rect key="frame" x="16" y="5.9999999999999982" width="191" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="BT.601 luma coefficients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tst-IK-iP2">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="BT.601 luma coefficients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tst-IK-iP2">
                                                     <rect key="frame" x="16" y="26.333333333333332" width="148.33333333333334" height="15.666666666666666"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -711,6 +711,9 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN5-pc-Szy">
                                                 <rect key="frame" x="0.0" y="0.0" width="347" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="GUr-QI-g3M"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <state key="normal" title="Choose"/>
                                                 <connections>
@@ -726,7 +729,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="222" text="Trichromatic: red, green, and blue cones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVL-g1-ZDl">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="222" text="Trichromatic: red, green, and blue cones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PVL-g1-ZDl">
                                                         <rect key="frame" x="0.0" y="21.333333333333343" width="247" height="15.666666666666664"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
@@ -742,9 +745,9 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                             <constraint firstAttribute="height" constant="54" id="OAz-5t-2gG"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wec-8o-Rrw" secondAttribute="bottom" id="OTI-FJ-4g4"/>
                                             <constraint firstItem="wec-8o-Rrw" firstAttribute="leading" secondItem="RL4-bx-BDm" secondAttribute="leading" id="Vod-DZ-AoZ"/>
-                                            <constraint firstItem="UN5-pc-Szy" firstAttribute="bottom" secondItem="PVL-g1-ZDl" secondAttribute="bottom" id="iO8-Dk-Cz4"/>
                                             <constraint firstItem="UN5-pc-Szy" firstAttribute="leading" secondItem="RL4-bx-BDm" secondAttribute="leading" id="mb4-OE-76v"/>
                                             <constraint firstAttribute="trailing" secondItem="UN5-pc-Szy" secondAttribute="trailing" id="mpa-Yz-dAj"/>
+                                            <constraint firstItem="UN5-pc-Szy" firstAttribute="height" secondItem="MKr-3a-N1J" secondAttribute="height" multiplier="1.81967" id="sU6-bM-CVs"/>
                                             <constraint firstItem="UN5-pc-Szy" firstAttribute="top" secondItem="RL4-bx-BDm" secondAttribute="top" id="tUe-fj-ipB"/>
                                         </constraints>
                                     </view>
