@@ -18,6 +18,8 @@
 		1E0EF4AB2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF4AA2DF44FC60083A26A /* BlueConeMonochromat.metal */; };
 		1E0EF4AC2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1E0EF4AA2DF44FC60083A26A /* BlueConeMonochromat.metal */; };
 		1E0EF4AE2DF4500F0083A26A /* BlueConeMonochromat.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E0EF4AD2DF4500F0083A26A /* BlueConeMonochromat.cikernel */; };
+		1E0EF4B72DF5AE7F0083A26A /* SimDaltonismFilter.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1E0EF4B62DF5AE7F0083A26A /* SimDaltonismFilter.xcstrings */; };
+		1E0EF4B82DF5AE7F0083A26A /* SimDaltonismFilter.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1E0EF4B62DF5AE7F0083A26A /* SimDaltonismFilter.xcstrings */; };
 		1E0FDB1A2D9E10CA008BBC1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */; };
 		1E0FDB1D2D9E1483008BBC1B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */; };
 		1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FDB232D9EA588008BBC1B /* SettingsViewController.swift */; };
@@ -123,6 +125,7 @@
 		1E0EF4A72DF3E2C60083A26A /* BlueConeMonochromat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueConeMonochromat.swift; sourceTree = "<group>"; };
 		1E0EF4AA2DF44FC60083A26A /* BlueConeMonochromat.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = BlueConeMonochromat.metal; sourceTree = "<group>"; };
 		1E0EF4AD2DF4500F0083A26A /* BlueConeMonochromat.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = BlueConeMonochromat.cikernel; sourceTree = "<group>"; };
+		1E0EF4B62DF5AE7F0083A26A /* SimDaltonismFilter.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = SimDaltonismFilter.xcstrings; sourceTree = "<group>"; };
 		1E0FDB192D9E10C6008BBC1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E0FDB1B2D9E10CC008BBC1B /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		1E0FDB1C2D9E11BF008BBC1B /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +286,7 @@
 				94E8FB2A26B3D30D0027BCF4 /* VisionType.swift */,
 				9424DE6926B63747007ADF4B /* HCIRN */,
 				9424DE6E26B63747007ADF4B /* Machado */,
+				1E0EF4B62DF5AE7F0083A26A /* SimDaltonismFilter.xcstrings */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -617,6 +621,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E0EF4B82DF5AE7F0083A26A /* SimDaltonismFilter.xcstrings in Resources */,
 				1EF252E11C2742F300DB3B18 /* FlashLight@2x.png in Resources */,
 				1EF252E21C2742F300DB3B18 /* FlashLight@3x.png in Resources */,
 				1EF847102DADCEEC001AB68F /* Options.storyboard in Resources */,
@@ -652,6 +657,7 @@
 				1EDDE9B12DADBB8200E77E36 /* Alerts.xcstrings in Resources */,
 				1EDDE9AF2DADBAD900E77E36 /* URLs.xcstrings in Resources */,
 				1E0EF4AE2DF4500F0083A26A /* BlueConeMonochromat.cikernel in Resources */,
+				1E0EF4B72DF5AE7F0083A26A /* SimDaltonismFilter.xcstrings in Resources */,
 				1EDDE9AD2DADBA3900E77E36 /* InfoPlist.xcstrings in Resources */,
 				1EBB1B032D889A51004493E2 /* AddVibrancy.cikernel in Resources */,
 			);

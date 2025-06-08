@@ -840,6 +840,12 @@
             "state" : "new",
             "value" : "BT.601 luma coefficients"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coefficients de luminosité BT.601"
+          }
         }
       }
     },
@@ -1037,6 +1043,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "BT.709 luma coefficients"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coefficients de luminosité BT.709"
           }
         }
       }

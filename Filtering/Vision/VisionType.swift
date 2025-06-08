@@ -73,3 +73,27 @@ public enum VisionType: Int, CaseIterable {
         self = .init(rawValue: runtime) ?? .defaultValue
     }
 }
+
+enum VisionCategory {
+	case redGreen
+	case blueYellow
+	case monochromatism
+	case other
+
+	public var name: String {
+		switch self {
+		case .redGreen:       return NSLocalizedString("Red/Green Confusion", tableName: "SimDaltonismFilter", comment: "category name")
+		case .blueYellow:     return NSLocalizedString("Blue/Yellow Confusion", tableName: "SimDaltonismFilter", comment: "category name")
+		case .monochromatism: return NSLocalizedString("Monochromatism", tableName: "SimDaltonismFilter", comment: "category name")
+		case .other:          return NSLocalizedString("Other", tableName: "SimDaltonismFilter", comment: "category name")
+		}
+	}
+	public var description: String {
+		switch self {
+		case .redGreen:       return NSLocalizedString("Most common color vision deficiencies", tableName: "SimDaltonismFilter", comment: "category description")
+		case .blueYellow:     return ""
+		case .monochromatism: return ""
+		case .other:          return ""
+		}
+	}
+}

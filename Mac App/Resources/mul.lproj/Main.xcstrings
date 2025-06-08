@@ -753,29 +753,6 @@
         }
       }
     },
-    "cWO-ZF-xPw.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Partial Achromatomaly\"; ObjectID = \"cWO-ZF-xPw\";",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Partial Achromatopsy"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Achromatopsie partielle"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "全色盲弱"
-          }
-        }
-      }
-    },
     "Cwt-Y4-OOb.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Tritanomaly\"; ObjectID = \"Cwt-Y4-OOb\";",
       "localizations" : {
@@ -858,6 +835,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "删除"
+          }
+        }
+      }
+    },
+    "e0c-Vp-Dld.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Other\"; ObjectID = \"e0c-Vp-Dld\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Other"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre"
           }
         }
       }
@@ -1335,24 +1330,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "移到最前方"
-          }
-        }
-      }
-    },
-    "lOV-rj-oJT.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Partial Blue Cone Monochromacy\"; ObjectID = \"lOV-rj-oJT\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Partial Blue Cone Monochromacy"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Monochromatie au bleu partiel"
           }
         }
       }

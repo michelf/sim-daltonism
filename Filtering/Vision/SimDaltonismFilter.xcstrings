@@ -1,0 +1,372 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "comment" : "category name"
+    },
+    "Absent or non-functionning cones, rods only" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes absents ou non-fonctionnels, bâtonnets seulement"
+          }
+        }
+      }
+    },
+    "Absent or non-functionning red and green cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes rouges et verts absents ou non-fonctionnels"
+          }
+        }
+      }
+    },
+    "Achromatopsia" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achromatopsie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全色盲"
+          }
+        }
+      }
+    },
+    "Anomalous blue cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes bleus anormaux"
+          }
+        }
+      }
+    },
+    "Anomalous green cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes verts anormaux"
+          }
+        }
+      }
+    },
+    "Anomalous red and green cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes rouges et verts anormaux"
+          }
+        }
+      }
+    },
+    "Anomalous red cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cônes rouges anormaux"
+          }
+        }
+      }
+    },
+    "Blue Cone Monochromacy" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatie au bleu"
+          }
+        }
+      }
+    },
+    "Blue/Yellow Confusion" : {
+      "comment" : "category name",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daltonisme bleu/jaune"
+          }
+        }
+      }
+    },
+    "BT.601 luma coefficients" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coefficients de luminosité BT.601"
+          }
+        }
+      }
+    },
+    "BT.709 luma coefficients" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coefficients de luminosité BT.709"
+          }
+        }
+      }
+    },
+    "Deuteranomaly" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deuteranomalie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "绿色弱"
+          }
+        }
+      }
+    },
+    "Deuteranopia" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deuteranopie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "绿色盲"
+          }
+        }
+      }
+    },
+    "Monochromatism" : {
+      "comment" : "category name",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatisme"
+          }
+        }
+      }
+    },
+    "Monochrome Analog TV" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télé monochrome analogique"
+          }
+        }
+      }
+    },
+    "Monochrome Display" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Écran monochrome"
+          }
+        }
+      }
+    },
+    "Most common color vision deficiencies" : {
+      "comment" : "category description",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les formes les plus communes de daltonisme."
+          }
+        }
+      }
+    },
+    "No blue cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun cône bleu"
+          }
+        }
+      }
+    },
+    "No green cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun cône vert"
+          }
+        }
+      }
+    },
+    "No red cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun cône rouge"
+          }
+        }
+      }
+    },
+    "Normal Vision" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision normale"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正常色觉"
+          }
+        }
+      }
+    },
+    "Other" : {
+      "comment" : "category name",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre"
+          }
+        }
+      }
+    },
+    "Partial Achromatopsia" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achromatopsie partielle"
+          }
+        }
+      }
+    },
+    "Partial Blue Cone Monochromacy" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatisme au bleu partiel"
+          }
+        }
+      }
+    },
+    "Protanomaly" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protanomalie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红色弱"
+          }
+        }
+      }
+    },
+    "Protanopia" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protanopie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红色盲"
+          }
+        }
+      }
+    },
+    "Red/Green Confusion" : {
+      "comment" : "category name",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daltonisme rouge/vert"
+          }
+        }
+      }
+    },
+    "Reduced sensitivity to colors" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sensibilité moindre aux couleurs"
+          }
+        }
+      }
+    },
+    "Trichromatic: red, green, and blue cones" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trichromatique : cônes rouges, verts, et bleus"
+          }
+        }
+      }
+    },
+    "Tritanomaly" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tritanomalie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蓝色弱"
+          }
+        }
+      }
+    },
+    "Tritanopia" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tritanopie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "蓝色盲"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
