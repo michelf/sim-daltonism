@@ -100,6 +100,8 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
 		case .blueConeMonochromacyPartial:
 			return BlueConeMonochromatFilter(blueSensitivity: 1, intensity: 0.66)
 
+			// luma coefficients for BT.601 and BT.709 from
+			// https://en.wikipedia.org/wiki/Luma_(video)
 		case .monochromeAnalogTV:
 			return MonochromeFilter(coefficients: (0.299, 0.587, 0.114), intensity: 1)
 		case .monochromeDisplay:
