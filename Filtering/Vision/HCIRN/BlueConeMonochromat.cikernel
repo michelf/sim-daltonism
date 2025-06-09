@@ -11,6 +11,16 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+//
+// ---
+//
+// Rod response algorithm developed from sample rod response colors by
+// Larry Robinson on this page:
+// - https://midimagic.sgc-hosting.com/huvision.htm
+//
+// Blue Cone Monchromat filter developed with the help of Dean Monthei.
+// The descriptions and images were quite useful:
+// - https://www.blueconemonochromacy.org/know-more/colorblindess/
 
 
 float sat(vec3 c)
@@ -74,7 +84,8 @@ kernel vec4 bcm_kernel(__sample color, float blueSensitivity, float attrib_anoma
 	float li = max(color.g, color.b);
 	float saturation = mix(sat(color.rgb), bcm_sat(color.rgb), blueSensitivity);
 
-	vec3 blueYellow = normalize(vec3(li-blue, li-blue + 0.5*blue, blue));
+	float aquaShift = 0.0; // make blue brigther to the normal eye by shifting it to aqua
+	vec3 blueYellow = normalize(vec3(li-blue, li-blue + aquaShift*0.5*blue, blue));
 	vec3 blueYellowAdjust = mix(vec3(1.0), blueYellow, blueSensitivity);
 
 	vec3 rgb = mix(vec3(li), li*(rod*blueYellowAdjust), saturation);
