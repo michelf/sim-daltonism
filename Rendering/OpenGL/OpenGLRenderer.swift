@@ -88,6 +88,7 @@ extension OpenGLRenderer {
 
 	private func rescaleIfNeeded(drawableSize: CGSize, imageExtent: CGRect) {
 		guard drawableSize != imageExtent.size else { return }
+		guard !imageExtent.isEmpty else { return }
 
 		// aspect-fit transform
 		let ratioX = drawableSize.width / imageExtent.width
