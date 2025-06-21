@@ -32,6 +32,8 @@ public protocol CaptureStream: AnyObject {
 public protocol CaptureStreamDelegate: AnyObject {
 
     func didCaptureFrame(image: CIImage)
+	func currentRenderedImage() -> CIImage
+
 }
 
 

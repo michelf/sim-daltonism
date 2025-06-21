@@ -1,0 +1,5 @@
+# SimPictures folder contains images for the iOS simulator.
+# Telling git to ignore them so they aren't part of the repository.
+# Feel free to add your own pictures here for the simulator.
+*
+!.gitignore

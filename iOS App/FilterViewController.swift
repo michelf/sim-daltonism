@@ -166,8 +166,9 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 #if targetEnvironment(simulator)
 	func prepareSlideshow() {
 		if _slideshowURLs == nil {
-			let slideshowDir = URL(fileURLWithPath: "Pictures", isDirectory: true)
+			let slideshowDir = URL(fileURLWithPath: #filePath, isDirectory: false).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("SimPictures", isDirectory: true)
 			_slideshowURLs = try? FileManager.default.contentsOfDirectory(at: slideshowDir, includingPropertiesForKeys: nil, options: [.skipsPackageDescendants, .skipsHiddenFiles])
+			print("Found \(_slideshowURLs?.count ?? 0) slides in SimPictures.")
 			self.goNextSlide()
 
 			NotificationCenter.default.addObserver(self, selector: #selector(refreshCurrentSlide), name: UserDefaults.didChangeNotification, object: nil)
@@ -200,11 +201,24 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		}
 	}
 
+	private var slideCache: [Int: CIImage?] = [:]
+	func loadSlide(at index: Int) -> CIImage? {
+		if let image = slideCache[index] {
+			return image
+		}
+		guard let imageURL = _slideshowURLs?[index],
+			  let cgImage = UIImage(contentsOfFile: imageURL.path)?.cgImage
+		else {
+			slideCache[index] = .some(nil)
+			return nil
+		}
+		let image = CIImage(cgImage: cgImage, options: [.cacheImmediately: true])
+		slideCache[index] = image
+		return image
+	}
 	@objc func refreshCurrentSlide() -> Bool {
-		if let imageURL = _slideshowURLs?[_slideshowIndex],
-		   let image = UIImage(contentsOfFile: imageURL.path)
-		{
-			self.previewView?.display(image)
+		if let image = loadSlide(at: _slideshowIndex) {
+			self.renderer?.didCaptureFrame(image: image)
 			return true
 		} else {
 			return false
@@ -381,70 +395,43 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		self.photoButton.isEnabled = false
 	}
 
-	// Preview
-	func capturePipeline(_ capturePipeline: CapturePipeline, previewPixelBufferReadyForDisplay previewPixelBuffer: CVPixelBuffer) {
-//		if !_allowedToUseGPU {
-//			return
-//		}
-//
-//		if self.previewView == nil {
-//			self.setupPreviewView()
-//		}
-//
-//		self.noCameraPermissionOverlayView.isHidden = true
-//
-//		self.previewView?.display(previewPixelBuffer)
-//
-//		let app = UIApplication.shared
-//		let shouldDisableIdleTimer = self.presentedViewController == nil
-//		if app.isIdleTimerDisabled != shouldDisableIdleTimer {
-//			app.isIdleTimerDisabled = shouldDisableIdleTimer
-//		}
-	}
-
-	func capturePipelineDidRunOutOfPreviewBuffers(_ capturePipeline: CapturePipeline) {
-//		if _allowedToUseGPU {
-//			self.previewView?.flushPixelBufferCache()
-//		}
-	}
-
-	func sharePicture(_ item: UIBarButtonItem) {
-//		let image = self.previewView?.captureCurrentImage()
-//		guard let image else { return }
-//		var torchActive = false
-//		if let _videoDevice, _videoDevice.hasTorch {
-//			do {
-//				try _videoDevice.lockForConfiguration()
-//				torchActive = _videoDevice.isTorchActive
-//				_videoDevice.torchMode = .off
-//				_videoDevice.unlockForConfiguration()
-//				self.reflectTorchActiveState(torchActive)
-//			} catch {
-//				print("videoDevice lockForConfiguration returned error", error)
-//			}
-//		}
-//		_presentingShareView = true
-//		self.capturePipeline?.renderingEnabled = !_presentingShareView // freeze image
-//		let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-//		if UIDevice.current.userInterfaceIdiom == .pad {
-//			activityViewController.modalPresentationStyle = .popover
-//			activityViewController.popoverPresentationController?.barButtonItem = item
-//		}
-//		self.present(activityViewController, animated: true)
-//		activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
-//			self._presentingShareView = false
-//			self.capturePipeline?.renderingEnabled = !self._presentingShareView; // unfreeze image
-//			if torchActive, let videoDevice = self._videoDevice, videoDevice.hasTorch {
-//				do {
-//					try videoDevice.lockForConfiguration()
-//					videoDevice.torchMode = torchActive ? .on : .off
-//					videoDevice.unlockForConfiguration()
-//					self.reflectTorchActiveState(torchActive)
-//				} catch {
-//					print("videoDevice lockForConfiguration returned error", error)
-//				}
-//			}
-//		};
+	@IBAction func sharePicture(_ item: UIBarButtonItem) {
+		let image = self.renderer?.currentRenderedImage()
+		guard let image else { return }
+		var torchActive = false
+		if let videoDevice, videoDevice.hasTorch {
+			do {
+				try videoDevice.lockForConfiguration()
+				torchActive = videoDevice.isTorchActive
+				videoDevice.torchMode = .off
+				videoDevice.unlockForConfiguration()
+				self.reflectTorchActiveState(torchActive)
+			} catch {
+				print("videoDevice lockForConfiguration returned error", error)
+			}
+		}
+		_presentingShareView = true
+		self.captureStream?.stopSession() // freeze image
+		let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+		if UIDevice.current.userInterfaceIdiom == .pad {
+			activityViewController.modalPresentationStyle = .popover
+			activityViewController.popoverPresentationController?.barButtonItem = item
+		}
+		self.present(activityViewController, animated: true)
+		activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
+			self._presentingShareView = false
+			self.captureStream?.startSession(in: .zero, delegate: self.renderer!); // unfreeze image
+			if torchActive, let videoDevice = self.videoDevice, videoDevice.hasTorch {
+				do {
+					try videoDevice.lockForConfiguration()
+					videoDevice.torchMode = torchActive ? .on : .off
+					videoDevice.unlockForConfiguration()
+					self.reflectTorchActiveState(torchActive)
+				} catch {
+					print("videoDevice lockForConfiguration returned error", error)
+				}
+			}
+		};
 	}
 
 }

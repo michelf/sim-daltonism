@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -67,6 +67,8 @@
 		1EDDE9AF2DADBAD900E77E36 /* URLs.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1EDDE9AE2DADBAD900E77E36 /* URLs.xcstrings */; };
 		1EDDE9B12DADBB8200E77E36 /* Alerts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1EDDE9B02DADBB8200E77E36 /* Alerts.xcstrings */; };
 		1EDDE9BB2DADBCBB00E77E36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EDDE9BA2DADBCBB00E77E36 /* Main.storyboard */; };
+		1EE469122E0582FA00C0CD49 /* CIImage+Rescale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE469112E0582F100C0CD49 /* CIImage+Rescale.swift */; };
+		1EE469132E05830E00C0CD49 /* CIImage+Rescale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE469112E0582F100C0CD49 /* CIImage+Rescale.swift */; };
 		1EF252C61C2742F300DB3B18 /* CapturePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF2526C1C2742F300DB3B18 /* CapturePipeline.m */; };
 		1EF252C81C2742F300DB3B18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2526F1C2742F300DB3B18 /* Images.xcassets */; };
 		1EF252D81C2742F300DB3B18 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF2528B1C2742F300DB3B18 /* Launch.storyboard */; };
@@ -155,6 +157,7 @@
 		1EDDE9B02DADBB8200E77E36 /* Alerts.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Alerts.xcstrings; sourceTree = "<group>"; };
 		1EDDE9B92DADBCBB00E77E36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EDDE9BC2DADBCBB00E77E36 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
+		1EE469112E0582F100C0CD49 /* CIImage+Rescale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Rescale.swift"; sourceTree = "<group>"; };
 		1EEA1DB71B86A24B001D7B26 /* Sim Daltonism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sim Daltonism.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License 2.0.txt"; sourceTree = "<group>"; };
 		1EF2526B1C2742F300DB3B18 /* CapturePipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapturePipeline.h; sourceTree = "<group>"; };
@@ -226,6 +229,10 @@
 		94E8FB2C26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+WindowRestoration.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1EE468EC2E05741600C0CD49 /* SimPictures */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SimPictures; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		1EEA1DB41B86A24B001D7B26 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -272,6 +279,7 @@
 		1ECCBCDB2DAD8E6600715B93 /* Rendering */ = {
 			isa = PBXGroup;
 			children = (
+				1EE469112E0582F100C0CD49 /* CIImage+Rescale.swift */,
 				1ECCBCDF2DAD9A3900715B93 /* Metal */,
 				1ECCBCE02DAD9A4300715B93 /* OpenGL */,
 			);
@@ -424,6 +432,7 @@
 			children = (
 				1EF251F31C26E1EC00DB3B18 /* Apache License 2.0.txt */,
 				1E3BDB811C26408F00CADF46 /* ReadMe.md */,
+				1EE468EC2E05741600C0CD49 /* SimPictures */,
 				9424DE5F26B63747007ADF4B /* Filtering */,
 				1ECCBCDB2DAD8E6600715B93 /* Rendering */,
 				9424DE6126B63747007ADF4B /* Capturing */,
@@ -543,6 +552,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1EE468EC2E05741600C0CD49 /* SimPictures */,
 			);
 			name = "Sim Daltonism (iOS)";
 			productName = "Sim Daltonism";
@@ -695,6 +707,7 @@
 				1E0EF4A82DF3E2C60083A26A /* BlueConeMonochromat.swift in Sources */,
 				1ECCBCCE2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */,
 				1E0EF4AB2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */,
+				1EE469132E05830E00C0CD49 /* CIImage+Rescale.swift in Sources */,
 				1E0FDB242D9EA58E008BBC1B /* SettingsViewController.swift in Sources */,
 				1ECCBCBA2DA0C02A00715B93 /* VisionType+CIFilterVendor.swift in Sources */,
 				1E0FDB2E2D9EB619008BBC1B /* VisionPicker.swift in Sources */,
@@ -713,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E0EF4AC2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */,
+				1EE469122E0582FA00C0CD49 /* CIImage+Rescale.swift in Sources */,
 				1EF253431C274A0200DB3B18 /* FilterWindowController.swift in Sources */,
 				94E8FB2B26B3D30D0027BCF4 /* VisionType.swift in Sources */,
 				9424DE7A26B63747007ADF4B /* HCIRN.metal in Sources */,

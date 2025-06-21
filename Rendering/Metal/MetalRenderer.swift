@@ -45,6 +45,11 @@ extension MetalRenderer: CaptureStreamDelegate {
     func didCaptureFrame(image: CIImage) {
         render(image)
     }
+
+	func currentRenderedImage() -> CIImage {
+		self.image
+	}
+
 }
 
 extension MetalRenderer {
@@ -72,7 +77,7 @@ extension MetalRenderer: MTKViewDelegate {
               let currentDrawable = view.currentDrawable
         else { return }
 
-        rescaleIfNeeded(drawableSize: view.drawableSize, imageExtent: image.extent)
+		image = image.rescaledCentered(inFrame: view.drawableSize)
 
 		#if os(macOS)
 		let colorspace = view.colorspace ?? CGColorSpaceCreateDeviceRGB()
@@ -89,33 +94,6 @@ extension MetalRenderer: MTKViewDelegate {
 
         buffer.present(currentDrawable)
         buffer.commit()
-    }
-
-    /// When Metal is rendering to a different scale factor than the image delivered
-    /// (e.g., view is in Retina screen, mouse pointer is in non-Retina screen),
-    /// then scale the CIImage to fit the Metal drawable.
-    private func rescaleIfNeeded(drawableSize: CGSize, imageExtent: CGRect) {
-        guard drawableSize != imageExtent.size else { return }
-		guard !imageExtent.isEmpty else { return }
-
-		// aspect-fit transform
-		let ratioX = drawableSize.width / imageExtent.width
-		let ratioY = drawableSize.height / imageExtent.height
-		let scale: CGFloat
-		var translationX: CGFloat = 0
-		var translationY: CGFloat = 0
-		if ratioX < ratioY {
-			scale = ratioY
-			translationX -= round((imageExtent.width * scale - drawableSize.width) / 2)
-		} else {
-			scale = ratioX
-			translationY -= round((imageExtent.height * scale - drawableSize.height) / 2)
-		}
-
-		let transform = CGAffineTransform(scaleX: scale, y: scale).translatedBy(x: translationX, y: translationY)
-
-        image = image.transformed(by: transform, highQualityDownsample: false)
-
     }
     
 }
