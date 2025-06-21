@@ -57,7 +57,7 @@ extension OpenGLRenderer: CaptureStreamDelegate {
 	func currentRenderedImage() -> CIImage {
 		self.image
 	}
-	
+
 }
 
 extension OpenGLRenderer {
@@ -82,7 +82,7 @@ extension OpenGLRenderer {
 		let drawableSize = self.drawableSize
 		drawableSizeLock.unlock()
 
-		image = image.rescaledCentered(inFrame: drawableSize)
+		let image = image.rescaledCentered(inFrame: drawableSize)
 
 		let drawableRect = CGRect(origin: .zero, size: drawableSize)
 

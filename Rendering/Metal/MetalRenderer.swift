@@ -68,6 +68,7 @@ extension MetalRenderer: MTKViewDelegate {
 		#if os(macOS)
 		view.colorspace = CGDisplayCopyColorSpace(CGMainDisplayID())
 		#endif
+		view.setNeedsDisplay(view.bounds)
     }
 
     /// Queues rendering commands into GPU
@@ -77,7 +78,7 @@ extension MetalRenderer: MTKViewDelegate {
               let currentDrawable = view.currentDrawable
         else { return }
 
-		image = image.rescaledCentered(inFrame: view.drawableSize)
+		let image = image.rescaledCentered(inFrame: view.drawableSize)
 
 		#if os(macOS)
 		let colorspace = view.colorspace ?? CGColorSpaceCreateDeviceRGB()
