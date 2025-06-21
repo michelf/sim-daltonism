@@ -92,8 +92,8 @@ extern "C" {
 			float li = max(color.g, color.b);
 			float saturation = mix(sat(color.rgb), bcm_sat(color.rgb), blueSensitivity);
 
-			float aquaShift = 0.0; // make blue brigther to the normal eye by shifting it to aqua
-			float3 blueYellow = normalize(float3(li-blue, li-blue + aquaShift*0.5*blue, blue));
+			float aquaShift = 0.5; // make blue brigther to the normal eye by shifting it to aqua
+			float3 blueYellow = normalize(float3(li-blue, li-blue + aquaShift*blue, blue));
 			float3 blueYellowAdjust = mix(float3(1.0), blueYellow, blueSensitivity);
 
 			float3 rgb = mix(float3(li), li*(rod*blueYellowAdjust), saturation);

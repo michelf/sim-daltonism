@@ -84,8 +84,8 @@ kernel vec4 bcm_kernel(__sample color, float blueSensitivity, float attrib_anoma
 	float li = max(color.g, color.b);
 	float saturation = mix(sat(color.rgb), bcm_sat(color.rgb), blueSensitivity);
 
-	float aquaShift = 0.0; // make blue brigther to the normal eye by shifting it to aqua
-	vec3 blueYellow = normalize(vec3(li-blue, li-blue + aquaShift*0.5*blue, blue));
+	float aquaShift = 0.5; // make blue brigther to the normal eye by shifting it to aqua
+	vec3 blueYellow = normalize(vec3(li-blue, li-blue + aquaShift*blue, blue));
 	vec3 blueYellowAdjust = mix(vec3(1.0), blueYellow, blueSensitivity);
 
 	vec3 rgb = mix(vec3(li), li*(rod*blueYellowAdjust), saturation);
