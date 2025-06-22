@@ -64,7 +64,7 @@ extension OpenGLRenderer {
 
     func render(_ image: CIImage) {
 		guard let openGLView else { return }
-        self.image = filterStore?.applyFilter(to: image) ?? image
+        self.image = image
 		self.draw(in: openGLView)
     }
 }
@@ -82,7 +82,8 @@ extension OpenGLRenderer {
 		let drawableSize = self.drawableSize
 		drawableSizeLock.unlock()
 
-		let image = image.rescaledCentered(inFrame: drawableSize)
+		var image = image.rescaledCentered(inFrame: drawableSize)
+		image = filterStore?.applyFilter(to: image) ?? image
 
 		let drawableRect = CGRect(origin: .zero, size: drawableSize)
 

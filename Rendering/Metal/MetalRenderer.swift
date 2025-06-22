@@ -56,7 +56,7 @@ extension MetalRenderer {
     
     /// Prepare the frame received by applying available filter(s). Call MTKView.draw(in:) to execute.
     func render(_ image: CIImage) {
-        self.image = filterStore?.applyFilter(to: image) ?? image
+        self.image = image
         mtkview?.draw()
     }
 }
@@ -78,7 +78,8 @@ extension MetalRenderer: MTKViewDelegate {
               let currentDrawable = view.currentDrawable
         else { return }
 
-		let image = image.rescaledCentered(inFrame: view.drawableSize)
+		var image = image.rescaledCentered(inFrame: view.drawableSize)
+		image = filterStore?.applyFilter(to: image) ?? image
 
 		#if os(macOS)
 		let colorspace = view.colorspace ?? CGColorSpaceCreateDeviceRGB()

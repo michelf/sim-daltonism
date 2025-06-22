@@ -64,15 +64,15 @@ class SettingsViewController: UIViewController {
 
 
 	@IBAction func redStripeSwitchToggled(_ sender: Any) {
-		FilterStore.global.configuration.stripeConfig.redStripes = redStripeSwitch.isOn ? 2 : 0
+		FilterStore.global.configuration.stripeConfig.redStripes = redStripeSwitch.isOn ? 1 : 0
 	}
 
 	@IBAction func greenStripeSwitchToggled(_ sender: Any) {
-		FilterStore.global.configuration.stripeConfig.greenStripes = greenStripeSwitch.isOn ? 2 : 0
+		FilterStore.global.configuration.stripeConfig.greenStripes = greenStripeSwitch.isOn ? 1 : 0
 	}
 
 	@IBAction func blueStripeSwitchToggled(_ sender: Any) {
-		FilterStore.global.configuration.stripeConfig.blueStripes = blueStripeSwitch.isOn ? 2 : 0
+		FilterStore.global.configuration.stripeConfig.blueStripes = blueStripeSwitch.isOn ? 1 : 0
 	}
 
 	@IBAction func invertHueSwitchToggled(_ sender: Any) {

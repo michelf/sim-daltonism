@@ -172,6 +172,7 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.filterStore = FilterStore.global
+		filterStore.configuration.stripeConfig.patternScale = Float(UIScreen.main.scale)
 
 		NotificationCenter.default.addObserver(self, selector: #selector(refreshFilterDescriptionLabels), name: FilterStore.didChangeNotification, object: filterStore)
 		refreshFilterDescriptionLabels()

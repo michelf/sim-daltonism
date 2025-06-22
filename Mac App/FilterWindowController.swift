@@ -57,6 +57,14 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 		filterStore.configuration.simulation = simulation
     }
 
+	func refreshScale() {
+		filterStore.configuration.stripeConfig.patternScale = Float(window?.backingScaleFactor ?? 1)
+
+	}
+
+	func windowDidChangeBackingProperties(_ notification: Notification) {
+		refreshScale()
+	}
 
     // MARK: - Manage Window
 
@@ -84,6 +92,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
         window?.addTitlebarAccessoryViewController(accessory)
 
         applyVisionType()
+		refreshScale()
     }
 
     /// Position the window so it has a different origin than other filter
