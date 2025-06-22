@@ -1,6 +1,60 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "7ej-e2-Oi1.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Blue\"; ObjectID = \"7ej-e2-Oi1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Blue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bleu"
+          }
+        }
+      }
+    },
+    "cml-1H-1vU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Red\"; ObjectID = \"cml-1H-1vU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Red"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rouge"
+          }
+        }
+      }
+    },
+    "dWr-k9-jEZ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Normal Vision\"; ObjectID = \"dWr-k9-jEZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Normal Vision"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision normale"
+          }
+        }
+      }
+    },
     "eqF-fh-KLd.text" : {
       "comment" : "Class = \"UILabel\"; text = \"- x -\"; ObjectID = \"eqF-fh-KLd\";",
       "extractionState" : "extracted_with_value",
@@ -14,6 +68,42 @@
       },
       "shouldTranslate" : false
     },
+    "Fvv-s9-W2p.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Hue Shift\"; ObjectID = \"Fvv-s9-W2p\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hue Shift"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teinte"
+          }
+        }
+      }
+    },
+    "H19-Mr-fSi.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Luminance Flip\"; ObjectID = \"H19-Mr-fSi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Luminance Flip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inversion"
+          }
+        }
+      }
+    },
     "HDX-o9-NoD.text" : {
       "comment" : "Class = \"UILabel\"; text = \"- FPS\"; ObjectID = \"HDX-o9-NoD\";",
       "extractionState" : "extracted_with_value",
@@ -26,6 +116,24 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "IaT-aG-2Gz.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Green\"; ObjectID = \"IaT-aG-2Gz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Green"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vert"
+          }
+        }
+      }
     },
     "Kt2-yZ-67p.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Sim Daltonism does not have persmission to access the camera.\"; ObjectID = \"Kt2-yZ-67p\";",
@@ -57,6 +165,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Changer les permissions"
+          }
+        }
+      }
+    },
+    "Wmj-gg-0DA.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Boost\"; ObjectID = \"Wmj-gg-0DA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Boost"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couleurs vibrantes"
           }
         }
       }

@@ -16,12 +16,21 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 	@IBOutlet var photoButton:  UIBarButtonItem!
 	@IBOutlet var flashButton:  UIBarButtonItem!
 	@IBOutlet var shareButton:  UIBarButtonItem!
-	@IBOutlet var toolbar:  UIToolbar!
+	@IBOutlet var visionMenuButton:  UIBarButtonItem!
+	@IBOutlet var colorToolsMenuButton:  UIBarButtonItem!
 	@IBOutlet var framerateLabel:  UILabel!
 	@IBOutlet var dimensionsLabel:  UILabel!
 	@IBOutlet var contentView:  UIView!
 	@IBOutlet var noCameraPermissionOverlayView:  UIView!
 	var labelTimer: Timer?
+
+	@IBOutlet var visionTypeLabel: UILabel?
+	@IBOutlet var redStripeIndicator: UIView?
+	@IBOutlet var greenStripeIndicator: UIView?
+	@IBOutlet var blueStripeIndicator: UIView?
+	@IBOutlet var hueShiftIndicator: UIView?
+	@IBOutlet var invertLuminanceIndicator: UIView?
+	@IBOutlet var colorBoostIndicator: UIView?
 
 	private var renderer: CaptureStreamDelegate? = nil
 	private var captureStream: AVCaptureStream?
@@ -91,9 +100,81 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		self.setVideoDevice(videoDevice: .default(for: .video))
 	}
 
+	func setupMenus() {
+		var keepsPresentedAttribute: UIMenu.Attributes = []
+		if #available(iOS 16.0, *) {
+			visionMenuButton.preferredMenuElementOrder = .fixed
+			colorToolsMenuButton.preferredMenuElementOrder = .fixed
+			keepsPresentedAttribute = .keepsMenuPresented
+		}
+
+		func action(for vision: VisionType) -> UIAction {
+			if false, #available(iOS 17.0, *) {
+				UIAction(title: vision.name, subtitle: vision.description, state: filterStore.configuration.vision == vision ? .on : .off) { [weak self] action in
+					self?.filterStore.configuration.vision = vision
+				}
+			} else {
+				UIAction(title: vision.name, state: filterStore.configuration.vision == vision ? .on : .off) { [weak self] action in
+					self?.filterStore.configuration.vision = vision
+				}
+			}
+		}
+
+		visionMenuButton.menu = UIMenu(children: [
+			UIMenu(options: .displayInline, children: [
+				action(for: .normal),
+			].iOSLessThan16_reversed()),
+			UIMenu(title: NSLocalizedString("Red/green color blindness", comment: ""), options: .displayInline, children: [
+				action(for: .deutan),
+				action(for: .deuteranomaly),
+				action(for: .protan),
+				action(for: .protanomaly),
+			].iOSLessThan16_reversed()),
+			UIMenu(title: NSLocalizedString("Blue/yellow color blindness", comment: ""), options: .displayInline, children: [
+				action(for: .tritan),
+				action(for: .tritanomaly),
+			].iOSLessThan16_reversed()),
+			UIMenu(title: NSLocalizedString("Monochromacy", comment: ""), options: .displayInline, children: [
+				action(for: .achromatopsia),
+				action(for: .blueConeMonochromat),
+			].iOSLessThan16_reversed()),
+			UIMenu(title: NSLocalizedString("Other", comment: ""), options: .displayInline, children: [
+				action(for: .monochromeDisplay),
+				action(for: .monochromeAnalogTV),
+			].iOSLessThan16_reversed()),
+		].iOSLessThan16_reversed())
+		colorToolsMenuButton.menu = UIMenu(children: [
+			UIMenu(options: .displayInline, children: [
+				UIAction(title: NSLocalizedString("Red Stripes", comment: ""), image: UIImage(named: "StripesLooseTemplate"), attributes: keepsPresentedAttribute, state: filterStore.configuration.stripeConfig.redStripes != 0 ? .on : .off) { [weak self] action in
+					self?.filterStore.configuration.stripeConfig.redStripes = action.state == .on ? 0 : 1
+				},
+				UIAction(title: NSLocalizedString("Green Stripes", comment: ""), image: UIImage(named: "DashesLooseTemplate"), attributes: keepsPresentedAttribute, state: filterStore.configuration.stripeConfig.greenStripes != 0 ? .on : .off) { [weak self] action in
+					self?.filterStore.configuration.stripeConfig.greenStripes = action.state == .on ? 0 : 1
+				},
+				UIAction(title: NSLocalizedString("Blue Stripes", comment: ""), image: UIImage(named: "HorizontalStripesLooseTemplate"), attributes: keepsPresentedAttribute, state: filterStore.configuration.stripeConfig.blueStripes != 0 ? .on : .off) { [weak self] action in
+					self?.filterStore.configuration.stripeConfig.blueStripes = action.state == .on ? 0 : 1
+				},
+			].iOSLessThan16_reversed()),
+			UIMenu(options: .displayInline, children: [
+				UIAction(title: NSLocalizedString("Hue Shift", comment: ""), attributes: keepsPresentedAttribute, state: filterStore.configuration.hueShift ? .on : .off) { [weak self] action in
+					self?.filterStore.configuration.hueShift.toggle()
+				},
+				UIAction(title: NSLocalizedString("Luminance Flip", comment: ""), attributes: keepsPresentedAttribute, state: filterStore.configuration.invertLuminance ? .on : .off) { [weak self] action in
+					self?.filterStore.configuration.invertLuminance.toggle()
+				},
+				UIAction(title: NSLocalizedString("Vibrancy Boost", comment: ""), attributes: keepsPresentedAttribute, state: filterStore.configuration.colorBoost ? .on : .off) { [weak self] action in
+					self?.filterStore.configuration.colorBoost.toggle()
+				},
+			].iOSLessThan16_reversed()),
+		].iOSLessThan16_reversed())
+	}
+
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.filterStore = FilterStore.global
+
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshFilterDescriptionLabels), name: FilterStore.didChangeNotification, object: filterStore)
+		refreshFilterDescriptionLabels()
 
 		setupPreviewView()
 
@@ -106,6 +187,11 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 
 		do { try self.captureStream?.startSession(in: .zero, delegate: renderer!) }
 		catch let error { presentError(error) }
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		NotificationCenter.default.removeObserver(self, name: FilterStore.didChangeNotification, object: filterStore)
 	}
 
 	/// If supported, connect a renderer to the Metal view. Returns false if failed to setup Metal.
@@ -129,10 +215,8 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 #endif
 		if _mainCameraUIAdapted == false {
 			if (!hasTorch) {
-				// remove torch button and spacer if main camera does not have a torch
-				var items = self.toolbar.items ?? []
-				items.removeFirst(min(items.count, 2))
-				self.toolbar.items = items
+				// remove torch button if main camera does not have a torch
+				toolbarItems?.removeAll { $0 === self.flashButton }
 			}
 			_mainCameraUIAdapted = true
 		}
@@ -145,8 +229,12 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 	}
 
 	func reflectTorchActiveState(_ torchActive: Bool) {
-		let torchImageName = torchActive ? "FlashLight" : "FlashDark";
-		let torchImage = UIImage(named: torchImageName)
+		let torchImageName = torchActive ? "flashlight.on.fill" : "flashlight.off.fill";
+		let torchImage = if #available(iOS 13.0, *) {
+			UIImage(systemName: torchImageName)
+		} else {
+			UIImage(named: torchImageName)
+		}
 		self.flashButton.image = torchImage
 	}
 
@@ -350,6 +438,24 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		self.dimensionsLabel.text = "\(width) × \(height)"
 	}
 
+	@objc func refreshFilterDescriptionLabels() {
+		let config = filterStore.configuration
+		if config.vision == .normal && !config.isUnalteredNormalVision {
+			// avoid displaying "normal vision" when other effects are in place
+			visionTypeLabel?.text = nil
+		} else {
+			visionTypeLabel?.text = config.vision.name
+		}
+		redStripeIndicator?.isHidden = config.stripeConfig.redStripes == 0
+		greenStripeIndicator?.isHidden = config.stripeConfig.greenStripes == 0
+		blueStripeIndicator?.isHidden = config.stripeConfig.blueStripes == 0
+		hueShiftIndicator?.isHidden = !config.hueShift
+		invertLuminanceIndicator?.isHidden = !config.invertLuminance
+		colorBoostIndicator?.isHidden = !config.colorBoost
+
+		setupMenus()
+	}
+
 	// MARK: - RosyWriterCapturePipelineDelegate
 
 	func capturePipeline(_ capturePipeline: CapturePipeline, didStartRunningWithVideoDevice videoDevice: AVCaptureDevice) {
@@ -468,6 +574,19 @@ extension FilterViewController {
 			preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
 		present(alert, animated: true)
+	}
+
+}
+
+extension Array {
+
+	// compensation for lack of .preferredMenuElementOrder
+	func iOSLessThan16_reversed() -> Self {
+		if #available(iOS 16, *) {
+			return self
+		} else {
+			return self.reversed()
+		}
 	}
 
 }

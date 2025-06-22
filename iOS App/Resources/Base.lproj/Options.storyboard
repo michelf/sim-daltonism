@@ -790,13 +790,17 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                 <rect key="frame" x="0.0" y="27.666666666666686" width="347" height="121"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="sLu-hF-dAR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162.33333333333334" height="121"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="121"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ntS-YV-IvC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="162.33333333333334" height="31"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ntS-YV-IvC">
+                                                                <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="31"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stripes on Red" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nee-lW-V5B">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="101.33333333333333" height="31"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="200" horizontalCompressionResistancePriority="1000" image="StripesLooseTemplate" translatesAutoresizingMaskIntoConstraints="NO" id="ryc-lY-6vv">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="13" height="31"/>
+                                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Stripes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nee-lW-V5B">
+                                                                        <rect key="frame" x="21.000000000000007" y="0.0" width="86.666666666666686" height="31"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -805,7 +809,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                         </variation>
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNl-JS-xcL">
-                                                                        <rect key="frame" x="113.33333333333331" y="0.0" width="51" height="31"/>
+                                                                        <rect key="frame" x="115.66666666666666" y="0.0" width="51" height="31"/>
                                                                         <color key="onTintColor" red="0.98594629759999997" green="0.0" blue="0.041997268800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <connections>
                                                                             <action selector="redStripeSwitchToggled:" destination="Yqb-xH-hca" eventType="valueChanged" id="as2-D5-hYP"/>
@@ -813,11 +817,15 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                     </switch>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wcc-oz-Tmg">
-                                                                <rect key="frame" x="0.0" y="44.999999999999972" width="162.33333333333334" height="31"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wcc-oz-Tmg">
+                                                                <rect key="frame" x="0.0" y="44.999999999999972" width="164.66666666666666" height="31"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stripes on Green" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-xY-RcE">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="101.33333333333333" height="31"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="200" horizontalCompressionResistancePriority="1000" image="DashesLooseTemplate" translatesAutoresizingMaskIntoConstraints="NO" id="pNY-CV-ytB">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="13" height="31"/>
+                                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green Stripes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-xY-RcE">
+                                                                        <rect key="frame" x="21.000000000000007" y="0.0" width="86.666666666666686" height="31"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -826,7 +834,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                         </variation>
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7K-IW-YVa">
-                                                                        <rect key="frame" x="113.33333333333331" y="0.0" width="51" height="31"/>
+                                                                        <rect key="frame" x="115.66666666666666" y="0.0" width="51" height="31"/>
                                                                         <color key="onTintColor" red="0.1076341867" green="0.82140457629999997" blue="0.22781920429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <connections>
                                                                             <action selector="greenStripeSwitchToggled:" destination="Yqb-xH-hca" eventType="valueChanged" id="bxN-rH-fAo"/>
@@ -834,11 +842,15 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                     </switch>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bLk-ud-XS3">
-                                                                <rect key="frame" x="0.0" y="89.999999999999972" width="162.33333333333334" height="31"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bLk-ud-XS3">
+                                                                <rect key="frame" x="0.0" y="89.999999999999972" width="164.66666666666666" height="31"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stripes on Blue" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebU-qD-SjG">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="101.33333333333333" height="31"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="200" horizontalCompressionResistancePriority="1000" image="HorizontalStripesLooseTemplate" translatesAutoresizingMaskIntoConstraints="NO" id="4yq-JS-rpQ">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="13" height="31"/>
+                                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue Stripes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebU-qD-SjG">
+                                                                        <rect key="frame" x="21.000000000000007" y="0.0" width="86.666666666666686" height="31"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -847,7 +859,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                         </variation>
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6oo-ul-GZJ">
-                                                                        <rect key="frame" x="113.33333333333331" y="0.0" width="51" height="31"/>
+                                                                        <rect key="frame" x="115.66666666666666" y="0.0" width="51" height="31"/>
                                                                         <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <connections>
                                                                             <action selector="blueStripeSwitchToggled:" destination="Yqb-xH-hca" eventType="valueChanged" id="2XC-Pc-iyy"/>
@@ -858,13 +870,13 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="DvO-hg-rT7">
-                                                        <rect key="frame" x="189.66666666666663" y="0.0" width="157.33333333333337" height="121"/>
+                                                        <rect key="frame" x="187.33333333333337" y="0.0" width="159.66666666666663" height="121"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="3Ok-Kp-NMm">
-                                                                <rect key="frame" x="0.0" y="0.0" width="157.33333333333334" height="31"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Ok-Kp-NMm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="159.66666666666666" height="31"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hue Shift" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-mi-1gU">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="96.333333333333329" height="31"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="31"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -873,7 +885,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                         </variation>
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lD-xk-umX">
-                                                                        <rect key="frame" x="108.33333333333334" y="0.0" width="51" height="31"/>
+                                                                        <rect key="frame" x="110.66666666666666" y="0.0" width="51" height="31"/>
                                                                         <color key="onTintColor" red="0.15553970910000001" green="0.80392156859999997" blue="0.79009463319999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <connections>
                                                                             <action selector="invertHueSwitchToggled:" destination="Yqb-xH-hca" eventType="valueChanged" id="dZf-AV-Dg4"/>
@@ -881,11 +893,11 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                     </switch>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5Fg-3H-1mL">
-                                                                <rect key="frame" x="0.0" y="44.999999999999972" width="157.33333333333334" height="31"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Fg-3H-1mL">
+                                                                <rect key="frame" x="0.0" y="44.999999999999972" width="159.66666666666666" height="31"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luminance Flip" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKy-5c-spT">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="96.333333333333329" height="31"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="31"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -894,7 +906,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                         </variation>
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cma-oh-iVT">
-                                                                        <rect key="frame" x="108.33333333333334" y="0.0" width="51" height="31"/>
+                                                                        <rect key="frame" x="110.66666666666666" y="0.0" width="51" height="31"/>
                                                                         <color key="onTintColor" systemColor="secondaryLabelColor"/>
                                                                         <connections>
                                                                             <action selector="invertLuminanceSwitchToggled:" destination="Yqb-xH-hca" eventType="valueChanged" id="7BS-JD-LjV"/>
@@ -902,11 +914,11 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                     </switch>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5HS-Cz-ZhP">
-                                                                <rect key="frame" x="0.0" y="89.999999999999972" width="157.33333333333334" height="31"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5HS-Cz-ZhP">
+                                                                <rect key="frame" x="0.0" y="89.999999999999972" width="159.66666666666666" height="31"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vibrancy Boost" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dia-ae-PuQ">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="96.333333333333329" height="31"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="31"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -915,7 +927,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                         </variation>
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sNZ-Ec-bda">
-                                                                        <rect key="frame" x="108.33333333333334" y="0.0" width="51" height="31"/>
+                                                                        <rect key="frame" x="110.66666666666666" y="0.0" width="51" height="31"/>
                                                                         <color key="onTintColor" red="1" green="0.55689539109999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <connections>
                                                                             <action selector="saturationBoostSwitchToggled:" destination="Yqb-xH-hca" eventType="valueChanged" id="0bS-pK-mQ9"/>
@@ -924,6 +936,10 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="cKy-5c-spT" firstAttribute="leading" secondItem="dia-ae-PuQ" secondAttribute="leading" id="RfL-t1-2qe"/>
+                                                            <constraint firstItem="5JE-mi-1gU" firstAttribute="leading" secondItem="cKy-5c-spT" secondAttribute="leading" id="ezk-C2-V44"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -977,10 +993,16 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
         </scene>
     </scenes>
     <resources>
+        <image name="DashesLooseTemplate" width="13" height="13"/>
+        <image name="HorizontalStripesLooseTemplate" width="13" height="13"/>
         <image name="RedStripeIcon" width="60" height="60"/>
         <image name="SimDaltonismIcon" width="60" height="60"/>
+        <image name="StripesLooseTemplate" width="13" height="13"/>
         <image name="ToolsTemplate.png" width="15" height="15"/>
         <image name="VisionTemplate.png" width="18" height="11"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

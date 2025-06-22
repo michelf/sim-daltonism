@@ -116,18 +116,18 @@
       }
     },
     "Adj-xY-RcE.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Stripes on Green\"; ObjectID = \"Adj-xY-RcE\";",
+      "comment" : "Class = \"UILabel\"; text = \"Green Stripes\"; ObjectID = \"Adj-xY-RcE\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stripes on Green"
+            "value" : "Green Stripes"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rayures sur vert"
+            "value" : "Rayures vertes"
           }
         }
       }
@@ -358,18 +358,18 @@
       }
     },
     "ebU-qD-SjG.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Stripes on Blue\"; ObjectID = \"ebU-qD-SjG\";",
+      "comment" : "Class = \"UILabel\"; text = \"Blue Stripes\"; ObjectID = \"ebU-qD-SjG\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stripes on Blue"
+            "value" : "Blue Stripes"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rayures sur bleu"
+            "value" : "Rayures bleues"
           }
         }
       }
@@ -746,18 +746,18 @@
       }
     },
     "nee-lW-V5B.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Stripes on Red\"; ObjectID = \"nee-lW-V5B\";",
+      "comment" : "Class = \"UILabel\"; text = \"Red Stripes\"; ObjectID = \"nee-lW-V5B\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stripes on Red"
+            "value" : "Red Stripes"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rayures sur rouge"
+            "value" : "Rayures rouges"
           }
         }
       }

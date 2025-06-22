@@ -8,6 +8,10 @@ public struct FilterConfiguration {
 	public var invertLuminance: Bool = false
 	public var hueShift: Bool = false
 	public var colorBoost: Bool = false
+
+	var isUnalteredNormalVision: Bool {
+		return vision == .normal && stripeConfig.isPassthrough && !invertLuminance && !hueShift && !colorBoost
+	}
 }
 
 extension FilterConfiguration {
