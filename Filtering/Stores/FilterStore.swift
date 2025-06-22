@@ -118,7 +118,12 @@ extension FilterStore {
 			}
 		}
 		guard hasNewSimulation || newConfig.vision != oldConfig?.vision else { return }
-		self.visionFilter = CIFilter(name: newConfig.vision.ciFilterString)
+
+		if newConfig.vision == .normal {
+			self.visionFilter = nil
+		} else {
+			self.visionFilter = CIFilter(name: newConfig.vision.ciFilterString)
+		}
 	}
 
 	private func changeStripes(for newConfig: FilterConfiguration) {
