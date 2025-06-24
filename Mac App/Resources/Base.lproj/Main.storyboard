@@ -376,8 +376,8 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="FilterWindow" id="B8D-0N-5wS" customClass="FilterWindowController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Sim Daltonism" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="IQv-IB-iLA" customClass="DragObservableWindow" customModule="Sim_Daltonism" customModuleProvider="target">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+                    <window key="window" title="Sim Daltonism" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" toolbarStyle="compact" id="IQv-IB-iLA" customClass="DragObservableWindow" customModule="Sim_Daltonism" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES"/>
                         <rect key="contentRect" x="196" y="240" width="400" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -391,6 +391,203 @@
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu title="View Area" id="gZd-Yq-fRu">
+                    <items>
+                        <menuItem title="View Area" enabled="NO" id="zoQ-82-IAH">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Content under the window" image="FilteredTransparencyTemplate" indentationLevel="1" id="C1V-TO-Wnh">
+                            <connections>
+                                <action selector="adoptViewAreaSetting:" target="Oky-zY-oP4" id="yd5-Ei-N1L"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Centered on the mouse pointer" image="FilteredMouseAreaTemplate" tag="1" indentationLevel="1" id="0jI-P4-rBR">
+                            <connections>
+                                <action selector="adoptViewAreaSetting:" target="Oky-zY-oP4" id="xJn-AH-hfz"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu title="Simulated Vision" id="i61-pV-T3H">
+                    <items>
+                        <menuItem title="Normal Vision" keyEquivalent="0" indentationLevel="1" id="7hv-4d-cxv">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="Mk8-QP-goa"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="kIH-04-JWi"/>
+                        <menuItem title="Red-Green Confusion" enabled="NO" id="NQW-kX-pWl">
+                            <attributedString key="attributedTitle"/>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Deuteranopia" tag="1" keyEquivalent="1" indentationLevel="1" id="Ari-Ic-uUt">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="xxo-RN-HWG"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Deuteranomaly" tag="2" keyEquivalent="2" indentationLevel="1" id="bDm-Nm-Mzr">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="6wO-44-2Ci"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Protanopia" tag="3" keyEquivalent="3" indentationLevel="1" id="TrJ-7E-AKG">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="qhg-8T-6Jv"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Protanomaly" tag="4" keyEquivalent="4" indentationLevel="1" id="s9u-me-I5G">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="mED-Rp-yAi"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="eQu-6Z-Slq"/>
+                        <menuItem title="Yellow-Blue Confusion" enabled="NO" id="MfI-Ka-sP2">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Tritanopia" tag="5" keyEquivalent="5" indentationLevel="1" id="rQe-0l-ter">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="BDM-1J-1Zd"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Tritanomaly" tag="6" keyEquivalent="6" indentationLevel="1" id="nA0-QU-Bji">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="NkV-6k-3ch"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="ftz-1L-njA"/>
+                        <menuItem title="Monochromacy" enabled="NO" id="vOl-XK-L8p">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Achromatopsia" tag="7" keyEquivalent="7" indentationLevel="1" id="2RP-cv-xiG">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="Mhr-rV-Djh"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Blue Cone Monochromacy" tag="9" keyEquivalent="8" indentationLevel="1" id="3eN-H8-Egq">
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="puv-8r-ImP"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="tND-Fj-bH9"/>
+                        <menuItem title="Other" enabled="NO" id="RyC-v1-OSD">
+                            <attributedString key="attributedTitle"/>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Monochrome Display" tag="12" indentationLevel="1" id="aut-Fq-MUC">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="vf7-34-nuW"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Monochrome Analog TV" tag="11" indentationLevel="1" id="sEE-X4-wFu">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="wBC-OI-qND"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu title="Refresh Speed" id="u3M-VE-MoC">
+                    <items>
+                        <menuItem title="Refresh Speed" enabled="NO" id="mSg-gZ-JyH">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Slow" image="SlowFrameRateTemplate" tag="-1" indentationLevel="1" id="rwE-yM-39L">
+                            <connections>
+                                <action selector="adoptSpeedSetting:" target="Oky-zY-oP4" id="AzP-GM-8To"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Normal" state="on" image="NormalFrameRateTemplate" indentationLevel="1" id="eb0-un-pXe">
+                            <connections>
+                                <action selector="adoptSpeedSetting:" target="Oky-zY-oP4" id="NTw-Sm-JQS"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Fast" image="FastFrameRateTemplate" tag="1" indentationLevel="1" id="8QE-yJ-rfm">
+                            <connections>
+                                <action selector="adoptSpeedSetting:" target="Oky-zY-oP4" id="IHQ-o0-Vc5"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu title="Color Tools" id="CoH-ud-qiR">
+                    <items>
+                        <menuItem title="Stripes on Red" enabled="NO" id="6rB-nj-ggG">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="None" image="StripesNoneTemplate" indentationLevel="1" id="ASa-xQ-KYy">
+                            <connections>
+                                <action selector="adoptRedStripeSetting:" target="Oky-zY-oP4" id="MmH-vP-zI7"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Loose" image="StripesLooseTemplate" tag="1" indentationLevel="1" id="nyM-Kf-mOp">
+                            <connections>
+                                <action selector="adoptRedStripeSetting:" target="Oky-zY-oP4" id="P4C-Vv-e4c"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Tight" state="on" image="StripesTightTemplate" tag="2" indentationLevel="1" id="kU9-Nw-Yh7">
+                            <connections>
+                                <action selector="adoptRedStripeSetting:" target="Oky-zY-oP4" id="sAR-XM-b44"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="BnG-WQ-St3"/>
+                        <menuItem title="Stripes on Green" enabled="NO" id="2Fl-kv-sCg">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="None" state="on" image="StripesNoneTemplate" indentationLevel="1" id="2Ji-Ra-JZI">
+                            <connections>
+                                <action selector="adoptGreenStripeSetting:" target="Oky-zY-oP4" id="gxK-hF-3aU"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Loose" image="DashesLooseTemplate" tag="1" indentationLevel="1" id="weN-FJ-IfJ">
+                            <connections>
+                                <action selector="adoptGreenStripeSetting:" target="Oky-zY-oP4" id="FFp-5X-Owz"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Tight" image="DashesTightTemplate" tag="2" indentationLevel="1" id="vOI-cP-0sG">
+                            <connections>
+                                <action selector="adoptGreenStripeSetting:" target="Oky-zY-oP4" id="U04-TQ-CnL"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="9C7-Xx-c37"/>
+                        <menuItem title="Stripes on Blue" enabled="NO" id="x8e-WU-Tl6">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="None" state="on" image="StripesNoneTemplate" indentationLevel="1" id="Unw-ht-o6d">
+                            <connections>
+                                <action selector="adoptBlueStripesSetting:" target="Oky-zY-oP4" id="eLP-j2-N4c"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Loose" image="HorizontalStripesLooseTemplate" tag="1" indentationLevel="1" id="eKe-ld-Rkg">
+                            <connections>
+                                <action selector="adoptBlueStripesSetting:" target="Oky-zY-oP4" id="mJi-M6-4rN"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Tight" image="HorizontalStripesTightTemplate" tag="2" indentationLevel="1" id="Pil-em-OLk">
+                            <connections>
+                                <action selector="adoptBlueStripesSetting:" target="Oky-zY-oP4" id="e1X-WY-QUG"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="2A7-3Y-5eG"/>
+                        <menuItem title="Filter" enabled="NO" id="k7e-lf-HnR">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Hue Shift" tag="1" indentationLevel="1" id="HFZ-J4-15a">
+                            <connections>
+                                <action selector="toggleInvertHue:" target="Oky-zY-oP4" id="Xdu-dz-IGJ"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Luminance Flip" tag="2" indentationLevel="1" id="YOO-Du-seN">
+                            <connections>
+                                <action selector="toggleInvertLuminance:" target="Oky-zY-oP4" id="J3C-h9-DXG"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Vibrancy Boost" tag="2" indentationLevel="1" id="rx3-4u-v2w">
+                            <connections>
+                                <action selector="toggleSaturationBoost:" target="Oky-zY-oP4" id="d0g-1J-IdM"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
@@ -412,7 +609,7 @@
                                 <rect key="frame" x="173" y="193" width="15" height="15"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="CenterCross" id="Cyu-2C-iRK"/>
                             </imageView>
-                            <visualEffectView blendingMode="behindWindow" material="ultraDark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="LDz-iv-fQe" userLabel="Message Background View">
+                            <visualEffectView appearanceType="darkAqua" blendingMode="behindWindow" material="ultraDark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="LDz-iv-fQe" userLabel="Message Background View">
                                 <rect key="frame" x="3" y="3" width="354" height="397"/>
                             </visualEffectView>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cPQ-Of-lUh">
@@ -502,22 +699,22 @@
                         <constraints>
                             <constraint firstItem="cPQ-Of-lUh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="1VC-EH-N57"/>
                             <constraint firstAttribute="bottom" secondItem="LDz-iv-fQe" secondAttribute="bottom" constant="3" id="7Ao-oT-scz"/>
+                            <constraint firstItem="xhm-1p-zVd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="7uK-PT-e7a"/>
                             <constraint firstItem="LDz-iv-fQe" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="BsV-p3-aom"/>
                             <constraint firstItem="cPQ-Of-lUh" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" multiplier="0.95" priority="300" id="Hib-4T-fcw"/>
-                            <constraint firstAttribute="bottom" secondItem="xhm-1p-zVd" secondAttribute="bottom" constant="3" id="IAv-CE-8Ao"/>
-                            <constraint firstAttribute="trailing" secondItem="xhm-1p-zVd" secondAttribute="trailing" constant="3" id="JSc-hL-vj9"/>
+                            <constraint firstAttribute="bottom" secondItem="xhm-1p-zVd" secondAttribute="bottom" constant="3" id="KER-l8-Xx9"/>
                             <constraint firstItem="cPQ-Of-lUh" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" multiplier="0.8" priority="300" id="KKM-fb-KNf"/>
                             <constraint firstAttribute="trailing" secondItem="uEx-hU-M7U" secondAttribute="trailing" constant="3" id="QdV-QV-RLw"/>
                             <constraint firstItem="LDz-iv-fQe" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Qyb-eF-E8f"/>
-                            <constraint firstItem="xhm-1p-zVd" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Swy-yM-azr"/>
                             <constraint firstItem="kFS-vS-yRf" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="Uhy-4C-uyO"/>
+                            <constraint firstAttribute="trailing" secondItem="xhm-1p-zVd" secondAttribute="trailing" constant="3" id="WjT-MC-DIO"/>
                             <constraint firstItem="uEx-hU-M7U" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Zl6-L9-IJc"/>
                             <constraint firstItem="kFS-vS-yRf" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="bqO-Sf-Ynn"/>
                             <constraint firstItem="uEx-hU-M7U" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="duJ-2k-wuQ"/>
-                            <constraint firstItem="xhm-1p-zVd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="mar-0C-ceC"/>
                             <constraint firstAttribute="bottom" secondItem="uEx-hU-M7U" secondAttribute="bottom" constant="3" id="mrE-UA-gQ0"/>
                             <constraint firstItem="cPQ-Of-lUh" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="nnv-Sg-hb4"/>
                             <constraint firstAttribute="trailing" secondItem="LDz-iv-fQe" secondAttribute="trailing" constant="3" id="wWN-56-mNT"/>
+                            <constraint firstItem="xhm-1p-zVd" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ycn-v9-W1U"/>
                         </constraints>
                     </view>
                     <connections>
@@ -526,6 +723,7 @@
                         <outlet property="openSystemSettingsButton" destination="ahd-XE-EGQ" id="cb0-ko-9Fh"/>
                         <outlet property="permissionRequestBackground" destination="LDz-iv-fQe" id="Luk-Yd-A6R"/>
                         <outlet property="permissionRequestView" destination="cPQ-Of-lUh" id="NoJ-aQ-xR3"/>
+                        <outlet property="resizingBackgroundView" destination="uEx-hU-M7U" id="jF3-Ax-9GG"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

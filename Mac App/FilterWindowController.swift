@@ -35,11 +35,8 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
     }
 
     private func applyVisionType() {
-        guard let window = self.window else { return }
-        window.title = visionType.name
 		filterStore.configuration.vision = visionType
         FilterWindowManager.shared.changedWindowController(self)
-        window.invalidateRestorableState()
     }
 
     var simulation = UserDefaults.getSimulation() {
@@ -59,7 +56,41 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 
 	func refreshScale() {
 		filterStore.configuration.stripeConfig.patternScale = Float(window?.backingScaleFactor ?? 1)
+	}
 
+	@objc func refreshForFilterStoreConfiguration() {
+		guard let window = self.window else { return }
+		window.invalidateRestorableState()
+		refreshTitle()
+		refreshSubtitle()
+	}
+
+	func refreshTitle() {
+		window?.title = visionType.name
+	}
+	func refreshSubtitle() {
+		guard #available(macOS 11.0, *) else { return }
+		var parts: [String] = []
+		let config = filterStore.configuration
+		if config.stripeConfig.redStripes != 0 {
+			parts.append(NSLocalizedString("Red Stripes", comment: "window subtitle part"))
+		}
+		if config.stripeConfig.greenStripes != 0 {
+			parts.append(NSLocalizedString("Green Stripes", comment: "window subtitle part"))
+		}
+		if config.stripeConfig.blueStripes != 0 {
+			parts.append(NSLocalizedString("Blue Stripes", comment: "window subtitle part"))
+		}
+		if config.hueShift {
+			parts.append(NSLocalizedString("Hue Shift", comment: "window subtitle part"))
+		}
+		if config.invertLuminance {
+			parts.append(NSLocalizedString("Luminance Flip", comment: "window subtitle part"))
+		}
+		if config.colorBoost {
+			parts.append(NSLocalizedString("Vibrancy Boost", comment: "window subtitle part"))
+		}
+		window?.subtitle = parts.joined(separator: ", ")
 	}
 
 	func windowDidChangeBackingProperties(_ notification: Notification) {
@@ -70,29 +101,43 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 
     fileprivate static let windowLevel = NSWindow.Level(Int(CGWindowLevelForKey(CGWindowLevelKey.assistiveTechHighWindow) + 1))
 
+	var settingsAccessory: FilterSettingsController!
+
     override func windowDidLoad() {
         super.windowDidLoad()
+
+		let window = window!
 
         // cannot set from IB:
         // Note: window level is set to 1 above Red Stripe's window level
         // so you can use the two together.
-        window?.level = FilterWindowController.windowLevel
-        window?.hidesOnDeactivate = false
-        window?.standardWindowButton(.zoomButton)?.isEnabled = false
+        window.level = FilterWindowController.windowLevel
+		window.hidesOnDeactivate = false
+		window.standardWindowButton(.zoomButton)?.isEnabled = false
         if #available(OSX 10.12, *) {
-            window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .participatesInCycle]
+			window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .participatesInCycle]
         } else {
-            window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary] // dragging not working with .participatesInCycle
+			window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary] // dragging not working with .participatesInCycle
         }
-        window?.styleMask.formUnion(.nonactivatingPanel)
-        window?.restorationClass = FilterWindowManager.self
+		window.restorationClass = FilterWindowManager.self
+		window.styleMask.insert(.utilityWindow)
 
-        let accessory = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowControls") as! NSTitlebarAccessoryViewController
-        accessory.layoutAttribute = .right
-        window?.addTitlebarAccessoryViewController(accessory)
+		settingsAccessory = (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowControls") as! FilterSettingsController)
+		settingsAccessory.layoutAttribute = .right
+		if #available(macOS 11.0, *) {
+			// title bar accessory is replaced with a unified toolbar (managed by the same view controller)
+			window.toolbar = settingsAccessory.makeToolbar()
+			window.toolbarStyle = .unifiedCompact
+			window.subtitle = "Red  Green  Blue  Hue Shift  Luminance Flip  Vibrancy Boost"
+		} else {
+			window.addTitlebarAccessoryViewController(settingsAccessory)
+		}
 
         applyVisionType()
 		refreshScale()
+
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshForFilterStoreConfiguration), name: FilterStore.didChangeNotification, object: filterStore)
+		refreshForFilterStoreConfiguration()
     }
 
     /// Position the window so it has a different origin than other filter

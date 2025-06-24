@@ -19,7 +19,7 @@ import AVFoundation
 
 #if os(macOS)
 let forceCGCapture = false
-let forceOpenGL = true // surprisingly, OpenGL rendering is faster than Metal, so we're using that
+let forceOpenGL = false // surprisingly, OpenGL rendering is faster than Metal, so we're using that
 struct MetalDisabledError: Error {}
 #endif
 
@@ -38,6 +38,7 @@ class FilterViewController: NSViewController {
 	@IBOutlet var permissionRequestView: NSView?
 	@IBOutlet var permissionRequestBackground: NSView?
 	@IBOutlet var openSystemSettingsButton: NSButton?
+	@IBOutlet var resizingBackgroundView: NSView?
 
 	override func viewDidLoad() {
 		if #available(macOS 13, *) {
@@ -47,10 +48,34 @@ class FilterViewController: NSViewController {
 		}
 	}
 
+	func applyInnerCornerRadius(to view: NSView) {
+		let innerCornerRadius: CGFloat = 6
+		view.wantsLayer = true
+		view.layer?.cornerRadius = innerCornerRadius
+		if #available(macOS 10.15, *) {
+			view.layer?.cornerCurve = .continuous
+		}
+		view.layer?.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+		view.layer?.borderColor = NSColor.black.withAlphaComponent(0.2).cgColor
+		view.layer?.borderWidth = 0.5
+		view.layer?.masksToBounds = true
+	}
+
     override func viewWillAppear() {
         super.viewWillAppear()
         guard let parent = filteredView.window?.windowController as? FilterWindowController else { return }
         self.filterStore = parent.filterStore
+
+		applyInnerCornerRadius(to: filteredView)
+		applyInnerCornerRadius(to: permissionRequestBackground!)
+		applyInnerCornerRadius(to: resizingBackgroundView!)
+
+		if false, #available(macOS 10.14, *) {
+			let highContrast = NSWorkspace.shared.accessibilityDisplayShouldIncreaseContrast
+			permissionRequestView?.appearance = NSAppearance(named: highContrast ? .accessibilityHighContrastDarkAqua : .darkAqua)
+		} else {
+			permissionRequestView?.appearance = NSAppearance(named: .vibrantDark)
+		}
 
         // Grab frame on main thread
         let initialFrame = view.frame

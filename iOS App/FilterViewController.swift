@@ -38,6 +38,7 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 
 	var filteredView: FilteredMetalView!
 
+	@IBOutlet var resizingBackgroundView: NSVisualEffectView!
 	var videoDevice: AVCaptureDevice? { captureStream?.capturePipeline.videoDevice }
 
 	deinit {

@@ -25,6 +25,7 @@ class OpenGLRenderer: NSObject {
     private weak var filterStore: FilterStore?
 	private var drawableSizeLock = NSLock()
 	private var drawableSize: CGSize
+	private var glDrawingLock = NSLock()
 
 	init?(openGLView: NSOpenGLView, filter: FilterStore) {
         self.openGLView = openGLView

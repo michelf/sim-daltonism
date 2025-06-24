@@ -23,12 +23,9 @@ class FilterSettingsController: NSTitlebarAccessoryViewController {
 	@IBOutlet var refreshSpeedButton: NSButton!
 	@IBOutlet var viewAreaButton: NSButton!
 
-	override func awakeFromNib() {
-		NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: UserDefaults.didChangeNotification, object: nil)
-	}
-
-	deinit {
-		NotificationCenter.default.removeObserver(self)
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		refreshSpeedButton.isHidden = true
 	}
 
 	@objc func refresh() {
@@ -55,4 +52,73 @@ extension ViewArea {
 		case .mousePointer: return NSImage(named: "FilteredMouseAreaTemplate")!
 		}
 	}
+}
+
+extension FilterSettingsController: NSToolbarDelegate {
+
+	func makeToolbar() -> NSToolbar {
+		let toolbar = NSToolbar()
+		toolbar.delegate = self
+		return toolbar
+	}
+
+	private static let visionItemIdentifier = NSToolbarItem.Identifier("vision")
+	private static let toolsItemIdentifier = NSToolbarItem.Identifier("tools")
+	private static let refreshSpeedItemIdentifier = NSToolbarItem.Identifier("refreshSpeed")
+	private static let viewAreaItemIdentifier = NSToolbarItem.Identifier("viewArea")
+
+	func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+		return [
+			Self.visionItemIdentifier,
+			Self.toolsItemIdentifier,
+//			Self.refreshSpeedItemIdentifier,
+//			.space,
+			Self.viewAreaItemIdentifier,
+		]
+	}
+	func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+		return [
+			Self.visionItemIdentifier,
+			Self.toolsItemIdentifier,
+			Self.refreshSpeedItemIdentifier,
+			Self.viewAreaItemIdentifier,
+			.space,
+			.flexibleSpace,
+		]
+	}
+
+	func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+		_ = view // equivalent to loadViewIfNeeded()
+
+		func item(for button: NSButton) -> NSToolbarItem {
+			let item = NSToolbarItem(itemIdentifier: itemIdentifier)
+			item.view = button
+			item.label = button.toolTip ?? ""
+			button.heightAnchor.constraint(equalToConstant: 28).isActive = true
+
+			let menuForm = NSMenuItem()
+			menuForm.image = button.image
+			menuForm.title = button.toolTip ?? ""
+			menuForm.submenu = button.menu
+			item.menuFormRepresentation = menuForm
+
+			return item
+		}
+
+		switch itemIdentifier {
+		case Self.visionItemIdentifier:
+			return item(for: visionButton)
+		case Self.toolsItemIdentifier:
+			return item(for: toolsButton)
+		case Self.refreshSpeedItemIdentifier:
+			return item(for: refreshSpeedButton)
+		case Self.viewAreaItemIdentifier:
+			return item(for: viewAreaButton)
+		case .flexibleSpace, .space:
+			return NSToolbarItem(itemIdentifier: itemIdentifier)
+		default:
+			return nil
+		}
+	}
+
 }
