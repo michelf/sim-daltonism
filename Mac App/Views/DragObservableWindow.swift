@@ -25,15 +25,12 @@ class DragObservableWindow: NSPanel {
 	var pausedDragTimer: Timer?
 
 	override func mouseDragged(with event: NSEvent) {
-		var isReallyDragging = event.deltaX != 0 || event.deltaY != 0
-		if isReallyDragging {
-			if !dragging {
-				dragging = true
-				NotificationCenter.default.post(name: DragObservableWindow.willStartDragging, object: self)
-			}
-			pausedDragTimer?.invalidate()
-			pausedDragTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(stoppedDragging), userInfo: nil, repeats: true)
+		if !dragging {
+			dragging = true
+			NotificationCenter.default.post(name: DragObservableWindow.willStartDragging, object: self)
 		}
+		pausedDragTimer?.invalidate()
+		pausedDragTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(stoppedDragging), userInfo: nil, repeats: true)
 		super.mouseDragged(with: event)
 	}
 

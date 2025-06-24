@@ -20,7 +20,11 @@ class MenuButton : NSButton {
 
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
-		alphaValue = 0.7
+		self.isBordered = true
+		if #available(macOS 11, *) {
+		} else {
+			alphaValue = 0.7
+		}
 	}
 
 	override func awakeFromNib() {
@@ -29,11 +33,17 @@ class MenuButton : NSButton {
 	}
 
 	override func mouseEntered(with theEvent: NSEvent) {
-		alphaValue = 1.0
+		if #available(macOS 11, *) {
+		} else {
+			alphaValue = 1.0
+		}
 		super.mouseEntered(with: theEvent)
 	}
 	override func mouseExited(with theEvent: NSEvent) {
-		alphaValue = 0.7
+		if #available(macOS 11, *) {
+		} else {
+			alphaValue = 0.7
+		}
 		super.mouseExited(with: theEvent)
 	}
 
@@ -48,6 +58,15 @@ class MenuButton : NSButton {
 			menu.font = NSFont.systemFont(ofSize: 12)
 			menu.popUp(positioning: nil, at: location, in: self)
 		}
+	}
+
+	override func mouseDragged(with event: NSEvent) {
+		// Don't propagate dragging in button to window.
+		//
+		// This is triggered when the button is clicked with some
+		// movement when dismissing a menu, and when it reaches the
+		// window it causes the dragging veil to activate even though
+		// dragging is disabled becase it comes from a button.
 	}
 
 }
