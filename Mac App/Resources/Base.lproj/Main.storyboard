@@ -734,12 +734,12 @@
         <scene sceneID="5PC-k1-vN1">
             <objects>
                 <viewController identifier="WindowControls" storyboardIdentifier="WindowControls" id="sbo-Ke-Qrj" customClass="FilterSettingsController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="NIH-J2-AUg">
-                        <rect key="frame" x="0.0" y="0.0" width="102" height="20"/>
+                    <view key="view" misplaced="YES" id="NIH-J2-AUg">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="20"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button toolTip="View Area" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zww-Y2-pp3" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
-                                <rect key="frame" x="74" y="0.0" width="22" height="20"/>
+                                <rect key="frame" x="52" y="0.0" width="22" height="20"/>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="FilteredTransparencyTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="fro-4D-xea">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -766,20 +766,6 @@
                                     <outlet property="menu" destination="oNq-0I-6VM" id="iJx-D0-MCk"/>
                                 </connections>
                             </button>
-                            <button toolTip="Refresh Speed" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OjX-GL-RFl" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
-                                <rect key="frame" x="52" y="0.0" width="22" height="20"/>
-                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NormalFrameRateTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="LtX-26-KwI">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="systemBold" size="12"/>
-                                </buttonCell>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="eaK-OS-NSi"/>
-                                </constraints>
-                                <accessibility description="Refresh Speed"/>
-                                <connections>
-                                    <outlet property="menu" destination="D7c-iD-Fng" id="wVD-Wf-Pty"/>
-                                </connections>
-                            </button>
                             <button toolTip="Simulated Vision" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fxx-Ns-Swc" customClass="MenuButton" customModule="Sim_Daltonism" customModuleProvider="target">
                                 <rect key="frame" x="2" y="0.0" width="25" height="20"/>
                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="VisionTemplate" imagePosition="overlaps" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="6Kx-7O-jdp">
@@ -797,22 +783,18 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="OjX-GL-RFl" firstAttribute="leading" secondItem="9vI-EY-Qrh" secondAttribute="trailing" id="2Z8-Lb-JMe"/>
+                            <constraint firstItem="zww-Y2-pp3" firstAttribute="leading" secondItem="9vI-EY-Qrh" secondAttribute="trailing" id="BgQ-YW-BLf"/>
                             <constraint firstAttribute="trailing" secondItem="zww-Y2-pp3" secondAttribute="trailing" constant="6" id="Ec0-3L-dkR"/>
-                            <constraint firstItem="9vI-EY-Qrh" firstAttribute="bottom" secondItem="OjX-GL-RFl" secondAttribute="bottom" id="EvW-Me-oaa"/>
-                            <constraint firstItem="9vI-EY-Qrh" firstAttribute="top" secondItem="OjX-GL-RFl" secondAttribute="top" id="F69-tk-eZp"/>
                             <constraint firstItem="fxx-Ns-Swc" firstAttribute="bottom" secondItem="9vI-EY-Qrh" secondAttribute="bottom" id="FQG-df-RCc"/>
-                            <constraint firstItem="OjX-GL-RFl" firstAttribute="top" secondItem="zww-Y2-pp3" secondAttribute="top" id="Ni1-fB-N6R"/>
+                            <constraint firstItem="zww-Y2-pp3" firstAttribute="top" secondItem="9vI-EY-Qrh" secondAttribute="top" id="QMn-Ff-TSj"/>
                             <constraint firstItem="9vI-EY-Qrh" firstAttribute="leading" secondItem="fxx-Ns-Swc" secondAttribute="trailing" id="QbC-VX-ch6"/>
-                            <constraint firstItem="zww-Y2-pp3" firstAttribute="leading" secondItem="OjX-GL-RFl" secondAttribute="trailing" id="Qf9-Wc-ojf"/>
+                            <constraint firstItem="zww-Y2-pp3" firstAttribute="bottom" secondItem="9vI-EY-Qrh" secondAttribute="bottom" id="R2a-5C-4ri"/>
                             <constraint firstItem="fxx-Ns-Swc" firstAttribute="leading" secondItem="NIH-J2-AUg" secondAttribute="leading" constant="2" id="ZvV-xY-rpy"/>
                             <constraint firstItem="fxx-Ns-Swc" firstAttribute="top" secondItem="9vI-EY-Qrh" secondAttribute="top" id="b0s-GR-jOJ"/>
                             <constraint firstItem="fxx-Ns-Swc" firstAttribute="top" secondItem="NIH-J2-AUg" secondAttribute="top" id="qHh-th-sDm"/>
-                            <constraint firstItem="OjX-GL-RFl" firstAttribute="bottom" secondItem="zww-Y2-pp3" secondAttribute="bottom" id="wHY-WR-8eH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="refreshSpeedButton" destination="OjX-GL-RFl" id="y9a-m7-Den"/>
                         <outlet property="toolsButton" destination="9vI-EY-Qrh" id="P7E-X9-dzT"/>
                         <outlet property="viewAreaButton" destination="zww-Y2-pp3" id="Zym-DS-OZO"/>
                         <outlet property="visionButton" destination="fxx-Ns-Swc" id="JuP-13-Nem"/>
@@ -976,28 +958,6 @@
                         </menuItem>
                     </items>
                 </menu>
-                <menu title="Refresh Speed" id="D7c-iD-Fng">
-                    <items>
-                        <menuItem title="Refresh Speed" enabled="NO" id="fbi-jg-9jO">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                        <menuItem title="Slow" image="SlowFrameRateTemplate" tag="-1" indentationLevel="1" id="QIP-Or-u2p">
-                            <connections>
-                                <action selector="adoptSpeedSetting:" target="OJa-T4-yA3" id="x1P-zz-g24"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Normal" state="on" image="NormalFrameRateTemplate" indentationLevel="1" id="3fd-6y-dkh">
-                            <connections>
-                                <action selector="adoptSpeedSetting:" target="OJa-T4-yA3" id="Rla-id-DeQ"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Fast" image="FastFrameRateTemplate" tag="1" indentationLevel="1" id="QQk-Ez-VGp">
-                            <connections>
-                                <action selector="adoptSpeedSetting:" target="OJa-T4-yA3" id="LHo-0p-h6H"/>
-                            </connections>
-                        </menuItem>
-                    </items>
-                </menu>
                 <menu title="View Area" id="pqH-cF-rp6">
                     <items>
                         <menuItem title="View Area" enabled="NO" id="5bi-v8-MT6">
@@ -1017,7 +977,7 @@
                 </menu>
                 <customObject id="OJa-T4-yA3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="530"/>
+            <point key="canvasLocation" x="754" y="530"/>
         </scene>
     </scenes>
     <resources>
