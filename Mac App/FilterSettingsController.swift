@@ -64,7 +64,6 @@ extension FilterSettingsController: NSToolbarDelegate {
 		return [
 			Self.visionItemIdentifier,
 			Self.toolsItemIdentifier,
-//			.space,
 			Self.viewAreaItemIdentifier,
 		]
 	}
@@ -86,8 +85,9 @@ extension FilterSettingsController: NSToolbarDelegate {
 			item.view = button
 			item.label = button.toolTip ?? ""
 
-			button.constraints.first { $0.firstAnchor == button.heightAnchor }?.isActive = false
+			button.removeConstraints(button.constraints)
 			button.heightAnchor.constraint(equalToConstant: 28).isActive = true
+			button.widthAnchor.constraint(equalToConstant: 24).isActive = true
 
 			let menuForm = NSMenuItem()
 			menuForm.image = button.image
