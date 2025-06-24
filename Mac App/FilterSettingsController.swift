@@ -20,16 +20,9 @@ class FilterSettingsController: NSTitlebarAccessoryViewController {
 
 	@IBOutlet var visionButton: NSButton!
 	@IBOutlet var toolsButton: NSButton!
-	@IBOutlet var refreshSpeedButton: NSButton!
 	@IBOutlet var viewAreaButton: NSButton!
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		refreshSpeedButton.isHidden = true
-	}
-
 	@objc func refresh() {
-		refreshSpeedButton.image = refreshSpeedDefault.image
 		viewAreaButton.image = viewAreaDefault.image
 	}
 
@@ -58,20 +51,19 @@ extension FilterSettingsController: NSToolbarDelegate {
 
 	func makeToolbar() -> NSToolbar {
 		let toolbar = NSToolbar()
+		toolbar.displayMode = .iconOnly
 		toolbar.delegate = self
 		return toolbar
 	}
 
 	private static let visionItemIdentifier = NSToolbarItem.Identifier("vision")
 	private static let toolsItemIdentifier = NSToolbarItem.Identifier("tools")
-	private static let refreshSpeedItemIdentifier = NSToolbarItem.Identifier("refreshSpeed")
 	private static let viewAreaItemIdentifier = NSToolbarItem.Identifier("viewArea")
 
 	func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
 		return [
 			Self.visionItemIdentifier,
 			Self.toolsItemIdentifier,
-//			Self.refreshSpeedItemIdentifier,
 //			.space,
 			Self.viewAreaItemIdentifier,
 		]
@@ -80,7 +72,6 @@ extension FilterSettingsController: NSToolbarDelegate {
 		return [
 			Self.visionItemIdentifier,
 			Self.toolsItemIdentifier,
-			Self.refreshSpeedItemIdentifier,
 			Self.viewAreaItemIdentifier,
 			.space,
 			.flexibleSpace,
@@ -94,6 +85,8 @@ extension FilterSettingsController: NSToolbarDelegate {
 			let item = NSToolbarItem(itemIdentifier: itemIdentifier)
 			item.view = button
 			item.label = button.toolTip ?? ""
+
+			button.constraints.first { $0.firstAnchor == button.heightAnchor }?.isActive = false
 			button.heightAnchor.constraint(equalToConstant: 28).isActive = true
 
 			let menuForm = NSMenuItem()
@@ -110,8 +103,6 @@ extension FilterSettingsController: NSToolbarDelegate {
 			return item(for: visionButton)
 		case Self.toolsItemIdentifier:
 			return item(for: toolsButton)
-		case Self.refreshSpeedItemIdentifier:
-			return item(for: refreshSpeedButton)
 		case Self.viewAreaItemIdentifier:
 			return item(for: viewAreaButton)
 		case .flexibleSpace, .space:
