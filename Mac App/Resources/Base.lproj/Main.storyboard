@@ -32,106 +32,167 @@
             <objects>
                 <viewController id="ADh-KU-NxJ" sceneMemberID="viewController">
                     <view key="view" id="j5z-QC-w4J">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="198"/>
+                        <rect key="frame" x="0.0" y="0.0" width="483" height="150"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-0U-tb8">
-                                <rect key="frame" x="140" y="148" width="122" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Normal" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2yn-G6-M6Q" id="Eev-ok-KE4">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="message"/>
-                                    <menu key="menu" id="qM3-Uc-raZ">
-                                        <items>
-                                            <menuItem title="Slow" image="SlowFrameRateTemplate" tag="-1" id="0Ta-j5-x1B"/>
-                                            <menuItem title="Normal" state="on" image="NormalFrameRateTemplate" id="2yn-G6-M6Q"/>
-                                            <menuItem title="Fast" image="FastFrameRateTemplate" tag="1" id="WzI-VB-ssA"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2T-Ht-BpP">
+                                <rect key="frame" x="40" y="25" width="403" height="100"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="100" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDl-WL-dbZ">
+                                        <rect key="frame" x="0.0" y="34" width="403" height="66"/>
+                                        <subviews>
+                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojT-ce-bUD">
+                                                <rect key="frame" x="-2" y="49" width="97" height="16"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Refresh Speed:" id="xkd-TQ-kuW">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8I-KM-mVm">
+                                                <rect key="frame" x="105" y="0.0" width="298" height="66"/>
+                                                <subviews>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-0U-tb8">
+                                                        <rect key="frame" x="-3" y="42" width="122" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="Normal" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2yn-G6-M6Q" id="Eev-ok-KE4">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="message"/>
+                                                            <menu key="menu" id="qM3-Uc-raZ">
+                                                                <items>
+                                                                    <menuItem title="Slow" image="SlowFrameRateTemplate" tag="-1" id="0Ta-j5-x1B"/>
+                                                                    <menuItem title="Normal" state="on" image="NormalFrameRateTemplate" id="2yn-G6-M6Q"/>
+                                                                    <menuItem title="Fast" image="FastFrameRateTemplate" tag="1" id="WzI-VB-ssA"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="qR5-4P-934"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.RefreshSpeed" id="yeF-Aq-d1A"/>
+                                                        </connections>
+                                                    </popUpButton>
+                                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="42"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="296" id="QP5-2E-CYY"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="XYj-CE-0ar">
+                                                            <font key="font" metaFont="message" size="11"/>
+                                                            <string key="title">A faster refresh speed will reduce the lag if the area to filter is not too large. A slower refresh speed will reduce energy consumption.</string>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="ZW9-WF-xRP" firstAttribute="leading" secondItem="9uw-0U-tb8" secondAttribute="leading" constant="2" id="2AR-IG-dzN"/>
+                                                </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ojT-ce-bUD" firstAttribute="firstBaseline" secondItem="9uw-0U-tb8" secondAttribute="firstBaseline" id="6rY-ho-le0"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="100" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBn-Du-ohd">
+                                        <rect key="frame" x="16" y="0.0" width="371" height="20"/>
+                                        <subviews>
+                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SSM-5I-z2R">
+                                                <rect key="frame" x="-2" y="3" width="81" height="16"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Appearance:" id="gz2-GM-Rqn">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XLc-ca-VTp">
+                                                <rect key="frame" x="89" y="0.0" width="282" height="20"/>
+                                                <subviews>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="93Y-a5-iNQ">
+                                                        <rect key="frame" x="-3" y="-4" width="144" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="System Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="niG-Oz-Fca" id="V2M-zE-Z4g">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="message"/>
+                                                            <menu key="menu" id="0mL-Br-1ug">
+                                                                <items>
+                                                                    <menuItem title="System Default" state="on" id="niG-Oz-Fca"/>
+                                                                    <menuItem title="System Reversed" tag="1" id="108-DY-rHr"/>
+                                                                    <menuItem isSeparatorItem="YES" id="wkT-nI-FBr"/>
+                                                                    <menuItem title="Light" tag="2" id="p57-e4-p5l"/>
+                                                                    <menuItem title="Dark" tag="3" id="NZh-d2-3Vx"/>
+                                                                </items>
+                                                            </menu>
+                                                            <connections>
+                                                                <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.FilterWindowAppearance" id="fO9-hw-f1N"/>
+                                                            </connections>
+                                                        </popUpButtonCell>
+                                                        <connections>
+                                                            <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.FilterWindowAppearance" id="Ncb-hc-nVL"/>
+                                                        </connections>
+                                                    </popUpButton>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="SSM-5I-z2R" firstAttribute="firstBaseline" secondItem="93Y-a5-iNQ" secondAttribute="firstBaseline" id="1WU-S4-tqS"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="qR5-4P-934"/>
+                                    <constraint firstItem="ojT-ce-bUD" firstAttribute="trailing" secondItem="SSM-5I-z2R" secondAttribute="trailing" id="xQE-bP-scT"/>
                                 </constraints>
-                                <connections>
-                                    <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.RefreshSpeed" id="yeF-Aq-d1A"/>
-                                </connections>
-                            </popUpButton>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b25-fi-qFB">
-                                <rect key="frame" x="36" y="75" width="99" height="16"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="View Area:" id="BBH-Y8-kr1">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojT-ce-bUD">
-                                <rect key="frame" x="36" y="155" width="99" height="16"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Refresh Speed:" id="xkd-TQ-kuW">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZW9-WF-xRP">
-                                <rect key="frame" x="144" y="106" width="300" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="296" id="QP5-2E-CYY"/>
-                                </constraints>
-                                <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="XYj-CE-0ar">
-                                    <font key="font" metaFont="message" size="11"/>
-                                    <string key="title">A faster refresh speed will reduce the lag if the area to filter is not too large. A slower refresh speed will reduce energy consumption.</string>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRr-hr-bpk">
-                                <rect key="frame" x="144" y="26" width="300" height="42"/>
-                                <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="When the view area is the content under the window, clicking inside the filtered view will hit the content underneath." id="vIP-qu-9Lh">
-                                    <font key="font" metaFont="message" size="11"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JI5-2J-DnM">
-                                <rect key="frame" x="140" y="68" width="245" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Content under the window" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="v8C-eT-i5k" id="I9X-XY-5dw">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="message"/>
-                                    <menu key="menu" id="B2K-uM-XK8">
-                                        <items>
-                                            <menuItem title="Content under the window" state="on" image="FilteredTransparencyTemplate" id="v8C-eT-i5k"/>
-                                            <menuItem title="Centered on the mouse pointer" image="FilteredMouseAreaTemplate" tag="1" id="5ph-Lv-YmQ"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.ViewArea" id="AHa-Oi-bY5"/>
-                                </connections>
-                            </popUpButton>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="JI5-2J-DnM" firstAttribute="top" secondItem="ZW9-WF-xRP" secondAttribute="bottom" constant="14" id="0ND-sS-L9W"/>
-                            <constraint firstItem="9uw-0U-tb8" firstAttribute="top" secondItem="j5z-QC-w4J" secondAttribute="top" constant="26" id="5qg-Vm-DA1"/>
-                            <constraint firstItem="9uw-0U-tb8" firstAttribute="leading" secondItem="ZW9-WF-xRP" secondAttribute="leading" constant="-3" id="6FN-Q3-W9t"/>
-                            <constraint firstItem="ZW9-WF-xRP" firstAttribute="trailing" secondItem="xRr-hr-bpk" secondAttribute="trailing" id="71d-cf-Pgf"/>
-                            <constraint firstItem="JI5-2J-DnM" firstAttribute="baseline" secondItem="b25-fi-qFB" secondAttribute="baseline" id="BqS-Og-Q10"/>
-                            <constraint firstItem="9uw-0U-tb8" firstAttribute="leading" secondItem="ojT-ce-bUD" secondAttribute="trailing" constant="10" id="GIb-zQ-CJc"/>
-                            <constraint firstItem="xRr-hr-bpk" firstAttribute="leading" secondItem="ZW9-WF-xRP" secondAttribute="leading" id="HHl-EX-k7V"/>
-                            <constraint firstItem="ojT-ce-bUD" firstAttribute="leading" secondItem="j5z-QC-w4J" secondAttribute="leading" constant="38" id="K1C-9U-l0z"/>
-                            <constraint firstItem="ojT-ce-bUD" firstAttribute="baseline" secondItem="9uw-0U-tb8" secondAttribute="baseline" id="VoR-9E-Ygu"/>
-                            <constraint firstItem="ojT-ce-bUD" firstAttribute="width" secondItem="b25-fi-qFB" secondAttribute="width" id="ZuC-8R-7Ee"/>
-                            <constraint firstAttribute="trailing" secondItem="ZW9-WF-xRP" secondAttribute="trailing" constant="38" id="bn0-JG-w0r"/>
-                            <constraint firstItem="b25-fi-qFB" firstAttribute="trailing" secondItem="ojT-ce-bUD" secondAttribute="trailing" id="dHf-bO-dtG"/>
-                            <constraint firstAttribute="bottom" secondItem="xRr-hr-bpk" secondAttribute="bottom" constant="26" id="daF-Js-mSb"/>
-                            <constraint firstItem="9uw-0U-tb8" firstAttribute="leading" secondItem="JI5-2J-DnM" secondAttribute="leading" id="eHD-G8-IUn"/>
-                            <constraint firstItem="xRr-hr-bpk" firstAttribute="top" secondItem="JI5-2J-DnM" secondAttribute="bottom" constant="4" id="hBK-Ai-IL0"/>
-                            <constraint firstItem="ZW9-WF-xRP" firstAttribute="top" secondItem="9uw-0U-tb8" secondAttribute="bottom" constant="4" id="oyb-Kx-CYg"/>
+                            <constraint firstItem="X2T-Ht-BpP" firstAttribute="top" secondItem="j5z-QC-w4J" secondAttribute="top" constant="25" id="8UL-Ng-RAX"/>
+                            <constraint firstAttribute="bottom" secondItem="X2T-Ht-BpP" secondAttribute="bottom" constant="25" id="IeH-ZB-bBB"/>
+                            <constraint firstAttribute="trailing" secondItem="X2T-Ht-BpP" secondAttribute="trailing" constant="40" id="Koy-xq-C4m"/>
+                            <constraint firstItem="X2T-Ht-BpP" firstAttribute="leading" secondItem="j5z-QC-w4J" secondAttribute="leading" constant="40" id="fBu-NQ-ygP"/>
                         </constraints>
                     </view>
                 </viewController>
                 <customObject id="xJz-Qx-abL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="3KQ-Qo-Tdg"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="-196"/>
+            <point key="canvasLocation" x="1341.5" y="-227"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -734,7 +795,7 @@
         <scene sceneID="5PC-k1-vN1">
             <objects>
                 <viewController identifier="WindowControls" storyboardIdentifier="WindowControls" id="sbo-Ke-Qrj" customClass="FilterSettingsController" customModule="Sim_Daltonism" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="NIH-J2-AUg">
+                    <view key="view" id="NIH-J2-AUg">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="20"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -996,6 +1057,6 @@
         <image name="StripesNoneTemplate" width="13" height="13"/>
         <image name="StripesTightTemplate" width="13" height="13"/>
         <image name="ToolsTemplate" width="15" height="15"/>
-        <image name="VisionTemplate" width="17" height="12"/>
+        <image name="VisionTemplate" width="18" height="11"/>
     </resources>
 </document>

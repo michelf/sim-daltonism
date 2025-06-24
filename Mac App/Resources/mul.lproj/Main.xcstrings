@@ -235,6 +235,7 @@
     },
     "3fd-6y-dkh.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Normal\"; ObjectID = \"3fd-6y-dkh\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -326,7 +327,8 @@
       }
     },
     "5ph-Lv-YmQ.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Centered on the mouse pointer\"; ObjectID = \"5ph-Lv-YmQ\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"System Reversed\"; ObjectID = \"5ph-Lv-YmQ\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -545,6 +547,18 @@
         }
       }
     },
+    "108-DY-rHr.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"System Reversed\"; ObjectID = \"108-DY-rHr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "System Reversed"
+          }
+        }
+      }
+    },
     "899-rr-sCO.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Filter\"; ObjectID = \"899-rr-sCO\";",
       "localizations" : {
@@ -754,7 +768,8 @@
       }
     },
     "BBH-Y8-kr1.title" : {
-      "comment" : "Class = \"NSTextFieldCell\"; title = \"View Area:\"; ObjectID = \"BBH-Y8-kr1\";",
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Appearance:\"; ObjectID = \"BBH-Y8-kr1\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -946,6 +961,7 @@
     },
     "D7c-iD-Fng.title" : {
       "comment" : "Class = \"NSMenu\"; title = \"Refresh Speed\"; ObjectID = \"D7c-iD-Fng\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1114,6 +1130,7 @@
     },
     "fbi-jg-9jO.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Refresh Speed\"; ObjectID = \"fbi-jg-9jO\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1274,6 +1291,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "拷贝"
+          }
+        }
+      }
+    },
+    "gz2-GM-Rqn.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Appearance:\"; ObjectID = \"gz2-GM-Rqn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Appearance:"
           }
         }
       }
@@ -1685,6 +1714,18 @@
         }
       }
     },
+    "niG-Oz-Fca.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"System Default\"; ObjectID = \"niG-Oz-Fca\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "System Default"
+          }
+        }
+      }
+    },
     "NMo-om-nkz.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Services\"; ObjectID = \"NMo-om-nkz\";",
       "localizations" : {
@@ -1755,6 +1796,18 @@
         }
       }
     },
+    "NZh-d2-3Vx.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Dark\"; ObjectID = \"NZh-d2-3Vx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Dark"
+          }
+        }
+      }
+    },
     "o9s-VR-rOe.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Monochromacy\"; ObjectID = \"o9s-VR-rOe\";",
       "extractionState" : "extracted_with_value",
@@ -1775,6 +1828,7 @@
     },
     "OjX-GL-RFl.ibExternalAccessibilityDescription" : {
       "comment" : "Class = \"NSButton\"; ibExternalAccessibilityDescription = \"Refresh Speed\"; ObjectID = \"OjX-GL-RFl\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1798,6 +1852,7 @@
     },
     "OjX-GL-RFl.ibShadowedToolTip" : {
       "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"Refresh Speed\"; ObjectID = \"OjX-GL-RFl\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1878,6 +1933,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最小化"
+          }
+        }
+      }
+    },
+    "p57-e4-p5l.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Light\"; ObjectID = \"p57-e4-p5l\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Light"
           }
         }
       }
@@ -2057,6 +2124,7 @@
     },
     "QIP-Or-u2p.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Slow\"; ObjectID = \"QIP-Or-u2p\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2080,6 +2148,7 @@
     },
     "QQk-Ez-VGp.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Fast\"; ObjectID = \"QQk-Ez-VGp\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2428,7 +2497,8 @@
       }
     },
     "v8C-eT-i5k.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Content under the window\"; ObjectID = \"v8C-eT-i5k\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"System Default\"; ObjectID = \"v8C-eT-i5k\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2538,6 +2608,7 @@
     },
     "vIP-qu-9Lh.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"When the view area is the content under the window, clicking inside the filtered view will hit the content underneath.\"; ObjectID = \"vIP-qu-9Lh\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

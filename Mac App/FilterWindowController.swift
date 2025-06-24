@@ -130,6 +130,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 			window.toolbarStyle = .unifiedCompact
 			window.subtitle = "Red  Green  Blue  Hue Shift  Luminance Flip  Vibrancy Boost"
 		} else {
+			window.styleMask.insert(.hudWindow)
 			window.addTitlebarAccessoryViewController(settingsAccessory)
 		}
 
@@ -138,7 +139,34 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 
 		NotificationCenter.default.addObserver(self, selector: #selector(refreshForFilterStoreConfiguration), name: FilterStore.didChangeNotification, object: filterStore)
 		refreshForFilterStoreConfiguration()
+
+		if #available(macOS 11, *) {
+			NSApplication.shared.addObserver(self, forKeyPath: #keyPath(NSApplication.effectiveAppearance), context: nil)
+			NotificationCenter.default.addObserver(self, selector: #selector(updateWindowAppearance), name: UserDefaults.didChangeNotification, object: nil)
+		}
+		updateWindowAppearance()
     }
+
+	deinit {
+		if #available(macOS 11, *), isWindowLoaded {
+			NSApplication.shared.removeObserver(self, forKeyPath: #keyPath(NSApplication.effectiveAppearance))
+		}
+	}
+
+	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+		if #available(macOS 10.14, *), keyPath == #keyPath(NSApplication.effectiveAppearance) {
+			updateWindowAppearance()
+		}
+	}
+
+	@objc func updateWindowAppearance() {
+		let appearance = UserDefaults.standard.filterWindowAppearance
+		guard appearance != .systemDefault else {
+			window?.appearance = nil
+			return
+		}
+		window?.appearance = appearance.prescribedAppearance
+	}
 
     /// Position the window so it has a different origin than other filter
     /// windows based on the registered list of window controllers in
@@ -253,5 +281,46 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 		filterStore.configuration.colorBoost = setting
 	}
 
+
+}
+
+enum FilterWindowAppearance: Int {
+	case systemDefault
+	case systemReversed
+	case light
+	case dark
+
+	var prescribedAppearance: NSAppearance? {
+		guard #available(macOS 10.14, *) else { return nil }
+		let newAppearanceName: NSAppearance.Name
+		switch self {
+		case .systemDefault:
+			return nil
+		case .systemReversed:
+			newAppearanceName = switch NSApplication.shared.effectiveAppearance.name {
+			case .aqua: .darkAqua
+			case .darkAqua: .aqua
+			case .accessibilityHighContrastAqua: .accessibilityHighContrastDarkAqua
+			case .vibrantDark: .vibrantLight
+			case .vibrantLight: .vibrantDark
+			case .accessibilityHighContrastVibrantDark: .accessibilityHighContrastVibrantLight
+			case .accessibilityHighContrastVibrantLight: .accessibilityHighContrastVibrantDark
+			default: .aqua
+			}
+		case .light:
+			newAppearanceName = NSApplication.shared.effectiveAppearance.bestMatch(from: [.aqua, .accessibilityHighContrastAqua]) ?? .aqua
+		case .dark:
+			newAppearanceName = NSApplication.shared.effectiveAppearance.bestMatch(from: [.darkAqua, .accessibilityHighContrastDarkAqua]) ?? .darkAqua
+		}
+		return NSAppearance(named: newAppearanceName)
+	}
+}
+
+extension UserDefaults {
+
+	var filterWindowAppearance: FilterWindowAppearance {
+		let intAppearance = UserDefaults.standard.integer(forKey: "FilterWindowAppearance")
+		return FilterWindowAppearance(rawValue: intAppearance) ?? .systemDefault
+	}
 
 }
