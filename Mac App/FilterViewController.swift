@@ -49,16 +49,16 @@ class FilterViewController: NSViewController {
 	}
 
 	func applyInnerCornerRadius(to view: NSView) {
-		let innerCornerRadius: CGFloat = 6
 		view.wantsLayer = true
-		view.layer?.cornerRadius = innerCornerRadius
-		if #available(macOS 10.15, *) {
+		if #available(macOS 11, *) {
+			let innerCornerRadius: CGFloat = 6
+			view.layer?.cornerRadius = innerCornerRadius
 			view.layer?.cornerCurve = .continuous
+			view.layer?.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+			view.layer?.masksToBounds = true
 		}
-		view.layer?.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 		view.layer?.borderColor = NSColor.black.withAlphaComponent(0.2).cgColor
 		view.layer?.borderWidth = 0.5
-		view.layer?.masksToBounds = true
 	}
 
     override func viewWillAppear() {
