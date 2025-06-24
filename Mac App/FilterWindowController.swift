@@ -62,14 +62,11 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 		guard let window = self.window else { return }
 		window.invalidateRestorableState()
 		refreshTitle()
-		refreshSubtitle()
 	}
 
 	func refreshTitle() {
-		window?.title = visionType.name
-	}
-	func refreshSubtitle() {
-		guard #available(macOS 11.0, *) else { return }
+		let title = visionType.name
+
 		var parts: [String] = []
 		let config = filterStore.configuration
 		if config.stripeConfig.redStripes != 0 {
@@ -90,7 +87,20 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 		if config.colorBoost {
 			parts.append(NSLocalizedString("Vibrancy Boost", comment: "window subtitle part"))
 		}
-		window?.subtitle = parts.joined(separator: ", ")
+		if #available(macOS 11.0, *), visionType != .normal || parts.isEmpty {
+			window?.title = title
+			window?.subtitle = parts.joined(separator: ", ")
+		} else {
+			if visionType != .normal || parts.isEmpty {
+				// skip "Normal vision" part of the title in the presence
+				// of other effects
+				parts.insert(title, at: 0)
+			}
+			window?.title = parts.joined(separator: ", ")
+			if #available(macOS 11, *) {
+				window?.subtitle = ""
+			}
+		}
 	}
 
 	func windowDidChangeBackingProperties(_ notification: Notification) {
@@ -128,7 +138,6 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 			// title bar accessory is replaced with a unified toolbar (managed by the same view controller)
 			window.toolbar = settingsAccessory.makeToolbar()
 			window.toolbarStyle = .unifiedCompact
-			window.subtitle = "Red  Green  Blue  Hue Shift  Luminance Flip  Vibrancy Boost"
 		} else {
 			window.styleMask.insert(.hudWindow)
 			window.addTitlebarAccessoryViewController(settingsAccessory)
