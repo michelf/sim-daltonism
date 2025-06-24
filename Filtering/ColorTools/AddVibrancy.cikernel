@@ -21,7 +21,7 @@ float lightness(vec3 c)
 	return lx2 * 0.5;
 }
 
-kernel float4 addVibrancy(__sample color) {
+kernel vec4 addVibrancy(__sample color) {
 	const float boostGamma = 2.2 - 0.3;
 	const float colorBoost = 1.5;
 	color.rgb = clamp(color.rgb, 0., 1000.);

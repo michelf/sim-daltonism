@@ -53,18 +53,18 @@ kernel vec4 HCIRN(__sample color, vec2 attrib_cp_uv, vec2 attrib_ab_uv, vec2 att
 
 	if (attrib_anomalize <= 0.0) { // shortcut path
 		// less than zero means monochromacy filter
-		float m = dot(color.rgb, float3(.299, .587, .114));
+		float m = dot(color.rgb, vec3(.299, .587, .114));
 		float gamma = 1.35;
 		m = pow(m, gamma); // feel-like-it adjustmeent to make it look closer to older Sim Daltonism
-		float4 newColor = mix(color, float4(m,m,m,0), -attrib_anomalize);
-		return float4(newColor.rgb, color.a);
+		vec4 newColor = mix(color, vec4(m,m,m,0), -attrib_anomalize);
+		return vec4(newColor.rgb, color.a);
 	}
 
 	vec3 c_rgb; vec2 c_uv; vec3 c_xyz;
 	vec3 s_rgb;            vec4 s_xyz0;
 	vec3 d_rgb; vec2 d_uv; vec3 d_xyz;
 
-	float2 ae_minus_ab = attrib_ae_uv - attrib_ab_uv;
+	vec2 ae_minus_ab = attrib_ae_uv - attrib_ab_uv;
 	// slope of the color axis:
 	float blindness_am = ae_minus_ab.y / ae_minus_ab.x;
 	// "y-intercept" of axis (actually on the "v" axis at u=0)
@@ -125,5 +125,5 @@ kernel vec4 HCIRN(__sample color, vec2 attrib_cp_uv, vec2 attrib_ab_uv, vec2 att
 	// anomalize
 	s_rgb = mix(c_rgb, s_rgb, attrib_anomalize);
 
-	return float4(s_rgb, color.a);
+	return vec4(s_rgb, color.a);
 }
