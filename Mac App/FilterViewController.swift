@@ -47,12 +47,15 @@ class FilterViewController: NSViewController {
 				comment: "Replacement title for button 'Open System Settings' on macOS 12 and earlier (uses the name System Preferences instead of System Settings")
 		}
 	}
+    
+    static let innerCornerRadius: CGFloat =  {
+        if #available(macOS 26, *) { 13 } else { 6 }
+    }()
 
 	func applyInnerCornerRadius(to view: NSView) {
 		view.wantsLayer = true
 		if #available(macOS 11, *) {
-			let innerCornerRadius: CGFloat = 6
-			view.layer?.cornerRadius = innerCornerRadius
+            view.layer?.cornerRadius = FilterViewController.innerCornerRadius
 			view.layer?.cornerCurve = .continuous
 			view.layer?.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 			view.layer?.masksToBounds = true
