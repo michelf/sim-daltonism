@@ -84,10 +84,16 @@ extension FilterSettingsController: NSToolbarDelegate {
 			let item = NSToolbarItem(itemIdentifier: itemIdentifier)
 			item.view = button
 			item.label = button.toolTip ?? ""
-
-			button.removeConstraints(button.constraints)
-			button.heightAnchor.constraint(equalToConstant: 28).isActive = true
-			button.widthAnchor.constraint(equalToConstant: 28).isActive = true
+            
+            button.removeConstraints(button.constraints)
+            if #available(macOS 26, *) {
+                button.controlSize = .regular
+                button.bezelStyle = .automatic
+                // let the system handle sizing and stuff normally inside the "glass" bubble
+            } else {
+                button.heightAnchor.constraint(equalToConstant: 28).isActive = true
+                button.widthAnchor.constraint(equalToConstant: 28).isActive = true
+            }
 
 			let menuForm = NSMenuItem()
 			menuForm.image = button.image
