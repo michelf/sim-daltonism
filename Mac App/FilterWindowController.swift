@@ -118,24 +118,24 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 
 		let window = window!
 
-        // cannot set from IB:
-        // Note: window level is set to 1 above Red Stripe's window level
-        // so you can use the two together.
         window.level = FilterWindowController.windowLevel
 		window.hidesOnDeactivate = false
 		window.standardWindowButton(.zoomButton)?.isEnabled = false
-        if #available(OSX 10.12, *) {
+		if #available(macOS 13, *) {
+			window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .participatesInCycle, .canJoinAllApplications]
+		} else if #available(macOS 10.12, *) {
 			window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .participatesInCycle]
         } else {
 			window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary] // dragging not working with .participatesInCycle
         }
+		window.styleMask.insert(.nonactivatingPanel) // needed to be able to join other apps in full screen
 		window.restorationClass = FilterWindowManager.self
-		window.styleMask.insert(.utilityWindow)
 
 		settingsAccessory = (NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowControls") as! FilterSettingsController)
 		settingsAccessory.layoutAttribute = .right
 		if #available(macOS 11.0, *) {
 			// title bar accessory is replaced with a unified toolbar (managed by the same view controller)
+			window.styleMask.insert(.utilityWindow)
 			window.toolbar = settingsAccessory.makeToolbar()
 			window.toolbarStyle = .unifiedCompact
 		} else {
