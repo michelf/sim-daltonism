@@ -87,7 +87,7 @@ extension FilterSettingsController: NSToolbarDelegate {
 
 			button.removeConstraints(button.constraints)
 			button.heightAnchor.constraint(equalToConstant: 28).isActive = true
-			button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+			button.widthAnchor.constraint(equalToConstant: 28).isActive = true
 
 			let menuForm = NSMenuItem()
 			menuForm.image = button.image
