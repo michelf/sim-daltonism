@@ -10,6 +10,18 @@
             "state" : "new",
             "value" : "Centered on the mouse pointer"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Centrée sur le pointeur"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跟随鼠标"
+          }
         }
       }
     },
@@ -233,30 +245,6 @@
         }
       }
     },
-    "3fd-6y-dkh.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Normal\"; ObjectID = \"3fd-6y-dkh\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Normal"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Normale"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正常"
-          }
-        }
-      }
-    },
     "4sb-4s-VLi.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Quit Sim Daltonism\"; ObjectID = \"4sb-4s-VLi\";",
       "localizations" : {
@@ -326,30 +314,6 @@
         }
       }
     },
-    "5ph-Lv-YmQ.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"System Reversed\"; ObjectID = \"5ph-Lv-YmQ\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Centered on the mouse pointer"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Centrée sur le pointeur"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "跟随鼠标"
-          }
-        }
-      }
-    },
     "6cU-bP-M3U.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Close\"; ObjectID = \"6cU-bP-M3U\";",
       "localizations" : {
@@ -394,6 +358,18 @@
             "state" : "new",
             "value" : "Normal Vision"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision normale"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正常色觉"
+          }
         }
       }
     },
@@ -428,6 +404,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Fast"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rapide"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快"
           }
         }
       }
@@ -767,30 +755,6 @@
         }
       }
     },
-    "BBH-Y8-kr1.title" : {
-      "comment" : "Class = \"NSTextFieldCell\"; title = \"Appearance:\"; ObjectID = \"BBH-Y8-kr1\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "View Area:"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zone visible :"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "窗口面积:"
-          }
-        }
-      }
-    },
     "bDm-Nm-Mzr.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Deuteranomaly\"; ObjectID = \"bDm-Nm-Mzr\";",
       "extractionState" : "extracted_with_value",
@@ -857,6 +821,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Content under the window"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenu sous la fenêtre"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "窗口下面"
           }
         }
       }
@@ -959,30 +935,6 @@
         }
       }
     },
-    "D7c-iD-Fng.title" : {
-      "comment" : "Class = \"NSMenu\"; title = \"Refresh Speed\"; ObjectID = \"D7c-iD-Fng\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh Speed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vitesse de rafraîchissement"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示刷新速度"
-          }
-        }
-      }
-    },
     "dgr-ZR-L4P.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Luminance Flip\"; ObjectID = \"dgr-ZR-L4P\";",
       "localizations" : {
@@ -1049,6 +1001,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Normal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normale"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正常"
           }
         }
       }
@@ -1124,30 +1088,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "撤消"
-          }
-        }
-      }
-    },
-    "fbi-jg-9jO.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Refresh Speed\"; ObjectID = \"fbi-jg-9jO\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh Speed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vitesse de rafraîchissement"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示刷新速度"
           }
         }
       }
@@ -1682,6 +1622,18 @@
             "state" : "new",
             "value" : "Refresh Speed"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitesse de rafraîchissement"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示刷新速度"
+          }
         }
       }
     },
@@ -1822,54 +1774,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monochromatie"
-          }
-        }
-      }
-    },
-    "OjX-GL-RFl.ibExternalAccessibilityDescription" : {
-      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityDescription = \"Refresh Speed\"; ObjectID = \"OjX-GL-RFl\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh Speed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vitesse de rafraîchissement"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示刷新速度"
-          }
-        }
-      }
-    },
-    "OjX-GL-RFl.ibShadowedToolTip" : {
-      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"Refresh Speed\"; ObjectID = \"OjX-GL-RFl\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh Speed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vitesse de rafraîchissement"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示刷新速度"
           }
         }
       }
@@ -2122,54 +2026,6 @@
         }
       }
     },
-    "QIP-Or-u2p.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Slow\"; ObjectID = \"QIP-Or-u2p\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Slow"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lente"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "慢"
-          }
-        }
-      }
-    },
-    "QQk-Ez-VGp.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Fast\"; ObjectID = \"QQk-Ez-VGp\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fast"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rapide"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "快"
-          }
-        }
-      }
-    },
     "R4o-n2-Eq4.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Zoom\"; ObjectID = \"R4o-n2-Eq4\";",
       "localizations" : {
@@ -2247,6 +2103,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Slow"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lente"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "慢"
           }
         }
       }
@@ -2441,6 +2309,18 @@
             "state" : "new",
             "value" : "Refresh Speed"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitesse de rafraîchissement"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示刷新速度"
+          }
         }
       }
     },
@@ -2492,30 +2372,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sim Daltonisme a besoin de votre permission pour afficher et filtrer une capture de l’écran."
-          }
-        }
-      }
-    },
-    "v8C-eT-i5k.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"System Default\"; ObjectID = \"v8C-eT-i5k\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Content under the window"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contenu sous la fenêtre"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "窗口下面"
           }
         }
       }
@@ -2602,30 +2458,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rayures sur rouge"
-          }
-        }
-      }
-    },
-    "vIP-qu-9Lh.title" : {
-      "comment" : "Class = \"NSTextFieldCell\"; title = \"When the view area is the content under the window, clicking inside the filtered view will hit the content underneath.\"; ObjectID = \"vIP-qu-9Lh\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "When the view area is the content under the window, clicking inside the filtered view will hit the content underneath."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quand la zone visible est le contenu sous la fenêtre, cliquer dans la vue filtrée touchera le contenu sous la fenêtre."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "如果你选择“窗口下面”,你也会用窗口下面的内容."
           }
         }
       }

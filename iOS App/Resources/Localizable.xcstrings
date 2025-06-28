@@ -1,0 +1,116 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Blue Stripes" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures bleues"
+          }
+        }
+      }
+    },
+    "Blue/yellow color blindness" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daltonisme bleu/jaune"
+          }
+        }
+      }
+    },
+    "Green Stripes" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures vertes"
+          }
+        }
+      }
+    },
+    "Hue Shift" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Décalage de teinte"
+          }
+        }
+      }
+    },
+    "Luminance Flip" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inversion de luminance"
+          }
+        }
+      }
+    },
+    "Monochromacy" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatisme"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Other" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre"
+          }
+        }
+      }
+    },
+    "Red Stripes" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures rouges"
+          }
+        }
+      }
+    },
+    "Red/green color blindness" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daltonisme rouge/vert"
+          }
+        }
+      }
+    },
+    "Vibrancy Boost" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couleurs vibrantes"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
