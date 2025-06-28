@@ -5,7 +5,6 @@ class AboutController: UITableViewController {
 	@IBOutlet var websiteCell: UITableViewCell?
 	@IBOutlet var feedbackCell: UITableViewCell?
 	@IBOutlet var appStoreCell: UITableViewCell?
-	@IBOutlet var redStripeCell: UITableViewCell?
 
 	@IBOutlet var aboutCell: UITableViewCell?
 	let aboutIndexPath: IndexPath = [1, 0]
@@ -23,8 +22,6 @@ class AboutController: UITableViewController {
 			UIApplication.shared.open(URL(string: "mailto:\(Self.localizedFeedbackEmailAddress)")!)
 		case appStoreCell:
 			UIApplication.shared.open(URL(string: "https://itunes.apple.com/us/app/sim-daltonism/id1050503579?ls=1&mt=8&action=viewContentsUserReviews")!)
-		case redStripeCell:
-			UIApplication.shared.open(URL(string: "https://itunes.apple.com/us/app/red-stripe/id997446505?ls=1&mt=8")!)
 		default:
 			break
 		}

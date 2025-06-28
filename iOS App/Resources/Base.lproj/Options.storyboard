@@ -151,60 +151,10 @@ Everyone has his own perception of colors that differs slightly from other peopl
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="See also…" id="wLH-wG-f7q">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="105" id="hqH-AT-upe">
-                                        <rect key="frame" x="16" y="522.33333206176758" width="343" height="105"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hqH-AT-upe" id="wBt-n3-ATw">
-                                            <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="105"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGG-Yx-ucF">
-                                                    <rect key="frame" x="56.333333333333343" y="0.0" width="204.00000000000003" height="105"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Stripe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbr-2u-IFo">
-                                                            <rect key="frame" x="78" y="29.666666666666671" width="126" height="21"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedStripeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vhq-67-JYG" customClass="IconImageView" customModule="Sim_Daltonism" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22.666666666666671" width="60" height="60"/>
-                                                        </imageView>
-                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8Y-pM-e8s">
-                                                            <rect key="frame" x="78" y="50.666666666666657" width="126" height="30"/>
-                                                            <state key="normal" title="Open in App Store">
-                                                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="y8Y-pM-e8s" firstAttribute="leading" secondItem="cbr-2u-IFo" secondAttribute="leading" id="4u6-K0-sns"/>
-                                                        <constraint firstItem="y8Y-pM-e8s" firstAttribute="trailing" secondItem="cbr-2u-IFo" secondAttribute="trailing" id="8XP-wb-l5L"/>
-                                                        <constraint firstItem="Vhq-67-JYG" firstAttribute="centerY" secondItem="iGG-Yx-ucF" secondAttribute="centerY" id="8fv-kH-idk"/>
-                                                        <constraint firstItem="Vhq-67-JYG" firstAttribute="leading" secondItem="iGG-Yx-ucF" secondAttribute="leading" id="AMj-hI-s9E"/>
-                                                        <constraint firstItem="cbr-2u-IFo" firstAttribute="leading" secondItem="Vhq-67-JYG" secondAttribute="trailing" constant="18" id="Ad5-Xn-uGf"/>
-                                                        <constraint firstAttribute="trailing" secondItem="cbr-2u-IFo" secondAttribute="trailing" id="F6e-AT-svo"/>
-                                                        <constraint firstItem="y8Y-pM-e8s" firstAttribute="top" secondItem="cbr-2u-IFo" secondAttribute="bottom" id="iQ8-Ie-vhe"/>
-                                                        <constraint firstItem="cbr-2u-IFo" firstAttribute="bottom" secondItem="Vhq-67-JYG" secondAttribute="centerY" constant="-2" id="rf5-ak-zOI"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <color key="tintColor" red="1" green="0.44638174670000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="iGG-Yx-ucF" firstAttribute="centerY" secondItem="wBt-n3-ATw" secondAttribute="centerY" id="2Ts-lC-eyA"/>
-                                                <constraint firstItem="iGG-Yx-ucF" firstAttribute="top" secondItem="wBt-n3-ATw" secondAttribute="top" id="Xg5-wz-UfP"/>
-                                                <constraint firstItem="iGG-Yx-ucF" firstAttribute="centerX" secondItem="wBt-n3-ATw" secondAttribute="centerX" id="dLR-O6-bcQ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Copyright &amp; Credits" id="BBK-e4-v9v">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="AIv-Ok-oRj" rowHeight="130" style="IBUITableViewCellStyleDefault" id="Gfr-ml-75t">
-                                        <rect key="frame" x="16" y="683.33333206176758" width="343" height="130"/>
+                                        <rect key="frame" x="16" y="522.33333206176758" width="343" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gfr-ml-75t" id="a8S-76-XRq">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
@@ -237,7 +187,6 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                         <outlet property="appStoreCell" destination="20l-u3-t7f" id="asW-Id-4hs"/>
                         <outlet property="creditsCell" destination="Gfr-ml-75t" id="Men-Rc-LIK"/>
                         <outlet property="feedbackCell" destination="nu2-a6-DcX" id="kbW-6d-eEb"/>
-                        <outlet property="redStripeCell" destination="hqH-AT-upe" id="IIu-oN-hY5"/>
                         <outlet property="websiteCell" destination="yNc-AR-fqu" id="Pgy-4G-xJg"/>
                     </connections>
                 </tableViewController>
@@ -995,7 +944,6 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
     <resources>
         <image name="DashesLooseTemplate" width="13" height="13"/>
         <image name="HorizontalStripesLooseTemplate" width="13" height="13"/>
-        <image name="RedStripeIcon" width="60" height="60"/>
         <image name="SimDaltonismIcon" width="60" height="60"/>
         <image name="StripesLooseTemplate" width="13" height="13"/>
         <image name="ToolsTemplate.png" width="15" height="15"/>

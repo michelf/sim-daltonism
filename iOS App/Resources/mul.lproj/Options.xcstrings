@@ -223,19 +223,6 @@
         }
       }
     },
-    "cbr-2u-IFo.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Red Stripe\"; ObjectID = \"cbr-2u-IFo\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Red Stripe"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "cKy-5c-spT.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Luminance Flip\"; ObjectID = \"cKy-5c-spT\";",
       "localizations" : {
@@ -973,6 +960,7 @@
     },
     "wLH-wG-f7q.headerTitle" : {
       "comment" : "Class = \"UITableViewSection\"; headerTitle = \"See also…\"; ObjectID = \"wLH-wG-f7q\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1055,6 +1043,7 @@
     },
     "y8Y-pM-e8s.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Open in App Store\"; ObjectID = \"y8Y-pM-e8s\";",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
