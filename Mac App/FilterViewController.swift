@@ -61,7 +61,7 @@ class FilterViewController: NSViewController {
 			view.layer?.masksToBounds = true
 		}
 		view.layer?.borderColor = NSColor.black.withAlphaComponent(0.2).cgColor
-		view.layer?.borderWidth = 0.5
+		view.layer?.borderWidth = 1
 	}
 
     override func viewWillAppear() {
