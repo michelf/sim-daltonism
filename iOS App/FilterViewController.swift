@@ -217,14 +217,18 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		if _mainCameraUIAdapted == false {
 			if (!hasTorch) {
 				// remove torch button if main camera does not have a torch
-				toolbarItems?.removeAll { $0 === self.flashButton }
+				// actually... keep the button there but make it invisible
+				// so the other buttons stay centered.
+				self.flashButton.isEnabled = false
+				self.flashButton.tintColor = .clear
 			}
 			_mainCameraUIAdapted = true
 		}
 
-		self.flashButton.isEnabled = videoDevice?.isTorchAvailable == true
 #if targetEnvironment(simulator)
 		self.flashButton.isEnabled = true
+#else
+		self.flashButton.isEnabled = videoDevice?.isTorchAvailable == true
 #endif
 		self.reflectTorchActiveState(videoDevice?.isTorchActive == true)
 	}
@@ -232,7 +236,7 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 	func reflectTorchActiveState(_ torchActive: Bool) {
 		let torchImageName = torchActive ? "flashlight.on.fill" : "flashlight.off.fill";
 		let torchImage = if #available(iOS 13.0, *) {
-			UIImage(systemName: torchImageName)
+			UIImage(named: torchImageName)
 		} else {
 			UIImage(named: torchImageName)
 		}
@@ -381,6 +385,8 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 			UIView.transition(from: self.contentView, to: self.contentView, duration:0.5, options: [.transitionFlipFromRight, .allowAnimatedContent, .showHideTransitionViews]) { success in
 				UIView.animate(withDuration: 0.2) {
 					self.filteredView?.alpha = 1
+				} completion: { success in
+					self.setVideoDevice(videoDevice: self.videoDevice)
 				}
 			}
 		}
