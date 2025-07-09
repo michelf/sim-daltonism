@@ -23,14 +23,12 @@ class OpenGLRenderer: NSObject {
 	private var workingColorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear)!
     weak var openGLView: NSOpenGLView?
     private weak var filterStore: FilterStore?
-	private var drawableSizeLock = NSLock()
-	private var drawableSize: CGSize
-	private var glDrawingLock = NSLock()
+	private var drawableSize: Mutex<CGSize>
 
 	init?(openGLView: NSOpenGLView, filter: FilterStore) {
         self.openGLView = openGLView
         self.filterStore = filter
-		self.drawableSize = openGLView.convertToBacking(openGLView.bounds.size)
+		self.drawableSize = Mutex(openGLView.convertToBacking(openGLView.bounds.size))
 		let pf = openGLView.pixelFormat ?? Self._defaultPixelFormat
 		self.context = CIContext(cglContext: openGLView.openGLContext!.cglContextObj!,
 								 pixelFormat: pf.cglPixelFormatObj, colorSpace: colorSpace, options: [.workingColorSpace: workingColorSpace])
@@ -73,15 +71,11 @@ extension OpenGLRenderer {
 extension OpenGLRenderer {
 
 	func didResize(to drawableSize: CGSize) {
-		drawableSizeLock.lock()
-		self.drawableSize = drawableSize
-		drawableSizeLock.unlock()
+		self.drawableSize.withLock { $0 = drawableSize }
 	}
 
 	func draw(in view: NSOpenGLView) {
-		drawableSizeLock.lock()
-		let drawableSize = self.drawableSize
-		drawableSizeLock.unlock()
+		let drawableSize = self.drawableSize.withLock { $0 }
 
 		var image = image.rescaledCentered(inFrame: drawableSize)
 		image = filterStore?.applyFilter(to: image) ?? image
