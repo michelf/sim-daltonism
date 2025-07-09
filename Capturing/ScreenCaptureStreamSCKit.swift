@@ -34,7 +34,14 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	private var isResizingOrMoving: Bool = false { didSet { disableOrRestartCaptureAfterWindowInteraction() } }
 	private var isOccluded: Bool = false { didSet { disableOrRestartCaptureAfterWindowInteraction() } }
 	private var capturingDisabled = false
-	private var unhideOnNextDisplay = false
+	func setUnhideOnNextDisplay() {
+		flags.withLock { $0.unhideOnNextDisplay = true }
+	}
+
+	private var flags = Mutex((unhideOnNextDisplay: false, streamNeedsReconfiguration: false))
+	private var streamWaitingFirstFrameAfterReconfiguration = true
+	private var streamReconfigurationTimer: Timer?
+	fileprivate var streamFilterGenerator: ContentFilterGenerator?
 
 	// Current capture
 	private var preferredCaptureArea = ViewArea.underWindow {
@@ -150,11 +157,6 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		}
 	}
 
-	var streamNeedsReconfiguration = false
-	var streamWaitingFirstFrameAfterReconfiguration = true
-	var streamReconfigurationTimer: Timer?
-	fileprivate var streamFilterGenerator: ContentFilterGenerator?
-
 	@objc func invalidateStreamFilter() {
 		getContentFilter(for: getPreferredViewAreaInScreenCoordinates()) { [weak self] filterGenerator in
 			guard let filterGenerator, let self else { return }
@@ -180,7 +182,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		}
 		let newConfiguration = configuration(for: streamFilterGenerator?.display)
 		stream?.updateConfiguration(newConfiguration)
-		streamNeedsReconfiguration = false
+		flags.withLock { $0.streamNeedsReconfiguration = false }
 		streamWaitingFirstFrameAfterReconfiguration = true
 		streamReconfigurationTimer?.invalidate()
 		streamReconfigurationTimer = nil
@@ -188,7 +190,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 	@objc func invalidateStreamConfiguration() {
 		if streamWaitingFirstFrameAfterReconfiguration {
-			streamNeedsReconfiguration = true
+			flags.withLock { $0.streamNeedsReconfiguration = true }
 			streamReconfigurationTimer = Timer.scheduledTimer(withTimeInterval: 1/60.0, repeats: false) { [weak self] timer in
 				self?.reconfigureStream()
 			}
@@ -321,18 +323,22 @@ extension ScreenCaptureStreamSCKit: SCStreamOutput {
 //	}
 
 	private func afterCapturing() {
-		guard unhideOnNextDisplay || streamNeedsReconfiguration else { return }
+		guard flags.withLock({ $0.unhideOnNextDisplay || $0.streamNeedsReconfiguration }) else { return }
 		DispatchQueue.main.async { [weak self] in
 			guard let self else { return }
 			// recheck, because the state could have changed since the dispatch
-			if unhideOnNextDisplay == true {
-				unhideOnNextDisplay = false
+			let flags = flags.withLock {
+				let f = $0
+				$0 = (false, false)
+				return f
+			}
+			if flags.unhideOnNextDisplay {
 				view?.isHidden = false
 			}
 			if streamWaitingFirstFrameAfterReconfiguration {
 				streamWaitingFirstFrameAfterReconfiguration = false
 			}
-			if streamNeedsReconfiguration {
+			if flags.streamNeedsReconfiguration {
 				reconfigureStream()
 			}
 		}
@@ -414,7 +420,7 @@ private extension ScreenCaptureStreamSCKit {
 			stream?.startCapture()
 			capturingDisabled = false
 //			captureImmediately()
-			unhideOnNextDisplay = true
+			flags.withLock { $0.unhideOnNextDisplay = true }
 		}
 	}
 }
