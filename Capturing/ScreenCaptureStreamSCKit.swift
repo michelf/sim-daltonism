@@ -97,6 +97,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 		let scaleFactor = view?.window?.backingScaleFactor ?? 1
 
+		config.pixelFormat = kCVPixelFormatType_32BGRA
 		config.width = Int(captureRect.size.width * scaleFactor)
 		config.height = Int(captureRect.size.height * scaleFactor)
 		config.scalesToFit = false
