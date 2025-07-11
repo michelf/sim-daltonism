@@ -169,7 +169,7 @@ extension FilterStore {
 	}
 
 	/// Lazy initialization for vision tool filters.
-	private static var visionToolFilterRegistration: () = {
+	private static let visionToolFilterRegistration: () = {
 	}()
 
 }
@@ -178,11 +178,11 @@ extension FilterStore {
 
 public extension FilterStore {
 
-	private static var queueCount = 0
+	private static let queueCount = Mutex(0)
 
 	static func nextDispatchQueueLabel() -> String {
-		queueCount += 1
-		return "\(Self.self)" + String(queueCount)
+		let count = queueCount.withLock { $0 += 1; return $0 }
+		return "\(Self.self)" + String(count)
 	}
 }
 

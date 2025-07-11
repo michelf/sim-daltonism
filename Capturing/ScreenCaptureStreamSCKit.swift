@@ -51,7 +51,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		didSet { reconfigureStream() }
 	}
 
-
+	@MainActor
 	public init(view: FilteredMetalView) {
 		self.view = view
 		super.init()

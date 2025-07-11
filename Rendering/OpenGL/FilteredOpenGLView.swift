@@ -6,6 +6,7 @@ import OpenGL.GL.Ext
 import OpenGL.GL3
 
 #if os(macOS)
+@MainActor
 @available(macOS, deprecated: 10.14)
 class FilteredOpenGLView: NSOpenGLView {
 
@@ -64,7 +65,7 @@ class FilteredOpenGLView: NSOpenGLView {
 			glClear(GLbitfield(GL_COLOR_BUFFER_BIT))
 			delegate?.didResize(to: drawableSize)
 		}
-		delegate?.draw(in: self)
+		delegate?.draw()
 	}
 
 	override func reshape() {

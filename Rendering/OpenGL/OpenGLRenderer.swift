@@ -15,23 +15,30 @@
 
 import AppKit
 
+@MainActor
 class OpenGLRenderer: NSObject {
 
-    private var image = CIImage()
-    private var context: CIContext?
+    private let image = Mutex(CIImage())
+	private let context: Mutex<(ci: CIContext, openGL: NSOpenGLContext)>
 	private var colorSpace = CGDisplayCopyColorSpace(CGMainDisplayID())
 	private var workingColorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear)!
     weak var openGLView: NSOpenGLView?
-    private weak var filterStore: FilterStore?
-	private var drawableSize: Mutex<CGSize>
+    nonisolated private let filterStore: FilterStore
+	private let drawableSize: Mutex<CGSize>
 
 	init?(openGLView: NSOpenGLView, filter: FilterStore) {
         self.openGLView = openGLView
         self.filterStore = filter
 		self.drawableSize = Mutex(openGLView.convertToBacking(openGLView.bounds.size))
 		let pf = openGLView.pixelFormat ?? Self._defaultPixelFormat
-		self.context = CIContext(cglContext: openGLView.openGLContext!.cglContextObj!,
-								 pixelFormat: pf.cglPixelFormatObj, colorSpace: colorSpace, options: [.workingColorSpace: workingColorSpace])
+		guard let openGLContext = openGLView.openGLContext else {
+			return nil
+		}
+		self.context = Mutex((
+			ci: CIContext(cglContext: openGLView.openGLContext!.cglContextObj!,
+						  pixelFormat: pf.cglPixelFormatObj, colorSpace: colorSpace, options: [.workingColorSpace: workingColorSpace]),
+			openGL: openGLContext,
+		))
 		super.init()
     }
 
@@ -49,22 +56,22 @@ extension OpenGLRenderer: CaptureStreamDelegate {
     /// Called on the ImageCapturer's queue,
     /// which should be the CIFilter queue
     ///
-    func didCaptureFrame(image: CIImage) {
+	nonisolated func didCaptureFrame(image: CIImage) {
         render(image)
     }
 
-	func currentRenderedImage() -> CIImage {
-		self.image
+	nonisolated func currentRenderedImage() -> CIImage {
+		self.image.withLock { $0 }
 	}
 
 }
 
 extension OpenGLRenderer {
 
-    func render(_ image: CIImage) {
-		guard let openGLView else { return }
-        self.image = image
-		self.draw(in: openGLView)
+	nonisolated func render(_ image: CIImage) {
+//		guard let openGLView else { return }
+		self.image.withLock { $0 = image }
+		self.draw()
     }
 }
 
@@ -74,17 +81,20 @@ extension OpenGLRenderer {
 		self.drawableSize.withLock { $0 = drawableSize }
 	}
 
-	func draw(in view: NSOpenGLView) {
+	nonisolated func draw() {
 		let drawableSize = self.drawableSize.withLock { $0 }
 
-		var image = image.rescaledCentered(inFrame: drawableSize)
-		image = filterStore?.applyFilter(to: image) ?? image
+		var image = image.withLock { $0 }
+		image = image.rescaledCentered(inFrame: drawableSize)
+		image = filterStore.applyFilter(to: image) ?? image
 
 		let drawableRect = CGRect(origin: .zero, size: drawableSize)
 
-		view.openGLContext!.makeCurrentContext()
-		context?.draw(image, in: drawableRect, from: image.extent)
-		glFlush()
+		context.withLock { context in
+			context.openGL.makeCurrentContext()
+			context.ci.draw(image, in: drawableRect, from: image.extent)
+			glFlush()
+		}
     }
 
 }

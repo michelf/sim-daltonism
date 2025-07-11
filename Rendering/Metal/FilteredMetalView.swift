@@ -15,6 +15,7 @@
 
 import MetalKit
 
+@MainActor
 public class FilteredMetalView: MTKView {
 
 	public override init(frame: CGRect, device: MTLDevice?) {

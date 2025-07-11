@@ -37,7 +37,7 @@ public class ScreenCaptureStreamCG {
 	private let queue = DispatchQueue(label: nextDispatchQueueLabel(), qos: .userInitiated)
     private var isCapturing = false
 
-
+	@MainActor
     public init(view: FilteredMetalView) {
         self.view = view
         view.viewUpdatesSubscriber = self

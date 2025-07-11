@@ -17,23 +17,28 @@ import Foundation
 import MetalKit
 
 /// Manages an MTKView by enqueing frames for rendering and responding to changes affecting the drawable size
+@MainActor
 class MetalRenderer: NSObject {
 
-    private var image = CIImage()
-    private var context: CIContext?
-    private var commandQueue: MTLCommandQueue
+    private let image = Mutex(CIImage())
+	private let context: Mutex<(ci: CIContext, metalLayer: CAMetalLayer, commandQueue: MTLCommandQueue)>
 	private var workingColorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear)!
-    weak var mtkview: MTKView?
-    private weak var filterStore: FilterStore?
-    
+	weak var mtkview: MTKView?
+    nonisolated private let filterStore: FilterStore?
+	private let drawableSize: Mutex<CGSize>
+
     init?(mtkview: MTKView, filter: FilterStore) {
         guard let device = mtkview.device,
               let commandQueue = device.makeCommandQueue()
         else { return nil }
         self.mtkview = mtkview
-        self.commandQueue = commandQueue
+		self.context = Mutex((
+			CIContext(mtlDevice: device, options: [.workingColorSpace: workingColorSpace]),
+			metalLayer: mtkview.layer as! CAMetalLayer,
+			commandQueue: commandQueue
+		))
         self.filterStore = filter
-		context = CIContext(mtlDevice: device, options: [.workingColorSpace: workingColorSpace])
+		self.drawableSize = Mutex(mtkview.drawableSize)
     }
 }
 
@@ -42,12 +47,12 @@ extension MetalRenderer: CaptureStreamDelegate {
     /// Called on the ImageCapturer's queue,
     /// which should be the CIFilter queue
     ///
-    func didCaptureFrame(image: CIImage) {
+    nonisolated func didCaptureFrame(image: CIImage) {
         render(image)
     }
 
-	func currentRenderedImage() -> CIImage {
-		self.image
+	nonisolated func currentRenderedImage() -> CIImage {
+		self.image.withLock { $0 }
 	}
 
 }
@@ -55,47 +60,56 @@ extension MetalRenderer: CaptureStreamDelegate {
 extension MetalRenderer {
     
     /// Prepare the frame received by applying available filter(s). Call MTKView.draw(in:) to execute.
-    func render(_ image: CIImage) {
-        self.image = image
-        mtkview?.draw()
+	nonisolated func render(_ image: CIImage) {
+		self.image.withLock { $0 = image }
+		self.draw()
     }
 }
 
 extension MetalRenderer: MTKViewDelegate {
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        // Auto-resizing
+		self.drawableSize.withLock { $0 = size }
 		#if os(macOS)
 		view.colorspace = CGDisplayCopyColorSpace(CGMainDisplayID())
 		#endif
-		view.setNeedsDisplay(view.bounds)
+		draw()
     }
 
-    /// Queues rendering commands into GPU
-    func draw(in view: MTKView) {
-        
-        guard let buffer = commandQueue.makeCommandBuffer(),
-              let currentDrawable = view.currentDrawable
-        else { return }
+	func draw(in view: MTKView) {
+		assert(mtkview === view)
+		assert(mtkview?.layer === context.withLock { $0.metalLayer })
+		draw()
+	}
 
-		var image = image.rescaledCentered(inFrame: view.drawableSize)
+	nonisolated func draw() {
+		let drawableSize = self.drawableSize.withLock { $0 }
+		var image = image.withLock { $0 }
+		image = image.rescaledCentered(inFrame: drawableSize)
 		image = filterStore?.applyFilter(to: image) ?? image
-
+		
 		#if os(macOS)
-		let colorspace = view.colorspace ?? CGColorSpaceCreateDeviceRGB()
+		let colorspace = CGDisplayCopyColorSpace(CGMainDisplayID())
 		#else
 		let colorspace = CGColorSpaceCreateDeviceRGB()
 		#endif
-        context?.render(
-            image,
-            to: currentDrawable.texture,
-            commandBuffer: buffer,
-			bounds: CGRect(origin: .zero, size: view.drawableSize),
-			colorSpace: colorspace
-        )
 
-        buffer.present(currentDrawable)
-        buffer.commit()
+		context.withLock { context in
+			guard let buffer = context.commandQueue.makeCommandBuffer(),
+				  let currentDrawable = context.metalLayer.nextDrawable()
+			else { return }
+
+			context.ci.render(
+				image,
+				to: currentDrawable.texture,
+				commandBuffer: buffer,
+				bounds: CGRect(origin: .zero, size: drawableSize),
+				colorSpace: colorspace
+			)
+
+			buffer.present(currentDrawable)
+			buffer.commit()
+		}
     }
     
 }
