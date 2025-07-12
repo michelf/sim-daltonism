@@ -105,6 +105,8 @@ extension MetalRenderer: MTKViewDelegate {
 				  let currentDrawable = context.metalLayer.nextDrawable()
 			else { return }
 
+			// Note: activating Xcode's thread performance checker can
+			// occasionally cause crashes on the CI rendering queue.
 			context.ci.render(
 				image,
 				to: currentDrawable.texture,
