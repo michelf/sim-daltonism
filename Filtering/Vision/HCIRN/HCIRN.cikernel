@@ -44,6 +44,17 @@
 //        Creative Commons Attribution-ShareAlike 4.0 International License.
 //        http://creativecommons.org/licenses/by-sa/4.0/
 
+float anomalize_amount(float3 c, float anomalize)
+{
+	// tweaking the anomalize value to make it stronger on desaturated colors
+	float cmax = max(max(c.r, c.g), c.b);
+	float cmin = min(min(c.r, c.g), c.b);
+	float C = (cmax - cmin);
+	float V = cmax;
+	float saturation = C / V;
+	return 1 - clamp(pow(saturation, 7.*(1.-anomalize)), 0., 1.)*(1.-anomalize);
+}
+
 kernel vec4 HCIRN(__sample color, vec2 attrib_cp_uv, vec2 attrib_ab_uv, vec2 attrib_ae_uv, float attrib_anomalize) {
 	color = clamp(color, 0., 1.);
 	const vec4 white_xyz0 = vec4(0.312713, 0.329016, 0.358271, 0.);
@@ -123,7 +134,7 @@ kernel vec4 HCIRN(__sample color, vec2 attrib_cp_uv, vec2 attrib_ab_uv, vec2 att
 	s_rgb = clamp(s_rgb, 0., 1.);
 
 	// anomalize
-	s_rgb = mix(c_rgb, s_rgb, attrib_anomalize);
+	s_rgb = mix(c_rgb, s_rgb, anomalize_amount(c_rgb, attrib_anomalize));
 
 	return vec4(s_rgb, color.a);
 }

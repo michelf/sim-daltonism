@@ -51,6 +51,17 @@ using namespace metal;
 
 extern "C" {
 
+float anomalize_amount(float3 c, float anomalize)
+{
+	// tweaking the anomalize value to make it stronger on desaturated colors
+	float cmax = max(max(c.r, c.g), c.b);
+	float cmin = min(min(c.r, c.g), c.b);
+	float C = (cmax - cmin);
+	float V = cmax;
+	float saturation = C / V;
+	return 1 - clamp(pow(saturation, 7.*(1.-anomalize)), 0., 1.)*(1.-anomalize);
+}
+
 // Dichromacy or monochromacy
 // attrib_cp_uv confusion point
 // attrib_ab_uv color axis begining point (473nm)
@@ -135,7 +146,9 @@ float4 hcirn_kernel(sample_t color, float2 attrib_cp_uv, float2 attrib_ab_uv, fl
 	s_rgb = clamp(s_rgb, 0., 1.);
 
 	// anomalize
-	s_rgb = mix(c_rgb, s_rgb, attrib_anomalize);
+//	s_rgb = pow(mix(pow(c_rgb, 2.2), pow(s_rgb, 2.2), attrib_anomalize), 1/2.2);
+	s_rgb = mix(c_rgb, s_rgb, anomalize_amount(c_rgb, attrib_anomalize));
+//	return float4(float3(anomalize_amount(c_rgb, attrib_anomalize)), color.a);
 
 	return float4(s_rgb, color.a);
 }
