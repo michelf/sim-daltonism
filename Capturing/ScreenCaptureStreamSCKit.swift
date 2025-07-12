@@ -115,7 +115,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 			config.captureResolution = .automatic
 		}
 		if #available(macOS 15.0, *) {
-			config.showMouseClicks = true
+			config.showMouseClicks = false
 		}
 		config.queueDepth = 2
 
