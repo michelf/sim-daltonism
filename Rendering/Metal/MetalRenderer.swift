@@ -95,6 +95,12 @@ extension MetalRenderer: MTKViewDelegate {
 		#endif
 
 		context.withLock { context in
+			if context.metalLayer.drawableSize != drawableSize {
+				// Sometime after moving window between 1x and 2x screens
+				// the drawable size isn't updated correctly.
+				context.metalLayer.drawableSize = drawableSize
+			}
+
 			guard let buffer = context.commandQueue.makeCommandBuffer(),
 				  let currentDrawable = context.metalLayer.nextDrawable()
 			else { return }
