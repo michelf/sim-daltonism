@@ -73,7 +73,6 @@ extension MetalRenderer: MTKViewDelegate {
 		#if os(macOS)
 		view.colorspace = CGDisplayCopyColorSpace(CGMainDisplayID())
 		#endif
-		draw()
     }
 
 	func draw(in view: MTKView) {
