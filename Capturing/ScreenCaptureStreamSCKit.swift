@@ -297,14 +297,11 @@ extension ScreenCaptureStreamSCKit: SCStreamOutput {
 
 	public func stream(_ stream: SCStream, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, of type: SCStreamOutputType) {
 		guard type == .screen,
-			  let pixelBuffer = sampleBuffer.imageBuffer,
-			  let surfaceRef = CVPixelBufferGetIOSurface(pixelBuffer)?.takeUnretainedValue()
+			  let imageBuffer = sampleBuffer.imageBuffer
 		else {
 			return
 		}
-		let surface = unsafeBitCast(surfaceRef, to: IOSurface.self)
-
-		delegate?.didCaptureFrame(image: CIImage(ioSurface: surface))
+		delegate?.didCaptureFrame(image: CIImage(cvImageBuffer: imageBuffer))
 
 		afterCapturing()
 	}
