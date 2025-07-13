@@ -551,7 +551,7 @@
     },
     "iRQ-At-uud.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Monochrome Display\"; ObjectID = \"iRQ-At-uud\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1025,7 +1025,7 @@
     },
     "XUG-GA-dDA.text" : {
       "comment" : "Class = \"UILabel\"; text = \"BT.709 luma coefficients\"; ObjectID = \"XUG-GA-dDA\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

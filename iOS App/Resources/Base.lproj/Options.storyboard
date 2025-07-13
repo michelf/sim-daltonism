@@ -408,7 +408,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" tag="9" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="rgF-lB-8xY" detailTextLabel="DnW-65-s8L" style="IBUITableViewCellStyleSubtitle" id="R8C-54-wdr">
+                                    <tableViewCell clipsSubviews="YES" tag="8" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="rgF-lB-8xY" detailTextLabel="DnW-65-s8L" style="IBUITableViewCellStyleSubtitle" id="R8C-54-wdr">
                                         <rect key="frame" x="16" y="657.66666412353516" width="343" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R8C-54-wdr" id="eT5-JS-EPC">
@@ -436,45 +436,21 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                             </tableViewSection>
                             <tableViewSection headerTitle="Other" id="rlq-wP-Crx">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" tag="12" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="iRQ-At-uud" detailTextLabel="XUG-GA-dDA" style="IBUITableViewCellStyleSubtitle" id="8hY-8x-Xd4">
+                                    <tableViewCell clipsSubviews="YES" tag="9" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="flK-2k-8KW" detailTextLabel="tst-IK-iP2" style="IBUITableViewCellStyleSubtitle" id="O1Z-nx-A9h">
                                         <rect key="frame" x="16" y="765.66666412353516" width="343" height="48"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8hY-8x-Xd4" id="EaF-uB-iVw">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Monochrome Display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iRQ-At-uud">
-                                                    <rect key="frame" x="16" y="5.9999999999999982" width="167.66666666666666" height="20.333333333333332"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="BT.709 luma coefficients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XUG-GA-dDA">
-                                                    <rect key="frame" x="16" y="26.333333333333332" width="149.66666666666666" height="15.666666666666666"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" tag="11" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="flK-2k-8KW" detailTextLabel="tst-IK-iP2" style="IBUITableViewCellStyleSubtitle" id="O1Z-nx-A9h">
-                                        <rect key="frame" x="16" y="813.66666412353516" width="343" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O1Z-nx-A9h" id="KXC-Hk-0w0">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Monochrome Analog TV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="flK-2k-8KW">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Monochrome Analog TV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="flK-2k-8KW">
                                                     <rect key="frame" x="16" y="5.9999999999999982" width="191" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="BT.601 luma coefficients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tst-IK-iP2">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="BT.601 luma coefficients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tst-IK-iP2">
                                                     <rect key="frame" x="16" y="26.333333333333332" width="148.33333333333334" height="15.666666666666666"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>

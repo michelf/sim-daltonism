@@ -139,7 +139,6 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 				action(for: .blueConeMonochromat),
 			].iOSLessThan16_reversed()),
 			UIMenu(title: NSLocalizedString("Other", comment: ""), options: .displayInline, children: [
-				action(for: .monochromeDisplay),
 				action(for: .monochromeAnalogTV),
 			].iOSLessThan16_reversed()),
 		].iOSLessThan16_reversed())
