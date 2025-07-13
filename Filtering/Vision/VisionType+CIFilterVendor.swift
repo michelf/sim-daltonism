@@ -34,11 +34,8 @@ extension VisionType {
 		case .tritan: return "Tritan"
 		case .tritanomaly: return "Tritanomaly"
 		case .achromatopsia: return "Achromatopsia"
-		case .achromatopsiaPartial: return "AchromatopsiaPartial"
 		case .blueConeMonochromat: return "BlueConeMonochromat"
-		case .blueConeMonochromacyPartial: return "BlueConeMonochromacyPartial"
 		case .monochromeAnalogTV: return "monochromeAnalogTV"
-		case .monochromeDisplay: return "monochromeDisplay"
 		}
     }
 }

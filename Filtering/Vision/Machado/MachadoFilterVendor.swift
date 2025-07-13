@@ -24,7 +24,6 @@ class MachadoFilterVendor: NSObject, CIFilterConstructor {
 
         let monochrome: Set<VisionType> = [
             .achromatopsia,
-            .achromatopsiaPartial
         ]
 
         VisionType.allCases.forEach { vision in
@@ -76,12 +75,10 @@ class MachadoFilterVendor: NSObject, CIFilterConstructor {
             case .achromatopsia:
                 return MonochromacyFilter(intensity: 1)
 
-            case .achromatopsiaPartial:
-                return MonochromacyFilter(intensity: 0.66)
-
             default: return nil
         }
 
         return MachadoFilter(matrix3x3: matrix)
     }
 }
+//

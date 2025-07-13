@@ -61,6 +61,7 @@
       }
     },
     "Anomalous red and green cones" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -112,6 +113,7 @@
       }
     },
     "BT.709 luma coefficients" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -175,6 +177,7 @@
       }
     },
     "Monochrome Display" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -253,6 +256,7 @@
       }
     },
     "Partial Achromatopsia" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -263,6 +267,7 @@
       }
     },
     "Partial Blue Cone Monochromacy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -316,6 +321,7 @@
       }
     },
     "Reduced sensitivity to colors" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {

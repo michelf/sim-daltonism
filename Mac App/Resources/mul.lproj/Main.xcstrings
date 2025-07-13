@@ -48,6 +48,24 @@
         }
       }
     },
+    "0Pi-5v-4XP.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Vision\"; ObjectID = \"0Pi-5v-4XP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Vision"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision"
+          }
+        }
+      }
+    },
     "0Rl-9u-B72.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Filter\"; ObjectID = \"0Rl-9u-B72\";",
       "localizations" : {
@@ -268,6 +286,30 @@
         }
       }
     },
+    "4Wi-of-LLr.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Tight\"; ObjectID = \"4Wi-of-LLr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tight"
+          }
+        }
+      }
+    },
+    "5ag-Qh-h9P.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Hue Shift\"; ObjectID = \"5ag-Qh-h9P\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hue Shift"
+          }
+        }
+      }
+    },
     "5bi-v8-MT6.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"View Area\"; ObjectID = \"5bi-v8-MT6\";",
       "localizations" : {
@@ -386,7 +428,7 @@
       }
     },
     "8eI-EC-qzz.title" : {
-      "comment" : "Class = \"NSMenu\"; title = \"Filter\"; ObjectID = \"8eI-EC-qzz\";",
+      "comment" : "Class = \"NSMenu\"; title = \"File\"; ObjectID = \"8eI-EC-qzz\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -428,6 +470,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "快"
+          }
+        }
+      }
+    },
+    "8Uh-Mk-fKK.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Stripes on Blue\"; ObjectID = \"8Uh-Mk-fKK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stripes on Blue"
           }
         }
       }
@@ -529,20 +583,14 @@
         }
       }
     },
-    "77h-3K-Sl9.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Analog TV\"; ObjectID = \"77h-3K-Sl9\";",
+    "69U-W4-avx.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Loose\"; ObjectID = \"69U-W4-avx\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Monochrome Analog TV"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Télé monochrome analogique"
+            "value" : "Loose"
           }
         }
       }
@@ -560,7 +608,7 @@
       }
     },
     "899-rr-sCO.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Filter\"; ObjectID = \"899-rr-sCO\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"File\"; ObjectID = \"899-rr-sCO\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -578,6 +626,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "滤色镜"
+          }
+        }
+      }
+    },
+    "A5W-Le-yZ5.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Vision\"; ObjectID = \"A5W-Le-yZ5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Vision"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision"
           }
         }
       }
@@ -889,6 +955,18 @@
         }
       }
     },
+    "Cma-0B-uUS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"Cma-0B-uUS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "None"
+          }
+        }
+      }
+    },
     "CoH-ud-qiR.title" : {
       "comment" : "Class = \"NSMenu\"; title = \"Color Tools\"; ObjectID = \"CoH-ud-qiR\";",
       "extractionState" : "extracted_with_value",
@@ -964,6 +1042,30 @@
         }
       }
     },
+    "DkF-ge-OAI.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Stripes on Green\"; ObjectID = \"DkF-ge-OAI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stripes on Green"
+          }
+        }
+      }
+    },
+    "Dny-Fm-8On.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Loose\"; ObjectID = \"Dny-Fm-8On\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Loose"
+          }
+        }
+      }
+    },
     "dsM-E9-NHA.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Delete\"; ObjectID = \"dsM-E9-NHA\";",
       "localizations" : {
@@ -1029,6 +1131,18 @@
         }
       }
     },
+    "eiB-pP-qli.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Loose\"; ObjectID = \"eiB-pP-qli\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Loose"
+          }
+        }
+      }
+    },
     "eKe-ld-Rkg.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Loose\"; ObjectID = \"eKe-ld-Rkg\";",
       "extractionState" : "extracted_with_value",
@@ -1054,6 +1168,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucune"
+          }
+        }
+      }
+    },
+    "Eq2-3v-Beq.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Tight\"; ObjectID = \"Eq2-3v-Beq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tight"
           }
         }
       }
@@ -1117,6 +1243,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrir Réglages Système"
+          }
+        }
+      }
+    },
+    "FJ5-bs-Egp.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Tight\"; ObjectID = \"FJ5-bs-Egp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tight"
           }
         }
       }
@@ -1203,6 +1341,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Larges"
+          }
+        }
+      }
+    },
+    "gn2-d3-HAC.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Other\"; ObjectID = \"gn2-d3-HAC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Other"
           }
         }
       }
@@ -1338,6 +1488,12 @@
             "state" : "new",
             "value" : "Simulated Vision"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vision simulée"
+          }
         }
       }
     },
@@ -1412,19 +1568,19 @@
       }
     },
     "Jr5-1s-u16.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Display\"; ObjectID = \"Jr5-1s-u16\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Analog TV\"; ObjectID = \"Jr5-1s-u16\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Monochrome Display"
+            "value" : "Monochrome Analog TV"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Écran monochrome"
+            "value" : "Télé monochrome analogique"
           }
         }
       }
@@ -1545,6 +1701,18 @@
         }
       }
     },
+    "KYN-fK-VqC.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"KYN-fK-VqC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "None"
+          }
+        }
+      }
+    },
     "l5f-hm-4EQ.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Paste\"; ObjectID = \"l5f-hm-4EQ\";",
       "localizations" : {
@@ -1587,6 +1755,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "移到最前方"
+          }
+        }
+      }
+    },
+    "llH-ak-14n.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Monochromacy\"; ObjectID = \"llH-ak-14n\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Monochromacy"
           }
         }
       }
@@ -1702,6 +1882,18 @@
         }
       }
     },
+    "nDf-Mm-eHb.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"Tools\"; ObjectID = \"nDf-Mm-eHb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tools"
+          }
+        }
+      }
+    },
     "niG-Oz-Fca.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"System Default\"; ObjectID = \"niG-Oz-Fca\";",
       "extractionState" : "extracted_with_value",
@@ -1737,6 +1929,24 @@
         }
       }
     },
+    "NOe-pd-lzI.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Analog TV\"; ObjectID = \"NOe-pd-lzI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Monochrome Analog TV"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télé monochrome analogique"
+          }
+        }
+      }
+    },
     "Npk-y4-wqh.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Achromatopsia\"; ObjectID = \"Npk-y4-wqh\";",
       "localizations" : {
@@ -1768,6 +1978,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Red-Green Confusion"
+          }
+        }
+      }
+    },
+    "nTq-TO-Vrl.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Vibrancy Boost\"; ObjectID = \"nTq-TO-Vrl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Vibrancy Boost"
           }
         }
       }
@@ -1890,7 +2112,7 @@
       }
     },
     "pFL-0F-7Lj.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Partial Monochromacy\"; ObjectID = \"pFL-0F-7Lj\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Blue Cone Monochromacy\"; ObjectID = \"pFL-0F-7Lj\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2012,6 +2234,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "窗口面积"
+          }
+        }
+      }
+    },
+    "pSS-u2-Yvu.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Stripes on Red\"; ObjectID = \"pSS-u2-Yvu\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stripes on Red"
           }
         }
       }
@@ -2179,6 +2413,18 @@
         }
       }
     },
+    "Rws-lF-aRe.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"Rws-lF-aRe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "None"
+          }
+        }
+      }
+    },
     "rx3-4u-v2w.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Vibrancy Boost\"; ObjectID = \"rx3-4u-v2w\";",
       "extractionState" : "extracted_with_value",
@@ -2224,6 +2470,12 @@
             "state" : "new",
             "value" : "Monochrome Analog TV"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Télé monochrome analogique"
+          }
         }
       }
     },
@@ -2268,7 +2520,7 @@
       }
     },
     "szF-Cd-B1t.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Monochromacy\"; ObjectID = \"szF-Cd-B1t\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Achromatopsia\"; ObjectID = \"szF-Cd-B1t\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2338,6 +2590,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "窗口"
+          }
+        }
+      }
+    },
+    "TI1-bm-Zj5.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Filter\"; ObjectID = \"TI1-bm-Zj5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Filter"
           }
         }
       }
@@ -2645,6 +2909,18 @@
         }
       }
     },
+    "WOT-fj-aQm.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Tools\"; ObjectID = \"WOT-fj-aQm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tools"
+          }
+        }
+      }
+    },
     "wpr-3q-Mcd.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Help\"; ObjectID = \"wpr-3q-Mcd\";",
       "localizations" : {
@@ -2757,6 +3033,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示刷新速度:"
+          }
+        }
+      }
+    },
+    "Xny-fw-54a.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Luminance Flip\"; ObjectID = \"Xny-fw-54a\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Luminance Flip"
           }
         }
       }

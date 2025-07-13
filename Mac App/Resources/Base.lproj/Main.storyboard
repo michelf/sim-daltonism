@@ -424,9 +424,9 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Filter" id="899-rr-sCO">
+                            <menuItem title="File" id="899-rr-sCO">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Filter" id="8eI-EC-qzz">
+                                <menu key="submenu" title="File" id="8eI-EC-qzz">
                                     <items>
                                         <menuItem title="New" keyEquivalent="n" id="ZcQ-wi-cuP">
                                             <connections>
@@ -436,74 +436,6 @@
                                         <menuItem title="Close" keyEquivalent="w" id="6cU-bP-M3U">
                                             <connections>
                                                 <action selector="orderOut:" target="Ady-hI-5gd" id="02h-NI-g9V"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="h5H-Ve-nGd"/>
-                                        <menuItem title="Methodology" enabled="NO" id="k8K-Sj-41W">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="Machado et al" tag="1" keyEquivalent="m" indentationLevel="1" id="GZ5-cs-eRF">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                            <connections>
-                                                <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="J3c-65-2YF"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Wickline HCIRN" keyEquivalent="h" indentationLevel="1" id="K9c-GK-izG">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                            <connections>
-                                                <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="Ypc-jU-22H"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="sUm-R3-pBz"/>
-                                        <menuItem title="Normal Vision" keyEquivalent="0" id="vdT-ac-lg7">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="p0b-I7-7nt"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Red-Green Confusion" enabled="NO" id="CSr-En-pWp">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="Deuteranopia" tag="1" keyEquivalent="1" indentationLevel="1" id="mCv-p4-Fgj">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="H2h-lk-7au"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Deuteranomaly" tag="2" keyEquivalent="2" indentationLevel="1" id="v8X-0U-JSd">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="lde-5r-y9T"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Protanopia" tag="3" keyEquivalent="3" indentationLevel="1" id="bw7-fp-hDM">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="KQS-DB-ySO"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Protanomaly" tag="4" keyEquivalent="4" indentationLevel="1" id="SmN-WU-fNf">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="ETm-IZ-8z3"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Yellow-Blue Confusion" enabled="NO" id="vvc-tI-K64">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="Tritanopia" tag="5" keyEquivalent="5" indentationLevel="1" id="cbB-Ot-7fb">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="mKP-Cb-Ipi"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Tritanomaly" tag="6" keyEquivalent="6" indentationLevel="1" id="9Nn-6z-j2W">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Gqz-m3-IO9"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Monochromacy" tag="7" keyEquivalent="7" id="szF-Cd-B1t">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="guc-mg-yql"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" id="pFL-0F-7Lj">
-                                            <connections>
-                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Bqg-sa-Fs8"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -548,6 +480,174 @@
                                         <menuItem title="Select All" keyEquivalent="a" id="POb-YH-aFu">
                                             <connections>
                                                 <action selector="selectAll:" target="Ady-hI-5gd" id="Jsz-3G-AJc"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Vision" id="A5W-Le-yZ5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Vision" id="0Pi-5v-4XP">
+                                    <items>
+                                        <menuItem title="Normal Vision" keyEquivalent="0" indentationLevel="1" id="vdT-ac-lg7">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="p0b-I7-7nt"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Red-Green Confusion" enabled="NO" id="CSr-En-pWp">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Deuteranopia" tag="1" keyEquivalent="1" indentationLevel="1" id="mCv-p4-Fgj">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="H2h-lk-7au"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Deuteranomaly" tag="2" keyEquivalent="2" indentationLevel="1" id="v8X-0U-JSd">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="lde-5r-y9T"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Protanopia" tag="3" keyEquivalent="3" indentationLevel="1" id="bw7-fp-hDM">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="KQS-DB-ySO"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Protanomaly" tag="4" keyEquivalent="4" indentationLevel="1" id="SmN-WU-fNf">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="ETm-IZ-8z3"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Yellow-Blue Confusion" enabled="NO" id="vvc-tI-K64">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Tritanopia" tag="5" keyEquivalent="5" indentationLevel="1" id="cbB-Ot-7fb">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="mKP-Cb-Ipi"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Tritanomaly" tag="6" keyEquivalent="6" indentationLevel="1" id="9Nn-6z-j2W">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Gqz-m3-IO9"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Monochromacy" enabled="NO" id="llH-ak-14n">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Achromatopsia" tag="7" keyEquivalent="7" indentationLevel="1" id="szF-Cd-B1t">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="guc-mg-yql"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Blue Cone Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="pFL-0F-7Lj">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Bqg-sa-Fs8"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Other" enabled="NO" id="gn2-d3-HAC">
+                                            <attributedString key="attributedTitle"/>
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Monochrome Analog TV" tag="9" keyEquivalent="9" indentationLevel="1" id="NOe-pd-lzI">
+                                            <connections>
+                                                <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="SSh-Da-ezB"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="h5H-Ve-nGd"/>
+                                        <menuItem title="Methodology" enabled="NO" id="k8K-Sj-41W">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Machado et al" tag="1" keyEquivalent="m" indentationLevel="1" id="GZ5-cs-eRF">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="J3c-65-2YF"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Wickline HCIRN" keyEquivalent="h" indentationLevel="1" id="K9c-GK-izG">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="Ypc-jU-22H"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Tools" id="WOT-fj-aQm">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Tools" id="nDf-Mm-eHb">
+                                    <items>
+                                        <menuItem title="Stripes on Red" enabled="NO" id="pSS-u2-Yvu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="None" image="StripesNoneTemplate" indentationLevel="1" id="Rws-lF-aRe">
+                                            <connections>
+                                                <action selector="adoptRedStripeSetting:" target="Ady-hI-5gd" id="Rht-At-kaC"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Loose" image="StripesLooseTemplate" tag="1" indentationLevel="1" id="eiB-pP-qli">
+                                            <connections>
+                                                <action selector="adoptRedStripeSetting:" target="Ady-hI-5gd" id="EhW-O6-imY"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Tight" state="on" image="StripesTightTemplate" tag="2" indentationLevel="1" id="4Wi-of-LLr">
+                                            <connections>
+                                                <action selector="adoptRedStripeSetting:" target="Ady-hI-5gd" id="VVK-UB-9GI"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="EVg-Kc-hes"/>
+                                        <menuItem title="Stripes on Green" enabled="NO" id="DkF-ge-OAI">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="None" state="on" image="StripesNoneTemplate" indentationLevel="1" id="Cma-0B-uUS">
+                                            <connections>
+                                                <action selector="adoptGreenStripeSetting:" target="Ady-hI-5gd" id="hSK-ub-JxC"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Loose" image="DashesLooseTemplate" tag="1" indentationLevel="1" id="69U-W4-avx">
+                                            <connections>
+                                                <action selector="adoptGreenStripeSetting:" target="Ady-hI-5gd" id="k8I-rp-ydd"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Tight" image="DashesTightTemplate" tag="2" indentationLevel="1" id="Eq2-3v-Beq">
+                                            <connections>
+                                                <action selector="adoptGreenStripeSetting:" target="Ady-hI-5gd" id="xI1-Ra-JLb"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Yx1-zD-OM5"/>
+                                        <menuItem title="Stripes on Blue" enabled="NO" id="8Uh-Mk-fKK">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="None" state="on" image="StripesNoneTemplate" indentationLevel="1" id="KYN-fK-VqC">
+                                            <connections>
+                                                <action selector="adoptBlueStripesSetting:" target="Ady-hI-5gd" id="L1M-Kh-eJ4"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Loose" image="HorizontalStripesLooseTemplate" tag="1" indentationLevel="1" id="Dny-Fm-8On">
+                                            <connections>
+                                                <action selector="adoptBlueStripesSetting:" target="Ady-hI-5gd" id="Jo7-Ex-pPM"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Tight" image="HorizontalStripesTightTemplate" tag="2" indentationLevel="1" id="FJ5-bs-Egp">
+                                            <connections>
+                                                <action selector="adoptBlueStripesSetting:" target="Ady-hI-5gd" id="aDL-rr-3C4"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wmD-Np-oIn"/>
+                                        <menuItem title="Filter" enabled="NO" id="TI1-bm-Zj5">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Hue Shift" tag="1" indentationLevel="1" id="5ag-Qh-h9P">
+                                            <connections>
+                                                <action selector="toggleInvertHue:" target="Ady-hI-5gd" id="hlX-p9-K2N"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Luminance Flip" tag="2" indentationLevel="1" id="Xny-fw-54a">
+                                            <connections>
+                                                <action selector="toggleInvertLuminance:" target="Ady-hI-5gd" id="OOO-1W-bSm"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Vibrancy Boost" tag="2" indentationLevel="1" id="nTq-TO-Vrl">
+                                            <connections>
+                                                <action selector="toggleSaturationBoost:" target="Ady-hI-5gd" id="ghe-5v-07B"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -1085,7 +1185,7 @@
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="L4d-aW-ww3"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Blue Cone Monochromacy" tag="9" keyEquivalent="8" indentationLevel="1" id="tWK-Bn-ZFS">
+                        <menuItem title="Blue Cone Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="tWK-Bn-ZFS">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="g41-WV-3iZ"/>
                             </connections>
@@ -1095,16 +1195,9 @@
                             <attributedString key="attributedTitle"/>
                             <modifierMask key="keyEquivalentModifierMask"/>
                         </menuItem>
-                        <menuItem title="Monochrome Display" tag="12" indentationLevel="1" id="Jr5-1s-u16">
-                            <modifierMask key="keyEquivalentModifierMask"/>
+                        <menuItem title="Monochrome Analog TV" tag="9" keyEquivalent="9" indentationLevel="1" id="Jr5-1s-u16">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="Rcp-m5-cZR"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Monochrome Analog TV" tag="11" indentationLevel="1" id="77h-3K-Sl9">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="8QM-Ja-o1P"/>
                             </connections>
                         </menuItem>
                     </items>

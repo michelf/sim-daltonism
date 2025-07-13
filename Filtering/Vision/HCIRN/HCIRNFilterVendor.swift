@@ -92,20 +92,14 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
 
 		case .achromatopsia:
 			return BlueConeMonochromatFilter(blueSensitivity: 0, intensity: 1)
-		case .achromatopsiaPartial:
-			return BlueConeMonochromatFilter(blueSensitivity: 0, intensity: 0.66)
 
 		case .blueConeMonochromat:
 			return BlueConeMonochromatFilter(blueSensitivity: 1, intensity: 1)
-		case .blueConeMonochromacyPartial:
-			return BlueConeMonochromatFilter(blueSensitivity: 1, intensity: 0.66)
 
-			// luma coefficients for BT.601 and BT.709 from
+			// luma coefficients for BT.601 from
 			// https://en.wikipedia.org/wiki/Luma_(video)
 		case .monochromeAnalogTV:
 			return MonochromeFilter(coefficients: (0.299, 0.587, 0.114), intensity: 1)
-		case .monochromeDisplay:
-			return MonochromeFilter(coefficients: (0.2126, 0.7152, 0.0722), intensity: 1)
 		}
 
 		switch vision {
@@ -118,9 +112,9 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
 		case .deuteranomaly, .protanomaly, .tritanomaly:
 			anomalize = 0.66
 
-		case .blueConeMonochromat, .blueConeMonochromacyPartial: assert(false)
-		case .achromatopsia, .achromatopsiaPartial: assert(false)
-		case .monochromeAnalogTV, .monochromeDisplay: assert(false)
+		case .blueConeMonochromat: assert(false)
+		case .achromatopsia: assert(false)
+		case .monochromeAnalogTV: assert(false)
 		}
 
         return HCIRN(cp: cp, ab: ab, ae: ae, anomalize: anomalize)
