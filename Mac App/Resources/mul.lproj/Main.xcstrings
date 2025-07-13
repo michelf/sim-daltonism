@@ -337,6 +337,18 @@
         }
       }
     },
+    "6J7-Im-00c.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Metal\"; ObjectID = \"6J7-Im-00c\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Metal"
+          }
+        }
+      }
+    },
     "6rB-nj-ggG.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Stripes on Red\"; ObjectID = \"6rB-nj-ggG\";",
       "extractionState" : "extracted_with_value",
@@ -1375,6 +1387,30 @@
         }
       }
     },
+    "Iyp-fh-8yq.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Metal is newer, but testing has shown OpenGL to have less latency.\"; ObjectID = \"Iyp-fh-8yq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Metal is newer, but testing has shown OpenGL to have less latency."
+          }
+        }
+      }
+    },
+    "jF4-5h-zpx.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Screen Capture:\"; ObjectID = \"jF4-5h-zpx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Screen Capture:"
+          }
+        }
+      }
+    },
     "Jr5-1s-u16.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Display\"; ObjectID = \"Jr5-1s-u16\";",
       "extractionState" : "extracted_with_value",
@@ -1980,6 +2016,18 @@
         }
       }
     },
+    "PSu-mJ-Bjm.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"OpenGL\"; ObjectID = \"PSu-mJ-Bjm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "OpenGL"
+          }
+        }
+      }
+    },
     "pZJ-au-Nbi.title" : {
       "comment" : "Class = \"NSMenu\"; title = \"Edit\"; ObjectID = \"pZJ-au-Nbi\";",
       "localizations" : {
@@ -2091,6 +2139,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couleurs vibrantes"
+          }
+        }
+      }
+    },
+    "rVm-UO-tHV.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Core Graphics\"; ObjectID = \"rVm-UO-tHV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Core Graphics"
           }
         }
       }
@@ -2243,6 +2303,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rayures sur vert"
+          }
+        }
+      }
+    },
+    "TcM-Xs-2Co.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Note: for these settings to take effect, close and reopen Sim Daltonism.\"; ObjectID = \"TcM-Xs-2Co\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Note: for these settings to take effect, close and reopen Sim Daltonism."
           }
         }
       }
@@ -2561,6 +2633,18 @@
         }
       }
     },
+    "WKr-6V-hW2.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Advanced\"; ObjectID = \"WKr-6V-hW2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Advanced"
+          }
+        }
+      }
+    },
     "wpr-3q-Mcd.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Help\"; ObjectID = \"wpr-3q-Mcd\";",
       "localizations" : {
@@ -2580,6 +2664,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "帮助"
+          }
+        }
+      }
+    },
+    "Wpw-mb-ZK4.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Rendering:\"; ObjectID = \"Wpw-mb-ZK4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Rendering:"
           }
         }
       }
@@ -2665,6 +2761,18 @@
         }
       }
     },
+    "XwI-kJ-czP.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Screen Capture Kit\"; ObjectID = \"XwI-kJ-czP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Screen Capture Kit"
+          }
+        }
+      }
+    },
     "XYj-CE-0ar.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"A faster refresh speed will reduce the lag if the area to filter is not too large. A slower refresh speed will reduce energy consumption.\"; ObjectID = \"XYj-CE-0ar\";",
       "localizations" : {
@@ -2713,6 +2821,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "开新窗口"
+          }
+        }
+      }
+    },
+    "Zd4-H3-mFQ.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Screen Capture Kit is newer and offers a better frame rate, but macOS will hide notifications while in use unless you go to System Settings > Notifications > Privacy and Security > Allow notifications when mirroring or sharing the display.\"; ObjectID = \"Zd4-H3-mFQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Screen Capture Kit is newer and offers a better frame rate, but macOS will hide notifications while in use unless you go to System Settings > Notifications > Privacy and Security > Allow notifications when mirroring or sharing the display."
           }
         }
       }

@@ -32,17 +32,17 @@
             <objects>
                 <viewController id="ADh-KU-NxJ" sceneMemberID="viewController">
                     <view key="view" id="j5z-QC-w4J">
-                        <rect key="frame" x="0.0" y="0.0" width="483" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="489" height="387"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="14" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2T-Ht-BpP">
-                                <rect key="frame" x="40" y="25" width="403" height="100"/>
+                                <rect key="frame" x="40" y="25" width="409" height="337"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="100" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDl-WL-dbZ">
-                                        <rect key="frame" x="0.0" y="34" width="403" height="66"/>
+                                        <rect key="frame" x="0.0" y="271" width="409" height="66"/>
                                         <subviews>
                                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojT-ce-bUD">
-                                                <rect key="frame" x="-2" y="49" width="97" height="16"/>
+                                                <rect key="frame" x="-2" y="49" width="103" height="16"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Refresh Speed:" id="xkd-TQ-kuW">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -50,7 +50,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8I-KM-mVm">
-                                                <rect key="frame" x="105" y="0.0" width="298" height="66"/>
+                                                <rect key="frame" x="111" y="0.0" width="298" height="66"/>
                                                 <subviews>
                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-0U-tb8">
                                                         <rect key="frame" x="-3" y="42" width="122" height="25"/>
@@ -111,7 +111,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="100" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBn-Du-ohd">
-                                        <rect key="frame" x="16" y="0.0" width="371" height="20"/>
+                                        <rect key="frame" x="22" y="237" width="365" height="20"/>
                                         <subviews>
                                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SSM-5I-z2R">
                                                 <rect key="frame" x="-2" y="3" width="81" height="16"/>
@@ -122,7 +122,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XLc-ca-VTp">
-                                                <rect key="frame" x="89" y="0.0" width="282" height="20"/>
+                                                <rect key="frame" x="89" y="0.0" width="276" height="20"/>
                                                 <subviews>
                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="93Y-a5-iNQ">
                                                         <rect key="frame" x="-3" y="-4" width="144" height="25"/>
@@ -138,9 +138,6 @@
                                                                     <menuItem title="Dark" tag="3" id="NZh-d2-3Vx"/>
                                                                 </items>
                                                             </menu>
-                                                            <connections>
-                                                                <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.FilterWindowAppearance" id="fO9-hw-f1N"/>
-                                                            </connections>
                                                         </popUpButtonCell>
                                                         <connections>
                                                             <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.FilterWindowAppearance" id="Ncb-hc-nVL"/>
@@ -167,15 +164,187 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <box horizontalHuggingPriority="1" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="g1g-8x-z0J">
+                                        <rect key="frame" x="0.0" y="220" width="409" height="5"/>
+                                    </box>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axH-eZ-xwp">
+                                        <rect key="frame" x="0.0" y="174" width="409" height="34"/>
+                                        <subviews>
+                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Il0-y1-v0G">
+                                                <rect key="frame" x="170" y="18" width="69" height="16"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Advanced" id="WKr-6V-hW2">
+                                                    <font key="font" textStyle="headline" name=".SFNS-Bold"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField focusRingType="none" horizontalHuggingPriority="1" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osR-f2-OoO">
+                                                <rect key="frame" x="-2" y="0.0" width="413" height="14"/>
+                                                <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="center" title="Note: for these settings to take effect, close and reopen Sim Daltonism." id="TcM-Xs-2Co">
+                                                    <font key="font" metaFont="message" size="11"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="100" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fE-ut-5Si">
+                                        <rect key="frame" x="0.0" y="66" width="409" height="94"/>
+                                        <subviews>
+                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DD3-8g-RgX">
+                                                <rect key="frame" x="-2" y="77" width="103" height="16"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Screen Capture:" id="jF4-5h-zpx">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qdi-TP-o83">
+                                                <rect key="frame" x="111" y="0.0" width="298" height="94"/>
+                                                <subviews>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GVs-D7-cU3">
+                                                        <rect key="frame" x="-3" y="70" width="154" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="Core Graphics" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="rVm-UO-tHV" id="Hqp-Ly-Rvu">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="message"/>
+                                                            <menu key="menu" id="D7e-iA-zVz">
+                                                                <items>
+                                                                    <menuItem title="Core Graphics" state="on" id="rVm-UO-tHV"/>
+                                                                    <menuItem title="Screen Capture Kit" tag="1" id="XwI-kJ-czP"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                        <connections>
+                                                            <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.ScreenCaptureMethod" id="IEp-wp-tQb"/>
+                                                        </connections>
+                                                    </popUpButton>
+                                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhD-Fe-tSs">
+                                                        <rect key="frame" x="-2" y="0.0" width="300" height="70"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="296" id="K1N-dO-amn"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="Zd4-H3-mFQ">
+                                                            <font key="font" metaFont="message" size="11"/>
+                                                            <string key="title">Screen Capture Kit is newer and offers a better frame rate, but macOS will hide notifications while in use unless you go to System Settings &gt; Notifications &gt; Privacy and Security &gt; Allow notifications when mirroring or sharing the display.</string>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="DD3-8g-RgX" firstAttribute="firstBaseline" secondItem="GVs-D7-cU3" secondAttribute="firstBaseline" id="VlY-4C-MTs"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="100" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fup-cS-pI7">
+                                        <rect key="frame" x="2" y="0.0" width="405" height="52"/>
+                                        <subviews>
+                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u8F-Db-Kl3">
+                                                <rect key="frame" x="-2" y="35" width="101" height="16"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Rendering:" id="Wpw-mb-ZK4">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oym-di-dyo">
+                                                <rect key="frame" x="109" y="0.0" width="296" height="52"/>
+                                                <subviews>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wOG-r0-aUW">
+                                                        <rect key="frame" x="-3" y="28" width="89" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="OpenGL" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="PSu-mJ-Bjm" id="SaJ-bp-G10">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="message"/>
+                                                            <menu key="menu" id="3wL-cY-QCM">
+                                                                <items>
+                                                                    <menuItem title="OpenGL" state="on" id="PSu-mJ-Bjm"/>
+                                                                    <menuItem title="Metal" tag="1" id="6J7-Im-00c"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                        <connections>
+                                                            <binding destination="3KQ-Qo-Tdg" name="selectedTag" keyPath="values.RenderingMethod" id="7D8-gu-2Pu"/>
+                                                        </connections>
+                                                    </popUpButton>
+                                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXw-YF-3Ji">
+                                                        <rect key="frame" x="-2" y="0.0" width="300" height="28"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="296" id="pkb-cg-Ec9"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Metal is newer, but testing has shown OpenGL to have less latency." id="Iyp-fh-8yq">
+                                                            <font key="font" metaFont="message" size="11"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="u8F-Db-Kl3" firstAttribute="firstBaseline" secondItem="wOG-r0-aUW" secondAttribute="firstBaseline" id="4AL-a8-WTL"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="DD3-8g-RgX" firstAttribute="trailing" secondItem="u8F-Db-Kl3" secondAttribute="trailing" id="4SP-tN-lfG"/>
+                                    <constraint firstItem="SSM-5I-z2R" firstAttribute="trailing" secondItem="DD3-8g-RgX" secondAttribute="trailing" id="K2h-jD-avx"/>
+                                    <constraint firstItem="osR-f2-OoO" firstAttribute="width" secondItem="X2T-Ht-BpP" secondAttribute="width" id="iCx-qy-wTr"/>
                                     <constraint firstItem="ojT-ce-bUD" firstAttribute="trailing" secondItem="SSM-5I-z2R" secondAttribute="trailing" id="xQE-bP-scT"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
@@ -192,7 +361,7 @@
                 <customObject id="xJz-Qx-abL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="3KQ-Qo-Tdg"/>
             </objects>
-            <point key="canvasLocation" x="1341.5" y="-227"/>
+            <point key="canvasLocation" x="1341.5" y="-258.5"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -1057,6 +1226,6 @@
         <image name="StripesNoneTemplate" width="13" height="13"/>
         <image name="StripesTightTemplate" width="13" height="13"/>
         <image name="ToolsTemplate" width="15" height="15"/>
-        <image name="VisionTemplate" width="18" height="11"/>
+        <image name="VisionTemplate" width="17" height="12"/>
     </resources>
 </document>

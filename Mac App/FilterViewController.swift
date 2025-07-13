@@ -18,8 +18,8 @@ import MetalKit
 import AVFoundation
 
 #if os(macOS)
-let forceCGCapture = false
-let forceOpenGL = false // surprisingly, OpenGL rendering is faster than Metal, so we're using that
+let forceCGCapture = UserDefaults.standard.integer(forKey: "ScreenCaptureMethod") == 0
+let forceOpenGL = UserDefaults.standard.integer(forKey: "RenderingMethod") == 0
 struct MetalDisabledError: Error {}
 #endif
 
