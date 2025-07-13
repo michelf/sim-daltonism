@@ -45,6 +45,7 @@
 		1E1740852DADD340008375F6 /* URLs.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1E1740842DADD340008375F6 /* URLs.xcstrings */; };
 		1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */; };
 		1E27ADC22E1E99C9002D9101 /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27ADC12E1E99C5002D9101 /* Mutex.swift */; };
+		1E297C7C2E235410006EF7F5 /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27ADC12E1E99C5002D9101 /* Mutex.swift */; };
 		1E2AFE232E102D0400932B47 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1E2AFE222E102D0400932B47 /* Localizable.xcstrings */; };
 		1E2AFE252E102D8900932B47 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1E2AFE242E102D8900932B47 /* Localizable.xcstrings */; };
 		1E3331CB2D82148300BE6092 /* Stripes.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 1E3331C82D82148300BE6092 /* Stripes.cikernel */; };
@@ -723,6 +724,7 @@
 				1E0FDB362DA0317A008BBC1B /* ColorToolsVendor.swift in Sources */,
 				1E0FDB372DA0317A008BBC1B /* StripesFilter.swift in Sources */,
 				1E0EF4A82DF3E2C60083A26A /* BlueConeMonochromat.swift in Sources */,
+				1E297C7C2E235410006EF7F5 /* Mutex.swift in Sources */,
 				1ECCBCCE2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */,
 				1E0EF4AB2DF44FC60083A26A /* BlueConeMonochromat.metal in Sources */,
 				1EE469132E05830E00C0CD49 /* CIImage+Rescale.swift in Sources */,
