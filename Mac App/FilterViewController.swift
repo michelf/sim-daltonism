@@ -220,23 +220,23 @@ private extension FilterViewController {
 		}
         let viewBounds = filteredView.bounds
 		let mouseLocationRect = NSRect(origin: NSEvent.mouseLocation, size: .zero)
-		let locationInWindow = view.window?.convertFromScreen(mouseLocationRect).origin ?? .zero
-        let mouseLocationInView = view.convert(locationInWindow, from: nil)
+		let locationInWindow = filteredView.window?.convertFromScreen(mouseLocationRect).origin ?? .zero
+        let mouseLocationInView = filteredView.convert(locationInWindow, from: nil)
         let mouseIsInView = viewBounds.contains(mouseLocationInView)
 		centerCrossView?.isHidden = mouseIsInView || viewAreaDefault != .mousePointer
 
         // Allow more room for grabbing the window resize corners
 		let resizeCornerSize = CGSize(width: 15, height: 15) // from the window's edge
-		let windowBounds = view.window?.contentView?.bounds ?? .zero
+		let windowBounds = filteredView.window?.contentView?.bounds ?? .zero
 		let insideResizeCorner = locationInWindow.y < resizeCornerSize.height && (
 			mouseLocationInView.x < resizeCornerSize.width ||
 			mouseLocationInView.x > windowBounds.width - resizeCornerSize.width
 		)
 
         let newState = mouseIsInView && !insideResizeCorner
-        self.view.window?.ignoresMouseEvents = newState
+		filteredView.window?.ignoresMouseEvents = newState
 		// debugging helper:
-		//filteredView.alphaValue = newState ? 1 : 0.5
+//		filteredView.alphaValue = newState ? 1 : 0.5
     }
 
 }
