@@ -552,17 +552,17 @@
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="SSh-Da-ezB"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="h5H-Ve-nGd"/>
-                                        <menuItem title="Methodology" enabled="NO" id="k8K-Sj-41W">
+                                        <menuItem isSeparatorItem="YES" hidden="YES" id="h5H-Ve-nGd"/>
+                                        <menuItem title="Methodology" hidden="YES" enabled="NO" id="k8K-Sj-41W">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Machado et al" tag="1" keyEquivalent="m" indentationLevel="1" id="GZ5-cs-eRF">
+                                        <menuItem title="Machado et al" tag="1" hidden="YES" keyEquivalent="m" indentationLevel="1" id="GZ5-cs-eRF">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                             <connections>
                                                 <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="J3c-65-2YF"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Wickline HCIRN" keyEquivalent="h" indentationLevel="1" id="K9c-GK-izG">
+                                        <menuItem title="Wickline HCIRN" hidden="YES" keyEquivalent="h" indentationLevel="1" id="K9c-GK-izG">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                             <connections>
                                                 <action selector="adoptSimulationSetting:" target="Ady-hI-5gd" id="Ypc-jU-22H"/>
