@@ -5,10 +5,18 @@ import AVFoundation
 import AppKit
 #endif
 
+@MainActor
 public class AVCaptureStream: NSObject, CaptureStream, CapturePipelineDelegate {
-	public weak var delegate: CaptureStreamDelegate?
+	private struct WeakDelegate {
+		weak var object: CaptureStreamDelegate?
+	}
+	private let _delegate = Mutex(WeakDelegate())
+	nonisolated public weak var delegate: CaptureStreamDelegate? {
+		get { _delegate.withLock { $0.object } }
+		set { _delegate.withLock { $0.object = newValue } }
+	}
 
-	let capturePipeline = CapturePipeline()
+	nonisolated let capturePipeline = CapturePipeline()
 
 	/// - Note: `frame` is ignored in `AVCaptureStream`.
 	public func startSession(in frame: CGRect, delegate: CaptureStreamDelegate) {
@@ -69,7 +77,7 @@ return true
 		capturePipeline.renderingEnabled = true
 		capturePipeline.startRunning()
 	}
-	private func teardownPipeline() {
+	nonisolated private func teardownPipeline() {
 		guard capturePipeline.isRunning else {
 			return
 		}
@@ -135,19 +143,20 @@ return true
 	public func handleMouseEvent(_ event: NSEvent) {}
 #endif
 
-	public func capturePipeline(_ capturePipeline: CapturePipeline!, didStartRunningWithVideoDevice videoDevice: AVCaptureDevice!) {
+	nonisolated public func capturePipeline(_ capturePipeline: CapturePipeline!, didStartRunningWithVideoDevice videoDevice: AVCaptureDevice!) {
 	}
 	
-	public func capturePipeline(_ capturePipeline: CapturePipeline!, didStopRunningWithError error: (any Error)!) {
+	nonisolated public func capturePipeline(_ capturePipeline: CapturePipeline!, didStopRunningWithError error: (any Error)!) {
 		self.delegate?.didCaptureFrame(image: CIImage(color: .gray))
 	}
 
-	private let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
-	private lazy var ciImageOptions: [CIImageOption: Any] = [
-		.colorSpace: colorSpace
+	nonisolated private static let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
+	nonisolated private let colorSpace = AVCaptureStream.colorSpace
+	nonisolated private let ciImageOptions: [CIImageOption: Any] = [
+		.colorSpace: AVCaptureStream.colorSpace
 	]
 
-	public func capturePipeline(_ capturePipeline: CapturePipeline!, previewPixelBufferReadyForDisplay pixelBuffer: CVPixelBuffer!) {
+	nonisolated public func capturePipeline(_ capturePipeline: CapturePipeline!, previewPixelBufferReadyForDisplay pixelBuffer: CVPixelBuffer!) {
 		guard let delegate = self.delegate else { return }
 		var ciImage = CIImage(cvPixelBuffer: pixelBuffer, options: ciImageOptions)
 		if capturePipeline.videoDevice.captureStreamDeviceType == .frontCamera {
@@ -156,7 +165,7 @@ return true
 		delegate.didCaptureFrame(image: ciImage)
 	}
 	
-	public func capturePipelineDidRunOutOfPreviewBuffers(_ capturePipeline: CapturePipeline!) {
+	nonisolated public func capturePipelineDidRunOutOfPreviewBuffers(_ capturePipeline: CapturePipeline!) {
 
 	}
 	
@@ -166,7 +175,7 @@ return true
 extension AVCaptureStream {
 
 	@available(macOS 10.15, *)
-	static var deviceTypes: [AVCaptureDevice.DeviceType] {
+	nonisolated static var deviceTypes: [AVCaptureDevice.DeviceType] {
 		var types: [AVCaptureDevice.DeviceType] = [
 			.builtInWideAngleCamera
 		]
@@ -176,7 +185,7 @@ extension AVCaptureStream {
 		return types
 	}
 	@available(macOS 10.15, *)
-	static let captureDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes, mediaType: .video, position: .unspecified)
+	nonisolated static let captureDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes, mediaType: .video, position: .unspecified)
 
 	static var currentDevices: [AVCaptureDevice] {
 		if #available(macOS 10.15, *) {

@@ -22,6 +22,7 @@ import CoreImage
 /// or as supplied. Thereafter, it is up to the instance owner
 /// to manage filter state changes.
 ///
+@MainActor
 public class FilterStore {
 
 	public required init(configuration: FilterConfiguration) {
@@ -43,14 +44,15 @@ public class FilterStore {
 	/// Notification sent when the configuration is changed.
 	public static let didChangeNotification = Notification.Name("FilterStoreDidChange")
 
-	private(set) var oldConfig: FilterConfiguration?
-	private(set) var visionFilter: CIFilter? = nil
-	private(set) var stripeFilter: Stripes? = nil
-	private(set) var vibrancyFilter: CIFilter? = nil
-	private(set) var invertFilter: CIFilter? = nil
-	private(set) var hueAdjustFilter: CIFilter? = nil
-
-	private let queue = DispatchQueue(label: FilterStore.nextDispatchQueueLabel(), qos: .userInitiated)
+	fileprivate struct Filters {
+		var oldConfig: FilterConfiguration?
+		var visionFilter: CIFilter? = nil
+		var stripeFilter: Stripes? = nil
+		var vibrancyFilter: CIFilter? = nil
+		var invertFilter: CIFilter? = nil
+		var hueAdjustFilter: CIFilter? = nil
+	}
+	private let filters = DispatchQueueMutex(Filters(), label: FilterStore.nextDispatchQueueLabel(), qos: .userInitiated)
 
 }
 
@@ -79,15 +81,15 @@ extension FilterStore {
 
     /// Applies a vision filter if available. Thread-safe, can be called from any thread.
     ///
-    public func applyFilter(to image: CIImage) -> CIImage? {
-		queue.sync {
+	nonisolated public func applyFilter(to image: CIImage) -> CIImage? {
+		filters.withLock { filters in
 			let cs = CGColorSpace(name: CGColorSpace.sRGB)!
 			var image = image
-			image = image.applying(stripeFilter)
-			image = image.applying(hueAdjustFilter, in: cs)
-			image = image.applying(invertFilter, in: cs)
-			image = image.applying(vibrancyFilter)
-			image = image.applying(visionFilter)
+			image = image.applying(filters.stripeFilter)
+			image = image.applying(filters.hueAdjustFilter, in: cs)
+			image = image.applying(filters.invertFilter, in: cs)
+			image = image.applying(filters.vibrancyFilter)
+			image = image.applying(filters.visionFilter)
 			return image
 		}
     }
@@ -99,17 +101,20 @@ extension FilterStore {
 extension FilterStore {
 
 	private func applyConfigurationAsync(_ newConfig: FilterConfiguration) {
-		queue.async {
-			self.changeVision(for: newConfig)
-			self.changeStripes(for: newConfig)
-			self.changeEffects(for: newConfig)
-			self.changeColorBoost(for: newConfig)
-			self.oldConfig = newConfig
+		filters.enqueue { filters in
+			filters.changeVision(for: newConfig)
+			filters.changeStripes(for: newConfig)
+			filters.changeEffects(for: newConfig)
+			filters.changeColorBoost(for: newConfig)
+			filters.oldConfig = newConfig
 		}
 	}
 
-	private func changeVision(for newConfig: FilterConfiguration) {
-		dispatchPrecondition(condition: .onQueue(queue))
+}
+extension FilterStore.Filters {
+
+	fileprivate mutating func changeVision(for newConfig: FilterConfiguration) {
+//		dispatchPrecondition(condition: .onQueue(queue))
 		let hasNewSimulation = newConfig.simulation != oldConfig?.simulation
 		if hasNewSimulation {
 			switch newConfig.simulation {
@@ -126,51 +131,42 @@ extension FilterStore {
 		}
 	}
 
-	private func changeStripes(for newConfig: FilterConfiguration) {
-		dispatchPrecondition(condition: .onQueue(queue))
+	fileprivate mutating func changeStripes(for newConfig: FilterConfiguration) {
+//		dispatchPrecondition(condition: .onQueue(queue))
 		let stripeConfig = newConfig.stripeConfig
 		if stripeConfig.isPassthrough && stripeFilter != nil {
 			stripeFilter = nil
 		} else if !stripeConfig.isPassthrough && stripeFilter == nil {
-			_ = Self.visionToolFilterRegistration
 			stripeFilter = (CIFilter(name: "Stripes") as! Stripes)
 		}
 		stripeFilter?.config = stripeConfig
 	}
 
-	private func changeEffects(for newConfig: FilterConfiguration) {
-		dispatchPrecondition(condition: .onQueue(queue))
+	fileprivate mutating func changeEffects(for newConfig: FilterConfiguration) {
+//		dispatchPrecondition(condition: .onQueue(queue))
 		let needsInvert = newConfig.invertLuminance
 		let needsHueAdjust = newConfig.hueShift != needsInvert
 		if !needsInvert && invertFilter != nil {
 			invertFilter = nil
 		} else if needsInvert && invertFilter == nil {
-			_ = Self.visionToolFilterRegistration
 			invertFilter = CIFilter(name: "CIColorInvert")
 		}
 		if !needsHueAdjust && hueAdjustFilter != nil {
 			hueAdjustFilter = nil
 		} else if needsHueAdjust && hueAdjustFilter == nil {
-			_ = Self.visionToolFilterRegistration
 			let hueAdjustFilter = CIFilter(name: "InvertHue")
 			self.hueAdjustFilter = hueAdjustFilter
 		}
 	}
 
-	private func changeColorBoost(for newConfig: FilterConfiguration) {
-		dispatchPrecondition(condition: .onQueue(queue))
+	fileprivate mutating func changeColorBoost(for newConfig: FilterConfiguration) {
 		let colorBoost = newConfig.colorBoost
 		if !colorBoost && vibrancyFilter != nil {
 			vibrancyFilter = nil
 		} else if colorBoost && vibrancyFilter == nil {
-			_ = Self.visionToolFilterRegistration
 			vibrancyFilter = CIFilter(name: "AddVibrancy")
 		}
 	}
-
-	/// Lazy initialization for vision tool filters.
-	private static let visionToolFilterRegistration: () = {
-	}()
 
 }
 

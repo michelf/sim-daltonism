@@ -3,6 +3,7 @@ import UIKit
 import Foundation
 import QuartzCore
 
+@MainActor
 class FilterViewController: UIViewController, UIAlertViewDelegate {
 	var _addedObservers = false
 //	var _allowedToUseGPU = false
@@ -42,10 +43,9 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 
 	deinit {
 		if ( _addedObservers ) {
-			NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: UIApplication.shared)
-			NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: UIApplication.shared)
-			NotificationCenter.default.removeObserver(self, name: UIApplication.didChangeStatusBarOrientationNotification, object: UIApplication.shared)
-			UIDevice.current.endGeneratingDeviceOrientationNotifications()
+			DispatchQueue.main.async {
+				UIDevice.current.endGeneratingDeviceOrientationNotifications()
+			}
 		}
 	}
 
@@ -185,8 +185,7 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 
 		updateCapturePermissionVisibility()
 
-		do { try self.captureStream?.startSession(in: .zero, delegate: renderer!) }
-		catch let error { presentError(error) }
+		self.captureStream?.startSession(in: .zero, delegate: renderer!)
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {

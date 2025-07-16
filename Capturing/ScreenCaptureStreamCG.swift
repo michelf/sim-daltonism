@@ -15,27 +15,41 @@
 
 import AppKit
 
+@MainActor
 public class ScreenCaptureStreamCG {
 
-    public weak var delegate: CaptureStreamDelegate? = nil // Recipient of captured CIImages
-    private weak var view: FilteredMetalView? = nil // Rendering view to read geometry
-	private var window: NSWindow? { view?.window } // Parent window to read geometry
+	private struct WeakDelegate {
+		weak var object: CaptureStreamDelegate?
+	}
+	private let _delegate = Mutex(WeakDelegate())
+	/// Recipient of captured CIImages
+	nonisolated public var delegate: CaptureStreamDelegate? {
+		get { _delegate.withLock { $0.object } }
+		set { _delegate.withLock { $0.object = newValue } }
+	}
+	/// Rendering view to read geometry
+    private weak var view: FilteredMetalView? = nil
+	// Parent window to read geometry
+	private var window: NSWindow? { view?.window }
 
     // Gating and capture frequency
     private var refreshSpeed: RefreshSpeed = .normal
     private var framesSinceLastCapture = 0
-    private var displayLink: CVDisplayLink? = nil
+	fileprivate let displayLink = DispatchQueueMutex<CVDisplayLink?>(nil, label: "")
 
     private let legalWindowNumbers = (0...Int(CGWindowID.max))
     private var isResizingOrMoving: Bool = false { didSet { disableOrRestartCaptureAfterWindowInteraction() } }
     private var isOccluded: Bool = false { didSet { disableOrRestartCaptureAfterWindowInteraction() } }
-    private var capturingDisabled = false
-    private var unhideOnNextDisplay = false
 
     // Current capture
+	private struct CaptureState {
+		var capturingDisabled = false
+		var isCapturing = false
+		var unhideOnNextDisplay = false
+	}
     private var preferredCaptureArea = ViewArea.underWindow
-	private let queue = DispatchQueue(label: nextDispatchQueueLabel(), qos: .userInitiated)
-    private var isCapturing = false
+	private let captureState = Mutex(CaptureState())
+	private let captureQueue = DispatchQueue(label: nextDispatchQueueLabel(), qos: .userInitiated)
 
 	@MainActor
     public init(view: FilteredMetalView) {
@@ -63,9 +77,11 @@ extension ScreenCaptureStreamCG: CaptureStream {
 
     public func stopSession() {
         NotificationCenter.default.removeObserver(self)
-        if let link = displayLink {
-            CVDisplayLinkStop(link)
-            displayLink = nil
+		displayLink.enqueue { displayLink in
+			if let link = displayLink {
+				CVDisplayLinkStop(link)
+				displayLink = nil
+			}
         }
     }
 
@@ -132,26 +148,40 @@ private extension ScreenCaptureStreamCG {
 private extension ScreenCaptureStreamCG {
 
     func captureWindowsBelow(_ captureRect: CGRect, windowID: CGWindowID, backingScaleFactor: CGFloat) {
-        defer { isCapturing = false }
-        guard !capturingDisabled else { return }
+		captureQueue.async { [weak self] in
+			guard let self else { return }
+			let captureImage = captureState.withLock { captureState -> CGImage? in
+				guard !captureState.capturingDisabled else { return nil }
 
-        guard let captureImage = CGWindowListCreateImage(captureRect,.optionOnScreenBelowWindow, windowID, [])
-        else { return }
+				guard let captureImage = CGWindowListCreateImage(captureRect,.optionOnScreenBelowWindow, windowID, [])
+				else { return nil }
 
-        guard !capturingDisabled else { return }
+				guard !captureState.capturingDisabled else { return nil }
+				return captureImage
+			}
 
-        delegate?.didCaptureFrame(image: CIImage(cgImage: captureImage))
+			if let captureImage {
+				self.delegate?.didCaptureFrame(image: CIImage(cgImage: captureImage))
+				self.afterCapturingUnhideOnNextDisplayIfNeeded()
+			}
 
-        afterCapturingUnhideOnNextDisplayIfNeeded()
+			captureState.withLock { captureState in
+				captureState.isCapturing = false
+			}
+		}
     }
 
-    func afterCapturingUnhideOnNextDisplayIfNeeded() {
-        guard unhideOnNextDisplay else { return }
+    nonisolated func afterCapturingUnhideOnNextDisplayIfNeeded() {
+		guard captureState.withLock({ $0.unhideOnNextDisplay }) else { return }
         DispatchQueue.main.async { [weak self] in
-            // recheck, because the state could have changed since the dispatch
-            guard self?.unhideOnNextDisplay == true else { return }
-            self?.unhideOnNextDisplay = false
-            self?.view?.isHidden = false
+			guard let self else { return }
+			let unHide = captureState.withLock { captureState in
+				defer { captureState.unhideOnNextDisplay = false }
+				return captureState.unhideOnNextDisplay
+			}
+			if unHide == true {
+				view?.isHidden = false
+			}
         }
     }
 }
@@ -163,10 +193,10 @@ import CoreVideo
 private extension ScreenCaptureStreamCG {
 
     private func createDisplayLink() {
-        queue.async { [weak self] in
-            guard let self = self else { return }
-            CVDisplayLinkCreateWithActiveCGDisplays(&self.displayLink)
-            guard let displayLink = self.displayLink else { return }
+        displayLink.enqueue { [weak self] displayLink in
+			guard let self = self else { return }
+			CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
+            guard let displayLink = displayLink else { return }
 
             let callback: CVDisplayLinkOutputCallback = { (_, _, _, _, _, userInfo) -> CVReturn in
                 let myView = Unmanaged<ScreenCaptureStreamCG>.fromOpaque(UnsafeRawPointer(userInfo!)).takeUnretainedValue()
@@ -213,9 +243,14 @@ private extension ScreenCaptureStreamCG {
             return
         }
 
-        let canCapture = !isCapturing && !capturingDisabled
+		let canCapture = captureState.withLock { captureState in
+			let canCapture = !captureState.isCapturing && !captureState.capturingDisabled
+			if canCapture {
+				captureState.isCapturing = true
+			}
+			return canCapture
+		}
         guard canCapture else { return }
-        isCapturing = true
 
         let windowID = CGWindowID(window.windowNumber)
         let viewScaleFactor = window.backingScaleFactor
@@ -225,9 +260,7 @@ private extension ScreenCaptureStreamCG {
         var captureRect = getPreferredViewAreaInScreenCoordinates()
         captureRect.origin.y = mainDisplayBounds.height - captureRect.origin.y - captureRect.height
 
-        queue.async { [weak self] in
-            self?.captureWindowsBelow(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
-        }
+		captureWindowsBelow(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
     }
 
 }
@@ -262,14 +295,22 @@ private extension ScreenCaptureStreamCG {
         let shouldDisable = isResizingOrMoving || isOccluded
 
         if shouldDisable {
-            capturingDisabled = true
+			captureState.withLock { captureState in
+				captureState.capturingDisabled = true
+			}
             view?.isHidden = true
-            if let link = displayLink { CVDisplayLinkStop(link) }
+			displayLink.enqueue { displayLink in
+				if let link = displayLink { CVDisplayLinkStop(link) }
+			}
         } else {
-            if let link = displayLink { CVDisplayLinkStart(link) }
-            capturingDisabled = false
-            captureImmediately()
-            unhideOnNextDisplay = true
+			displayLink.enqueue { displayLink in
+				if let link = displayLink { CVDisplayLinkStart(link) }
+			}
+			captureState.withLock { captureState in
+				captureState.capturingDisabled = false
+				captureState.unhideOnNextDisplay = true
+			}
+			captureImmediately()
         }
     }
 }

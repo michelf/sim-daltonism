@@ -17,18 +17,29 @@ import AppKit
 import ScreenCaptureKit
 
 @available(macOS 12.3, *)
+@MainActor
 public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
-	public weak var delegate: CaptureStreamDelegate? = nil // Recipient of captured CIImages
-	private weak var view: FilteredMetalView? = nil // Rendering view to read geometry
-	private var window: NSWindow? { view?.window } // Parent window to read geometry
+	private struct WeakDelegate {
+		weak var object: CaptureStreamDelegate?
+	}
+	private let _delegate = Mutex(WeakDelegate())
+	/// Recipient of captured CIImages
+	nonisolated public var delegate: CaptureStreamDelegate? {
+		get { _delegate.withLock { $0.object } }
+		set { _delegate.withLock { $0.object = newValue } }
+	}
+	/// Rendering view to read geometry
+	private weak var view: FilteredMetalView? = nil
+	/// Parent window to read geometry
+	private var window: NSWindow? { view?.window }
 
 	// Gating and capture frequency
 	private var refreshSpeed: RefreshSpeed = .normal {
 		didSet { reconfigureStream() }
 	}
 	private var framesSinceLastCapture = 0
-	private var stream: SCStream?
+	private let stream = Mutex(nil as SCStream?)
 
 	private let legalWindowNumbers = (0...Int(CGWindowID.max))
 	private var isResizingOrMoving: Bool = false { didSet { disableOrRestartCaptureAfterWindowInteraction() } }
@@ -38,7 +49,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		flags.withLock { $0.unhideOnNextDisplay = true }
 	}
 
-	private var flags = Mutex((unhideOnNextDisplay: false, streamNeedsReconfiguration: false))
+	private let flags = Mutex((unhideOnNextDisplay: false, streamNeedsReconfiguration: false))
 	private var streamWaitingFirstFrameAfterReconfiguration = true
 	private var streamReconfigurationTimer: Timer?
 	fileprivate var streamFilterGenerator: ContentFilterGenerator?
@@ -73,12 +84,14 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		getContentFilter(for: getPreferredViewAreaInScreenCoordinates()) { [weak self] filterGenerator in
 			guard let filterGenerator, let self else { return }
 			let configuration = configuration(for: filterGenerator.display!)
-			stream = SCStream(filter: filterGenerator.filter!, configuration: configuration, delegate: self)
 			streamFilterGenerator = filterGenerator
-			do {
-				try stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: nil)
-			} catch {
-				NSLog("\(#function) addStreamOutput error \(error)")
+			stream.withLock { stream in
+				stream = SCStream(filter: filterGenerator.filter!, configuration: configuration, delegate: self)
+				do {
+					try stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: nil)
+				} catch {
+					NSLog("\(#function) addStreamOutput error \(error)")
+				}
 			}
 			disableOrRestartCaptureAfterWindowInteraction()
 		}
@@ -167,7 +180,9 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 			let needsReconfiguration = filterGenerator.display != streamFilterGenerator?.display
 			streamFilterGenerator = filterGenerator
 			if let filter = filterGenerator.filter {
-				stream?.updateContentFilter(filter)
+				stream.withLock { stream in
+					stream?.updateContentFilter(filter)
+				}
 			}
 			if needsReconfiguration {
 				reconfigureStream()
@@ -177,12 +192,18 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 	@objc func reconfigureStream() {
 		assert(Thread.isMainThread)
-		if streamFilterGenerator?.reconfigure(for: getPreferredViewAreaInScreenCoordinates()) == true {
-			// need to change display
-			stream?.updateContentFilter(streamFilterGenerator!.filter!)
-		}
 		let newConfiguration = configuration(for: streamFilterGenerator?.display)
-		stream?.updateConfiguration(newConfiguration)
+		let contentFilter = if streamFilterGenerator?.reconfigure(for: getPreferredViewAreaInScreenCoordinates()) == true {
+			streamFilterGenerator!.filter
+		} else {
+			nil as SCContentFilter?
+		}
+		stream.withLock { stream in
+			if let contentFilter {
+				stream?.updateContentFilter(contentFilter)
+			}
+			stream?.updateConfiguration(newConfiguration)
+		}
 		flags.withLock { $0.streamNeedsReconfiguration = false }
 		streamWaitingFirstFrameAfterReconfiguration = true
 		streamReconfigurationTimer?.invalidate()
@@ -193,7 +214,9 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		if streamWaitingFirstFrameAfterReconfiguration {
 			flags.withLock { $0.streamNeedsReconfiguration = true }
 			streamReconfigurationTimer = Timer.scheduledTimer(withTimeInterval: 1/60.0, repeats: false) { [weak self] timer in
-				self?.reconfigureStream()
+				MainActor.assumeIsolated {
+					self?.reconfigureStream()
+				}
 			}
 		} else {
 			reconfigureStream()
@@ -227,9 +250,11 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 @available(macOS 12.3, *)
 extension ScreenCaptureStreamSCKit: CaptureStream {
 
-	public func stopSession() {
+	nonisolated public func stopSession() {
 		NotificationCenter.default.removeObserver(self)
-		stream?.stopCapture()
+		stream.withLock { stream in
+			stream?.stopCapture()
+		}
 	}
 
 	public func startSession(in frame: NSRect, delegate: CaptureStreamDelegate) throws {
@@ -295,7 +320,7 @@ private extension ScreenCaptureStreamSCKit {
 @available(macOS 12.3, *)
 extension ScreenCaptureStreamSCKit: SCStreamOutput {
 
-	public func stream(_ stream: SCStream, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, of type: SCStreamOutputType) {
+	nonisolated public func stream(_ stream: SCStream, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, of type: SCStreamOutputType) {
 		guard type == .screen,
 			  let imageBuffer = sampleBuffer.imageBuffer
 		else {
@@ -320,7 +345,7 @@ extension ScreenCaptureStreamSCKit: SCStreamOutput {
 //		afterCapturingUnhideOnNextDisplayIfNeeded()
 //	}
 
-	private func afterCapturing() {
+	nonisolated private func afterCapturing() {
 		guard flags.withLock({ $0.unhideOnNextDisplay || $0.streamNeedsReconfiguration }) else { return }
 		DispatchQueue.main.async { [weak self] in
 			guard let self else { return }
@@ -413,9 +438,13 @@ private extension ScreenCaptureStreamSCKit {
 		if shouldDisable {
 			capturingDisabled = true
 			view?.isHidden = true
-			stream?.stopCapture()
+			stream.withLock { stream in
+				stream?.stopCapture()
+			}
 		} else {
-			stream?.startCapture()
+			stream.withLock { stream in
+				stream?.startCapture()
+			}
 			capturingDisabled = false
 //			captureImmediately()
 			flags.withLock { $0.unhideOnNextDisplay = true }

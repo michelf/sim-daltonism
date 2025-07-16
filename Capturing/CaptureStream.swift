@@ -19,6 +19,7 @@ import CoreImage
 import AppKit
 #endif
 
+@MainActor
 public protocol CaptureStream: AnyObject {
     var delegate: CaptureStreamDelegate? { get set }
     func startSession(in frame: CGRect, delegate: CaptureStreamDelegate) throws
@@ -29,7 +30,7 @@ public protocol CaptureStream: AnyObject {
 #endif
 }
 
-public protocol CaptureStreamDelegate: AnyObject {
+nonisolated public protocol CaptureStreamDelegate: AnyObject {
 
     func didCaptureFrame(image: CIImage)
 	func currentRenderedImage() -> CIImage

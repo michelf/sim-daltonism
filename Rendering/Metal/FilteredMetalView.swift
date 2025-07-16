@@ -60,6 +60,7 @@ public class FilteredMetalView: MTKView {
 }
 
 #if os(macOS)
+@MainActor
 public protocol ViewUpdatesSubscriber: AnyObject {
     func viewDidEndLiveResize()
     func viewWillStartLiveResize()
