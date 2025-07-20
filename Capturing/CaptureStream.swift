@@ -30,7 +30,7 @@ public protocol CaptureStream: AnyObject {
 #endif
 }
 
-nonisolated public protocol CaptureStreamDelegate: AnyObject {
+nonisolated public protocol CaptureStreamDelegate: AnyObject, Sendable {
 
     func didCaptureFrame(image: CIImage)
 	func currentRenderedImage() -> CIImage

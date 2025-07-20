@@ -39,7 +39,10 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		didSet { reconfigureStream() }
 	}
 	private var framesSinceLastCapture = 0
-	private let stream = Mutex(nil as SCStream?)
+	struct Context: @unchecked Sendable {
+		var stream: SCStream?
+	}
+	private let context = Mutex(Context())
 
 	private let legalWindowNumbers = (0...Int(CGWindowID.max))
 	private var isResizingOrMoving: Bool = false { didSet { disableOrRestartCaptureAfterWindowInteraction() } }
@@ -85,10 +88,10 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 			guard let filterGenerator, let self else { return }
 			let configuration = configuration(for: filterGenerator.display!)
 			streamFilterGenerator = filterGenerator
-			stream.withLock { stream in
-				stream = SCStream(filter: filterGenerator.filter!, configuration: configuration, delegate: self)
+			context.withLock { context in
+				context.stream = SCStream(filter: filterGenerator.filter!, configuration: configuration, delegate: self)
 				do {
-					try stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: nil)
+					try context.stream?.addStreamOutput(self, type: .screen, sampleHandlerQueue: nil)
 				} catch {
 					NSLog("\(#function) addStreamOutput error \(error)")
 				}
@@ -180,8 +183,8 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 			let needsReconfiguration = filterGenerator.display != streamFilterGenerator?.display
 			streamFilterGenerator = filterGenerator
 			if let filter = filterGenerator.filter {
-				stream.withLock { stream in
-					stream?.updateContentFilter(filter)
+				context.withLock { context in
+					context.stream?.updateContentFilter(filter)
 				}
 			}
 			if needsReconfiguration {
@@ -198,11 +201,11 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 		} else {
 			nil as SCContentFilter?
 		}
-		stream.withLock { stream in
+		context.withLock { context in
 			if let contentFilter {
-				stream?.updateContentFilter(contentFilter)
+				context.stream?.updateContentFilter(contentFilter)
 			}
-			stream?.updateConfiguration(newConfiguration)
+			context.stream?.updateConfiguration(newConfiguration)
 		}
 		flags.withLock { $0.streamNeedsReconfiguration = false }
 		streamWaitingFirstFrameAfterReconfiguration = true
@@ -252,8 +255,8 @@ extension ScreenCaptureStreamSCKit: CaptureStream {
 
 	nonisolated public func stopSession() {
 		NotificationCenter.default.removeObserver(self)
-		stream.withLock { stream in
-			stream?.stopCapture()
+		context.withLock { context in
+			context.stream?.stopCapture()
 		}
 	}
 
@@ -438,12 +441,12 @@ private extension ScreenCaptureStreamSCKit {
 		if shouldDisable {
 			capturingDisabled = true
 			view?.isHidden = true
-			stream.withLock { stream in
-				stream?.stopCapture()
+			context.withLock { context in
+				context.stream?.stopCapture()
 			}
 		} else {
-			stream.withLock { stream in
-				stream?.startCapture()
+			context.withLock { context in
+				context.stream?.startCapture()
 			}
 			capturingDisabled = false
 //			captureImmediately()

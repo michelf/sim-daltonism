@@ -15,11 +15,17 @@
 
 import Foundation
 import MetalKit
+@preconcurrency import CoreImage
 
 /// Manages an MTKView by enqueing frames for rendering and responding to changes affecting the drawable size
 @MainActor
 class MetalRenderer: NSObject {
 
+	struct Context: @unchecked Sendable {
+		let ci: CIContext
+		let metalLayer: CAMetalLayer
+		let commandQueue: MTLCommandQueue
+	}
     private let image = Mutex(CIImage())
 	private let context: Mutex<(ci: CIContext, metalLayer: CAMetalLayer, commandQueue: MTLCommandQueue)>
 	private var workingColorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear)!

@@ -14,12 +14,17 @@
 //    limitations under the License.
 
 import AppKit
+@preconcurrency import CoreImage
 
 @MainActor
 class OpenGLRenderer: NSObject {
 
+	struct Context: @unchecked Sendable {
+		let ci: CIContext
+		let openGL: NSOpenGLContext
+	}
     private let image = Mutex(CIImage())
-	private let context: Mutex<(ci: CIContext, openGL: NSOpenGLContext)>
+	private let context: Mutex<Context>
 	private var colorSpace = CGDisplayCopyColorSpace(CGMainDisplayID())
 	private var workingColorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear)!
     weak var openGLView: NSOpenGLView?
@@ -34,7 +39,7 @@ class OpenGLRenderer: NSObject {
 		guard let openGLContext = openGLView.openGLContext else {
 			return nil
 		}
-		self.context = Mutex((
+		self.context = Mutex(Context(
 			ci: CIContext(cglContext: openGLView.openGLContext!.cglContextObj!,
 						  pixelFormat: pf.cglPixelFormatObj, colorSpace: colorSpace, options: [.workingColorSpace: workingColorSpace]),
 			openGL: openGLContext,
@@ -69,7 +74,6 @@ extension OpenGLRenderer: CaptureStreamDelegate {
 extension OpenGLRenderer {
 
 	nonisolated func render(_ image: CIImage) {
-//		guard let openGLView else { return }
 		self.image.withLock { $0 = image }
 		self.draw()
     }

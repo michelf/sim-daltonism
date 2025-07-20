@@ -16,7 +16,7 @@
 import Foundation
 import CoreImage
 
-public struct StripeConfig: Equatable {
+public struct StripeConfig: Equatable, Sendable {
 	var redStripes: Float = 0
 	var greenStripes: Float = 0
 	var blueStripes: Float = 0
@@ -27,7 +27,7 @@ public struct StripeConfig: Equatable {
 	}
 }
 
-class Stripes: CIFilter {
+final class Stripes: CIFilter, @unchecked Sendable {
 
     @objc dynamic var inputImage: CIImage?
     @objc dynamic var showRed: Float

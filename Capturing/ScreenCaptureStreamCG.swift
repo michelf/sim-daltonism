@@ -18,7 +18,7 @@ import AppKit
 @MainActor
 public class ScreenCaptureStreamCG {
 
-	private struct WeakDelegate {
+	private struct WeakDelegate: Sendable {
 		weak var object: CaptureStreamDelegate?
 	}
 	private let _delegate = Mutex(WeakDelegate())

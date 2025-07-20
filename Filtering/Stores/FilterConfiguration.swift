@@ -1,6 +1,6 @@
 import Foundation
 
-public struct FilterConfiguration {
+public struct FilterConfiguration: Sendable {
 	public var vision: VisionType = .normal
 	public var simulation: Simulation = .machadoEtAl
 

@@ -13,7 +13,7 @@
 //    limitations under the License.
 
 import Foundation
-import CoreImage
+@preconcurrency import CoreImage
 
 /// This implementation owns the DispatchQueue for
 /// managing and using CIFilters.
@@ -44,7 +44,7 @@ public class FilterStore {
 	/// Notification sent when the configuration is changed.
 	public static let didChangeNotification = Notification.Name("FilterStoreDidChange")
 
-	fileprivate struct Filters {
+	fileprivate struct Filters: Sendable {
 		var oldConfig: FilterConfiguration?
 		var visionFilter: CIFilter? = nil
 		var stripeFilter: Stripes? = nil

@@ -14,7 +14,7 @@
 
 import Foundation
 
-public enum Simulation: Int {
+public enum Simulation: Int, Sendable {
     case wicklineHCIRN
     case machadoEtAl
 

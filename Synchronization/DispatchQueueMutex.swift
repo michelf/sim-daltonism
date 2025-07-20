@@ -2,20 +2,21 @@ import Dispatch
 
 /// DispatchQueue-based mutual exclusion protecting a mutable value. Value can be accessed by locking
 /// synchronously or enqueuing tasks to run asynchrounsly on the queue.
-public struct DispatchQueueMutex<Value: ~Copyable>: ~Copyable {
-	private let storage: Storage<Value>
+public struct DispatchQueueMutex<Value: ~Copyable>: ~Copyable, Sendable {
+	private let storage: UncheckedSendableStorage<Value>
 	let queue: DispatchQueue
 
 	public init(_ initialValue: consuming sending Value, label: String, qos: DispatchQoS = .unspecified, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency = .inherit, target: DispatchQueue? = nil) {
-		self.storage = Storage(initialValue)
+		self.storage = UncheckedSendableStorage(initialValue)
 		self.queue = DispatchQueue(label: label, qos: qos, attributes: [], autoreleaseFrequency: autoreleaseFrequency, target: target)
 	}
 
 	public borrowing func withLock<Result, E: Error>(
 	_ body: (inout sending Value) throws(E) -> sending Result
 	) throws(E) -> sending Result {
-		let result = queue.sync { [storage] in
-			Swift.Result { () throws(E) -> Result in
+		var result = UncheckedSendableResult<Result, E>()
+		queue.sync { [storage] in
+			result.set { () throws(E) -> Result in
 				try body(&storage.value)
 			}
 		}
@@ -39,29 +40,29 @@ public struct DispatchQueueMutex<Value: ~Copyable>: ~Copyable {
 		group: DispatchGroup? = nil, qos: DispatchQoS = .unspecified, flags: DispatchWorkItemFlags = [],
 		_ body: sending @escaping (inout sending Value) throws(E) -> sending Result
 	) async throws(E) -> sending Result {
-		return try await withCheckedContinuation { continuation in
-			enqueue(group: group, qos: qos, flags: flags) { state in
-				let result = Swift.Result { () throws(E) -> Result in
-					try body(&state)
+		var result = UncheckedSendableResult<Result, E>()
+		await withCheckedContinuation { [storage] continuation in
+			queue.async(group: group, qos: qos, flags: flags) {
+				result.set { () throws(E) -> Result in
+					try body(&storage.value)
 				}
-				continuation.resume(returning: result)
+				continuation.resume(returning: ())
 			}
-		}.get()
+		}
+		return try result.get()
 	}
 
 }
 
-extension DispatchQueueMutex: @unchecked Sendable where Value: ~Copyable { }
-
 /// DispatchQueue-based multiple-reader single-writer mutual exclusion protecting a mutable value.
 /// Value can be accessed by locking synchronously or enqueuing tasks to run asynchrounsly on the queue.
 /// Reads can run concurrently and writes are run serially with other write or read operations.
-public struct DispatchQueueRWMutex<Value: ~Copyable>: ~Copyable {
-	private let storage: Storage<Value>
+public struct DispatchQueueRWMutex<Value: ~Copyable>: ~Copyable, Sendable {
+	private let storage: UncheckedSendableStorage<Value>
 	let queue: DispatchQueue
 
 	public init(_ initialValue: consuming sending Value, label: String, qos: DispatchQoS = .unspecified, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency = .inherit, target: DispatchQueue? = nil) {
-		self.storage = Storage(initialValue)
+		self.storage = UncheckedSendableStorage(initialValue)
 		// note: using .concurrent attribute because we want concurrent reads
 		// and using .barrier flag for writes to ensure exclusivity
 		self.queue = DispatchQueue(label: label, qos: qos, attributes: [.concurrent], autoreleaseFrequency: autoreleaseFrequency, target: target)
@@ -70,8 +71,9 @@ public struct DispatchQueueRWMutex<Value: ~Copyable>: ~Copyable {
 	public borrowing func withReadLock<Result, E: Error>(
 		_ body: (borrowing Value) throws(E) -> sending Result
 	) throws(E) -> sending Result {
-		let result = queue.sync { [storage] in
-			Swift.Result { () throws(E) -> Result in
+		var result = UncheckedSendableResult<Result, E>()
+		queue.sync { [storage] in
+			result.set { () throws(E) -> Result in
 				try body(storage.value)
 			}
 		}
@@ -81,8 +83,9 @@ public struct DispatchQueueRWMutex<Value: ~Copyable>: ~Copyable {
 	public borrowing func withWriteLock<Result, E: Error>(
 		_ body: (inout sending Value) throws(E) -> sending Result
 	) throws(E) -> sending Result {
-		let result = queue.sync(flags: [.barrier]) { [storage] in
-			Swift.Result { () throws(E) -> Result in
+		var result = UncheckedSendableResult<Result, E>()
+		queue.sync(flags: [.barrier]) { [storage] in
+			result.set { () throws(E) -> Result in
 				try body(&storage.value)
 			}
 		}
@@ -116,38 +119,53 @@ public struct DispatchQueueRWMutex<Value: ~Copyable>: ~Copyable {
 		group: DispatchGroup? = nil, qos: DispatchQoS = .unspecified, flags: DispatchWorkItemFlags = [],
 		_ body: sending @escaping (borrowing Value) throws(E) -> sending Result
 	) async throws(E) -> sending Result {
-		return try await withCheckedContinuation { continuation in
-			enqueueRead(group: group, qos: qos, flags: flags) { state in
-				let result = Swift.Result { () throws(E) -> Result in
-					try body(state)
+		var result = UncheckedSendableResult<Result, E>()
+		await withCheckedContinuation { [storage] continuation in
+			queue.async(group: group, qos: qos, flags: flags) {
+				result.set { () throws(E) -> Result in
+					try body(storage.value)
 				}
-				continuation.resume(returning: result)
+				continuation.resume(returning: ())
 			}
-		}.get()
+		}
+		return try result.get()
 	}
 	@available(macOS 10.15, *)
 	public borrowing func queuedWrite<Result, E: Error>(
 		group: DispatchGroup? = nil, qos: DispatchQoS = .unspecified, flags: DispatchWorkItemFlags = [],
 		_ body: sending @escaping (inout sending Value) throws(E) -> sending Result
 	) async throws(E) -> sending Result {
-		return try await withCheckedContinuation { continuation in
-			enqueueWrite(group: group, qos: qos, flags: flags) { state in
-				let result = Swift.Result { () throws(E) -> Result in
-					try body(&state)
+		var result = UncheckedSendableResult<Result, E>()
+		await withCheckedContinuation { [storage] continuation in
+			queue.async(group: group, qos: qos, flags: [flags, .barrier]) {
+				result.set { () throws(E) -> Result in
+					try body(&storage.value)
 				}
-				continuation.resume(returning: result)
+				continuation.resume(returning: ())
 			}
-		}.get()
+		}
+		return try result.get()
 	}
 
 }
 
-extension DispatchQueueRWMutex: @unchecked Sendable where Value: ~Copyable { }
-
-private final class Storage<Value: ~Copyable> {
-	var value: Value
+private final class UncheckedSendableStorage<Value: ~Copyable>: @unchecked Sendable {
+	nonisolated(unsafe) var value: Value
 
 	init(_ value: consuming sending Value) {
 		self.value = value
+	}
+}
+
+private struct UncheckedSendableResult<Success, Failure: Error>: @unchecked Sendable {
+	private var result: Result<Success, Failure>! = nil
+
+	mutating func set(_ body: () throws(Failure) -> Success) {
+		assert(result == nil, "Setting result twice.")
+		result = Result(catching: body)
+	}
+	func get() throws(Failure) -> Success {
+		assert(result != nil, "Getting before result is set.")
+		return try result.get()
 	}
 }
