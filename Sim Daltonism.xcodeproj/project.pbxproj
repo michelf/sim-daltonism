@@ -850,7 +850,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 150;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = R5LCPCXJPZ;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -865,7 +865,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.5;
+				MARKETING_VERSION = 3.0;
 				MTL_COMPILER_FLAGS = "-fcikernel";
 				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -888,7 +888,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 150;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = R5LCPCXJPZ;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -900,7 +900,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.5;
+				MARKETING_VERSION = 3.0;
 				MTL_COMPILER_FLAGS = "-fcikernel";
 				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -924,7 +924,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Mac App/Resources/Sim Daltonism.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 150;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = R5LCPCXJPZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -937,7 +937,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.5;
+				MARKETING_VERSION = 3.0;
 				MTLLINKER_FLAGS = "-fcikernel";
 				MTL_COMPILER_FLAGS = "-fcikernel";
 				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
@@ -964,7 +964,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 150;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = R5LCPCXJPZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -977,7 +977,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.5;
+				MARKETING_VERSION = 3.0;
 				MTLLINKER_FLAGS = "-fcikernel";
 				MTL_COMPILER_FLAGS = "-fcikernel";
 				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
