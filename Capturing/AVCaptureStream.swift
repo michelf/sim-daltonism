@@ -7,20 +7,20 @@ import AppKit
 
 @MainActor
 public class AVCaptureStream: NSObject, CaptureStream, CapturePipelineDelegate {
-	private struct WeakDelegate {
-		weak var object: CaptureStreamDelegate?
-	}
-	private let _delegate = Mutex(WeakDelegate())
-	nonisolated public weak var delegate: CaptureStreamDelegate? {
-		get { _delegate.withLock { $0.object } }
-		set { _delegate.withLock { $0.object = newValue } }
+
+	// "weak let" is needed here
+	// https://github.com/swiftlang/swift-evolution/blob/main/proposals/0481-weak-let.md
+	nonisolated(unsafe) private(set) public weak var delegate: CaptureStreamDelegate?
+
+	init(delegate: CaptureStreamDelegate?) {
+		super.init()
+		self.delegate = delegate
 	}
 
 	nonisolated let capturePipeline = CapturePipeline()
 
 	/// - Note: `frame` is ignored in `AVCaptureStream`.
-	public func startSession(in frame: CGRect, delegate: CaptureStreamDelegate) {
-		self.delegate = delegate
+	public func startSession(in frame: CGRect) {
 		setupPipeline()
 	}
 

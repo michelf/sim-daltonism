@@ -73,7 +73,7 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 	}
 
 	override func viewDidLoad() {
-		self.captureStream = AVCaptureStream()
+		self.captureStream = AVCaptureStream(delegate: renderer)
 //		self.capturePipeline?.setDelegate(self, callbackQueue: .main)
 
 		NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: UIApplication.shared)
@@ -181,11 +181,11 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		do { try self.connectMetalViewAndFilterPipeline() }
 		catch let error { presentError(error) }
 
-		captureStream = AVCaptureStream()
+		captureStream = AVCaptureStream(delegate: renderer)
 
 		updateCapturePermissionVisibility()
 
-		self.captureStream?.startSession(in: .zero, delegate: renderer!)
+		self.captureStream?.startSession(in: .zero)
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
@@ -531,7 +531,7 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		self.present(activityViewController, animated: true)
 		activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
 			self._presentingShareView = false
-			self.captureStream?.startSession(in: .zero, delegate: self.renderer!); // unfreeze image
+			self.captureStream?.startSession(in: .zero); // unfreeze image
 			if torchActive, let videoDevice = self.videoDevice, videoDevice.hasTorch {
 				do {
 					try videoDevice.lockForConfiguration()
@@ -550,10 +550,9 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 extension FilterViewController {
 
 	func checkCameraPrivacySettings() {
-		AVCaptureDevice.requestAccess(for: .video) { granted in
-			DispatchQueue.main.async {
-				self.noCameraPermissionOverlayView.isHidden = granted
-			}
+		Task {
+			let granted = await AVCaptureDevice.requestAccess(for: .video)
+			self.noCameraPermissionOverlayView.isHidden = granted
 		}
 	}
 

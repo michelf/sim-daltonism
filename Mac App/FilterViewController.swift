@@ -89,14 +89,14 @@ class FilterViewController: NSViewController {
 
 
 		screenCaptureStream = if #available(macOS 15, *), !forceCGCapture {
-			ScreenCaptureStreamSCKit(view: filteredView)
+			ScreenCaptureStreamSCKit(view: filteredView, delegate: renderer)
 		} else {
-			ScreenCaptureStreamCG(view: filteredView)
+			ScreenCaptureStreamCG(view: filteredView, delegate: renderer)
 		}
 
 		updateCapturePermissionVisibility()
 
-        do { try self.screenCaptureStream?.startSession(in: initialFrame, delegate: renderer!) }
+		do { try self.screenCaptureStream?.startSession(in: initialFrame) }
 		catch let error { NSApp.presentError(error) }
 
 		activateMouseEventMonitoring()

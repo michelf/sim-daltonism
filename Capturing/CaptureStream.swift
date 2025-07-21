@@ -21,8 +21,8 @@ import AppKit
 
 @MainActor
 public protocol CaptureStream: AnyObject {
-    var delegate: CaptureStreamDelegate? { get set }
-    func startSession(in frame: CGRect, delegate: CaptureStreamDelegate) throws
+//    var delegate: CaptureStreamDelegate? { get set }
+    func startSession(in frame: CGRect) throws
     func stopSession()
 	func checkCapturePermission() -> Bool
 #if os(macOS)

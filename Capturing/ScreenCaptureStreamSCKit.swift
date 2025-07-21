@@ -20,15 +20,9 @@ import ScreenCaptureKit
 @MainActor
 public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
-	private struct WeakDelegate {
-		weak var object: CaptureStreamDelegate?
-	}
-	private let _delegate = Mutex(WeakDelegate())
-	/// Recipient of captured CIImages
-	nonisolated public var delegate: CaptureStreamDelegate? {
-		get { _delegate.withLock { $0.object } }
-		set { _delegate.withLock { $0.object = newValue } }
-	}
+	// "weak let" is needed to make safety enforced by compiler
+	// https://github.com/swiftlang/swift-evolution/blob/main/proposals/0481-weak-let.md
+	nonisolated(unsafe) private(set) public weak var delegate: CaptureStreamDelegate?
 	/// Rendering view to read geometry
 	private weak var view: FilteredMetalView? = nil
 	/// Parent window to read geometry
@@ -40,6 +34,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	}
 	private var framesSinceLastCapture = 0
 	struct Context: @unchecked Sendable {
+		// needed because stream is accessed in nonisolated deinit -> stopSession
 		var stream: SCStream?
 	}
 	private let context = Mutex(Context())
@@ -66,9 +61,10 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	}
 
 	@MainActor
-	public init(view: FilteredMetalView) {
+	public init(view: FilteredMetalView, delegate: CaptureStreamDelegate?) {
 		self.view = view
 		super.init()
+		self.delegate = delegate
 		view.viewUpdatesSubscriber = self
 		updateFromDefaults()
 
@@ -260,8 +256,7 @@ extension ScreenCaptureStreamSCKit: CaptureStream {
 		}
 	}
 
-	public func startSession(in frame: NSRect, delegate: CaptureStreamDelegate) throws {
-		self.delegate = delegate
+	public func startSession(in frame: NSRect) throws {
 		monitorUserPreferences()
 		guard let window = window else { return }
 		setupMonitorsForInteraction(with: window)
