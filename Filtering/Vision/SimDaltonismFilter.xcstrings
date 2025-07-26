@@ -60,17 +60,6 @@
         }
       }
     },
-    "Anomalous red and green cones" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cônes rouges et verts anormaux"
-          }
-        }
-      }
-    },
     "Anomalous red cones" : {
       "localizations" : {
         "fr" : {
@@ -108,17 +97,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Coefficients de luminosité BT.601"
-          }
-        }
-      }
-    },
-    "BT.709 luma coefficients" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coefficients de luminosité BT.709"
           }
         }
       }
@@ -172,17 +150,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Télé monochrome analogique"
-          }
-        }
-      }
-    },
-    "Monochrome Display" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Écran monochrome"
           }
         }
       }
@@ -255,28 +222,6 @@
         }
       }
     },
-    "Partial Achromatopsia" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Achromatopsie partielle"
-          }
-        }
-      }
-    },
-    "Partial Blue Cone Monochromacy" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Monochromatisme au bleu partiel"
-          }
-        }
-      }
-    },
     "Protanomaly" : {
       "localizations" : {
         "fr" : {
@@ -316,17 +261,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Daltonisme rouge/vert"
-          }
-        }
-      }
-    },
-    "Reduced sensitivity to colors" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sensibilité moindre aux couleurs"
           }
         }
       }

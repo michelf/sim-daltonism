@@ -549,24 +549,6 @@
         }
       }
     },
-    "iRQ-At-uud.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Monochrome Display\"; ObjectID = \"iRQ-At-uud\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Monochrome Display"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Écran monochrome"
-          }
-        }
-      }
-    },
     "jKo-bc-yvf.text" : {
       "comment" : "Class = \"UILabel\"; text = \"No green cones\"; ObjectID = \"jKo-bc-yvf\";",
       "localizations" : {
@@ -958,24 +940,6 @@
       },
       "shouldTranslate" : false
     },
-    "wLH-wG-f7q.headerTitle" : {
-      "comment" : "Class = \"UITableViewSection\"; headerTitle = \"See also…\"; ObjectID = \"wLH-wG-f7q\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "See also…"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Voir aussi…"
-          }
-        }
-      }
-    },
     "wph-Ia-bIP.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Sim Daltonism\"; ObjectID = \"wph-Ia-bIP\";",
       "localizations" : {
@@ -1022,42 +986,6 @@
         }
       },
       "shouldTranslate" : false
-    },
-    "XUG-GA-dDA.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"BT.709 luma coefficients\"; ObjectID = \"XUG-GA-dDA\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "BT.709 luma coefficients"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coefficients de luminosité BT.709"
-          }
-        }
-      }
-    },
-    "y8Y-pM-e8s.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Open in App Store\"; ObjectID = \"y8Y-pM-e8s\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Open in App Store"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ouvrir dans l’App Store"
-          }
-        }
-      }
     },
     "zcz-ua-eaM.headerTitle" : {
       "comment" : "Class = \"UITableViewSection\"; headerTitle = \"About\"; ObjectID = \"zcz-ua-eaM\";",

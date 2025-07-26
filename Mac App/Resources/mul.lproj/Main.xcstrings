@@ -775,18 +775,6 @@
         }
       }
     },
-    "aut-Fq-MUC.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Display\"; ObjectID = \"aut-Fq-MUC\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Monochrome Display"
-          }
-        }
-      }
-    },
     "AYu-sK-qS6.title" : {
       "comment" : "Class = \"NSMenu\"; title = \"Main Menu\"; ObjectID = \"AYu-sK-qS6\";",
       "localizations" : {
