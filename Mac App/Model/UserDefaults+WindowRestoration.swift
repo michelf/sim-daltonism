@@ -17,48 +17,46 @@ import Foundation
 
 public extension UserDefaults {
 
-    static func getVision() -> VisionType {
-        let value = UserDefaults.standard.integer(forKey: UserDefaults.VisionKey)
-		return VisionType(rawValue: value) ?? .defaultValue
-    }
+	static let visionKey = "SimVisionType"
+	static let simulationKey = "SimulationKey"
 
-    static func getSimulation() -> Simulation {
-        let value = UserDefaults.standard.integer(forKey: UserDefaults.SimulationKey)
-		return Simulation(rawValue: value) ?? .defaultValue
-    }
+	static var vision: VisionType {
+		get {
+			let value = UserDefaults.standard.integer(forKey: UserDefaults.visionKey)
+			return VisionType(rawValue: value) ?? .defaultValue
+		}
+		set (vision) {
+			UserDefaults.standard.set(vision.rawValue, forKey: UserDefaults.visionKey)
+		}
+	}
 
-    static func setVision(_ vision: VisionType) {
-		UserDefaults.standard.set(vision.rawValue, forKey: UserDefaults.VisionKey)
-    }
-
-    static func setSimulation(_ simulation: Simulation) {
-		UserDefaults.standard.set(simulation.rawValue, forKey: UserDefaults.SimulationKey)
+	static var simulation: Simulation {
+		get {
+			let value = UserDefaults.standard.integer(forKey: UserDefaults.simulationKey)
+			return Simulation(rawValue: value) ?? .defaultValue
+		}
+		set (simulation) {
+			UserDefaults.standard.set(simulation.rawValue, forKey: UserDefaults.simulationKey)
+		}
     }
 
 }
 
 enum WindowRestoration {
 
-    static let VisionKey = "VisionType"
-    static let SimulationKey = "SimulationKey"
+    static let visionKey = "VisionType"
+	static let simulationKey = "SimulationKey"
 
     static func encodeRestorable(state: NSCoder, _ vision: VisionType, _ sim: Simulation) {
-		state.encode(vision.rawValue, forKey: Self.VisionKey)
-		state.encode(sim.rawValue, forKey: Self.SimulationKey)
+		state.encode(vision.rawValue, forKey: Self.visionKey)
+		state.encode(sim.rawValue, forKey: Self.simulationKey)
     }
 
     static func decodeRestorable(state: NSCoder) -> (VisionType, Simulation) {
-        let vision = state.decodeInteger(forKey: Self.VisionKey)
-        let sim = state.decodeInteger(forKey: Self.SimulationKey)
+        let vision = state.decodeInteger(forKey: Self.visionKey)
+        let sim = state.decodeInteger(forKey: Self.simulationKey)
         return (VisionType(rawValue: vision) ?? .defaultValue,
 				Simulation(rawValue: sim) ?? .defaultValue)
     }
 
-}
-
-// MARK: - Data Transfer Utilities
-
-fileprivate extension UserDefaults {
-    static let VisionKey = "SimVisionType"
-    static let SimulationKey = "SimulationKey"
 }

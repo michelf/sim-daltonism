@@ -41,6 +41,8 @@
 		1E0FDB3B2DA03185008BBC1B /* HCIRNFilterVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6C26B63747007ADF4B /* HCIRNFilterVendor.swift */; };
 		1E0FDB3D2DA0318D008BBC1B /* HCIRN.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6A26B63747007ADF4B /* HCIRN.metal */; };
 		1E0FDB3F2DA031D2008BBC1B /* CaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* CaptureStream.swift */; };
+		1E1287552E34802800F55031 /* FilterWindowAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1287542E34802400F55031 /* FilterWindowAppearance.swift */; };
+		1E1287562E34802800F55031 /* FilterWindowAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1287542E34802400F55031 /* FilterWindowAppearance.swift */; };
 		1E1740832DADD2B8008375F6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1E1740822DADD2B8008375F6 /* InfoPlist.xcstrings */; };
 		1E1740852DADD340008375F6 /* URLs.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1E1740842DADD340008375F6 /* URLs.xcstrings */; };
 		1E1FF5B52D79E13900AE535C /* ScreenCaptureStreamSCKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */; };
@@ -143,6 +145,7 @@
 		1E0FDB292D9EB0B1008BBC1B /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		1E0FDB2B2D9EB55A008BBC1B /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		1E0FDB2D2D9EB616008BBC1B /* VisionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPicker.swift; sourceTree = "<group>"; };
+		1E1287542E34802400F55031 /* FilterWindowAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterWindowAppearance.swift; sourceTree = "<group>"; };
 		1E1740822DADD2B8008375F6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		1E1740842DADD340008375F6 /* URLs.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = URLs.xcstrings; sourceTree = "<group>"; };
 		1E1FF5B42D79E13100AE535C /* ScreenCaptureStreamSCKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCaptureStreamSCKit.swift; sourceTree = "<group>"; };
@@ -553,6 +556,7 @@
 		94BFDA8726B39B91009944AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E1287542E34802400F55031 /* FilterWindowAppearance.swift */,
 				1EA4CB771C3B6B9D00021F64 /* CaptureDefaults.swift */,
 				94B926C326B139C600754E0C /* Errors.swift */,
 				94E8FB2C26B3D3400027BCF4 /* UserDefaults+WindowRestoration.swift */,
@@ -716,6 +720,7 @@
 				1E0FDB3D2DA0318D008BBC1B /* HCIRN.metal in Sources */,
 				1E0FDB392DA03185008BBC1B /* MachadoFilters.swift in Sources */,
 				1E0FDB3A2DA03185008BBC1B /* HCIRNFilter.swift in Sources */,
+				1E1287552E34802800F55031 /* FilterWindowAppearance.swift in Sources */,
 				1E0FDB3B2DA03185008BBC1B /* HCIRNFilterVendor.swift in Sources */,
 				1E0EF4A62DF3E0A70083A26A /* MonochromeFilter.swift in Sources */,
 				1E0FDB322DA03161008BBC1B /* MetalRenderer.swift in Sources */,
@@ -787,6 +792,7 @@
 				1EF43E4E2D986E80006441A2 /* InvertHueFilter.swift in Sources */,
 				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
 				1ECCBCCF2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */,
+				1E1287562E34802800F55031 /* FilterWindowAppearance.swift in Sources */,
 				9424DE7F26B63747007ADF4B /* MachadoFilters.swift in Sources */,
 				9424DE7426B63747007ADF4B /* ScreenCaptureStreamCG.swift in Sources */,
 				94E1494826C230A700327367 /* FilterStore.swift in Sources */,

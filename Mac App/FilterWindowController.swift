@@ -23,7 +23,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 
     // MARK: - User Settings
 
-    var visionType = UserDefaults.getVision() {
+    var visionType = UserDefaults.vision {
         didSet {
             setVisionTypeDefault()
             applyVisionType()
@@ -31,7 +31,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
     }
 
     func setVisionTypeDefault() {
-        UserDefaults.setVision(visionType)
+        UserDefaults.vision = visionType
     }
 
     private func applyVisionType() {
@@ -39,7 +39,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
         FilterWindowManager.shared.changedWindowController(self)
     }
 
-    var simulation = UserDefaults.getSimulation() {
+    var simulation = UserDefaults.simulation {
         didSet {
             setSimulationDefault()
             applySimulation()
@@ -47,7 +47,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
     }
 
     func setSimulationDefault() {
-        UserDefaults.setSimulation(simulation)
+        UserDefaults.simulation = simulation
     }
 
     fileprivate func applySimulation() {
@@ -290,46 +290,9 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 		filterStore.configuration.colorBoost = setting
 	}
 
-
-}
-
-enum FilterWindowAppearance: Int {
-	case systemDefault
-	case systemReversed
-	case light
-	case dark
-
-	var prescribedAppearance: NSAppearance? {
-		guard #available(macOS 10.14, *) else { return nil }
-		let newAppearanceName: NSAppearance.Name
-		switch self {
-		case .systemDefault:
-			return nil
-		case .systemReversed:
-			newAppearanceName = switch NSApplication.shared.effectiveAppearance.name {
-			case .aqua: .darkAqua
-			case .darkAqua: .aqua
-			case .accessibilityHighContrastAqua: .accessibilityHighContrastDarkAqua
-			case .vibrantDark: .vibrantLight
-			case .vibrantLight: .vibrantDark
-			case .accessibilityHighContrastVibrantDark: .accessibilityHighContrastVibrantLight
-			case .accessibilityHighContrastVibrantLight: .accessibilityHighContrastVibrantDark
-			default: .aqua
-			}
-		case .light:
-			newAppearanceName = NSApplication.shared.effectiveAppearance.bestMatch(from: [.aqua, .accessibilityHighContrastAqua]) ?? .aqua
-		case .dark:
-			newAppearanceName = NSApplication.shared.effectiveAppearance.bestMatch(from: [.darkAqua, .accessibilityHighContrastDarkAqua]) ?? .darkAqua
-		}
-		return NSAppearance(named: newAppearanceName)
-	}
-}
-
-extension UserDefaults {
-
-	var filterWindowAppearance: FilterWindowAppearance {
-		let intAppearance = UserDefaults.standard.integer(forKey: "FilterWindowAppearance")
-		return FilterWindowAppearance(rawValue: intAppearance) ?? .systemDefault
+	@IBAction func adoptViewAreaSetting(_ sender: NSMenuItem) {
+		guard let area = ViewArea(rawValue: sender.tag) else { return }
+		viewAreaDefault = area
 	}
 
 }
