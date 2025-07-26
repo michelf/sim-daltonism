@@ -13,7 +13,7 @@
                 <windowController showSeguePresentationStyle="single" id="Emp-HX-PIF" sceneMemberID="viewController">
                     <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="pNg-ec-UhE">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <rect key="contentRect" x="425" y="461" width="480" height="270"/>
+                        <rect key="contentRect" x="425" y="461" width="480" height="271"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
                         <connections>
                             <outlet property="delegate" destination="Emp-HX-PIF" id="kfz-eG-mXF"/>
@@ -25,7 +25,7 @@
                 </windowController>
                 <customObject id="Is7-bZ-lBI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683" y="-171"/>
+            <point key="canvasLocation" x="683" y="-170.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="82S-07-VZB">
@@ -793,7 +793,7 @@
                                 <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="Mhr-rV-Djh"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Blue Cone Monochromacy" tag="9" keyEquivalent="8" indentationLevel="1" id="3eN-H8-Egq">
+                        <menuItem title="Blue Cone Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="3eN-H8-Egq">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="puv-8r-ImP"/>
                             </connections>
@@ -803,14 +803,7 @@
                             <attributedString key="attributedTitle"/>
                             <modifierMask key="keyEquivalentModifierMask"/>
                         </menuItem>
-                        <menuItem title="Monochrome Display" tag="12" indentationLevel="1" id="aut-Fq-MUC">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="vf7-34-nuW"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="Monochrome Analog TV" tag="11" indentationLevel="1" id="sEE-X4-wFu">
-                            <modifierMask key="keyEquivalentModifierMask"/>
+                        <menuItem title="Monochrome Analog TV" tag="9" keyEquivalent="9" indentationLevel="1" id="sEE-X4-wFu">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="Oky-zY-oP4" id="wBC-OI-qND"/>
                             </connections>
@@ -1319,6 +1312,6 @@
         <image name="StripesNoneTemplate" width="13" height="13"/>
         <image name="StripesTightTemplate" width="13" height="13"/>
         <image name="ToolsTemplate" width="15" height="15"/>
-        <image name="VisionTemplate" width="17" height="12"/>
+        <image name="VisionTemplate" width="18" height="11"/>
     </resources>
 </document>
