@@ -53,7 +53,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	fileprivate var streamFilterGenerator: ContentFilterGenerator?
 
 	// Current capture
-	private var preferredCaptureArea = ViewArea.underWindow {
+	public var captureRect: CGRect = .zero {
 		didSet { reconfigureStream() }
 	}
 	private var isCapturing = false {
@@ -80,7 +80,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 	func setupStream() {
 		assert(Thread.isMainThread)
-		getContentFilter(for: getPreferredViewAreaInScreenCoordinates()) { [weak self] filterGenerator in
+		getContentFilter(for: captureRect) { [weak self] filterGenerator in
 			guard let filterGenerator, let self else { return }
 			let configuration = configuration(for: filterGenerator.display!)
 			streamFilterGenerator = filterGenerator
@@ -102,7 +102,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 
 		let screenFrame = display?.frame ?? CGDisplayBounds(CGMainDisplayID())
 		let mainDisplayFrame = CGDisplayBounds(CGMainDisplayID())
-		var captureRect = getPreferredViewAreaInScreenCoordinates()
+		var captureRect = captureRect
 		captureRect.origin.y = mainDisplayFrame.height - captureRect.origin.y - captureRect.height
 		captureRect.origin.x -= screenFrame.origin.x
 		captureRect.origin.y -= screenFrame.origin.y
@@ -171,7 +171,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	}
 
 	@objc func invalidateStreamFilter() {
-		getContentFilter(for: getPreferredViewAreaInScreenCoordinates()) { [weak self] filterGenerator in
+		getContentFilter(for: captureRect) { [weak self] filterGenerator in
 			guard let filterGenerator, let self else { return }
 			guard streamFilterGenerator != filterGenerator else {
 				return // no change
@@ -192,7 +192,7 @@ public class ScreenCaptureStreamSCKit: NSObject, SCStreamDelegate {
 	@objc func reconfigureStream() {
 		assert(Thread.isMainThread)
 		let newConfiguration = configuration(for: streamFilterGenerator?.display)
-		let contentFilter = if streamFilterGenerator?.reconfigure(for: getPreferredViewAreaInScreenCoordinates()) == true {
+		let contentFilter = if streamFilterGenerator?.reconfigure(for: captureRect) == true {
 			streamFilterGenerator!.filter
 		} else {
 			nil as SCContentFilter?
@@ -256,7 +256,7 @@ extension ScreenCaptureStreamSCKit: CaptureStream {
 		}
 	}
 
-	public func startSession(in frame: NSRect) throws {
+	public func startSession() throws {
 		monitorUserPreferences()
 		guard let window = window else { return }
 		setupMonitorsForInteraction(with: window)
@@ -408,27 +408,6 @@ private extension ScreenCaptureStreamSCKit {
 @available(macOS 12.3, *)
 private extension ScreenCaptureStreamSCKit {
 
-	func getPreferredViewAreaInScreenCoordinates() -> CGRect {
-		assert(Thread.isMainThread)
-		guard let view = view, let window = window else { return .zero }
-		let viewInWindow = view.convert(view.bounds, to: window.contentView)
-		var viewInScreen = window.convertToScreen(viewInWindow)
-
-		switch preferredCaptureArea {
-		case .underWindow: return viewInScreen
-
-		case .mousePointer:
-			let mouseLocation = NSEvent.mouseLocation
-			// if mouse is inside window, fall through .UnderWindow instead
-			if !viewInScreen.contains(mouseLocation) {
-				viewInScreen.origin = CGPoint(x: round(mouseLocation.x), y: round(mouseLocation.y))
-				let mouseView = viewInScreen.offsetBy(dx: -round(viewInScreen.width/2),
-													  dy: -round(viewInScreen.height/2))
-				return mouseView
-			}
-			return viewInScreen
-		}
-	}
 
 	func disableOrRestartCaptureAfterWindowInteraction() {
 		let shouldDisable = isResizingOrMoving || isOccluded
@@ -470,7 +449,6 @@ private extension ScreenCaptureStreamSCKit {
 
 	@objc func updateFromDefaults() {
 		refreshSpeed = refreshSpeedDefault
-		preferredCaptureArea = viewAreaDefault
 	}
 }
 

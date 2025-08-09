@@ -23,7 +23,8 @@ class FilterSettingsController: NSTitlebarAccessoryViewController {
 	@IBOutlet var viewAreaButton: NSButton!
 
 	@objc func refresh() {
-		viewAreaButton.image = viewAreaDefault.image
+		let viewArea = (view.window?.contentViewController as? FilterViewController)?.captureArea ?? .underWindow
+		viewAreaButton.image = viewArea.image
 	}
 
 }

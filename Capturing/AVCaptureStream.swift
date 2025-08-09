@@ -35,7 +35,7 @@ public class AVCaptureStream: NSObject, CaptureStream, CapturePipelineDelegate {
 	nonisolated let capturePipeline = CapturePipeline()
 
 	/// - Note: `frame` is ignored in `AVCaptureStream`.
-	public func startSession(in frame: CGRect) {
+	public func startSession() {
 		setupPipeline()
 	}
 

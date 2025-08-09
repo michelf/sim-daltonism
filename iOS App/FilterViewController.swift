@@ -199,7 +199,7 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 
 		updateCapturePermissionVisibility()
 
-		self.captureStream?.startSession(in: .zero)
+		self.captureStream?.startSession()
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
@@ -545,7 +545,7 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		self.present(activityViewController, animated: true)
 		activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
 			self._presentingShareView = false
-			self.captureStream?.startSession(in: .zero); // unfreeze image
+			self.captureStream?.startSession() // unfreeze image
 			if torchActive, let videoDevice = self.videoDevice, videoDevice.hasTorch {
 				do {
 					try videoDevice.lockForConfiguration()

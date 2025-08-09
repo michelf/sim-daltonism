@@ -22,11 +22,11 @@ import AppKit
 @MainActor
 public protocol CaptureStream: AnyObject {
 //    var delegate: CaptureStreamDelegate? { get set }
-    func startSession(in frame: CGRect) throws
+    func startSession() throws
     func stopSession()
 	func checkCapturePermission() -> Bool
 #if os(macOS)
-	func handleMouseEvent(_ event: NSEvent)
+	var captureRect: CGRect { get set }
 #endif
 }
 

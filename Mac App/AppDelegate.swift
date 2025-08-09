@@ -45,18 +45,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		refreshSpeedDefault = speed
 	}
 
-	@IBAction func adoptViewAreaSetting(_ sender: NSMenuItem) {
-		guard let area = ViewArea(rawValue: sender.tag) else { return }
-		viewAreaDefault = area
-	}
-	
+
 	@objc func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
 		switch menuItem.action! {
 		case #selector(adoptSpeedSetting(_:)):
 			menuItem.state = refreshSpeedDefault.rawValue == menuItem.tag ? .on : .off
-			return true
-		case #selector(adoptViewAreaSetting(_:)):
-			menuItem.state = viewAreaDefault.rawValue == menuItem.tag ? .on : .off
 			return true
 		default:
 			return self.responds(to: menuItem.action)

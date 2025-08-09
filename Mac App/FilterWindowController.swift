@@ -250,6 +250,10 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 			let current = filterStore.configuration.colorBoost
 			menuItem.state = current ? .on : .off
 			return true
+		case #selector(adoptViewAreaSetting)?:
+			let current = (contentViewController as! FilterViewController).captureArea
+			menuItem.state = current.rawValue == menuItem.tag ? .on : .off
+			return true
 		default:
 			return false
 		}
@@ -292,7 +296,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 
 	@IBAction func adoptViewAreaSetting(_ sender: NSMenuItem) {
 		guard let area = ViewArea(rawValue: sender.tag) else { return }
-		viewAreaDefault = area
+		(contentViewController as! FilterViewController).captureArea = area
 	}
 
 }

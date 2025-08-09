@@ -41,7 +41,7 @@ public class ScreenCaptureStreamCG {
 		var isCapturing = false
 		var unhideOnNextDisplay = false
 	}
-    private var preferredCaptureArea = ViewArea.underWindow
+	public var captureRect: CGRect = .zero
 	private let captureState = Mutex(CaptureState())
 	private let captureQueue = DispatchQueue(label: nextDispatchQueueLabel(), qos: .userInitiated)
 
@@ -80,7 +80,7 @@ extension ScreenCaptureStreamCG: CaptureStream {
         }
     }
 
-    public func startSession(in frame: NSRect) throws {
+    public func startSession() throws {
         monitorUserPreferences()
         guard let window = window else { return }
         setupMonitorsForInteraction(with: window)
@@ -251,7 +251,7 @@ private extension ScreenCaptureStreamCG {
 
 
         let mainDisplayBounds = CGDisplayBounds(CGMainDisplayID())
-        var captureRect = getPreferredViewAreaInScreenCoordinates()
+		var captureRect = self.captureRect
         captureRect.origin.y = mainDisplayBounds.height - captureRect.origin.y - captureRect.height
 
 		captureWindowsBelow(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
@@ -263,27 +263,6 @@ private extension ScreenCaptureStreamCG {
 
 private extension ScreenCaptureStreamCG {
 
-    func getPreferredViewAreaInScreenCoordinates() -> CGRect {
-		assert(Thread.isMainThread)
-        guard let view = view, let window = window else { return .zero }
-        let viewInWindow = view.convert(view.bounds, to: window.contentView)
-        var viewInScreen = window.convertToScreen(viewInWindow)
-
-        switch preferredCaptureArea {
-            case .underWindow: return viewInScreen
-
-            case .mousePointer:
-                let mouseLocation = NSEvent.mouseLocation
-                // if mouse is inside window, fall through .UnderWindow instead
-                if !viewInScreen.contains(mouseLocation) {
-                    viewInScreen.origin = mouseLocation
-                    let mouseView = viewInScreen.offsetBy(dx: -round(viewInScreen.width/2),
-                                                         dy: -round(viewInScreen.height/2))
-                    return mouseView
-                }
-                return viewInScreen
-        }
-    }
 
     func disableOrRestartCaptureAfterWindowInteraction() {
         let shouldDisable = isResizingOrMoving || isOccluded
@@ -327,7 +306,6 @@ private extension ScreenCaptureStreamCG {
 
     @objc func updateFromDefaults() {
         refreshSpeed = refreshSpeedDefault
-        preferredCaptureArea = viewAreaDefault
     }
 }
 

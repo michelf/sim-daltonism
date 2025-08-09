@@ -32,6 +32,9 @@ class FilterViewController: NSViewController {
 	/// Fallback for old Macs with no Metal support
 	var openGLFilteredView: NSOpenGLView?
 	#endif
+	public var captureArea = ViewArea.underWindow {
+		didSet { updateCaptureArea() }
+	}
 
 	@IBOutlet var filteredView: FilteredMetalView!
 	@IBOutlet var centerCrossView: NSView?
@@ -96,7 +99,10 @@ class FilterViewController: NSViewController {
 
 		updateCapturePermissionVisibility()
 
-		do { try self.screenCaptureStream?.startSession(in: initialFrame) }
+		do {
+			self.screenCaptureStream?.captureRect = initialFrame
+			try self.screenCaptureStream?.startSession()
+		}
 		catch let error { NSApp.presentError(error) }
 
 		activateMouseEventMonitoring()
@@ -138,7 +144,39 @@ class FilterViewController: NSViewController {
 
 	@objc func handleMouseEvent(_ event: NSEvent) {
 		setWindowIgnoresMouseEventsState()
-		screenCaptureStream?.handleMouseEvent(event)
+		updateCaptureArea()
+	}
+
+	func updateCaptureArea() {
+		guard let window = view.window else { return }
+
+		screenCaptureStream?.captureRect = getViewAreaInScreenCoordinates()
+	}
+
+	func getViewAreaInScreenCoordinates() -> CGRect {
+		assert(Thread.isMainThread)
+		let view = view
+		guard let window = view.window else { return .zero }
+		let viewInWindow = view.convert(view.bounds, to: window.contentView)
+		var viewInScreen = window.convertToScreen(viewInWindow)
+
+		switch captureArea {
+		case .underWindow:
+			return viewInScreen
+
+		case .mousePointer:
+			let mouseLocation = NSEvent.mouseLocation
+			// if mouse is inside window, fall through .UnderWindow instead
+			if viewInScreen.contains(mouseLocation) {
+				return viewInScreen
+			} else {
+				viewInScreen.origin = CGPoint(x: round(mouseLocation.x), y: round(mouseLocation.y))
+				let mouseView = viewInScreen.offsetBy(
+					dx: -round(viewInScreen.width/2),
+					dy: -round(viewInScreen.height/2))
+				return mouseView
+			}
+		}
 	}
 
 	deinit {
@@ -223,7 +261,7 @@ private extension FilterViewController {
 		let locationInWindow = filteredView.window?.convertFromScreen(mouseLocationRect).origin ?? .zero
         let mouseLocationInView = filteredView.convert(locationInWindow, from: nil)
         let mouseIsInView = viewBounds.contains(mouseLocationInView)
-		centerCrossView?.isHidden = mouseIsInView || viewAreaDefault != .mousePointer
+		centerCrossView?.isHidden = mouseIsInView || captureArea != .mousePointer || filteredView.isHidden
 
         // Allow more room for grabbing the window resize corners
 		let resizeCornerSize = CGSize(width: 15, height: 15) // from the window's edge

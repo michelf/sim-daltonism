@@ -34,13 +34,3 @@ enum ViewArea: Int {
 	case underWindow = 0
 	case mousePointer = 1
 }
-
-var viewAreaDefault: ViewArea {
-	get {
-		return ViewArea(rawValue: UserDefaults.standard.integer(forKey: "ViewArea")) ?? .underWindow
-	}
-	set (area) {
-		UserDefaults.standard.set(area.rawValue, forKey: "ViewArea")
-	}
-}
-
