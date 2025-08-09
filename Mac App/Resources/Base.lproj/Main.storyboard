@@ -660,8 +660,16 @@
                                         <menuItem title="Screen Area" enabled="NO" id="fta-Eh-vkK">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Content under the window" state="on" image="FilteredTransparencyTemplate" indentationLevel="1" id="0Oq-II-PTx"/>
-                                        <menuItem title="Centered on the mouse pointer" image="FilteredMouseAreaTemplate" tag="1" indentationLevel="1" id="EIR-ZH-P9w"/>
+                                        <menuItem title="Content under the window" state="on" image="FilteredTransparencyTemplate" indentationLevel="1" id="0Oq-II-PTx">
+                                            <connections>
+                                                <action selector="adoptViewAreaSetting:" target="Ady-hI-5gd" id="qLs-bj-cXw"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Centered on the mouse pointer" image="FilteredMouseAreaTemplate" tag="1" indentationLevel="1" id="EIR-ZH-P9w">
+                                            <connections>
+                                                <action selector="adoptViewAreaSetting:" target="Ady-hI-5gd" id="3Ms-QU-OSb"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
