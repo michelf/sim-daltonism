@@ -274,18 +274,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "View Area"
+            "value" : "Screen Area"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zone visible"
+            "value" : "Écran"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "窗口面积"
           }
         }
@@ -1123,7 +1123,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zone de l’écran"
+            "value" : "Écran"
           }
         }
       }
@@ -1774,12 +1774,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Achromatopsy"
+            "value" : "Achromatopsia"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Achromatopsie"
           }
         },
@@ -2024,18 +2024,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "View Area"
+            "value" : "Screen Area"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zone visible"
+            "value" : "Écran"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "窗口面积"
           }
         }
@@ -2879,18 +2879,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "View Area"
+            "value" : "Screen Area"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zone visible"
+            "value" : "Écran"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "窗口面积"
           }
         }
@@ -2902,18 +2902,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "View Area"
+            "value" : "Screen Area"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zone visible"
+            "value" : "Écran"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "窗口面积"
           }
         }
