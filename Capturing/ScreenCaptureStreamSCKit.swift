@@ -329,20 +329,6 @@ extension ScreenCaptureStreamSCKit: SCStreamOutput {
 		afterCapturing()
 	}
 
-//	func captureWindowsBelow(_ captureRect: CGRect, windowID: CGWindowID, backingScaleFactor: CGFloat) {
-//		defer { isCapturing = false }
-//		guard !capturingDisabled else { return }
-//
-//		guard let captureImage = CGWindowListCreateImage(captureRect,.optionOnScreenBelowWindow, windowID, [])
-//		else { return }
-//
-//		guard !capturingDisabled else { return }
-//
-//		delegate?.didCaptureFrame(image: CIImage(cgImage: captureImage))
-//
-//		afterCapturingUnhideOnNextDisplayIfNeeded()
-//	}
-
 	nonisolated private func afterCapturing() {
 		guard flags.withLock({ $0.unhideOnNextDisplay || $0.streamNeedsReconfiguration }) else { return }
 		DispatchQueue.main.async { [weak self] in
@@ -366,42 +352,6 @@ extension ScreenCaptureStreamSCKit: SCStreamOutput {
 	}
 }
 
-// MARK: - Schedule/Prepare Capture
-
-import CoreVideo
-
-@available(macOS 12.3, *)
-private extension ScreenCaptureStreamSCKit {
-
-//	@objc func captureImmediately() {
-//		prepareFrameCapture()
-//	}
-
-//	func prepareFrameCapture() {
-//		guard let window = window else { return }
-//		guard legalWindowNumbers.contains(window.windowNumber) else {
-//			NSLog("Skipping capture for uninitialized window ID \(window.windowNumber).");
-//			return
-//		}
-//
-//		let canCapture = !isCapturing && !capturingDisabled
-//		guard canCapture else { return }
-//		isCapturing = true
-//
-//		let windowID = CGWindowID(window.windowNumber)
-//		let viewScaleFactor = window.backingScaleFactor
-//
-//
-//		let mainDisplayBounds = CGDisplayBounds(CGMainDisplayID())
-//		var captureRect = getPreferredViewAreaInScreenCoordinates()
-//		captureRect.origin.y = mainDisplayBounds.height - captureRect.origin.y - captureRect.height
-//
-////		queue?.async { [weak self] in
-////			self?.captureWindowsBelow(captureRect, windowID: windowID, backingScaleFactor: viewScaleFactor)
-////		}
-//	}
-
-}
 
 // MARK: - Helpers to Schedule/Prepare Capture
 
@@ -423,7 +373,6 @@ private extension ScreenCaptureStreamSCKit {
 				context.stream?.startCapture()
 			}
 			capturingDisabled = false
-//			captureImmediately()
 			flags.withLock { $0.unhideOnNextDisplay = true }
 		}
 	}
