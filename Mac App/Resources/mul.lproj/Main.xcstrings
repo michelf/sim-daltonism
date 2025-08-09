@@ -1,30 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "0jI-P4-rBR.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Centered on the mouse pointer\"; ObjectID = \"0jI-P4-rBR\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Centered on the mouse pointer"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Centrée sur le pointeur"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "跟随鼠标"
-          }
-        }
-      }
-    },
     "0mY-bA-P8c.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Yellow-Blue Confusion\"; ObjectID = \"0mY-bA-P8c\";",
       "localizations" : {
@@ -44,6 +20,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "蓝黄色盲"
+          }
+        }
+      }
+    },
+    "0Oq-II-PTx.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Content under the window\"; ObjectID = \"0Oq-II-PTx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Content under the window"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenu sous la fenêtre"
           }
         }
       }
@@ -175,42 +169,6 @@
         }
       }
     },
-    "2Fl-kv-sCg.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Stripes on Green\"; ObjectID = \"2Fl-kv-sCg\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Stripes on Green"
-          }
-        }
-      }
-    },
-    "2Ji-Ra-JZI.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"2Ji-Ra-JZI\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "None"
-          }
-        }
-      }
-    },
-    "2RP-cv-xiG.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Achromatopsia\"; ObjectID = \"2RP-cv-xiG\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Achromatopsia"
-          }
-        }
-      }
-    },
     "2yn-G6-M6Q.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Normal\"; ObjectID = \"2yn-G6-M6Q\";",
       "localizations" : {
@@ -251,18 +209,6 @@
         }
       }
     },
-    "3eN-H8-Egq.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Blue Cone Monochromacy\"; ObjectID = \"3eN-H8-Egq\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Blue Cone Monochromacy"
-          }
-        }
-      }
-    },
     "4sb-4s-VLi.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Quit Sim Daltonism\"; ObjectID = \"4sb-4s-VLi\";",
       "localizations" : {
@@ -295,6 +241,12 @@
             "state" : "new",
             "value" : "Tight"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minces"
+          }
         }
       }
     },
@@ -307,11 +259,17 @@
             "state" : "new",
             "value" : "Hue Shift"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Décalage de teinte"
+          }
         }
       }
     },
     "5bi-v8-MT6.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"View Area\"; ObjectID = \"5bi-v8-MT6\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Screen Area\"; ObjectID = \"5bi-v8-MT6\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -389,43 +347,8 @@
             "value" : "Metal"
           }
         }
-      }
-    },
-    "6rB-nj-ggG.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Stripes on Red\"; ObjectID = \"6rB-nj-ggG\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Stripes on Red"
-          }
-        }
-      }
-    },
-    "7hv-4d-cxv.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Normal Vision\"; ObjectID = \"7hv-4d-cxv\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Normal Vision"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vision normale"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正常色觉"
-          }
-        }
-      }
+      },
+      "shouldTranslate" : false
     },
     "8eI-EC-qzz.title" : {
       "comment" : "Class = \"NSMenu\"; title = \"File\"; ObjectID = \"8eI-EC-qzz\";",
@@ -450,30 +373,6 @@
         }
       }
     },
-    "8QE-yJ-rfm.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Fast\"; ObjectID = \"8QE-yJ-rfm\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Fast"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rapide"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "快"
-          }
-        }
-      }
-    },
     "8Uh-Mk-fKK.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Stripes on Blue\"; ObjectID = \"8Uh-Mk-fKK\";",
       "extractionState" : "extracted_with_value",
@@ -482,6 +381,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Stripes on Blue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures sur bleu"
           }
         }
       }
@@ -592,6 +497,12 @@
             "state" : "new",
             "value" : "Loose"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Larges"
+          }
         }
       }
     },
@@ -603,6 +514,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "System Reversed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Système inversé"
           }
         }
       }
@@ -728,30 +645,6 @@
         }
       }
     },
-    "Ari-Ic-uUt.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Deuteranopia\"; ObjectID = \"Ari-Ic-uUt\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Deuteranopia"
-          }
-        }
-      }
-    },
-    "ASa-xQ-KYy.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"ASa-xQ-KYy\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "None"
-          }
-        }
-      }
-    },
     "aUF-d1-5bR.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Window\"; ObjectID = \"aUF-d1-5bR\";",
       "localizations" : {
@@ -821,18 +714,6 @@
         }
       }
     },
-    "bDm-Nm-Mzr.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Deuteranomaly\"; ObjectID = \"bDm-Nm-Mzr\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Deuteranomaly"
-          }
-        }
-      }
-    },
     "bw7-fp-hDM.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Protanopia\"; ObjectID = \"bw7-fp-hDM\";",
       "localizations" : {
@@ -875,30 +756,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "提供建议…"
-          }
-        }
-      }
-    },
-    "C1V-TO-Wnh.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Content under the window\"; ObjectID = \"C1V-TO-Wnh\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Content under the window"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contenu sous la fenêtre"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "窗口下面"
           }
         }
       }
@@ -952,17 +809,11 @@
             "state" : "new",
             "value" : "None"
           }
-        }
-      }
-    },
-    "CoH-ud-qiR.title" : {
-      "comment" : "Class = \"NSMenu\"; title = \"Color Tools\"; ObjectID = \"CoH-ud-qiR\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Color Tools"
+            "state" : "translated",
+            "value" : "Aucune"
           }
         }
       }
@@ -1039,6 +890,12 @@
             "state" : "new",
             "value" : "Stripes on Green"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures sur vert"
+          }
         }
       }
     },
@@ -1050,6 +907,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Loose"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Larges"
           }
         }
       }
@@ -1095,30 +958,6 @@
         }
       }
     },
-    "eb0-un-pXe.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Normal\"; ObjectID = \"eb0-un-pXe\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Normal"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Normale"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正常"
-          }
-        }
-      }
-    },
     "eiB-pP-qli.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Loose\"; ObjectID = \"eiB-pP-qli\";",
       "extractionState" : "extracted_with_value",
@@ -1128,17 +967,29 @@
             "state" : "new",
             "value" : "Loose"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Larges"
+          }
         }
       }
     },
-    "eKe-ld-Rkg.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Loose\"; ObjectID = \"eKe-ld-Rkg\";",
+    "EIR-ZH-P9w.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Centered on the mouse pointer\"; ObjectID = \"EIR-ZH-P9w\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Loose"
+            "value" : "Centered on the mouse pointer"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Centrée sur le pointeur"
           }
         }
       }
@@ -1168,6 +1019,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Tight"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minces"
           }
         }
       }
@@ -1243,6 +1100,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Tight"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minces"
+          }
+        }
+      }
+    },
+    "fta-Eh-vkK.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Screen Area\"; ObjectID = \"fta-Eh-vkK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Screen Area"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zone de l’écran"
           }
         }
       }
@@ -1342,6 +1223,12 @@
             "state" : "new",
             "value" : "Other"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre"
+          }
         }
       }
     },
@@ -1394,6 +1281,12 @@
             "state" : "new",
             "value" : "Appearance:"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apparence :"
+          }
         }
       }
     },
@@ -1420,26 +1313,20 @@
         }
       }
     },
-    "gZd-Yq-fRu.title" : {
-      "comment" : "Class = \"NSMenu\"; title = \"View Area\"; ObjectID = \"gZd-Yq-fRu\";",
+    "hcA-vN-DNJ.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"View\"; ObjectID = \"hcA-vN-DNJ\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "View Area"
+            "value" : "View"
           }
-        }
-      }
-    },
-    "HFZ-J4-15a.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Hue Shift\"; ObjectID = \"HFZ-J4-15a\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hue Shift"
+            "state" : "translated",
+            "value" : "Voir"
           }
         }
       }
@@ -1463,24 +1350,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "服务"
-          }
-        }
-      }
-    },
-    "i61-pV-T3H.title" : {
-      "comment" : "Class = \"NSMenu\"; title = \"Simulated Vision\"; ObjectID = \"i61-pV-T3H\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Simulated Vision"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vision simulée"
           }
         }
       }
@@ -1540,6 +1409,12 @@
             "state" : "new",
             "value" : "Metal is newer, but testing has shown OpenGL to have less latency."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metal est plus récent, mais les tests ont révélé qu’OpenGL est plus rapide."
+          }
         }
       }
     },
@@ -1551,6 +1426,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Screen Capture:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture de l’écran :"
           }
         }
       }
@@ -1569,18 +1450,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Télé monochrome analogique"
-          }
-        }
-      }
-    },
-    "k7e-lf-HnR.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Filter\"; ObjectID = \"k7e-lf-HnR\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Filter"
           }
         }
       }
@@ -1677,18 +1546,6 @@
         }
       }
     },
-    "kU9-Nw-Yh7.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Tight\"; ObjectID = \"kU9-Nw-Yh7\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Tight"
-          }
-        }
-      }
-    },
     "KYN-fK-VqC.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"KYN-fK-VqC\";",
       "extractionState" : "extracted_with_value",
@@ -1697,6 +1554,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "None"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune"
           }
         }
       }
@@ -1756,6 +1619,12 @@
             "state" : "new",
             "value" : "Monochromacy"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monochromatie"
+          }
         }
       }
     },
@@ -1805,42 +1674,6 @@
         }
       }
     },
-    "MfI-Ka-sP2.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Yellow-Blue Confusion\"; ObjectID = \"MfI-Ka-sP2\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Yellow-Blue Confusion"
-          }
-        }
-      }
-    },
-    "mSg-gZ-JyH.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Refresh Speed\"; ObjectID = \"mSg-gZ-JyH\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Refresh Speed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vitesse de rafraîchissement"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示刷新速度"
-          }
-        }
-      }
-    },
     "MTE-4H-QVo.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Tight\"; ObjectID = \"MTE-4H-QVo\";",
       "localizations" : {
@@ -1858,18 +1691,6 @@
         }
       }
     },
-    "nA0-QU-Bji.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Tritanomaly\"; ObjectID = \"nA0-QU-Bji\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Tritanomaly"
-          }
-        }
-      }
-    },
     "nDf-Mm-eHb.title" : {
       "comment" : "Class = \"NSMenu\"; title = \"Tools\"; ObjectID = \"nDf-Mm-eHb\";",
       "extractionState" : "extracted_with_value",
@@ -1878,6 +1699,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Tools"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outils"
           }
         }
       }
@@ -1890,6 +1717,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "System Default"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Système"
           }
         }
       }
@@ -1958,18 +1791,6 @@
         }
       }
     },
-    "NQW-kX-pWl.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Red-Green Confusion\"; ObjectID = \"NQW-kX-pWl\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Red-Green Confusion"
-          }
-        }
-      }
-    },
     "nTq-TO-Vrl.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Vibrancy Boost\"; ObjectID = \"nTq-TO-Vrl\";",
       "extractionState" : "extracted_with_value",
@@ -1979,17 +1800,11 @@
             "state" : "new",
             "value" : "Vibrancy Boost"
           }
-        }
-      }
-    },
-    "nyM-Kf-mOp.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Loose\"; ObjectID = \"nyM-Kf-mOp\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Loose"
+            "state" : "translated",
+            "value" : "Couleurs vibrantes"
           }
         }
       }
@@ -2002,6 +1817,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Dark"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sombre"
           }
         }
       }
@@ -2096,6 +1917,12 @@
             "state" : "new",
             "value" : "Light"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claire"
+          }
         }
       }
     },
@@ -2118,18 +1945,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "全色盲弱"
-          }
-        }
-      }
-    },
-    "Pil-em-OLk.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Tight\"; ObjectID = \"Pil-em-OLk\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Tight"
           }
         }
       }
@@ -2235,6 +2050,12 @@
             "state" : "new",
             "value" : "Stripes on Red"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rayures sur rouge"
+          }
         }
       }
     },
@@ -2245,6 +2066,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "OpenGL"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "OpenGL"
           }
         }
@@ -2336,18 +2163,6 @@
         }
       }
     },
-    "rQe-0l-ter.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Tritanopia\"; ObjectID = \"rQe-0l-ter\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Tritanopia"
-          }
-        }
-      }
-    },
     "ruJ-WI-A6z.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Vibrancy Boost\"; ObjectID = \"ruJ-WI-A6z\";",
       "localizations" : {
@@ -2375,31 +2190,8 @@
             "value" : "Core Graphics"
           }
         }
-      }
-    },
-    "rwE-yM-39L.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Slow\"; ObjectID = \"rwE-yM-39L\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Slow"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lente"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "慢"
-          }
-        }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Rws-lF-aRe.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"Rws-lF-aRe\";",
@@ -2410,59 +2202,11 @@
             "state" : "new",
             "value" : "None"
           }
-        }
-      }
-    },
-    "rx3-4u-v2w.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Vibrancy Boost\"; ObjectID = \"rx3-4u-v2w\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Vibrancy Boost"
-          }
-        }
-      }
-    },
-    "RyC-v1-OSD.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Other\"; ObjectID = \"RyC-v1-OSD\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Other"
-          }
-        }
-      }
-    },
-    "s9u-me-I5G.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Protanomaly\"; ObjectID = \"s9u-me-I5G\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Protanomaly"
-          }
-        }
-      }
-    },
-    "sEE-X4-wFu.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Monochrome Analog TV\"; ObjectID = \"sEE-X4-wFu\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Monochrome Analog TV"
-          }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Télé monochrome analogique"
+            "value" : "Aucune"
           }
         }
       }
@@ -2556,6 +2300,12 @@
             "state" : "new",
             "value" : "Note: for these settings to take effect, close and reopen Sim Daltonism."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note : pour que ces réglages prennent effet, quittez et rouvrez Sim Daltonisme."
+          }
         }
       }
     },
@@ -2591,17 +2341,11 @@
             "state" : "new",
             "value" : "Filter"
           }
-        }
-      }
-    },
-    "TrJ-7E-AKG.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Protanopia\"; ObjectID = \"TrJ-7E-AKG\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Protanopia"
+            "state" : "translated",
+            "value" : "Filtre"
           }
         }
       }
@@ -2620,42 +2364,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monochromatie au bleu"
-          }
-        }
-      }
-    },
-    "u3M-VE-MoC.title" : {
-      "comment" : "Class = \"NSMenu\"; title = \"Refresh Speed\"; ObjectID = \"u3M-VE-MoC\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Refresh Speed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vitesse de rafraîchissement"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示刷新速度"
-          }
-        }
-      }
-    },
-    "Unw-ht-o6d.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"Unw-ht-o6d\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "None"
           }
         }
       }
@@ -2786,30 +2494,6 @@
         }
       }
     },
-    "vOI-cP-0sG.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Tight\"; ObjectID = \"vOI-cP-0sG\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Tight"
-          }
-        }
-      }
-    },
-    "vOl-XK-L8p.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Monochromacy\"; ObjectID = \"vOl-XK-L8p\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Monochromacy"
-          }
-        }
-      }
-    },
     "VqT-Hv-jHT.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"(Nothing actually gets recorded.)\"; ObjectID = \"VqT-Hv-jHT\";",
       "localizations" : {
@@ -2850,18 +2534,6 @@
         }
       }
     },
-    "weN-FJ-IfJ.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Loose\"; ObjectID = \"weN-FJ-IfJ\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Loose"
-          }
-        }
-      }
-    },
     "wh1-bY-2Li.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Normal Vision\"; ObjectID = \"wh1-bY-2Li\";",
       "localizations" : {
@@ -2894,6 +2566,12 @@
             "state" : "new",
             "value" : "Advanced"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avancé"
+          }
         }
       }
     },
@@ -2905,6 +2583,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Tools"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outils"
           }
         }
       }
@@ -2940,6 +2624,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Rendering:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendu :"
           }
         }
       }
@@ -2990,18 +2680,6 @@
         }
       }
     },
-    "x8e-WU-Tl6.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Stripes on Blue\"; ObjectID = \"x8e-WU-Tl6\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Stripes on Blue"
-          }
-        }
-      }
-    },
     "xkd-TQ-kuW.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Refresh Speed:\"; ObjectID = \"xkd-TQ-kuW\";",
       "localizations" : {
@@ -3034,6 +2712,12 @@
             "state" : "new",
             "value" : "Luminance Flip"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inversion de luminance"
+          }
         }
       }
     },
@@ -3047,7 +2731,8 @@
             "value" : "Screen Capture Kit"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "XYj-CE-0ar.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"A faster refresh speed will reduce the lag if the area to filter is not too large. A slower refresh speed will reduce energy consumption.\"; ObjectID = \"XYj-CE-0ar\";",
@@ -3062,18 +2747,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une vitesse de rafraîchissement plus rapide rendrera l’image plus fluide si la zone à filtrer n’est pas trop grande. Une vitesse de rafraîchissement plus lente réduira la consomation d’énergie."
-          }
-        }
-      }
-    },
-    "YOO-Du-seN.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Luminance Flip\"; ObjectID = \"YOO-Du-seN\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Luminance Flip"
           }
         }
       }
@@ -3110,11 +2783,17 @@
             "state" : "new",
             "value" : "Screen Capture Kit is newer and offers a better frame rate, but macOS will hide notifications while in use unless you go to System Settings > Notifications > Privacy and Security > Allow notifications when mirroring or sharing the display."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screen Capture Kit est plus récent et offre une meilleure vitesse de rafraichissement, mais macOS masquera les notifications à moins de changer dans Réglages système > Notifications > Confidentialité et sécurité > Permettre les notifications lors de la recopie ou du partage de l’écran."
+          }
         }
       }
     },
     "ZDe-67-KJY.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Content under the window\"; ObjectID = \"ZDe-67-KJY\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Under the window\"; ObjectID = \"ZDe-67-KJY\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3159,18 +2838,6 @@
         }
       }
     },
-    "zoQ-82-IAH.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"View Area\"; ObjectID = \"zoQ-82-IAH\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "View Area"
-          }
-        }
-      }
-    },
     "zOt-6e-Bty.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"After giving the Screen Recording permission, quit and reopen Sim Daltonism for the change to take effect.\"; ObjectID = \"zOt-6e-Bty\";",
       "localizations" : {
@@ -3188,8 +2855,26 @@
         }
       }
     },
+    "zsj-gZ-gIm.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"View\"; ObjectID = \"zsj-gZ-gIm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "View"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir"
+          }
+        }
+      }
+    },
     "zww-Y2-pp3.ibExternalAccessibilityDescription" : {
-      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityDescription = \"View Area\"; ObjectID = \"zww-Y2-pp3\";",
+      "comment" : "Class = \"NSButton\"; ibExternalAccessibilityDescription = \"View\"; ObjectID = \"zww-Y2-pp3\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3212,7 +2897,7 @@
       }
     },
     "zww-Y2-pp3.ibShadowedToolTip" : {
-      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"View Area\"; ObjectID = \"zww-Y2-pp3\";",
+      "comment" : "Class = \"NSButton\"; ibShadowedToolTip = \"View\"; ObjectID = \"zww-Y2-pp3\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
