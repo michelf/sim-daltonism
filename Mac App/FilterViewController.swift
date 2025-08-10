@@ -25,13 +25,13 @@ struct MetalDisabledError: Error {}
 
 class FilterViewController: NSViewController {
 
-    private var renderer: CaptureStreamDelegate? = nil
-    private var screenCaptureStream: CaptureStream? = nil
-    private weak var filterStore: FilterStore!
-	#if os(macOS)
+	private var renderer: CaptureStreamDelegate? = nil
+	private var screenCaptureStream: CaptureStream? = nil
+	private weak var filterStore: FilterStore!
+#if os(macOS)
 	/// Fallback for old Macs with no Metal support
 	var openGLFilteredView: NSOpenGLView?
-	#endif
+#endif
 	public var captureArea = ViewArea.underWindow {
 		didSet { updateCaptureArea() }
 	}
@@ -47,18 +47,18 @@ class FilterViewController: NSViewController {
 		if #available(macOS 13, *) {
 		} else {
 			openSystemSettingsButton?.title = NSLocalizedString("Open System Preferences",
-				comment: "Replacement title for button 'Open System Settings' on macOS 12 and earlier (uses the name System Preferences instead of System Settings")
+																comment: "Replacement title for button 'Open System Settings' on macOS 12 and earlier (uses the name System Preferences instead of System Settings")
 		}
 	}
-    
-    static let innerCornerRadius: CGFloat =  {
-        if #available(macOS 26, *) { 13 } else { 6 }
-    }()
+
+	static let innerCornerRadius: CGFloat =  {
+		if #available(macOS 26, *) { 13 } else { 6 }
+	}()
 
 	func applyInnerCornerRadius(to view: NSView) {
 		view.wantsLayer = true
 		if #available(macOS 11, *) {
-            view.layer?.cornerRadius = FilterViewController.innerCornerRadius
+			view.layer?.cornerRadius = FilterViewController.innerCornerRadius
 			view.layer?.cornerCurve = .continuous
 			view.layer?.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 			view.layer?.masksToBounds = true
@@ -67,10 +67,10 @@ class FilterViewController: NSViewController {
 		view.layer?.borderWidth = 1
 	}
 
-    override func viewWillAppear() {
-        super.viewWillAppear()
-        guard let parent = filteredView.window?.windowController as? FilterWindowController else { return }
-        self.filterStore = parent.filterStore
+	override func viewWillAppear() {
+		super.viewWillAppear()
+		guard let parent = filteredView.window?.windowController as? FilterWindowController else { return }
+		self.filterStore = parent.filterStore
 
 		applyInnerCornerRadius(to: filteredView)
 		applyInnerCornerRadius(to: permissionRequestBackground!)
@@ -83,11 +83,11 @@ class FilterViewController: NSViewController {
 			permissionRequestView?.appearance = NSAppearance(named: .vibrantDark)
 		}
 
-        // Grab frame on main thread
-        let initialFrame = view.frame
-        filteredView.frame = initialFrame
+		// Grab frame on main thread
+		let initialFrame = view.frame
+		filteredView.frame = initialFrame
 
-        do { try self.connectMetalViewAndFilterPipeline() }
+		do { try self.connectMetalViewAndFilterPipeline() }
 		catch let error { NSApp.presentError(error) }
 
 
@@ -106,12 +106,12 @@ class FilterViewController: NSViewController {
 		catch let error { NSApp.presentError(error) }
 
 		activateMouseEventMonitoring()
-    }
+	}
 
-    override func viewDidDisappear() {
+	override func viewDidDisappear() {
 		deaactivateMouseEventMonitoring()
-        screenCaptureStream?.stopSession()
-    }
+		screenCaptureStream?.stopSession()
+	}
 
 	// MARK: - Mouse Tracking
 
@@ -148,14 +148,12 @@ class FilterViewController: NSViewController {
 	}
 
 	func updateCaptureArea() {
-		guard let window = view.window else { return }
-
 		screenCaptureStream?.captureRect = getViewAreaInScreenCoordinates()
 	}
 
 	func getViewAreaInScreenCoordinates() -> CGRect {
 		assert(Thread.isMainThread)
-		let view = view
+		let view = filteredView!
 		guard let window = view.window else { return .zero }
 		let viewInWindow = view.convert(view.bounds, to: window.contentView)
 		var viewInScreen = window.convertToScreen(viewInWindow)
@@ -181,6 +179,62 @@ class FilterViewController: NSViewController {
 
 	deinit {
 		deaactivateMouseEventMonitoring()
+	}
+
+}
+
+extension FilterViewController: NSSharingServicePickerDelegate {
+
+	private var exportScale: CGFloat {
+		view.window?.backingScaleFactor ?? 1
+	}
+
+	@IBAction func exportImage(_ sender: Any?) {
+		let image = renderer?.currentRenderedImage()
+		guard let image else { return }
+
+//		captureStream?.stopSession() // freeze image
+		let scale = exportScale
+
+		let savePanel = NSSavePanel()
+		savePanel.allowedFileTypes = ["png"]
+		savePanel.nameFieldStringValue = filterStore.configuration.localizedDescription
+		savePanel.beginSheetModal(for: view.window!) { response in
+			if response == .OK, let url = savePanel.url {
+				image.writePNG(to: url, scale: scale)
+			}
+	//		captureStream?.startSession() // unfreeze image
+		}
+	}
+
+	@IBAction func shareImage(_ sender: Any?) {
+		let image = renderer?.currentRenderedImage()
+		guard let image else { return }
+
+		let export = ImageExport(
+			name: filterStore.configuration.localizedDescription,
+			image: image, scale: exportScale)
+		guard let imgURL = export.exportPNG() else {
+			return
+		}
+
+//		captureStream?.stopSession() // freeze image
+
+//		_presentingShareView = true
+		let sharingPicker = NSSharingServicePicker(items: [imgURL])
+		sharingPicker.delegate = self
+
+		var bounds = view.bounds
+		bounds.origin.y += bounds.size.height
+		bounds.size.height = 0
+		sharingPicker.show(relativeTo: bounds, of: view, preferredEdge: .maxX)
+//		self.present(sharingPicker, animated: true)
+	}
+
+	func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, didChoose service: NSSharingService?) {
+//		self._presentingShareView = false
+//		captureStream?.startSession() // unfreeze image
+		ImageExport.clearExportedImages()
 	}
 
 }

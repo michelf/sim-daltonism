@@ -69,3 +69,40 @@ extension FilterConfiguration {
 	private static let colorBoostKey = "ColorBoost"
 
 }
+
+extension FilterConfiguration {
+
+	var localizedDescription: String {
+		var parts = nonVisionLocalizedDescriptionParts
+
+		if vision != .normal || parts.isEmpty {
+			// skip "Normal vision" in presence of other filters
+			parts.insert(vision.name, at: 0)
+		}
+		return parts.joined(separator: ", ")
+	}
+
+	var nonVisionLocalizedDescriptionParts: [String] {
+		var parts: [String] = []
+		if stripeConfig.redStripes != 0 {
+			parts.append(NSLocalizedString("Red Stripes", comment: "window subtitle part"))
+		}
+		if stripeConfig.greenStripes != 0 {
+			parts.append(NSLocalizedString("Green Stripes", comment: "window subtitle part"))
+		}
+		if stripeConfig.blueStripes != 0 {
+			parts.append(NSLocalizedString("Blue Stripes", comment: "window subtitle part"))
+		}
+		if hueShift {
+			parts.append(NSLocalizedString("Hue Shift", comment: "window subtitle part"))
+		}
+		if invertLuminance {
+			parts.append(NSLocalizedString("Luminance Flip", comment: "window subtitle part"))
+		}
+		if colorBoost {
+			parts.append(NSLocalizedString("Vibrancy Boost", comment: "window subtitle part"))
+		}
+		return parts
+	}
+
+}

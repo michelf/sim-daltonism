@@ -67,26 +67,7 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 	func refreshTitle() {
 		let title = visionType.name
 
-		var parts: [String] = []
-		let config = filterStore.configuration
-		if config.stripeConfig.redStripes != 0 {
-			parts.append(NSLocalizedString("Red Stripes", comment: "window subtitle part"))
-		}
-		if config.stripeConfig.greenStripes != 0 {
-			parts.append(NSLocalizedString("Green Stripes", comment: "window subtitle part"))
-		}
-		if config.stripeConfig.blueStripes != 0 {
-			parts.append(NSLocalizedString("Blue Stripes", comment: "window subtitle part"))
-		}
-		if config.hueShift {
-			parts.append(NSLocalizedString("Hue Shift", comment: "window subtitle part"))
-		}
-		if config.invertLuminance {
-			parts.append(NSLocalizedString("Luminance Flip", comment: "window subtitle part"))
-		}
-		if config.colorBoost {
-			parts.append(NSLocalizedString("Vibrancy Boost", comment: "window subtitle part"))
-		}
+		var parts = filterStore.configuration.nonVisionLocalizedDescriptionParts
 		if #available(macOS 11.0, *), visionType != .normal || parts.isEmpty {
 			window?.title = title
 			window?.subtitle = parts.joined(separator: ", ")
@@ -297,6 +278,10 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 	@IBAction func adoptViewAreaSetting(_ sender: NSMenuItem) {
 		guard let area = ViewArea(rawValue: sender.tag) else { return }
 		(contentViewController as! FilterViewController).captureArea = area
+	}
+
+	@IBAction func shareImage(_ sender: Any?) {
+		(contentViewController as! FilterViewController).shareImage(sender)
 	}
 
 }

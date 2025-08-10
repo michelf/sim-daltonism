@@ -48,6 +48,7 @@ extension ViewArea {
 	}
 }
 
+@available(macOS 11, *)
 extension FilterSettingsController: NSToolbarDelegate {
 
 	func makeToolbar() -> NSToolbar {

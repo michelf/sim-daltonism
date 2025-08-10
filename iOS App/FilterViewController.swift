@@ -537,7 +537,15 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 		}
 		_presentingShareView = true
 		self.captureStream?.stopSession() // freeze image
-		let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+
+		let export = ImageExport(
+			name: filterStore.configuration.localizedDescription,
+			image: image, scale: view.window?.screen.scale ?? 1)
+		guard let imgURL = export.exportPNG() else {
+			return
+		}
+
+		let activityViewController = UIActivityViewController(activityItems: [imgURL], applicationActivities: nil)
 		if UIDevice.current.userInterfaceIdiom == .pad {
 			activityViewController.modalPresentationStyle = .popover
 			activityViewController.popoverPresentationController?.barButtonItem = item
@@ -556,7 +564,8 @@ class FilterViewController: UIViewController, UIAlertViewDelegate {
 					print("videoDevice lockForConfiguration returned error", error)
 				}
 			}
-		};
+			ImageExport.clearExportedImages()
+		}
 	}
 
 }
