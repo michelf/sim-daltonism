@@ -300,12 +300,6 @@
             "state" : "new",
             "value" : "Export Image"
           }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exporter l’image…"
-          }
         }
       }
     },
@@ -374,18 +368,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "File"
+            "value" : "Filter"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fichier"
+            "value" : "Filtre"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "滤色镜"
           }
         }
@@ -548,18 +542,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "File"
+            "value" : "Filter"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fichier"
+            "value" : "Filtre"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "滤色镜"
           }
         }
@@ -1637,12 +1631,6 @@
             "state" : "new",
             "value" : "Share…"
           }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Partager…"
-          }
         }
       }
     },
@@ -1815,7 +1803,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Achromatopsie"
           }
         },

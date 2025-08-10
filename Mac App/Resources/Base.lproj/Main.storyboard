@@ -439,7 +439,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hNY-ho-jTi"/>
-                                        <menuItem title="Export Image" keyEquivalent="s" id="5Iy-kw-aS6">
+                                        <menuItem title="Export Image…" keyEquivalent="s" id="5Iy-kw-aS6">
                                             <connections>
                                                 <action selector="exportImage:" target="Ady-hI-5gd" id="rbx-Rw-vZN"/>
                                             </connections>
