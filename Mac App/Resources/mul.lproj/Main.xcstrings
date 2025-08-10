@@ -386,7 +386,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "滤色镜"
+            "value" : "文件"
           }
         }
       }
@@ -560,7 +560,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "滤色镜"
+            "value" : "文件"
           }
         }
       }
