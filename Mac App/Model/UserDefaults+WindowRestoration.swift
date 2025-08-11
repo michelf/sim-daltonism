@@ -18,7 +18,6 @@ import Foundation
 public extension UserDefaults {
 
 	static let visionKey = "SimVisionType"
-	static let simulationKey = "SimulationKey"
 
 	static var vision: VisionType {
 		get {
@@ -30,33 +29,19 @@ public extension UserDefaults {
 		}
 	}
 
-	static var simulation: Simulation {
-		get {
-			let value = UserDefaults.standard.integer(forKey: UserDefaults.simulationKey)
-			return Simulation(rawValue: value) ?? .defaultValue
-		}
-		set (simulation) {
-			UserDefaults.standard.set(simulation.rawValue, forKey: UserDefaults.simulationKey)
-		}
-    }
-
 }
 
 enum WindowRestoration {
 
     static let visionKey = "VisionType"
-	static let simulationKey = "SimulationKey"
 
-    static func encodeRestorable(state: NSCoder, _ vision: VisionType, _ sim: Simulation) {
+    static func encodeRestorable(state: NSCoder, _ vision: VisionType) {
 		state.encode(vision.rawValue, forKey: Self.visionKey)
-		state.encode(sim.rawValue, forKey: Self.simulationKey)
     }
 
-    static func decodeRestorable(state: NSCoder) -> (VisionType, Simulation) {
-        let vision = state.decodeInteger(forKey: Self.visionKey)
-        let sim = state.decodeInteger(forKey: Self.simulationKey)
-        return (VisionType(rawValue: vision) ?? .defaultValue,
-				Simulation(rawValue: sim) ?? .defaultValue)
+    static func decodeRestorable(state: NSCoder) -> VisionType {
+		let vision = state.decodeInteger(forKey: Self.visionKey)
+        return VisionType(rawValue: vision) ?? .defaultValue
     }
 
 }

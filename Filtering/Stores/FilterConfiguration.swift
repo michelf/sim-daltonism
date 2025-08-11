@@ -17,7 +17,6 @@ import Foundation
 
 public struct FilterConfiguration: Sendable {
 	public var vision: VisionType = .normal
-	public var simulation: Simulation = .machadoEtAl
 
 	public var stripeConfig = StripeConfig()
 	public var invertLuminance: Bool = false
@@ -33,7 +32,6 @@ extension FilterConfiguration {
 
 	public mutating func read(from defaults: UserDefaults, prefix: String = "") {
 		vision = VisionType(rawValue: UserDefaults.standard.integer(forKey: FilterConfiguration.visionKey)) ?? vision
-		simulation = Simulation(rawValue: UserDefaults.standard.integer(forKey: FilterConfiguration.simulationKey)) ?? simulation
 
 		stripeConfig.redStripes = UserDefaults.standard.float(forKey: FilterConfiguration.redStripesKey)
 		stripeConfig.greenStripes = UserDefaults.standard.float(forKey: FilterConfiguration.greenStripesKey)
@@ -46,7 +44,6 @@ extension FilterConfiguration {
 
 	public func write(to defaults: UserDefaults, prefix: String = "") {
 		defaults.set(vision.rawValue, forKey: FilterConfiguration.visionKey)
-		defaults.set(simulation.rawValue, forKey: FilterConfiguration.simulationKey)
 
 		defaults.set(stripeConfig.redStripes, forKey: FilterConfiguration.redStripesKey)
 		defaults.set(stripeConfig.greenStripes, forKey: FilterConfiguration.greenStripesKey)

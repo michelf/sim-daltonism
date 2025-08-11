@@ -29,6 +29,7 @@ public class FilterStore {
 	public required init(configuration: FilterConfiguration) {
 		self.configuration = configuration
 
+		HCIRNFilterVendor.registerFilters()
 		ColorToolsVendor.registerFilters()
 
 		applyConfigurationAsync(configuration)
@@ -116,14 +117,7 @@ extension FilterStore.Filters {
 
 	fileprivate mutating func changeVision(for newConfig: FilterConfiguration) {
 //		dispatchPrecondition(condition: .onQueue(queue))
-		let hasNewSimulation = newConfig.simulation != oldConfig?.simulation
-		if hasNewSimulation {
-			switch newConfig.simulation {
-			case .wicklineHCIRN: HCIRNFilterVendor.registerFilters()
-			case .machadoEtAl: MachadoFilterVendor.registerFilters()
-			}
-		}
-		guard hasNewSimulation || newConfig.vision != oldConfig?.vision else { return }
+		guard newConfig.vision != oldConfig?.vision else { return }
 
 		if newConfig.vision == .normal {
 			self.visionFilter = nil

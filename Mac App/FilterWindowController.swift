@@ -39,21 +39,6 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
         FilterWindowManager.shared.changedWindowController(self)
     }
 
-    var simulation = UserDefaults.simulation {
-        didSet {
-            setSimulationDefault()
-            applySimulation()
-        }
-    }
-
-    func setSimulationDefault() {
-        UserDefaults.simulation = simulation
-    }
-
-    fileprivate func applySimulation() {
-		filterStore.configuration.simulation = simulation
-    }
-
 	func refreshScale() {
 		filterStore.configuration.stripeConfig.patternScale = Float(window?.backingScaleFactor ?? 1)
 	}
@@ -179,11 +164,11 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
     }
 
     func window(_ window: NSWindow, willEncodeRestorableState state: NSCoder) {
-        WindowRestoration.encodeRestorable(state: state, visionType, simulation)
+        WindowRestoration.encodeRestorable(state: state, visionType)
     }
     
     func window(_ window: NSWindow, didDecodeRestorableState state: NSCoder) {
-        (visionType, simulation) = WindowRestoration.decodeRestorable(state: state)
+        visionType = WindowRestoration.decodeRestorable(state: state)
     }
 
     override func showWindow(_ sender: Any?) {
@@ -201,10 +186,6 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
         switch menuItem.action {
 		case #selector(adoptVisionTypeSetting)?:
 			menuItem.state = visionType.rawValue == menuItem.tag ? .on : .off
-			return true
-
-		case #selector(adoptSimulationSetting)?:
-			menuItem.state = simulation.rawValue == menuItem.tag ? .on : .off
 			return true
 
 		case #selector(adoptRedStripeSetting)?:
@@ -243,10 +224,6 @@ class FilterWindowController: NSWindowController, NSWindowDelegate {
 	@IBAction func adoptVisionTypeSetting(_ sender: NSMenuItem) {
 		visionType = .init(rawValue: sender.tag) ?? .defaultValue
 	}
-
-    @IBAction func adoptSimulationSetting(_ sender: NSMenuItem) {
-        simulation = .init(runtime: sender.tag)
-    }
 
 	@IBAction func adoptRedStripeSetting(_ sender: NSMenuItem) {
 		filterStore.configuration.stripeConfig.redStripes = Float(sender.tag)
