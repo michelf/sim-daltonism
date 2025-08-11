@@ -292,13 +292,13 @@
       }
     },
     "5Iy-kw-aS6.title" : {
-      "comment" : "Class = \"NSMenuItem\"; title = \"Export Image\"; ObjectID = \"5Iy-kw-aS6\";",
+      "comment" : "Class = \"NSMenuItem\"; title = \"Export Image…\"; ObjectID = \"5Iy-kw-aS6\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Export Image"
+            "value" : "Export Image…"
           }
         },
         "fr" : {
