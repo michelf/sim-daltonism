@@ -1267,6 +1267,24 @@
         }
       }
     },
+    "grx-0i-gas.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Send Feedback\"; ObjectID = \"grx-0i-gas\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Send Feedback"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Envoyez vos commentaires et suggestions"
+          }
+        }
+      }
+    },
     "guw-cd-bxe.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Copy\"; ObjectID = \"guw-cd-bxe\";",
       "localizations" : {
@@ -2386,6 +2404,24 @@
         }
       }
     },
+    "TVo-Sk-mGS.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Open Source\"; ObjectID = \"TVo-Sk-mGS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open Source"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Source"
+          }
+        }
+      }
+    },
     "tWK-Bn-ZFS.title" : {
       "comment" : "Class = \"NSMenuItem\"; title = \"Blue Cone Monochromacy\"; ObjectID = \"tWK-Bn-ZFS\";",
       "extractionState" : "extracted_with_value",
@@ -2423,6 +2459,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sim道尔顿"
+          }
+        }
+      }
+    },
+    "UYN-Og-gVX.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Rate on the App Store\"; ObjectID = \"UYN-Og-gVX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Rate on the App Store"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notez cette app sur l’App Store"
           }
         }
       }

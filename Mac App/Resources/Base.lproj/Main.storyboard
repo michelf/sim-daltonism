@@ -439,7 +439,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hNY-ho-jTi"/>
-                                        <menuItem title="Export Image" keyEquivalent="s" id="5Iy-kw-aS6">
+                                        <menuItem title="Export Image…" keyEquivalent="s" id="5Iy-kw-aS6">
                                             <connections>
                                                 <action selector="exportImage:" target="Ady-hI-5gd" id="rbx-Rw-vZN"/>
                                             </connections>
@@ -717,6 +717,26 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="openWebsite:" target="Voe-Tx-rLC" id="v7b-9K-boj"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="84n-pX-966"/>
+                                        <menuItem title="Rate on the App Store" id="UYN-Og-gVX">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="rateApp:" target="Voe-Tx-rLC" id="Lwt-VQ-7sM"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Send Feedback" id="grx-0i-gas">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="sendFeedback:" target="Voe-Tx-rLC" id="8E4-c2-Q26"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="oDi-NS-M8f"/>
+                                        <menuItem title="Open Source" id="TVo-Sk-mGS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openSourceWebsite:" target="Voe-Tx-rLC" id="KTF-cD-dpQ"/>
                                             </connections>
                                         </menuItem>
                                     </items>

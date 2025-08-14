@@ -51,6 +51,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		case #selector(adoptSpeedSetting(_:)):
 			menuItem.state = refreshSpeedDefault.rawValue == menuItem.tag ? .on : .off
 			return true
+		case #selector(rateApp):
+			// Only show this item when the app is comming from the App Store
+			// by checking for the presence of a receipt.
+			if let url = Bundle.main.appStoreReceiptURL,
+			   FileManager.default.fileExists(atPath: url.path) {
+				menuItem.isHidden = false
+				return false
+			} else {
+				menuItem.isHidden = true
+				return true
+			}
 		default:
 			return self.responds(to: menuItem.action)
 		}
@@ -64,6 +75,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBAction func openWebsite(_ sender: AnyObject) {
 		let websiteURL = URL(string: NSLocalizedString("https://michelf.ca/projects/sim-daltonism/", tableName: "URLs", comment: "Sim Daltonism website URL"))!
 		NSWorkspace.shared.open(websiteURL)
+	}
+
+	@IBAction func rateApp(_ sender: AnyObject) {
+		let appStoreReviewURL = URL(string: "https://apps.apple.com/ca/app/sim-daltonism/id693112260?ls=1&mt=8&action=write-review")!
+		NSWorkspace.shared.open(appStoreReviewURL)
+	}
+
+	@IBAction func openSourceWebsite(_ sender: AnyObject) {
+		let githubURL = URL(string: "https://michelf.ca/open-source/sim-daltonism")!
+		NSWorkspace.shared.open(githubURL)
 	}
 
 }
