@@ -83,13 +83,8 @@ class FilterViewController: NSViewController {
 			permissionRequestView?.appearance = NSAppearance(named: .vibrantDark)
 		}
 
-		// Grab frame on main thread
-		let initialFrame = view.frame
-		filteredView.frame = initialFrame
-
 		do { try self.connectMetalViewAndFilterPipeline() }
 		catch let error { NSApp.presentError(error) }
-
 
 		screenCaptureStream = if #available(macOS 15, *), !forceCGCapture {
 			ScreenCaptureStreamSCKit(view: filteredView, delegate: renderer)
@@ -100,7 +95,7 @@ class FilterViewController: NSViewController {
 		updateCapturePermissionVisibility()
 
 		do {
-			self.screenCaptureStream?.captureRect = initialFrame
+			self.screenCaptureStream?.captureRect = getViewAreaInScreenCoordinates()
 			try self.screenCaptureStream?.startSession()
 		}
 		catch let error { NSApp.presentError(error) }
