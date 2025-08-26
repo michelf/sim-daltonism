@@ -34,7 +34,7 @@ extension VisionType {
             case .tritan: return "Tritan"
             case .tritanomaly: return "Tritanomaly"
             case .monochromat: return "Monochromat"
-            case .monochromacyPartial: return "Monochromacy"
+            case .mixedAnomalousTri: return "Mixed Anomalous Trichromacy"
         }
     }
 }

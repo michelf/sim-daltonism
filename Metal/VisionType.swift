@@ -24,7 +24,7 @@ public enum VisionType: Int, CaseIterable {
     case tritan
     case tritanomaly
     case monochromat
-    case monochromacyPartial
+    case mixedAnomalousTri
 
     public var name: String {
         switch self {
@@ -36,7 +36,7 @@ public enum VisionType: Int, CaseIterable {
             case .tritan:               return NSLocalizedString("Tritanopia", tableName: "SimDaltonismFilter", comment: "")
             case .tritanomaly:          return NSLocalizedString("Tritanomaly", tableName: "SimDaltonismFilter", comment: "")
             case .monochromat:          return NSLocalizedString("Monochromacy", tableName: "SimDaltonismFilter", comment: "")
-            case .monochromacyPartial:  return NSLocalizedString("Partial Monochromacy", tableName: "SimDaltonismFilter", comment: "")
+            case .mixedAnomalousTri:    return NSLocalizedString("Mixed Anomalous Trichromacy", tableName: "SimDaltonismFilter", comment: "")
         }
     }
 

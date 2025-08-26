@@ -121,7 +121,7 @@ fileprivate enum VisionTypeDTO: Int {
     case tritan
     case tritanomaly
     case monochromat
-    case monochromacyPartial
+    case mixedAnomalousTri
 
     var userDefaultsValue: Int { rawValue }
     var windowStateValue: Int { rawValue }
@@ -144,7 +144,7 @@ fileprivate enum VisionTypeDTO: Int {
             case .tritan:               self = .tritan
             case .tritanomaly:          self = .tritanomaly
             case .monochromat:          self = .monochromat
-            case .monochromacyPartial:  self = .monochromacyPartial
+            case .mixedAnomalousTri:  self = .mixedAnomalousTri
         }
     }
 
@@ -158,7 +158,7 @@ fileprivate enum VisionTypeDTO: Int {
             case .tritan:               return .tritan
             case .tritanomaly:          return .tritanomaly
             case .monochromat:          return .monochromat
-            case .monochromacyPartial:  return .monochromacyPartial
+            case .mixedAnomalousTri:  return .mixedAnomalousTri
         }
     }
 }

@@ -468,7 +468,7 @@ Copyright © 2000-2001 Matthew Wickline and the Human-Computer Interaction Resou
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Partial Monochromacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rgF-lB-8xY">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Mixed Anomalous Trichromacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rgF-lB-8xY">
                                                     <rect key="frame" x="16" y="6" width="180" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>

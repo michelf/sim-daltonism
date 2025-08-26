@@ -281,7 +281,7 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 			glVertexAttrib2f( ATTRIB_AE_UV, 0.665764, 0.334011 );
 			break;
 		case Monochromacy:
-		case PartialMonochromacy:
+		case MixedAnomalousTrichromacy:
 			break;
 	}
 	switch (visionType) {
@@ -301,7 +301,7 @@ static void swapGLfloat(GLfloat * a, GLfloat * b) {
 		case Monochromacy:
 			glVertexAttrib1f( ATTRIB_ANOMALIZE, -1.0 );
 			break;
-		case PartialMonochromacy:
+		case MixedAnomalousTrichromacy:
 			glVertexAttrib1f( ATTRIB_ANOMALIZE, -0.66 );
 			break;
 	}
@@ -369,8 +369,8 @@ NSString *SimVisionTypeName(NSInteger visionType) {
 			return NSLocalizedStringFromTable(@"Tritanomaly", @"SimDaltonismFilter", @"");
 		case Monochromacy:
 			return NSLocalizedStringFromTable(@"Monochromacy", @"SimDaltonismFilter", @"");
-		case PartialMonochromacy:
-			return NSLocalizedStringFromTable(@"Partial Monochromacy", @"SimDaltonismFilter", @"");
+		case MixedAnomalousTrichromacy:
+			return NSLocalizedStringFromTable(@"Mixed Anomalous Trichromacy", @"SimDaltonismFilter", @"");
 		default:
 			return @"?";
 	}
@@ -394,8 +394,8 @@ NSString *SimVisionTypeDesc(NSInteger visionType) {
 			return NSLocalizedStringFromTable(@"Anomalous blue cones", @"SimDaltonismFilter", "Description for Tritanomaly");
 		case Monochromacy:
 			return NSLocalizedStringFromTable(@"Absent or non-functionning cones", @"SimDaltonismFilter", "Description for Monochromacy");
-		case PartialMonochromacy:
-			return NSLocalizedStringFromTable(@"Reduced sensitivity to colors", @"SimDaltonismFilter", "Description for PartialMonochromacy");
+		case MixedAnomalousTrichromacy:
+			return NSLocalizedStringFromTable(@"Reduced sensitivity to colors", @"SimDaltonismFilter", "Description for MixedAnomalousTrichromacy");
 		default:
 			return @"";
 	}

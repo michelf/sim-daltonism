@@ -98,7 +98,7 @@ Tout le monde a sa propre perception des couleurs qui diffère légèrement de c
 /* Class = "UITableViewSection"; headerTitle = "Red/Green Color Blindness"; ObjectID = "kOu-8J-OPC"; */
 "kOu-8J-OPC.headerTitle" = "Daltonisme rouge/vert";
 
-/* Class = "UILabel"; text = "Partial Monochromacy"; ObjectID = "rgF-lB-8xY"; */
+/* Class = "UILabel"; text = "Mixed Anomalous Trichromacy"; ObjectID = "rgF-lB-8xY"; */
 "rgF-lB-8xY.text" = "Monochromatisme partiel";
 
 /* Class = "UILabel"; text = "No blue cones"; ObjectID = "uoT-cc-jKY"; */

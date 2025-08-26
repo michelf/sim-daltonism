@@ -152,7 +152,7 @@
 /* Class = "NSMenuItem"; title = "Protanopia"; ObjectID = "bw7-fp-hDM"; */
 "bw7-fp-hDM.title" = "红色盲";
 
-/* Class = "NSMenuItem"; title = "Partial Monochromacy"; ObjectID = "cWO-ZF-xPw"; */
+/* Class = "NSMenuItem"; title = "Mixed Anomalous Trichromacy"; ObjectID = "cWO-ZF-xPw"; */
 "cWO-ZF-xPw.title" = "全色盲弱";
 
 /* Class = "NSMenuItem"; title = "Tritanopia"; ObjectID = "cbB-Ot-7fb"; */
@@ -188,7 +188,7 @@
 /* Class = "NSMenuItem"; title = "Deuteranopia"; ObjectID = "mCv-p4-Fgj"; */
 "mCv-p4-Fgj.title" = "绿色盲";
 
-/* Class = "NSMenuItem"; title = "Partial Monochromacy"; ObjectID = "pFL-0F-7Lj"; */
+/* Class = "NSMenuItem"; title = "Mixed Anomalous Trichromacy"; ObjectID = "pFL-0F-7Lj"; */
 "pFL-0F-7Lj.title" = "全色盲弱";
 
 /* Class = "NSMenuItem"; title = "Cut"; ObjectID = "pMU-Xp-Wd7"; */

@@ -34,7 +34,7 @@ NS_ENUM(NSInteger) {
 	Tritanopia,
 	Tritanomaly,
 	Monochromacy,
-	PartialMonochromacy,
+	MixedAnomalousTrichromacy,
 	MAX_VISION_TYPE
 };
 

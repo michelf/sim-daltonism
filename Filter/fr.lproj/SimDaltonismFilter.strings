@@ -32,7 +32,7 @@
 "Normal Vision" = "Vision normale";
 
 /* No comment provided by engineer. */
-"Partial Monochromacy" = "Monochromatisme partiel";
+"Mixed Anomalous Trichromacy" = "Monochromatisme partiel";
 
 /* No comment provided by engineer. */
 "Protanomaly" = "Protanomalie";
@@ -40,7 +40,7 @@
 /* No comment provided by engineer. */
 "Protanopia" = "Protanopie";
 
-/* Description for PartialMonochromacy */
+/* Description for MixedAnomalousTrichromacy */
 "Reduced sensitivity to colors" = "Sensibilité réduite aux couleurs";
 
 /* Description for Normal Vision */

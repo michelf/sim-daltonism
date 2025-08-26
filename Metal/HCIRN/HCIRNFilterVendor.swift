@@ -90,7 +90,7 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
                 ae = .init(x: 0.665764, y: 0.334011)
 
             case .monochromat: fallthrough
-            case .monochromacyPartial:
+            case .mixedAnomalousTri:
                 cp = .init(x: 0, y: 0)
                 ab = .init(x: 0, y: 0)
                 ae = .init(x: 0, y: 0)
@@ -111,7 +111,7 @@ class HCIRNFilterVendor: NSObject, CIFilterConstructor {
 
             case .monochromat:
                 anomalize = -1
-            case .monochromacyPartial:
+            case .mixedAnomalousTri:
                 anomalize = -0.66
 
             default: return nil

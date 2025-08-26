@@ -273,7 +273,7 @@
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="guc-mg-yql"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="pFL-0F-7Lj">
+                                        <menuItem title="Mixed Anomalous Trichromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="pFL-0F-7Lj">
                                             <connections>
                                                 <action selector="adoptVisionTypeSetting:" target="Ady-hI-5gd" id="Bqg-sa-Fs8"/>
                                             </connections>
@@ -553,7 +553,7 @@
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="L4d-aW-ww3"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Partial Monochromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="cWO-ZF-xPw">
+                        <menuItem title="Mixed Anomalous Trichromacy" tag="8" keyEquivalent="8" indentationLevel="1" id="cWO-ZF-xPw">
                             <connections>
                                 <action selector="adoptVisionTypeSetting:" target="OJa-T4-yA3" id="9P6-uH-LcD"/>
                             </connections>
