@@ -1986,19 +1986,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partial Monochromacy"
+            "value" : "Blue Cone Monochromacy"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monochromatisme partiel"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "全色盲弱"
+            "value" : "Monochromatie au bleu"
           }
         }
       }
