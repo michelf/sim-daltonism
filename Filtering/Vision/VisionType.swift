@@ -51,8 +51,8 @@ public enum VisionType: Int, CaseIterable, Sendable {
 		case .protanomaly:          return NSLocalizedString("Anomalous red cones", tableName: "SimDaltonismFilter", comment: "")
 		case .tritan:               return NSLocalizedString("No blue cones", tableName: "SimDaltonismFilter", comment: "")
 		case .tritanomaly:          return NSLocalizedString("Anomalous blue cones", tableName: "SimDaltonismFilter", comment: "")
-		case .blueConeMonochromat:  return NSLocalizedString("Absent or non-functionning red and green cones", tableName: "SimDaltonismFilter", comment: "")
-		case .achromatopsia:        return NSLocalizedString("Absent or non-functionning cones, rods only", tableName: "SimDaltonismFilter", comment: "")
+		case .blueConeMonochromat:  return NSLocalizedString("Absent or non-functioning red and green cones", tableName: "SimDaltonismFilter", comment: "")
+		case .achromatopsia:        return NSLocalizedString("Absent or non-functioning cones, rods only", tableName: "SimDaltonismFilter", comment: "")
 		case .monochromeAnalogTV:   return NSLocalizedString("BT.601 luma coefficients", tableName: "SimDaltonismFilter", comment: "")
 		}
 

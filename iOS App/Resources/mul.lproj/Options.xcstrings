@@ -328,7 +328,7 @@
       }
     },
     "DnW-65-s8L.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Absent or non-functionning red and green cones\"; ObjectID = \"DnW-65-s8L\";",
+      "comment" : "Class = \"UILabel\"; text = \"Absent or non-functioning red and green cones\"; ObjectID = \"DnW-65-s8L\";",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -910,13 +910,13 @@
       }
     },
     "vxa-TM-5Dr.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Absent or non-functionning cones, rods only\"; ObjectID = \"vxa-TM-5Dr\";",
+      "comment" : "Class = \"UILabel\"; text = \"Absent or non-functioning cones, rods only\"; ObjectID = \"vxa-TM-5Dr\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Absent or non-functionning cones, rods only"
+            "value" : "Absent or non-functioning cones, rods only"
           }
         },
         "fr" : {

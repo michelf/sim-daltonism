@@ -4,7 +4,7 @@
     "" : {
       "comment" : "category name"
     },
-    "Absent or non-functionning cones, rods only" : {
+    "Absent or non-functioning cones, rods only" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -14,7 +14,7 @@
         }
       }
     },
-    "Absent or non-functionning red and green cones" : {
+    "Absent or non-functioning red and green cones" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
