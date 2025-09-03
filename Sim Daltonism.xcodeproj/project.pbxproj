@@ -102,6 +102,8 @@
 		1EF43E4E2D986E80006441A2 /* InvertHueFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF43E4D2D986E80006441A2 /* InvertHueFilter.swift */; };
 		1EF8470A2DADCEDF001AB68F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF847092DADCEDF001AB68F /* Main.storyboard */; };
 		1EF847102DADCEEC001AB68F /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF8470F2DADCEEC001AB68F /* Options.storyboard */; };
+		1EF9FB212E68BBC600C579E5 /* Monochrome.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9FB202E68BBC600C579E5 /* Monochrome.metal */; };
+		1EF9FB222E68BBC600C579E5 /* Monochrome.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9FB202E68BBC600C579E5 /* Monochrome.metal */; };
 		9424DE7326B63747007ADF4B /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6026B63747007ADF4B /* MetalRenderer.swift */; };
 		9424DE7426B63747007ADF4B /* ScreenCaptureStreamCG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6226B63747007ADF4B /* ScreenCaptureStreamCG.swift */; };
 		9424DE7526B63747007ADF4B /* CaptureStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424DE6326B63747007ADF4B /* CaptureStream.swift */; };
@@ -204,6 +206,7 @@
 		1EF8470B2DADCEDF001AB68F /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
 		1EF8470E2DADCEEC001AB68F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Options.storyboard; sourceTree = "<group>"; };
 		1EF847112DADCEEC001AB68F /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Options.xcstrings; sourceTree = "<group>"; };
+		1EF9FB202E68BBC600C579E5 /* Monochrome.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Monochrome.metal; sourceTree = "<group>"; };
 		269351C0156CB42100512474 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6F096BF9157ED5110075E328 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6F90DDD91395CAAA00125BDA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -523,6 +526,7 @@
 				9424DE6A26B63747007ADF4B /* HCIRN.metal */,
 				1E0E34AB2D7F168900846C27 /* HCIRN.cikernel */,
 				9424DE6B26B63747007ADF4B /* HCIRNFilter.swift */,
+				1EF9FB202E68BBC600C579E5 /* Monochrome.metal */,
 				1E0EF4A42DF3E09F0083A26A /* MonochromeFilter.swift */,
 				1E0EF4AA2DF44FC60083A26A /* BlueConeMonochromat.metal */,
 				1E0EF4AD2DF4500F0083A26A /* BlueConeMonochromat.cikernel */,
@@ -688,6 +692,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF9FB212E68BBC600C579E5 /* Monochrome.metal in Sources */,
 				1ECCBCB92DA0C01500715B93 /* VisionType.swift in Sources */,
 				1E0FDB312DA03101008BBC1B /* FilteredMetalView.swift in Sources */,
 				1ECCBCBB2DA0C05000715B93 /* UserDefaults+WindowRestoration.swift in Sources */,
@@ -764,6 +769,7 @@
 				1E3331CE2D82148300BE6092 /* StripesFilter.swift in Sources */,
 				1EF43E4E2D986E80006441A2 /* InvertHueFilter.swift in Sources */,
 				1EF253321C274A0200DB3B18 /* AppDelegate.swift in Sources */,
+				1EF9FB222E68BBC600C579E5 /* Monochrome.metal in Sources */,
 				1ECCBCCF2DAC01BC00715B93 /* FilterConfiguration.swift in Sources */,
 				1E1287562E34802800F55031 /* FilterWindowAppearance.swift in Sources */,
 				9424DE7426B63747007ADF4B /* ScreenCaptureStreamCG.swift in Sources */,
