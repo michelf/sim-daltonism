@@ -29,7 +29,7 @@ public class FilterStore {
 	public required init(configuration: FilterConfiguration) {
 		self.configuration = configuration
 
-		HCIRNFilterVendor.registerFilters()
+		SimDaltonismFilterVendor.registerFilters()
 		ColorToolsVendor.registerFilters()
 
 		applyConfigurationAsync(configuration)
