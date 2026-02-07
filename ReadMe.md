@@ -75,7 +75,7 @@ follow:
 The copyright for the original color blindness simulation algorithm is shared 
 by Matthew Wickline and the Human-Computer Interaction Resource Network. It 
 seems the HCIRN is not reachable anymore, and it probably no longer exists.
-Because of this, Matthew Wickline decided to to change the license to something 
+Because of this, Matthew Wickline decided to change the license to something 
 he believed would reflect the original intent of the HCIRN. But it is possible 
 that someone still owns the HCIRN copyright, which would make that license 
 change legally contestable.
